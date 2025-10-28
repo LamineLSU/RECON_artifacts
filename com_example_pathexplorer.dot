@@ -1,0 +1,51 @@
+digraph CompleteAllocationGraph {
+  rankdir=TB;
+  node [shape=box];
+
+  // Dummy Method Hierarchy
+  subgraph cluster_dummy {
+    label="Dummy Methods";
+    style=filled;
+    color=lightgrey;
+  }
+
+  subgraph cluster_Fragment_onCreate {
+    label="Fragment_onCreate";
+    style=filled;
+    color=lightgreen;
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___20" [shape=box,color=blue,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___21" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___15" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___16" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___17" [shape=box,color=blue,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___18" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___11" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___12" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___13" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___14" [shape=box,color=blue,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___19" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___1" [shape=oval,color=green,style=filled,fillcolor=lightblue,penwidth=2.0] [label="ENTRY\nMainActivity\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___2" [shape=oval,color=red,style=filled,fillcolor=lightblue,penwidth=2.0] [label="EXIT\nMainActivity\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___3" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___4" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___5" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___6" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___7" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___8" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___9" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___30" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___31" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___10" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___26" [shape=box,color=blue,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___27" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___28" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___29" [shape=box,color=blue,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___22" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___23" [shape=box,color=blue,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___24" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+    "onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___25" [shape=box,color=purple,style=filled,fillcolor=lightblue,penwidth=2.0] [label="Call\n[onCreate]"];
+  }
+
+
+  // Edges
+}

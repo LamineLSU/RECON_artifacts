@@ -1,0 +1,6 @@
+Analysis for method: <com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>
+=====================================
+
+Object Allocations Analysis
+=========================
+

@@ -1,0 +1,11 @@
+Analysis for method: <com.example.intchecker.MainActivity: void <init>()>
+=====================================
+
+Method Analysis Report
+=====================
+
+Method: <com.example.intchecker.MainActivity: void <init>()>
+Declaring Class: com.example.intchecker.MainActivity
+Return Type: void
+
+Branch Conditions:

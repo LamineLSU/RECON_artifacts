@@ -1,0 +1,38 @@
+Complete Allocation Graph Context Report
+Generated: Mon Sep 29 12:12:14 PDT 2025
+===================================================
+
+GRAPH OVERVIEW
+--------------------
+Total nodes: 461
+Total edges: 395
+UI-related methods: 52
+Background-related methods: 0
+
+LIFECYCLE ANALYSIS
+--------------------
+Lifecycle: onCreate
+  Nodes: 106
+    - METHOD_CALL in MainActivity
+    - METHOD_CALL in AddEditNoteActivity
+    - METHOD_CALL in AddEditNoteActivity
+    ... and 103 more
+
+Lifecycle: onBind
+  Nodes: 2
+    - EXIT in MultiInstanceInvalidationService
+    - ENTRY in MultiInstanceInvalidationService
+
+RESOURCE ANALYSIS
+--------------------
+Resource: R.id.show_summation
+  Used by 2 nodes
+  Components: SessionActivity, MainActivity
+
+Resource: R.string.toast_unfilled_note
+  Used by 2 nodes
+  Components: AddEditNoteActivity
+
+STATE TRANSITION PATTERNS
+------------------------------
+END OF REPORT

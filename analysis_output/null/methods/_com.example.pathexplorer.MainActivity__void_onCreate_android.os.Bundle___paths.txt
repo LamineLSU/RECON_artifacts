@@ -1,0 +1,23 @@
+Analysis for method: <com.example.pathexplorer.MainActivity: void onCreate(android.os.Bundle)>
+=====================================
+
+Execution Paths Analysis
+======================
+
+Path 1:
+  Conditions and Branches:
+
+  Allocations in this path:
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5
+
+--------------------------------------------------
+
+
+Path Analysis Summary:
+Total Paths: 1
+Async Paths: 0

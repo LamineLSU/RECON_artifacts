@@ -1,0 +1,167 @@
+digraph AppCFG {
+  rankdir=TB;
+  node [shape=box, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=8];
+
+  subgraph cluster_parseBooleanInput {
+    label="parseBooleanInput";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "parseBooleanInput_0" [label="Block 0\n---\nr0 := @this: MainActivity\n$r1 := @parameter0: java.lang.String\n$z0 := @parameter1: boolean\n... (4 more)\n", style=filled, fillcolor=white];
+    "parseBooleanInput_1" [label="Block 1\n---\n$z1 = virtualinvoke $r1.\<java.lang.St...\nif $z1 != 0 goto return 1\n", style=filled, fillcolor=white];
+    "parseBooleanInput_2" [label="Block 2\n---\n$z1 = virtualinvoke $r1.\<java.lang.St...\nif $z1 != 0 goto return 1\n", style=filled, fillcolor=white];
+    "parseBooleanInput_3" [label="Block 3\n---\n$z1 = virtualinvoke $r1.\<java.lang.St...\nif $z1 != 0 goto return 0\n", style=filled, fillcolor=white];
+    "parseBooleanInput_4" [label="Block 4\n---\n$z1 = virtualinvoke $r1.\<java.lang.St...\nif $z1 != 0 goto return 0\n", style=filled, fillcolor=white];
+    "parseBooleanInput_5" [label="Block 5\n---\n$z1 = virtualinvoke $r1.\<java.lang.St...\nif $z1 != 0 goto return 0\n", style=filled, fillcolor=white];
+    "parseBooleanInput_6" [label="Block 6\n---\nreturn 0\n", style=filled, fillcolor=white];
+    "parseBooleanInput_7" [label="Block 7\n---\nreturn 0\n", style=filled, fillcolor=white];
+    "parseBooleanInput_8" [label="Block 8\n---\nreturn 1\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_handleStudent {
+    label="handleStudent";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "handleStudent_0" [label="Block 0\n---\nr0 := @this: MainActivity\nr1 = r0.\<MainActivity: android.widget...\n$r2 = virtualinvoke r1.\<android.widge...\n... (3 more)\n", style=filled, fillcolor=lightgreen];
+    "handleStudent_1" [label="Block 1\n---\nstaticinvoke \<android.util.Log: int d...\n$r4 = r0.\<MainActivity: android.widge...\nvirtualinvoke $r4.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=lightgreen];
+    "handleStudent_2" [label="Block 2\n---\nstaticinvoke \<android.util.Log: int d...\n$r4 = r0.\<MainActivity: android.widge...\nvirtualinvoke $r4.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=lightgreen];
+  }
+
+  subgraph cluster_handleAdmin {
+    label="handleAdmin";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "handleAdmin_0" [label="Block 0\n---\nr0 := @this: MainActivity\nr1 = r0.\<MainActivity: android.widget...\n$r2 = virtualinvoke r1.\<android.widge...\n... (3 more)\n", style=filled, fillcolor=lightcoral];
+    "handleAdmin_1" [label="Block 1\n---\nstaticinvoke \<android.util.Log: int d...\n$r4 = r0.\<MainActivity: android.widge...\nvirtualinvoke $r4.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=lightcoral];
+    "handleAdmin_2" [label="Block 2\n---\nstaticinvoke \<android.util.Log: int d...\n$r4 = r0.\<MainActivity: android.widge...\nvirtualinvoke $r4.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=lightcoral];
+  }
+
+  subgraph cluster_handleGuest {
+    label="handleGuest";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "handleGuest_0" [label="Block 0\n---\nr0 := @this: MainActivity\nr1 = r0.\<MainActivity: android.widget...\n$r2 = virtualinvoke r1.\<android.widge...\n... (3 more)\n", style=filled, fillcolor=lightyellow];
+    "handleGuest_1" [label="Block 1\n---\nstaticinvoke \<android.util.Log: int d...\n$r4 = r0.\<MainActivity: android.widge...\nvirtualinvoke $r4.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=lightyellow];
+    "handleGuest_2" [label="Block 2\n---\nstaticinvoke \<android.util.Log: int d...\n$r4 = r0.\<MainActivity: android.widge...\nvirtualinvoke $r4.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=lightyellow];
+  }
+
+  subgraph cluster_parseIntInput {
+    label="parseIntInput";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "parseIntInput_0" [label="Block 0\n---\nr0 := @this: MainActivity\n$r1 := @parameter0: java.lang.String\n$i0 := @parameter1: int\n", style=filled, fillcolor=white];
+    "parseIntInput_1" [label="Block 1\n---\n$r1 = virtualinvoke $r1.\<java.lang.St...\n", style=filled, fillcolor=white];
+    "parseIntInput_2" [label="Block 2\n---\n$i1 = staticinvoke \<java.lang.Integer...\n", style=filled, fillcolor=white];
+    "parseIntInput_3" [label="Block 3\n---\nreturn $i1\n", style=filled, fillcolor=white];
+    "parseIntInput_4" [label="Block 4\n---\nr2 := @caughtexception\nreturn 0\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_onCreate {
+    label="onCreate";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "onCreate_0" [label="Block 0\n---\nr0 := @this: MainActivity\n$r1 := @parameter0: android.os.Bundle\nspecialinvoke r0.\<androidx.appcompat....\n... (37 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_onClick {
+    label="onClick";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "onClick_0" [label="Block 0\n---\nr0 := @this: MainActivity\n$r1 := @parameter0: android.view.View\n$i0 = virtualinvoke $r1.\<android.view...\n... (2 more)\n", style=filled, fillcolor=lightblue];
+    "onClick_1" [label="Block 1\n---\nspecialinvoke r0.\<MainActivity: void ...\nreturn\n", style=filled, fillcolor=lightblue];
+    "onClick_2" [label="Block 2\n---\n$i1 = \<R$id: int btnStudent\>\nif $i0 != $i1 goto $i1 = \<R$id: int b...\n", style=filled, fillcolor=lightblue];
+    "onClick_3" [label="Block 3\n---\nspecialinvoke r0.\<MainActivity: void ...\nreturn\n", style=filled, fillcolor=lightblue];
+    "onClick_4" [label="Block 4\n---\n$i1 = \<R$id: int btnGuest\>\nif $i0 != $i1 goto return\n", style=filled, fillcolor=lightblue];
+    "onClick_5" [label="Block 5\n---\nspecialinvoke r0.\<MainActivity: void ...\n", style=filled, fillcolor=lightblue];
+    "onClick_6" [label="Block 6\n---\nreturn\n", style=filled, fillcolor=lightblue];
+  }
+
+  // Edges
+  "parseBooleanInput_7" -> "handleGuest_0" [color=green, style=dashed, label="RETURN"];
+  "parseBooleanInput_8" -> "handleGuest_0" [color=green, style=dashed, label="RETURN"];
+  "parseBooleanInput_5" -> "parseBooleanInput_7" [color=blue, label="succ"];
+  "parseBooleanInput_5" -> "parseBooleanInput_6" [color=blue, label="succ"];
+  "parseBooleanInput_6" -> "handleGuest_0" [color=green, style=dashed, label="RETURN"];
+  "handleStudent_0" -> "handleStudent_1" [color=blue, label="succ"];
+  "handleStudent_0" -> "handleStudent_2" [color=blue, label="succ"];
+  "handleStudent_0" -> "parseIntInput_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "parseBooleanInput_3" -> "parseBooleanInput_7" [color=blue, label="succ"];
+  "parseBooleanInput_3" -> "parseBooleanInput_4" [color=blue, label="succ"];
+  "handleStudent_1" -> "onClick_3" [color=green, style=dashed, label="RETURN"];
+  "parseBooleanInput_4" -> "parseBooleanInput_7" [color=blue, label="succ"];
+  "parseBooleanInput_4" -> "parseBooleanInput_5" [color=blue, label="succ"];
+  "parseBooleanInput_1" -> "parseBooleanInput_8" [color=blue, label="succ"];
+  "parseBooleanInput_1" -> "parseBooleanInput_2" [color=blue, label="succ"];
+  "parseBooleanInput_2" -> "parseBooleanInput_8" [color=blue, label="succ"];
+  "parseBooleanInput_2" -> "parseBooleanInput_3" [color=blue, label="succ"];
+  "handleAdmin_2" -> "onClick_1" [color=green, style=dashed, label="RETURN"];
+  "handleStudent_2" -> "onClick_3" [color=green, style=dashed, label="RETURN"];
+  "handleAdmin_1" -> "onClick_1" [color=green, style=dashed, label="RETURN"];
+  "handleAdmin_0" -> "handleAdmin_2" [color=blue, label="succ"];
+  "handleAdmin_0" -> "handleAdmin_1" [color=blue, label="succ"];
+  "handleAdmin_0" -> "parseIntInput_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "parseBooleanInput_0" -> "parseBooleanInput_8" [color=blue, label="succ"];
+  "parseBooleanInput_0" -> "parseBooleanInput_1" [color=blue, label="succ"];
+  "handleGuest_0" -> "handleGuest_1" [color=blue, label="succ"];
+  "handleGuest_0" -> "handleGuest_2" [color=blue, label="succ"];
+  "handleGuest_0" -> "parseBooleanInput_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "handleGuest_1" -> "onClick_6" [color=green, style=dashed, label="RETURN"];
+  "handleGuest_2" -> "onClick_6" [color=green, style=dashed, label="RETURN"];
+  "parseIntInput_3" -> "handleStudent_0" [color=green, style=dashed, label="RETURN"];
+  "parseIntInput_3" -> "handleAdmin_0" [color=green, style=dashed, label="RETURN"];
+  "parseIntInput_2" -> "parseIntInput_3" [color=blue, label="succ"];
+  "parseIntInput_2" -> "parseIntInput_4" [color=blue, label="succ"];
+  "parseIntInput_4" -> "handleStudent_0" [color=green, style=dashed, label="RETURN"];
+  "parseIntInput_4" -> "handleAdmin_0" [color=green, style=dashed, label="RETURN"];
+  "parseIntInput_1" -> "parseIntInput_2" [color=blue, label="succ"];
+  "parseIntInput_1" -> "parseIntInput_4" [color=blue, label="succ"];
+  "parseIntInput_0" -> "parseIntInput_4" [color=blue, label="succ"];
+  "parseIntInput_0" -> "parseIntInput_1" [color=blue, label="succ"];
+  "onClick_0" -> "onClick_1" [color=blue, label="succ"];
+  "onClick_0" -> "onClick_2" [color=blue, label="succ"];
+  "onClick_1" -> "handleAdmin_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onClick_2" -> "onClick_3" [color=blue, label="succ"];
+  "onClick_2" -> "onClick_4" [color=blue, label="succ"];
+  "onClick_3" -> "handleStudent_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onClick_4" -> "onClick_5" [color=blue, label="succ"];
+  "onClick_4" -> "onClick_6" [color=blue, label="succ"];
+  "onClick_5" -> "onClick_6" [color=blue, label="succ"];
+  "onClick_5" -> "handleGuest_0" [color=red, style=bold, penwidth=2, label="CALL"];
+
+  // Legend
+  subgraph cluster_legend {
+    label="Legend";
+    style=filled;
+    fillcolor=white;
+    rankdir=LR;
+    
+    legend_succ [label="Successor", shape=plaintext];
+    legend_call [label="Method Call", shape=plaintext];
+    legend_return [label="Return", shape=plaintext];
+    
+    legend_succ -> legend_call [color=blue, label="succ"];
+    legend_call -> legend_return [color=red, style=bold, label="CALL"];
+    legend_return -> legend_succ [color=green, style=dashed, label="RETURN"];
+  }
+}

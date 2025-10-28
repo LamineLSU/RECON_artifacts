@@ -1,0 +1,50 @@
+Analysis for method: <com.example.intchecker.MainActivity: void checkNumber()>
+=====================================
+
+Execution Paths Analysis
+======================
+
+Path 1:
+  Conditions:
+    Branch[1294337444]: $z0 == 0 -> true (Type: if)
+
+Path 2:
+  Conditions:
+    Branch[1294337444]: $z0 == 0 -> true (Type: if)
+    Branch[1702087302]: $i0 <= 0 -> true (Type: if)
+    Branch[1342700454]: i1 != 0 -> true (Type: if)
+    Branch[2048332259]: $i0 <= 10 -> true (Type: if)
+
+Path 3:
+  Conditions:
+    Branch[1294337444]: $z0 == 0 -> true (Type: if)
+    Branch[1702087302]: $i0 <= 0 -> true (Type: if)
+    Branch[1342700454]: i1 != 0 -> true (Type: if)
+    Branch[2048332259]: $i0 <= 10 -> true (Type: if)
+
+Path 4:
+  Conditions:
+    Branch[1294337444]: $z0 == 0 -> true (Type: if)
+    Branch[1702087302]: $i0 <= 0 -> true (Type: if)
+    Branch[1342700454]: i1 != 0 -> true (Type: if)
+
+Path 5:
+  Conditions:
+    Branch[1294337444]: $z0 == 0 -> true (Type: if)
+    Branch[1702087302]: $i0 <= 0 -> true (Type: if)
+    Branch[268080710]: $i0 >= 0 -> true (Type: if)
+
+Path 6:
+  Conditions:
+    Branch[1294337444]: $z0 == 0 -> true (Type: if)
+    Branch[1702087302]: $i0 <= 0 -> true (Type: if)
+    Branch[268080710]: $i0 >= 0 -> true (Type: if)
+    Branch[603918502]: $i0 != 0 -> true (Type: if)
+
+Path 7:
+  Conditions:
+    Branch[1294337444]: $z0 == 0 -> true (Type: if)
+    Branch[1702087302]: $i0 <= 0 -> true (Type: if)
+    Branch[268080710]: $i0 >= 0 -> true (Type: if)
+    Branch[603918502]: $i0 != 0 -> true (Type: if)
+

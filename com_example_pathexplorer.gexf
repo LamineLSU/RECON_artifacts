@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+  <graph mode="static" defaultedgetype="directed">
+    <attributes class="node">
+      <attribute id="lifecycle" title="Lifecycle Method" type="string"/>
+      <attribute id="component" title="Component Type" type="string"/>
+      <attribute id="resources" title="Resources" type="string"/>
+      <attribute id="hasBundle" title="Has Bundle Args" type="boolean"/>
+    </attributes>
+    <nodes>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___20" label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___21" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___15" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___16" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___17" label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___18" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___11" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___12" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___13" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___14" label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___19" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___1" label="ENTRY\nMainActivity\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___2" label="EXIT\nMainActivity\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___3" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___4" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___5" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___6" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___7" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___8" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___9" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___30" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___31" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___10" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___26" label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___27" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___28" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___29" label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___22" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___23" label="Alloc: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___24" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onCreate__com_example_pathexplorer_MainActivity__void_onCreate_android_os_Bundle___25" label="Call\n[onCreate]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onCreate"/>
+          <attvalue for="component" value="Fragment"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+    </edges>
+  </graph>
+</gexf>

@@ -1,0 +1,9 @@
+Simplified Basic Block Analysis Report
+===================================
+
+Method: <com.example.pathexplorer.MainActivity: void lambda$onCreate$3$com-example-pathexplorer-MainActivity(android.view.View)>
+Analysis: Treated as single basic block
+Entry point: Method start
+Exit point: Method end
+
+Note: Detailed path analysis skipped for synthetic/synthetic-like methods

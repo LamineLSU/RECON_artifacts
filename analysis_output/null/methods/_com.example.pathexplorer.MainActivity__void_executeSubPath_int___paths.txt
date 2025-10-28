@@ -1,0 +1,227 @@
+Analysis for method: <com.example.pathexplorer.MainActivity: void executeSubPath(int)>
+=====================================
+
+Execution Paths Analysis
+======================
+
+Path 1:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[493968320]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • android.util.Pair
+    • java.lang.StringBuilder
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+Path 2:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[493968320]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • android.util.Pair
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+Path 3:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[493968320]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • android.os.Handler
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6
+    • java.lang.StringBuilder
+
+  [Contains Asynchronous Operations]
+
+--------------------------------------------------
+
+Path 4:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[493968320]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • android.os.Handler
+    • com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6
+
+  [Contains Asynchronous Operations]
+
+--------------------------------------------------
+
+Path 5:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[348002843]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • java.util.concurrent.atomic.AtomicInteger
+    • java.util.concurrent.atomic.AtomicInteger
+    • java.lang.StringBuilder
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+Path 6:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[348002843]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • java.util.concurrent.atomic.AtomicInteger
+    • java.util.concurrent.atomic.AtomicInteger
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+Path 7:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[348002843]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • java.util.Timer
+    • java.util.Timer
+    • com.example.pathexplorer.MainActivity$1
+    • java.lang.StringBuilder
+
+  [Contains Asynchronous Operations]
+
+--------------------------------------------------
+
+Path 8:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[348002843]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • java.util.Timer
+    • java.util.Timer
+    • com.example.pathexplorer.MainActivity$1
+
+  [Contains Asynchronous Operations]
+
+--------------------------------------------------
+
+Path 9:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+Path 10:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+--------------------------------------------------
+
+Path 11:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[1379132565]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • android.util.SparseBooleanArray
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+Path 12:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[1379132565]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • android.util.SparseBooleanArray
+
+--------------------------------------------------
+
+Path 13:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[1379132565]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • java.lang.ThreadGroup
+    • java.lang.StringBuilder
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+Path 14:
+  Conditions and Branches:
+    • Branch Type: Branch[1853122105]: i1 -> true (Type: switch)
+      Decision: Switch statement (extract specific case)
+    • Branch Type: Branch[1379132565]: $i0 != 1 -> true (Type: if)
+      Decision: Value not equal to 1
+    • Branch Type: Branch[49014430]: r1 == null -> true (Type: if)
+      Decision: Object is null
+
+  Allocations in this path:
+    • java.lang.ThreadGroup
+    • java.lang.StringBuilder
+
+--------------------------------------------------
+
+
+Path Analysis Summary:
+Total Paths: 14
+Async Paths: 4

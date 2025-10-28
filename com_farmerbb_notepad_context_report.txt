@@ -1,0 +1,45 @@
+Complete Allocation Graph Context Report
+Generated: Mon Sep 29 11:45:57 PDT 2025
+===================================================
+
+GRAPH OVERVIEW
+--------------------
+Total nodes: 69142
+Total edges: 79247
+UI-related methods: 14
+Background-related methods: 0
+
+LIFECYCLE ANALYSIS
+--------------------
+Lifecycle: onCreate
+  Nodes: 59
+    - METHOD_CALL in StandaloneEditorActivity
+    - m2.c in StandaloneEditorActivity
+    - IF_CONDITION in StandaloneEditorActivity
+    ... and 56 more
+
+Lifecycle: onDestroy
+  Nodes: 3
+    - EXIT in NotepadActivity
+    - METHOD_CALL in NotepadActivity
+    - ENTRY in NotepadActivity
+
+Lifecycle: onStart
+  Nodes: 7
+    - w2.a in NotepadActivity
+    - METHOD_CALL in NotepadActivity
+    - METHOD_CALL in NotepadActivity
+    ... and 4 more
+
+Lifecycle: onStop
+  Nodes: 7
+    - METHOD_CALL in NotepadActivity
+    - METHOD_CALL in NotepadActivity
+    - IF_CONDITION in NotepadActivity
+    ... and 4 more
+
+RESOURCE ANALYSIS
+--------------------
+STATE TRANSITION PATTERNS
+------------------------------
+END OF REPORT

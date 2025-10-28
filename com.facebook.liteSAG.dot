@@ -1,0 +1,537 @@
+digraph AllocationGraph {
+  rankdir=TB;
+  node [shape=box];
+
+  // Dummy Method Hierarchy
+  subgraph cluster_dummy {
+    label="Dummy Methods";
+    style=filled;
+    color=lightgrey;
+    "Dummy_com_facebook_lite_pretos_LiteAppComponentReceiver" [shape=octagon,style=filled,fillcolor=lightblue] [label="com_facebook_lite_pretos_LiteAppComponentReceiver"];
+    "DummyMain" [shape=doubleoctagon,style=filled,fillcolor=gold] [label="DummyMainMethod"];
+    "Dummy_com_facebook_appcomponentmanager_AppComponentManagerService" [shape=octagon,style=filled,fillcolor=lightblue] [label="com_facebook_appcomponentmanager_AppComponentManagerService"];
+    "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" [shape=octagon,style=filled,fillcolor=lightblue] [label="com_facebook_lite_mobileidservices_FeO2ContentProvider"];
+  }
+
+  subgraph cluster_openAssetFile {
+    label="openAssetFile";
+    "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nopenAssetFile"];
+    "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nopenAssetFile"];
+  }
+
+  subgraph cluster_A00 {
+    label="A00";
+    "A00__X_08G__long_A00____X_08G__long_A00___node_00000001" [shape=oval,color=red] [label="EXIT\nX.08G\nA00"];
+    "A00__X_08G__long_A00____X_08G__long_A00___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.08G\nA00"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000003" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000004" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000005" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000006" [shape=box,color=blue] [label="Alloc: X.04I"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000007" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000008" [shape=box,color=purple] [label="Call: put"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000009" [shape=box,color=purple] [label="Call: A03"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04T\nA00"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000001" [shape=oval,color=red] [label="EXIT\nX.04T\nA00"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000002" [shape=box,color=blue] [label="Alloc: android.content.ComponentName"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000a" [shape=box,color=purple] [label="Call: A04"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000b" [shape=box,color=blue] [label="Alloc: X.098"];
+    "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000c" [shape=box,color=purple] [label="Call: \<init\>"];
+  }
+
+  subgraph cluster_A01 {
+    label="A01";
+    "A01__X_01h__void_A01____X_01h__void_A01___node_00000002" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A01__X_01h__void_A01____X_01h__void_A01___node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nA01"];
+    "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nA01"];
+    "A01__X_01h__void_A01____X_01h__void_A01___node_00000003" [shape=box,color=purple] [label="Call: getCallingPackage"];
+  }
+
+  subgraph cluster_A02 {
+    label="A02";
+    "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000005" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000006" [shape=box,color=purple] [label="Call: mkdirs"];
+    "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000003" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000004" [shape=box,color=blue] [label="Alloc: java.io.File"];
+    "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000001" [shape=oval,color=red] [label="EXIT\nX.000\nA02"];
+    "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000002" [shape=box,color=blue] [label="Alloc: java.io.File"];
+    "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.000\nA02"];
+  }
+
+  subgraph cluster_openFile {
+    label="openFile";
+    "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nopenFile"];
+    "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nopenFile"];
+  }
+
+  subgraph cluster_A03 {
+    label="A03";
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_0000000b" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_0000000a" [shape=box,color=blue] [label="Alloc: java.lang.IllegalArgumentException"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000002" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000001" [shape=oval,color=red] [label="EXIT\nX.04H\nA03"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000004" [shape=box,color=blue] [label="Alloc: java.lang.StringBuilder"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000003" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000006" [shape=box,color=purple] [label="Call: append"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000005" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000008" [shape=box,color=purple] [label="Call: append"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000007" [shape=box,color=purple] [label="Call: append"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04H\nA03"];
+    "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000009" [shape=box,color=purple] [label="Call: append"];
+  }
+
+  subgraph cluster_A04 {
+    label="A04";
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000002" [shape=box,color=blue] [label="Alloc: android.content.Intent"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000006" [shape=box,color=purple] [label="Call: A01"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000003" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000007" [shape=box,color=blue] [label="Alloc: java.lang.Void[]"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.098\nA04"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000004" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000001" [shape=oval,color=red] [label="EXIT\nX.098\nA04"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000005" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000002" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000003" [shape=box,color=blue] [label="Alloc: X.04L"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04T\nA04"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000001" [shape=oval,color=red] [label="EXIT\nX.04T\nA04"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000008" [shape=box,color=purple] [label="Call: acquire"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000006" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000007" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000004" [shape=box,color=purple] [label="Call: setComponent"];
+    "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000005" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000008" [shape=box,color=purple] [label="Call: executeOnExecutor"];
+    "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000001" [shape=oval,color=red] [label="EXIT\nX.04I\nA04"];
+    "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04I\nA04"];
+    "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000003" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000002" [shape=box,color=blue] [label="Alloc: android.app.job.JobWorkItem"];
+    "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000004" [shape=box,color=purple] [label="Call: enqueue"];
+    "A04__X_01h__void_A04_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_A04_android_content_Context_android_content_pm_ProviderInfo__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nA04"];
+    "A04__X_01h__void_A04_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_A04_android_content_Context_android_content_pm_ProviderInfo__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nA04"];
+    "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000003" [shape=box,color=purple] [label="Call: \<init\>"];
+    "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000002" [shape=box,color=blue] [label="Alloc: java.io.File"];
+    "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000001" [shape=oval,color=red] [label="EXIT\nX.000\nA04"];
+    "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.000\nA04"];
+  }
+
+  subgraph cluster_insert {
+    label="insert";
+    "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\ninsert"];
+    "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\ninsert"];
+    "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+  }
+
+  subgraph cluster_update {
+    label="update";
+    "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nupdate"];
+    "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nupdate"];
+  }
+
+  subgraph cluster_isTemporary {
+    label="isTemporary";
+    "isTemporary__X_01h__boolean_isTemporary____X_01h__boolean_isTemporary___node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nisTemporary"];
+    "isTemporary__X_01h__boolean_isTemporary____X_01h__boolean_isTemporary___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nisTemporary"];
+  }
+
+  subgraph cluster_delete {
+    label="delete";
+    "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\ndelete"];
+    "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\ndelete"];
+  }
+
+  subgraph cluster_onLowMemory {
+    label="onLowMemory";
+    "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000003" [shape=box,color=purple] [label="Call: onLowMemory"];
+    "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nonLowMemory"];
+    "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000002" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nonLowMemory"];
+  }
+
+  subgraph cluster_bulkInsert {
+    label="bulkInsert";
+    "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nbulkInsert"];
+    "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nbulkInsert"];
+  }
+
+  subgraph cluster_getIntent {
+    label="getIntent";
+    "getIntent__com_facebook_lite_pretos_LiteAppComponentReceiver__android_content_Intent_getIntent____com_facebook_lite_pretos_LiteAppComponentReceiver__android_content_Intent_getIntent___node_00000001" [shape=oval,color=red] [label="EXIT\ncom.facebook.lite.pretos.LiteAppComponentReceiver\ngetIntent"];
+    "getIntent__com_facebook_lite_pretos_LiteAppComponentReceiver__android_content_Intent_getIntent____com_facebook_lite_pretos_LiteAppComponentReceiver__android_content_Intent_getIntent___node_00000000" [shape=oval,color=green] [label="ENTRY\ncom.facebook.lite.pretos.LiteAppComponentReceiver\ngetIntent"];
+    "getIntent__com_facebook_appcomponentmanager_AppComponentManagerService__android_content_Intent_getIntent____com_facebook_appcomponentmanager_AppComponentManagerService__android_content_Intent_getIntent___node_00000001" [shape=oval,color=red] [label="EXIT\ncom.facebook.appcomponentmanager.AppComponentManagerService\ngetIntent"];
+    "getIntent__com_facebook_appcomponentmanager_AppComponentManagerService__android_content_Intent_getIntent____com_facebook_appcomponentmanager_AppComponentManagerService__android_content_Intent_getIntent___node_00000000" [shape=oval,color=green] [label="ENTRY\ncom.facebook.appcomponentmanager.AppComponentManagerService\ngetIntent"];
+  }
+
+  subgraph cluster_getStreamTypes {
+    label="getStreamTypes";
+    "getStreamTypes__X_01h__java_lang_String___getStreamTypes_android_net_Uri_java_lang_String___X_01h__java_lang_String___getStreamTypes_android_net_Uri_java_lang_String__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\ngetStreamTypes"];
+    "getStreamTypes__X_01h__java_lang_String___getStreamTypes_android_net_Uri_java_lang_String___X_01h__java_lang_String___getStreamTypes_android_net_Uri_java_lang_String__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\ngetStreamTypes"];
+  }
+
+  subgraph cluster_applyBatch {
+    label="applyBatch";
+    "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\napplyBatch"];
+    "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\napplyBatch"];
+    "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+  }
+
+  subgraph cluster_onCreate {
+    label="onCreate";
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000002" [shape=box,color=purple] [label="Call: onCreate"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000003" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04T\nonCreate"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000001" [shape=oval,color=red] [label="EXIT\nX.04T\nonCreate"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000006" [shape=box,color=blue] [label="Alloc: android.content.ComponentName"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000007" [shape=box,color=purple] [label="Call: \<init\>"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000004" [shape=box,color=blue] [label="Alloc: X.04K"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000005" [shape=box,color=purple] [label="Call: \<init\>"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000008" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000009" [shape=box,color=blue] [label="Alloc: X.098"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_0000000b" [shape=box,color=purple] [label="Call: put"];
+    "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_0000000a" [shape=box,color=purple] [label="Call: \<init\>"];
+  }
+
+  subgraph cluster_onDestroy {
+    label="onDestroy";
+    "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000004" [shape=box,color=purple] [label="Call: A00"];
+    "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000003" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000002" [shape=box,color=purple] [label="Call: onDestroy"];
+    "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000001" [shape=oval,color=red] [label="EXIT\nX.04T\nonDestroy"];
+    "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04T\nonDestroy"];
+  }
+
+  subgraph cluster_openTypedAssetFile {
+    label="openTypedAssetFile";
+    "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nopenTypedAssetFile"];
+    "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nopenTypedAssetFile"];
+  }
+
+  subgraph cluster_query {
+    label="query";
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nquery"];
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nquery"];
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nquery"];
+    "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nquery"];
+  }
+
+  subgraph cluster_onTrimMemory {
+    label="onTrimMemory";
+    "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000003" [shape=box,color=purple] [label="Call: onTrimMemory"];
+    "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nonTrimMemory"];
+    "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nonTrimMemory"];
+    "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000002" [shape=diamond,color=orange] [label="IF_CONDITION"];
+  }
+
+  subgraph cluster_clinit {
+    label="clinit";
+    "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000004" [shape=box,color=blue] [label="Alloc: java.util.HashMap"];
+    "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000005" [shape=box,color=purple] [label="Call: \<init\>"];
+    "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000002" [shape=box,color=blue] [label="Alloc: java.lang.Object"];
+    "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000003" [shape=box,color=purple] [label="Call: \<init\>"];
+    "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04T\n\<clinit\>"];
+    "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000001" [shape=oval,color=red] [label="EXIT\nX.04T\n\<clinit\>"];
+    "clinit__java_lang_String__void_clinit____java_lang_String__void_clinit___node_00000000" [shape=oval,color=green] [label="ENTRY\njava.lang.String\n\<clinit\>"];
+    "clinit__java_lang_String__void_clinit____java_lang_String__void_clinit___node_00000001" [shape=oval,color=red] [label="EXIT\njava.lang.String\n\<clinit\>"];
+  }
+
+  subgraph cluster_onBind {
+    label="onBind";
+    "onBind__com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent___com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent__node_00000001" [shape=oval,color=red] [label="EXIT\ncom.facebook.appcomponentmanager.AppComponentManagerService\nonBind"];
+    "onBind__com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent___com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent__node_00000000" [shape=oval,color=green] [label="ENTRY\ncom.facebook.appcomponentmanager.AppComponentManagerService\nonBind"];
+  }
+
+  subgraph cluster_onReceive {
+    label="onReceive";
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000000" [shape=oval,color=green] [label="ENTRY\ncom.facebook.lite.pretos.LiteAppComponentReceiver\nonReceive"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000001" [shape=oval,color=red] [label="EXIT\ncom.facebook.lite.pretos.LiteAppComponentReceiver\nonReceive"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000002" [shape=box,color=purple] [label="Call: getAction"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000003" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000004" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000005" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000006" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000007" [shape=box,color=blue] [label="Alloc: android.content.Intent"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000008" [shape=box,color=purple] [label="Call: \<init\>"];
+    "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000009" [shape=box,color=purple] [label="Call: A00"];
+  }
+
+  subgraph cluster_onStartCommand {
+    label="onStartCommand";
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_0000000a" [shape=box,color=purple] [label="Call: A04"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000009" [shape=box,color=purple] [label="Call: add"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000008" [shape=box,color=purple] [label="Call: \<init\>"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000007" [shape=box,color=blue] [label="Alloc: X.091"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000006" [shape=box,color=purple] [label="Call: \<init\>"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000005" [shape=box,color=blue] [label="Alloc: android.content.Intent"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000004" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000003" [shape=box,color=purple] [label="Call: A02"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000002" [shape=diamond,color=orange] [label="IF_CONDITION"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000001" [shape=oval,color=red] [label="EXIT\nX.04T\nonStartCommand"];
+    "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.04T\nonStartCommand"];
+  }
+
+  subgraph cluster_call {
+    label="call";
+    "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000003" [shape=box,color=purple] [label="Call: A01"];
+    "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\ncall"];
+    "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000002" [shape=box,color=purple] [label="Call: getContext"];
+    "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\ncall"];
+  }
+
+  subgraph cluster_attachInfo {
+    label="attachInfo";
+    "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nattachInfo"];
+    "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nattachInfo"];
+    "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000002" [shape=box,color=purple] [label="Call: attachInfo"];
+    "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000003" [shape=box,color=purple] [label="Call: A04"];
+  }
+
+  subgraph cluster_getType {
+    label="getType";
+    "getType__X_01h__java_lang_String_getType_android_net_Uri___X_01h__java_lang_String_getType_android_net_Uri__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\ngetType"];
+    "getType__X_01h__java_lang_String_getType_android_net_Uri___X_01h__java_lang_String_getType_android_net_Uri__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\ngetType"];
+  }
+
+  subgraph cluster_equals {
+    label="equals";
+    "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000000" [shape=oval,color=green] [label="ENTRY\njava.lang.String\nequals"];
+    "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000001" [shape=oval,color=red] [label="EXIT\njava.lang.String\nequals"];
+    "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000002" [shape=box,color=blue] [label="Alloc: java.lang.RuntimeException"];
+    "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000003" [shape=box,color=purple] [label="Call: \<init\>"];
+  }
+
+  subgraph cluster_onConfigurationChanged {
+    label="onConfigurationChanged";
+    "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nonConfigurationChanged"];
+    "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nonConfigurationChanged"];
+    "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000002" [shape=box,color=purple] [label="Call: onConfigurationChanged"];
+  }
+
+  subgraph cluster_shutdown {
+    label="shutdown";
+    "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000000" [shape=oval,color=green] [label="ENTRY\nX.01h\nshutdown"];
+    "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000002" [shape=box,color=purple] [label="Call: shutdown"];
+    "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000001" [shape=oval,color=red] [label="EXIT\nX.01h\nshutdown"];
+  }
+
+
+  // Edges
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_0000000a" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000000" [color=purple];
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_0000000a" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000001" [color=purple];
+  "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000000" -> "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000002" ;
+  "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000002" -> "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000003" ;
+  "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000003" -> "equals__java_lang_String__boolean_equals_java_lang_Object___java_lang_String__boolean_equals_java_lang_Object__node_00000001" [color=purple];
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000002" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000003" ;
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000006" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000007" [color=purple];
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000003" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000004" [color=purple];
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000007" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000008" ;
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000000" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000002" ;
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000004" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000005" [color=purple];
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000005" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000006" ;
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000005" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000007" ;
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000002" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000003" ;
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000002" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000001" ;
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000003" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000004" ;
+  "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000000" -> "A04__X_04T__void_A04_boolean___X_04T__void_A04_boolean__node_00000002" ;
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000006" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000001" ;
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000006" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000007" ;
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000007" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000008" ;
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000004" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000005" [color=purple];
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000005" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000001" ;
+  "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000005" -> "A04__X_098__void_A04_android_content_Intent___X_098__void_A04_android_content_Intent__node_00000006" ;
+  "Dummy_com_facebook_lite_pretos_LiteAppComponentReceiver" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000003" -> "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000001" [color=purple];
+  "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000000" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000002" ;
+  "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000002" -> "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000003" [color=purple];
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000002" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000003" [color=purple];
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000003" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000001" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000003" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000004" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000004" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000006" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000004" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000005" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000005" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000007" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000005" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000006" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000006" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000007" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000007" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000008" ;
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000008" -> "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000009" [color=purple];
+  "onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent__node_00000009" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000000" [color=purple];
+  "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000000" -> "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000002" ;
+  "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000000" -> "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000002" ;
+  "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000003" -> "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000001" [color=purple];
+  "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000002" -> "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000003" [color=purple];
+  "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000003" -> "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000001" [color=purple];
+  "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000002" -> "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000003" [color=purple];
+  "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000000" -> "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000002" ;
+  "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000000" -> "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000002" ;
+  "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000003" -> "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000004" [color=purple];
+  "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000002" -> "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000003" ;
+  "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000004" -> "A04__X_04I__void_A04_android_content_Intent___X_04I__void_A04_android_content_Intent__node_00000001" [color=purple];
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000002" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000003" [color=purple];
+  "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000000" -> "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000002" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000003" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000006" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000003" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000004" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000000" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000002" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000006" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000007" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000007" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000008" [color=purple];
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000004" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000005" ;
+  "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000002" -> "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000001" [color=purple];
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000005" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000001" [color=purple];
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000008" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000001" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000008" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000009" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000009" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_0000000a" ;
+  "DummyMain" -> "Dummy_com_facebook_lite_pretos_LiteAppComponentReceiver" [color=blue,style=bold,penwidth=2.0];
+  "DummyMain" -> "Dummy_com_facebook_appcomponentmanager_AppComponentManagerService" [color=blue,style=bold,penwidth=2.0];
+  "DummyMain" -> "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" [color=blue,style=bold,penwidth=2.0];
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_0000000b" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000001" [color=purple];
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_0000000a" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_0000000b" ;
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000002" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000003" [color=purple];
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000002" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000001" ;
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000002" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000003" ;
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000000" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000002" ;
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000004" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000005" ;
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000003" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000004" ;
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000003" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000001" ;
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000006" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000007" [color=purple];
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000005" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000006" [color=purple];
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000008" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000009" [color=purple];
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000003" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000001" [color=purple];
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000007" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000008" [color=purple];
+  "Dummy_com_facebook_appcomponentmanager_AppComponentManagerService" -> "onBind__com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent___com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_appcomponentmanager_AppComponentManagerService" -> "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_appcomponentmanager_AppComponentManagerService" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_appcomponentmanager_AppComponentManagerService" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_appcomponentmanager_AppComponentManagerService" -> "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000002" -> "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000003" [color=purple];
+  "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000003" -> "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000001" [color=purple];
+  "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000000" -> "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000002" ;
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000000" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000002" ;
+  "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000009" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_0000000a" [color=purple];
+  "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000004" -> "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000005" ;
+  "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000005" -> "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000001" [color=purple];
+  "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000002" -> "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000003" ;
+  "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000003" -> "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000004" [color=purple];
+  "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000000" -> "clinit__X_04T__void_clinit____X_04T__void_clinit___node_00000002" ;
+  "A01__X_01h__void_A01____X_01h__void_A01___node_00000002" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000003" ;
+  "A01__X_01h__void_A01____X_01h__void_A01___node_00000002" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000001" ;
+  "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000002" ;
+  "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_0000000a" -> "onCreate__X_04T__void_onCreate____X_04T__void_onCreate___node_0000000b" [color=purple];
+  "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000002" -> "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000003" [color=purple];
+  "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000003" -> "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000001" [color=purple];
+  "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000000" -> "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000002" ;
+  "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000000" -> "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000002" ;
+  "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000002" -> "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000001" ;
+  "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000002" -> "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000003" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000003" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000004" [color=purple];
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000004" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000005" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000004" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000009" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000004" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000001" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000005" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000006" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000005" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000b" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000006" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000007" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000007" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000008" [color=purple];
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000008" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000009" [color=purple];
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000009" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000a" [color=purple];
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000009" -> "A03__X_04H__void_A03_int___X_04H__void_A03_int__node_00000000" [color=purple];
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000000" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000002" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000002" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000003" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000a" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000001" [color=purple];
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000b" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000c" ;
+  "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_0000000c" -> "A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int__node_00000008" [color=purple];
+  "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000003" -> "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000001" [color=purple];
+  "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000002" -> "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000003" ;
+  "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000000" -> "A04__X_000__java_io_File_A04_java_io_File_java_lang_String___X_000__java_io_File_A04_java_io_File_java_lang_String__node_00000002" ;
+  "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000004" -> "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000001" [color=purple];
+  "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000003" -> "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000004" ;
+  "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000003" -> "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000001" ;
+  "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000002" -> "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000003" [color=purple];
+  "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000000" -> "onDestroy__X_04T__void_onDestroy____X_04T__void_onDestroy___node_00000002" ;
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000003" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000001" [color=purple];
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000002" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000003" [color=purple];
+  "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000000" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000002" ;
+  "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000002" -> "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000003" [color=purple];
+  "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000003" -> "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000001" [color=purple];
+  "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000000" -> "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000002" ;
+  "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000000" -> "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000002" ;
+  "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000002" -> "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000003" ;
+  "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000002" -> "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000001" ;
+  "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000003" -> "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000001" [color=purple];
+  "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000000" -> "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000002" ;
+  "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000002" -> "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000003" [color=purple];
+  "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000000" -> "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000002" ;
+  "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000002" -> "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000003" [color=purple];
+  "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000003" -> "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000001" [color=purple];
+  "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000003" -> "A04__X_01h__void_A04_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_A04_android_content_Context_android_content_pm_ProviderInfo__node_00000000" [color=purple];
+  "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000000" -> "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000002" ;
+  "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000002" -> "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000001" [color=purple];
+  "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000005" -> "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000006" [color=purple];
+  "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000006" -> "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000001" [color=purple];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "onConfigurationChanged__X_01h__void_onConfigurationChanged_android_content_res_Configuration___X_01h__void_onConfigurationChanged_android_content_res_Configuration__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "getType__X_01h__java_lang_String_getType_android_net_Uri___X_01h__java_lang_String_getType_android_net_Uri__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "clinit__java_lang_String__void_clinit____java_lang_String__void_clinit___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "isTemporary__X_01h__boolean_isTemporary____X_01h__boolean_isTemporary___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "clinit__java_lang_String__void_clinit____java_lang_String__void_clinit___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "shutdown__X_01h__void_shutdown____X_01h__void_shutdown___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "attachInfo__X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo___X_01h__void_attachInfo_android_content_Context_android_content_pm_ProviderInfo__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "onLowMemory__X_01h__void_onLowMemory____X_01h__void_onLowMemory___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "getStreamTypes__X_01h__java_lang_String___getStreamTypes_android_net_Uri_java_lang_String___X_01h__java_lang_String___getStreamTypes_android_net_Uri_java_lang_String__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "insert__X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues___X_01h__android_net_Uri_insert_android_net_Uri_android_content_ContentValues__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "onTrimMemory__X_01h__void_onTrimMemory_int___X_01h__void_onTrimMemory_int__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "clinit__java_lang_String__void_clinit____java_lang_String__void_clinit___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "openTypedAssetFile__X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle___X_01h__android_content_res_AssetFileDescriptor_openTypedAssetFile_android_net_Uri_java_lang_String_android_os_Bundle__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "openAssetFile__X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String___X_01h__android_content_res_AssetFileDescriptor_openAssetFile_android_net_Uri_java_lang_String__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "update__X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String_____X_01h__int_update_android_net_Uri_android_content_ContentValues_java_lang_String_java_lang_String____node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "openFile__X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String___X_01h__android_os_ParcelFileDescriptor_openFile_android_net_Uri_java_lang_String__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "query__X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal___X_01h__android_database_Cursor_query_android_net_Uri_java_lang_String___java_lang_String_java_lang_String___java_lang_String_android_os_CancellationSignal__node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "delete__X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String_____X_01h__int_delete_android_net_Uri_java_lang_String_java_lang_String____node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "clinit__java_lang_String__void_clinit____java_lang_String__void_clinit___node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "Dummy_com_facebook_lite_mobileidservices_FeO2ContentProvider" -> "bulkInsert__X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues_____X_01h__int_bulkInsert_android_net_Uri_android_content_ContentValues____node_00000000" [color=green,style=dashed,penwidth=1.5];
+  "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000003" -> "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000001" [color=purple];
+  "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+  "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000002" -> "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000003" [color=purple];
+  "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000003" -> "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000004" [color=purple];
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000009" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_0000000a" [color=purple];
+  "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000004" -> "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000005" ;
+  "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000000" -> "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000002" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000008" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000009" [color=purple];
+  "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000002" -> "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000003" [color=purple];
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000007" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000008" ;
+  "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000002" -> "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000003" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000006" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000007" [color=purple];
+  "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000000" -> "call__X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle___X_01h__android_os_Bundle_call_java_lang_String_java_lang_String_android_os_Bundle__node_00000002" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000005" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000006" ;
+  "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000000" -> "A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___X_000__java_io_File_A02_android_content_Context_java_lang_String__node_00000002" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000004" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000005" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000004" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000007" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000004" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000001" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000003" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000004" [color=purple];
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000002" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000001" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000002" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000003" ;
+  "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000000" -> "onStartCommand__X_04T__int_onStartCommand_android_content_Intent_int_int___X_04T__int_onStartCommand_android_content_Intent_int_int__node_00000002" ;
+  "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000003" -> "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000001" [color=purple];
+  "applyBatch__X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList___X_01h__android_content_ContentProviderResult___applyBatch_java_util_ArrayList__node_00000003" -> "A01__X_01h__void_A01____X_01h__void_A01___node_00000000" [color=purple];
+}

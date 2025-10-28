@@ -1,0 +1,51 @@
+Analysis for method: <com.example.pathexplorer.MainActivity: void onCreate(android.os.Bundle)>
+=====================================
+
+Object Allocations Analysis
+=========================
+
+Path Allocations:
+Allocation[1]: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0
+  Location: com.example.pathexplorer.MainActivity.onCreate
+  Type: direct
+  Constructor Parameters:
+    com.example.pathexplorer.MainActivity: r0
+    android.view.View: $r2
+    android.view.View: $r3
+
+Allocation[2]: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1
+  Location: com.example.pathexplorer.MainActivity.onCreate
+  Type: direct
+  Constructor Parameters:
+    com.example.pathexplorer.MainActivity: r0
+    android.view.View: $r2
+    android.view.View: $r3
+
+Allocation[3]: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2
+  Location: com.example.pathexplorer.MainActivity.onCreate
+  Type: direct
+  Constructor Parameters:
+    com.example.pathexplorer.MainActivity: r0
+    android.view.View: $r2
+    android.view.View: $r3
+
+Allocation[4]: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3
+  Location: com.example.pathexplorer.MainActivity.onCreate
+  Type: direct
+  Constructor Parameters:
+    com.example.pathexplorer.MainActivity: r0
+
+Allocation[5]: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4
+  Location: com.example.pathexplorer.MainActivity.onCreate
+  Type: direct
+  Constructor Parameters:
+    com.example.pathexplorer.MainActivity: r0
+
+Allocation[6]: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5
+  Location: com.example.pathexplorer.MainActivity.onCreate
+  Type: direct
+  Constructor Parameters:
+    android.view.View: $r2
+    android.view.View: $r3
+
+

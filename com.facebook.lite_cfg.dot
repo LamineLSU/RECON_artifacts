@@ -1,0 +1,23 @@
+digraph AppCFG {
+  rankdir=TB;
+  node [shape=box, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=8];
+
+  // Edges
+
+  // Legend
+  subgraph cluster_legend {
+    label="Legend";
+    style=filled;
+    fillcolor=white;
+    rankdir=LR;
+    
+    legend_succ [label="Successor", shape=plaintext];
+    legend_call [label="Method Call", shape=plaintext];
+    legend_return [label="Return", shape=plaintext];
+    
+    legend_succ -> legend_call [color=blue, label="succ"];
+    legend_call -> legend_return [color=red, style=bold, label="CALL"];
+    legend_return -> legend_succ [color=green, style=dashed, label="RETURN"];
+  }
+}

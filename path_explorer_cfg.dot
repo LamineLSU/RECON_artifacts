@@ -1,0 +1,157 @@
+digraph AppCFG {
+  rankdir=TB;
+  node [shape=box, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=8];
+
+  subgraph cluster____Nest_mexecuteSubPath {
+    label="-$$Nest$mexecuteSubPath";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "-$$Nest$mexecuteSubPath_0" [label="Block 0\n---\n$r0 := @parameter0: com.example.pathe...\n$i0 := @parameter1: int\nspecialinvoke $r0.\<com.example.pathex...\n... (1 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_performAction {
+    label="performAction";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "performAction_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$r1 := @parameter0: android.widget.Te...\nvirtualinvoke $r1.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=white];
+    "performAction_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$r1 := @parameter0: android.widget.Te...\nvirtualinvoke $r1.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=white];
+    "performAction_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$r1 := @parameter0: android.widget.Te...\nvirtualinvoke $r1.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=white];
+    "performAction_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$r1 := @parameter0: android.widget.Te...\nvirtualinvoke $r1.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=white];
+    "performAction_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$r1 := @parameter0: android.widget.Te...\nvirtualinvoke $r1.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=white];
+    "performAction_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$r1 := @parameter0: android.widget.Te...\nvirtualinvoke $r1.\<android.widget.Tex...\n... (1 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_executeSubPath {
+    label="executeSubPath";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "executeSubPath_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$i0 := @parameter0: int\n$i1 = r0.\<com.example.pathexplorer.Ma...\n... (1 more)\n", style=filled, fillcolor=white];
+    "executeSubPath_1" [label="Block 1\n---\nreturn\n", style=filled, fillcolor=white];
+    "executeSubPath_2" [label="Block 2\n---\nif $i0 != 1 goto $r3 = new com.exampl...\n", style=filled, fillcolor=white];
+    "executeSubPath_3" [label="Block 3\n---\n$r1 = new com.example.pathexplorer.Pa...\nspecialinvoke $r1.\<com.example.pathex...\n$r2 = r0.\<com.example.pathexplorer.Ma...\n... (2 more)\n", style=filled, fillcolor=white];
+    "executeSubPath_4" [label="Block 4\n---\n$r3 = new com.example.pathexplorer.Pa...\nspecialinvoke $r3.\<com.example.pathex...\n$r2 = r0.\<com.example.pathexplorer.Ma...\n... (2 more)\n", style=filled, fillcolor=white];
+    "executeSubPath_5" [label="Block 5\n---\nif $i0 != 1 goto $r5 = new com.exampl...\n", style=filled, fillcolor=white];
+    "executeSubPath_6" [label="Block 6\n---\n$r4 = new com.example.pathexplorer.Pa...\nspecialinvoke $r4.\<com.example.pathex...\n$r2 = r0.\<com.example.pathexplorer.Ma...\n... (2 more)\n", style=filled, fillcolor=white];
+    "executeSubPath_7" [label="Block 7\n---\n$r5 = new com.example.pathexplorer.Pa...\nspecialinvoke $r5.\<com.example.pathex...\n$r2 = r0.\<com.example.pathexplorer.Ma...\n... (2 more)\n", style=filled, fillcolor=white];
+    "executeSubPath_8" [label="Block 8\n---\nif $i0 != 1 goto $r7 = new com.exampl...\n", style=filled, fillcolor=white];
+    "executeSubPath_9" [label="Block 9\n---\n$r6 = new com.example.pathexplorer.Pa...\nspecialinvoke $r6.\<com.example.pathex...\n$r2 = r0.\<com.example.pathexplorer.Ma...\n... (2 more)\n", style=filled, fillcolor=white];
+    "executeSubPath_10" [label="Block 10\n---\n$r7 = new com.example.pathexplorer.Pa...\nspecialinvoke $r7.\<com.example.pathex...\n$r2 = r0.\<com.example.pathexplorer.Ma...\n... (2 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster____Nest_mshowSubChoiceLayout {
+    label="-$$Nest$mshowSubChoiceLayout";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "-$$Nest$mshowSubChoiceLayout_0" [label="Block 0\n---\n$r0 := @parameter0: com.example.pathe...\n$r1 := @parameter1: android.view.View\n$r2 := @parameter2: android.view.View\n... (2 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster__init_ {
+    label="<init>";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "<init>_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\nspecialinvoke r0.\<java.lang.Object: v...\nreturn\n", style=filled, fillcolor=white];
+    "<init>_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\nspecialinvoke r0.\<java.lang.Object: v...\nreturn\n", style=filled, fillcolor=white];
+    "<init>_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\nspecialinvoke r0.\<java.lang.Object: v...\nreturn\n", style=filled, fillcolor=white];
+    "<init>_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\nspecialinvoke r0.\<java.lang.Object: v...\nreturn\n", style=filled, fillcolor=white];
+    "<init>_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\nspecialinvoke r0.\<java.lang.Object: v...\nreturn\n", style=filled, fillcolor=white];
+    "<init>_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\nspecialinvoke r0.\<java.lang.Object: v...\nreturn\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_showSubChoiceLayout {
+    label="showSubChoiceLayout";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "showSubChoiceLayout_0" [label="Block 0\n---\nr0 := @this: com.example.pathexplorer...\n$r1 := @parameter0: android.view.View\n$r2 := @parameter1: android.view.View\n... (3 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster____Nest_fputselectedPath {
+    label="-$$Nest$fputselectedPath";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "-$$Nest$fputselectedPath_0" [label="Block 0\n---\n$r0 := @parameter0: com.example.pathe...\n$i0 := @parameter1: int\n$r0.\<com.example.pathexplorer.MainAct...\n... (1 more)\n", style=filled, fillcolor=white];
+  }
+
+  // Edges
+  "-$$Nest$mexecuteSubPath_0" -> "executeSubPath_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "performAction_0" -> "executeSubPath_4" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_10" -> "<init>_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_10" -> "performAction_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_10" -> "'-$$Nest$mexecuteSubPath'_0" [color=green, style=dashed, label="RETURN"];
+  "-$$Nest$mshowSubChoiceLayout_0" -> "showSubChoiceLayout_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "performAction_0" -> "executeSubPath_10" [color=green, style=dashed, label="RETURN"];
+  "<init>_0" -> "executeSubPath_4" [color=green, style=dashed, label="RETURN"];
+  "performAction_0" -> "executeSubPath_3" [color=green, style=dashed, label="RETURN"];
+  "<init>_0" -> "executeSubPath_3" [color=green, style=dashed, label="RETURN"];
+  "performAction_0" -> "executeSubPath_7" [color=green, style=dashed, label="RETURN"];
+  "<init>_0" -> "executeSubPath_10" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_8" -> "executeSubPath_9" [color=blue, label="succ"];
+  "executeSubPath_8" -> "executeSubPath_10" [color=blue, label="succ"];
+  "executeSubPath_9" -> "<init>_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_9" -> "performAction_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_9" -> "'-$$Nest$mexecuteSubPath'_0" [color=green, style=dashed, label="RETURN"];
+  "<init>_0" -> "executeSubPath_7" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_4" -> "<init>_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_4" -> "performAction_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_4" -> "'-$$Nest$mexecuteSubPath'_0" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_5" -> "executeSubPath_6" [color=blue, label="succ"];
+  "executeSubPath_5" -> "executeSubPath_7" [color=blue, label="succ"];
+  "executeSubPath_6" -> "performAction_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_6" -> "<init>_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_6" -> "'-$$Nest$mexecuteSubPath'_0" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_7" -> "performAction_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_7" -> "<init>_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_7" -> "'-$$Nest$mexecuteSubPath'_0" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_0" -> "executeSubPath_1" [color=blue, label="succ"];
+  "executeSubPath_0" -> "executeSubPath_2" [color=blue, label="succ"];
+  "executeSubPath_0" -> "executeSubPath_8" [color=blue, label="succ"];
+  "executeSubPath_0" -> "executeSubPath_5" [color=blue, label="succ"];
+  "executeSubPath_1" -> "'-$$Nest$mexecuteSubPath'_0" [color=green, style=dashed, label="RETURN"];
+  "performAction_0" -> "executeSubPath_6" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_2" -> "executeSubPath_3" [color=blue, label="succ"];
+  "executeSubPath_2" -> "executeSubPath_4" [color=blue, label="succ"];
+  "<init>_0" -> "executeSubPath_9" [color=green, style=dashed, label="RETURN"];
+  "executeSubPath_3" -> "<init>_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_3" -> "performAction_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "executeSubPath_3" -> "'-$$Nest$mexecuteSubPath'_0" [color=green, style=dashed, label="RETURN"];
+  "<init>_0" -> "executeSubPath_6" [color=green, style=dashed, label="RETURN"];
+  "performAction_0" -> "executeSubPath_9" [color=green, style=dashed, label="RETURN"];
+  "showSubChoiceLayout_0" -> "'-$$Nest$mshowSubChoiceLayout'_0" [color=green, style=dashed, label="RETURN"];
+
+  // Legend
+  subgraph cluster_legend {
+    label="Legend";
+    style=filled;
+    fillcolor=white;
+    rankdir=LR;
+    
+    legend_succ [label="Successor", shape=plaintext];
+    legend_call [label="Method Call", shape=plaintext];
+    legend_return [label="Return", shape=plaintext];
+    
+    legend_succ -> legend_call [color=blue, label="succ"];
+    legend_call -> legend_return [color=red, style=bold, label="CALL"];
+    legend_return -> legend_succ [color=green, style=dashed, label="RETURN"];
+  }
+}

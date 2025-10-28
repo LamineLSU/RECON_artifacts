@@ -1,0 +1,3829 @@
+{
+  "interproceduralEdges": {
+    "specialinvoke $r17.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>($r2, $r3)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5"
+    ],
+    "virtualinvoke $r1.<com.example.pathexplorer.MainActivity$1: void lambda$run$0$com-example-pathexplorer-MainActivity$1()>()": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$1"
+    ],
+    "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$2$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "specialinvoke r0.<java.lang.Throwable: void <init>()>()": [
+      "r0 := @this: java.lang.Throwable"
+    ],
+    "specialinvoke $r12.<com.example.pathexplorer.MainActivity$1: void <init>(com.example.pathexplorer.MainActivity)>(r0)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$1"
+    ],
+    "virtualinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void onClick(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4"
+    ],
+    "specialinvoke $r2.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+    ],
+    "return $r0": [
+      "if $i0 == 1 goto (branch)"
+    ],
+    "virtualinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void onClick(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3"
+    ],
+    "staticinvoke <dummyMainClass: androidx.profileinstaller.ProfileInstallReceiver dummyMainMethod_androidx_profileinstaller_ProfileInstallReceiver(android.content.Intent)>(null)": [
+      "parameter0 := @parameter0: android.content.Intent"
+    ],
+    "specialinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>($r0)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4"
+    ],
+    "specialinvoke r0.<java.lang.Object: void <init>()>()": [
+      "r1 := @this: java.lang.Object"
+    ],
+    "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$1$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "specialinvoke $r4.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>($r1, $r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5"
+    ],
+    "specialinvoke r0.<com.example.pathexplorer.MainActivity: void executeSubPath(int)>(2)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "specialinvoke $r1.<java.lang.RuntimeException: void <init>(java.lang.String)>(\"Stub!\")": [
+      "r0 := @this: java.lang.RuntimeException"
+    ],
+    "specialinvoke $r0.<java.lang.RuntimeException: void <init>(java.lang.String)>(\"Stub!\")": [
+      "r0 := @this: java.lang.RuntimeException"
+    ],
+    "specialinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>($r0)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3"
+    ],
+    "specialinvoke $r8.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+    ],
+    "interfaceinvoke param0.<java.lang.Runnable: void run()>()": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0",
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6"
+    ],
+    "virtualinvoke $r0.<com.example.pathexplorer.MainActivity: void onCreate(android.os.Bundle)>(null)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "virtualinvoke r11.<java.util.Timer: void schedule(java.util.TimerTask,long)>($r12, 2000L)": [
+      "this := @this: java.util.Timer"
+    ],
+    "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$4$com-example-pathexplorer-MainActivity(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "specialinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2"
+    ],
+    "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$0$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "virtualinvoke $r8.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void onClick(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+    ],
+    "specialinvoke $r14.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2"
+    ],
+    "staticinvoke <com.example.pathexplorer.MainActivity: void lambda$onCreate$5(android.view.View,android.view.View,android.view.View)>($r2, $r3, $r1)": [
+      "$r0 := @parameter0: android.view.View"
+    ],
+    "specialinvoke r0.<java.lang.Exception: void <init>()>()": [
+      "r0 := @this: java.lang.Exception"
+    ],
+    "specialinvoke r0.<com.example.pathexplorer.MainActivity: void executeSubPath(int)>(1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "staticinvoke <dummyMainClass: androidx.startup.InitializationProvider dummyMainMethod_androidx_startup_InitializationProvider(android.content.Intent)>(null)": [
+      "parameter0 := @parameter0: android.content.Intent"
+    ],
+    "$r15 = virtualinvoke r1.<java.lang.Object: java.lang.Class getClass()>()": [
+      "r1 := @this: java.lang.Object"
+    ],
+    "specialinvoke $r15.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>(r0)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3"
+    ],
+    "specialinvoke $r16.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>(r0)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4"
+    ],
+    "specialinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+    ],
+    "virtualinvoke r2.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r3, 2000L)": [
+      "this := @this: android.os.Handler"
+    ],
+    "specialinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+    ],
+    "specialinvoke $r0.<com.example.pathexplorer.MainActivity: void <init>()>()": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "specialinvoke r0.<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>($r1, $r2)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "return 1": [
+      "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+    ],
+    "specialinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void <init>(com.example.pathexplorer.MainActivity)>(r0)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6"
+    ],
+    "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$3$com-example-pathexplorer-MainActivity(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity"
+    ],
+    "virtualinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void onClick(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2"
+    ],
+    "staticinvoke <dummyMainClass: com.example.pathexplorer.MainActivity dummyMainMethod_com_example_pathexplorer_MainActivity(android.content.Intent)>(null)": [
+      "parameter0 := @parameter0: android.content.Intent"
+    ],
+    "specialinvoke $r2.<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity$1)>(r0)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0"
+    ],
+    "virtualinvoke $r2.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void onClick(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+    ],
+    "virtualinvoke $r4.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void onClick(android.view.View)>($r1)": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5"
+    ],
+    "return": [
+      "if $i0 == 6 goto $r4 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+      "virtualinvoke r8.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r14)"
+    ],
+    "virtualinvoke param0.<java.util.TimerTask: void run()>()": [
+      "r0 := @this: com.example.pathexplorer.MainActivity$1"
+    ]
+  },
+  "methodCFGs": {
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void onClick(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void onClick(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$1>",
+          "successors": [
+            "$r4 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$2>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$1$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r4 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$2>",
+          "successors": [
+            "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$1$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)"
+          ]
+        },
+        {
+          "unit": "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: com.example.pathexplorer.MainActivity f$0>",
+          "successors": [
+            "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$1>"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: com.example.pathexplorer.MainActivity f$0>"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$1> = $r2",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$2> = $r3"
+          ]
+        },
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "$r3 := @parameter2: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$2> = $r3",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: com.example.pathexplorer.MainActivity f$0> = $r1"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: com.example.pathexplorer.MainActivity f$0> = $r1",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$1> = $r2"
+          ]
+        },
+        {
+          "unit": "$r3 := @parameter2: android.view.View",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void onClick(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void onClick(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: com.example.pathexplorer.MainActivity f$0>",
+          "successors": [
+            "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$4$com-example-pathexplorer-MainActivity(android.view.View)>($r1)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$4$com-example-pathexplorer-MainActivity(android.view.View)>($r1)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: com.example.pathexplorer.MainActivity f$0>"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void run()>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void run()>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6",
+          "successors": [
+            "$r1 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: com.example.pathexplorer.MainActivity f$0>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r1.<com.example.pathexplorer.MainActivity: void lambda$executeSubPath$6$com-example-pathexplorer-MainActivity()>()",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r1 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: com.example.pathexplorer.MainActivity f$0>",
+          "successors": [
+            "virtualinvoke $r1.<com.example.pathexplorer.MainActivity: void lambda$executeSubPath$6$com-example-pathexplorer-MainActivity()>()"
+          ]
+        }
+      ]
+    },
+    "<dummyMainClass: androidx.startup.InitializationProvider dummyMainMethod_androidx_startup_InitializationProvider(android.content.Intent)>": {
+      "signature": "<dummyMainClass: androidx.startup.InitializationProvider dummyMainMethod_androidx_startup_InitializationProvider(android.content.Intent)>",
+      "entryPoint": "parameter0 := @parameter0: android.content.Intent",
+      "exitPoints": [
+        "return $r0"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 = new android.view.View",
+          "successors": [
+            "specialinvoke $r1.<android.view.View: void <init>(android.content.Context)>(null)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.startup.InitializationProvider: android.net.Uri insert(android.net.Uri,android.content.ContentValues)>(null, null)",
+          "successors": [
+            "if $i0 == 5 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 5 goto (branch)",
+          "successors": [
+            "if $i0 == 6 goto (branch)",
+            "$r5 = newarray (java.lang.String)[1]"
+          ]
+        },
+        {
+          "unit": "parameter0 := @parameter0: android.content.Intent",
+          "successors": [
+            "$i0 = 0"
+          ]
+        },
+        {
+          "unit": "$r0 = new androidx.startup.InitializationProvider",
+          "successors": [
+            "specialinvoke $r0.<androidx.startup.InitializationProvider: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "if $i0 == 2 goto (branch)",
+          "successors": [
+            "if $i0 == 3 goto (branch)",
+            "$r2 = newarray (java.lang.String)[1]"
+          ]
+        },
+        {
+          "unit": "$r2[0] = \"\"",
+          "successors": [
+            "virtualinvoke $r0.<androidx.startup.InitializationProvider: int delete(android.net.Uri,java.lang.String,java.lang.String[])>(null, \"\", $r2)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 3 goto (branch)",
+          "successors": [
+            "if $i0 == 4 goto (branch)",
+            "virtualinvoke $r0.<androidx.startup.InitializationProvider: java.lang.String getType(android.net.Uri)>(null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 8 goto (branch)",
+          "successors": [
+            "if $i0 == 0 goto return $r0",
+            "return $r0"
+          ]
+        },
+        {
+          "unit": "$r5 = newarray (java.lang.String)[1]",
+          "successors": [
+            "$r5[0] = \"\""
+          ]
+        },
+        {
+          "unit": "$i0 = 0",
+          "successors": [
+            "if $i0 == 0 goto return $r0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 1 goto (branch)",
+          "successors": [
+            "$r1 = new android.view.View",
+            "if $i0 == 8 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.startup.InitializationProvider: java.lang.String getType(android.net.Uri)>(null)",
+          "successors": [
+            "if $i0 == 4 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r6 = newarray (java.lang.String)[1]",
+          "successors": [
+            "$r6[0] = \"\""
+          ]
+        },
+        {
+          "unit": "if $i0 == 7 goto (branch)",
+          "successors": [
+            "if $i0 == 8 goto (branch)",
+            "if $i0 == 2 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r8[0] = \"\"",
+          "successors": [
+            "virtualinvoke $r0.<androidx.startup.InitializationProvider: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])>(null, null, \"\", $r8)"
+          ]
+        },
+        {
+          "unit": "$r0.<androidx.startup.InitializationProvider: android.content.Intent ipcIntent> = parameter0",
+          "successors": [
+            "if $i0 == 1 goto (branch)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r1.<android.view.View: void <init>(android.content.Context)>(null)",
+          "successors": [
+            "if $i0 == 2 goto (branch)"
+          ]
+        },
+        {
+          "unit": "return $r0",
+          "successors": []
+        },
+        {
+          "unit": "if $i0 == 6 goto (branch)",
+          "successors": [
+            "if $i0 == 7 goto (branch)",
+            "$r8 = newarray (java.lang.String)[1]"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.startup.InitializationProvider: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>(null, $r5, \"\", $r6, \"\")",
+          "successors": [
+            "if $i0 == 6 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r2 = newarray (java.lang.String)[1]",
+          "successors": [
+            "$r2[0] = \"\""
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.startup.InitializationProvider: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])>(null, null, \"\", $r8)",
+          "successors": [
+            "if $i0 == 7 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r6[0] = \"\"",
+          "successors": [
+            "virtualinvoke $r0.<androidx.startup.InitializationProvider: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>(null, $r5, \"\", $r6, \"\")"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.startup.InitializationProvider: int delete(android.net.Uri,java.lang.String,java.lang.String[])>(null, \"\", $r2)",
+          "successors": [
+            "if $i0 == 3 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 0 goto return $r0",
+          "successors": [
+            "return $r0",
+            "$r0 = new androidx.startup.InitializationProvider"
+          ]
+        },
+        {
+          "unit": "$r8 = newarray (java.lang.String)[1]",
+          "successors": [
+            "$r8[0] = \"\""
+          ]
+        },
+        {
+          "unit": "$r5[0] = \"\"",
+          "successors": [
+            "$r6 = newarray (java.lang.String)[1]"
+          ]
+        },
+        {
+          "unit": "if $i0 == 4 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.startup.InitializationProvider: android.net.Uri insert(android.net.Uri,android.content.ContentValues)>(null, null)",
+            "if $i0 == 5 goto (branch)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r0.<androidx.startup.InitializationProvider: void <init>()>()",
+          "successors": [
+            "$r0.<androidx.startup.InitializationProvider: android.content.Intent ipcIntent> = parameter0"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$0> = $r1",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$1> = $r2"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$0> = $r1"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$1> = $r2",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void onClick(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void onClick(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: com.example.pathexplorer.MainActivity f$0>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$3$com-example-pathexplorer-MainActivity(android.view.View)>($r1)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: com.example.pathexplorer.MainActivity f$0>",
+          "successors": [
+            "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$3$com-example-pathexplorer-MainActivity(android.view.View)>($r1)"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "virtualinvoke $r1.<android.view.View: void setVisibility(int)>(8)"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r2.<android.view.View: void setVisibility(int)>(0)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "virtualinvoke $r1.<android.view.View: void setVisibility(int)>(8)",
+          "successors": [
+            "virtualinvoke $r2.<android.view.View: void setVisibility(int)>(0)"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void lambda$onCreate$5(android.view.View,android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void lambda$onCreate$5(android.view.View,android.view.View,android.view.View)>",
+      "entryPoint": "$r0 := @parameter0: android.view.View",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "virtualinvoke $r1.<android.view.View: void setVisibility(int)>(8)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r0 := @parameter0: android.view.View",
+          "successors": [
+            "$r1 := @parameter1: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r2 := @parameter2: android.view.View",
+          "successors": [
+            "virtualinvoke $r0.<android.view.View: void setVisibility(int)>(0)"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter1: android.view.View",
+          "successors": [
+            "$r2 := @parameter2: android.view.View"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<android.view.View: void setVisibility(int)>(0)",
+          "successors": [
+            "virtualinvoke $r1.<android.view.View: void setVisibility(int)>(8)"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity$1)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity$1)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity$1 f$0> = $r1",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity$1",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity$1 f$0> = $r1"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity$1"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void executeSubPath(int)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void executeSubPath(int)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(\"Path 1 -> Sub-path 1: SparseBooleanArray created with values.\")"
+          ]
+        },
+        {
+          "unit": "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "$r9 = new java.lang.StringBuilder"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(r7)",
+          "successors": [
+            "if r1 == null goto return"
+          ]
+        },
+        {
+          "unit": "r10 = new java.util.concurrent.atomic.AtomicInteger",
+          "successors": [
+            "specialinvoke r10.<java.util.concurrent.atomic.AtomicInteger: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "r11 = new java.util.Timer",
+          "successors": [
+            "specialinvoke r11.<java.util.Timer: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Path 2 -> Sub-path 1: AtomicInteger incremented to \")",
+          "successors": [
+            "$i0 = virtualinvoke r10.<java.util.concurrent.atomic.AtomicInteger: int get()>()"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r8)",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\").\")"
+          ]
+        },
+        {
+          "unit": "$r9 = new java.lang.StringBuilder",
+          "successors": [
+            "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r10.<java.util.concurrent.atomic.AtomicInteger: int incrementAndGet()>()",
+          "successors": [
+            "r1 = r10"
+          ]
+        },
+        {
+          "unit": "r7 = (java.lang.String) r6",
+          "successors": [
+            "r6 = r5.<android.util.Pair: java.lang.Object second>"
+          ]
+        },
+        {
+          "unit": "goto [?= (branch)]",
+          "successors": [
+            "if r1 == null goto return"
+          ]
+        },
+        {
+          "unit": "r6 = r5.<android.util.Pair: java.lang.Object second>",
+          "successors": [
+            "r8 = (java.lang.String) r6"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Path 3 -> Sub-path 2: Pair created with values (\")"
+          ]
+        },
+        {
+          "unit": "specialinvoke r10.<java.util.concurrent.atomic.AtomicInteger: void <init>()>()",
+          "successors": [
+            "virtualinvoke r10.<java.util.concurrent.atomic.AtomicInteger: int incrementAndGet()>()"
+          ]
+        },
+        {
+          "unit": "$i0 = virtualinvoke r14.<java.lang.ThreadGroup: int activeCount()>()",
+          "successors": [
+            "r1 = r14"
+          ]
+        },
+        {
+          "unit": "r5 = new android.util.Pair",
+          "successors": [
+            "specialinvoke r5.<android.util.Pair: void <init>(java.lang.Object,java.lang.Object)>(\"Path3\", \"SubPath2\")"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r11.<java.util.Timer: void schedule(java.util.TimerTask,long)>($r12, 2000L)",
+          "successors": [
+            "goto [?= (branch)]"
+          ]
+        },
+        {
+          "unit": "r13 = new android.util.SparseBooleanArray",
+          "successors": [
+            "specialinvoke r13.<android.util.SparseBooleanArray: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "specialinvoke r14.<java.lang.ThreadGroup: void <init>(java.lang.String)>(\"Path1_SubPath2_ThreadGroup\")",
+          "successors": [
+            "$i0 = virtualinvoke r14.<java.lang.ThreadGroup: int activeCount()>()"
+          ]
+        },
+        {
+          "unit": "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()",
+          "successors": [
+            "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(r7)"
+          ]
+        },
+        {
+          "unit": "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(\"Path 2 -> Sub-path 2: Timer scheduled a task.\")"
+          ]
+        },
+        {
+          "unit": "goto [?= (branch)]",
+          "successors": [
+            "if r1 == null goto return"
+          ]
+        },
+        {
+          "unit": "goto [?= (branch)]",
+          "successors": [
+            "if r1 == null goto return"
+          ]
+        },
+        {
+          "unit": "r1 = null",
+          "successors": [
+            "i1 = r0.<com.example.pathexplorer.MainActivity: int selectedPath>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(r7)",
+          "successors": [
+            "goto [?= (branch)]"
+          ]
+        },
+        {
+          "unit": "if $i0 != 1 goto r11 = new java.util.Timer",
+          "successors": [
+            "r10 = new java.util.concurrent.atomic.AtomicInteger",
+            "r11 = new java.util.Timer"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0)",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\" active threads.\")"
+          ]
+        },
+        {
+          "unit": "if $i0 != 1 goto r14 = new java.lang.ThreadGroup",
+          "successors": [
+            "r13 = new android.util.SparseBooleanArray",
+            "r14 = new java.lang.ThreadGroup"
+          ]
+        },
+        {
+          "unit": "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(\"Path 3 -> Sub-path 1: Handler scheduled a delayed task.\")"
+          ]
+        },
+        {
+          "unit": "staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>(\"MainActivity\", r7)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "$r9 = new java.lang.StringBuilder"
+          ]
+        },
+        {
+          "unit": "r1 = r5",
+          "successors": [
+            "r6 = r5.<android.util.Pair: java.lang.Object first>"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Path 1 -> Sub-path 2: ThreadGroup created with \")",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0)"
+          ]
+        },
+        {
+          "unit": "r2 = new android.os.Handler",
+          "successors": [
+            "specialinvoke r2.<android.os.Handler: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "specialinvoke r13.<android.util.SparseBooleanArray: void <init>()>()",
+          "successors": [
+            "virtualinvoke r13.<android.util.SparseBooleanArray: void put(int,boolean)>(0, 1)"
+          ]
+        },
+        {
+          "unit": "specialinvoke r11.<java.util.Timer: void <init>()>()",
+          "successors": [
+            "r1 = r11"
+          ]
+        },
+        {
+          "unit": "if $i0 != 1 goto r5 = new android.util.Pair",
+          "successors": [
+            "r5 = new android.util.Pair",
+            "r2 = new android.os.Handler"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r7)",
+          "successors": [
+            "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()"
+          ]
+        },
+        {
+          "unit": "goto [?= (branch)]",
+          "successors": [
+            "if r1 == null goto return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "specialinvoke r5.<android.util.Pair: void <init>(java.lang.Object,java.lang.Object)>(\"Path3\", \"SubPath2\")",
+          "successors": [
+            "r1 = r5"
+          ]
+        },
+        {
+          "unit": "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()",
+          "successors": [
+            "staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>(\"MainActivity\", r7)"
+          ]
+        },
+        {
+          "unit": "$r9 = new java.lang.StringBuilder",
+          "successors": [
+            "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "$r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6",
+          "successors": [
+            "specialinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void <init>(com.example.pathexplorer.MainActivity)>(r0)"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0)",
+          "successors": [
+            "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r12.<com.example.pathexplorer.MainActivity$1: void <init>(com.example.pathexplorer.MainActivity)>(r0)",
+          "successors": [
+            "virtualinvoke r11.<java.util.Timer: void schedule(java.util.TimerTask,long)>($r12, 2000L)"
+          ]
+        },
+        {
+          "unit": "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()",
+          "successors": [
+            "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(r7)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r13.<android.util.SparseBooleanArray: void put(int,boolean)>(0, 1)",
+          "successors": [
+            "virtualinvoke r13.<android.util.SparseBooleanArray: void put(int,boolean)>(1, 0)"
+          ]
+        },
+        {
+          "unit": "goto [?= (branch)]",
+          "successors": [
+            "if r1 == null goto return"
+          ]
+        },
+        {
+          "unit": "$i0 := @parameter0: int",
+          "successors": [
+            "r1 = null"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void <init>(com.example.pathexplorer.MainActivity)>(r0)",
+          "successors": [
+            "virtualinvoke r2.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r3, 2000L)"
+          ]
+        },
+        {
+          "unit": "r1 = r2",
+          "successors": [
+            "$r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6"
+          ]
+        },
+        {
+          "unit": "$r15 = virtualinvoke r1.<java.lang.Object: java.lang.Class getClass()>()",
+          "successors": [
+            "r7 = virtualinvoke $r15.<java.lang.Class: java.lang.String getSimpleName()>()"
+          ]
+        },
+        {
+          "unit": "r1 = r14",
+          "successors": [
+            "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "lookupswitch(i1) {     case 1: goto if $i0 != 1 goto r14 = new java.lang.ThreadGroup;     case 2: goto if $i0 != 1 goto r11 = new java.util.Timer;     case 3: goto if $i0 != 1 goto r5 = new android.util.Pair;     default: goto if r1 == null goto return; }",
+          "successors": [
+            "if $i0 != 1 goto r5 = new android.util.Pair",
+            "if $i0 != 1 goto r11 = new java.util.Timer",
+            "if r1 == null goto return",
+            "if $i0 != 1 goto r14 = new java.lang.ThreadGroup"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r2.<android.os.Handler: boolean postDelayed(java.lang.Runnable,long)>($r3, 2000L)",
+          "successors": [
+            "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "r1 = r11",
+          "successors": [
+            "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Path 3 -> Sub-path 2: Pair created with values (\")",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r7)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(\"Path 1 -> Sub-path 1: SparseBooleanArray created with values.\")",
+          "successors": [
+            "goto [?= (branch)]"
+          ]
+        },
+        {
+          "unit": "$r9 = new java.lang.StringBuilder",
+          "successors": [
+            "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "i1 = r0.<com.example.pathexplorer.MainActivity: int selectedPath>",
+          "successors": [
+            "lookupswitch(i1) {     case 1: goto if $i0 != 1 goto r14 = new java.lang.ThreadGroup;     case 2: goto if $i0 != 1 goto r11 = new java.util.Timer;     case 3: goto if $i0 != 1 goto r5 = new android.util.Pair;     default: goto if r1 == null goto return; }"
+          ]
+        },
+        {
+          "unit": "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()",
+          "successors": [
+            "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(r7)"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r7)",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\", \")"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r13.<android.util.SparseBooleanArray: void put(int,boolean)>(1, 0)",
+          "successors": [
+            "r1 = r13"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Created object: \")",
+          "successors": [
+            "$r15 = virtualinvoke r1.<java.lang.Object: java.lang.Class getClass()>()"
+          ]
+        },
+        {
+          "unit": "r8 = (java.lang.String) r6",
+          "successors": [
+            "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\" active threads.\")",
+          "successors": [
+            "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()"
+          ]
+        },
+        {
+          "unit": "$i0 = virtualinvoke r10.<java.util.concurrent.atomic.AtomicInteger: int get()>()",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(\"Path 2 -> Sub-path 2: Timer scheduled a task.\")",
+          "successors": [
+            "$r12 = new com.example.pathexplorer.MainActivity$1"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$i0 := @parameter0: int"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(r7)",
+          "successors": [
+            "goto [?= (branch)]"
+          ]
+        },
+        {
+          "unit": "r6 = r5.<android.util.Pair: java.lang.Object first>",
+          "successors": [
+            "r7 = (java.lang.String) r6"
+          ]
+        },
+        {
+          "unit": "r1 = r13",
+          "successors": [
+            "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "$r9 = new java.lang.StringBuilder"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Path 2 -> Sub-path 1: AtomicInteger incremented to \")"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Path 1 -> Sub-path 2: ThreadGroup created with \")"
+          ]
+        },
+        {
+          "unit": "r1 = r10",
+          "successors": [
+            "r4 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "if r1 == null goto return",
+          "successors": [
+            "$r9 = new java.lang.StringBuilder",
+            "return"
+          ]
+        },
+        {
+          "unit": "$r9 = new java.lang.StringBuilder",
+          "successors": [
+            "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "$r12 = new com.example.pathexplorer.MainActivity$1",
+          "successors": [
+            "specialinvoke $r12.<com.example.pathexplorer.MainActivity$1: void <init>(com.example.pathexplorer.MainActivity)>(r0)"
+          ]
+        },
+        {
+          "unit": "r7 = virtualinvoke $r15.<java.lang.Class: java.lang.String getSimpleName()>()",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r7)"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\").\")",
+          "successors": [
+            "r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>()"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r9.<java.lang.StringBuilder: void <init>()>()",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\"Created object: \")"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r4.<android.widget.TextView: void setText(java.lang.CharSequence)>(\"Path 3 -> Sub-path 1: Handler scheduled a delayed task.\")",
+          "successors": [
+            "goto [?= (branch)]"
+          ]
+        },
+        {
+          "unit": "r14 = new java.lang.ThreadGroup",
+          "successors": [
+            "specialinvoke r14.<java.lang.ThreadGroup: void <init>(java.lang.String)>(\"Path1_SubPath2_ThreadGroup\")"
+          ]
+        },
+        {
+          "unit": "specialinvoke r2.<android.os.Handler: void <init>()>()",
+          "successors": [
+            "r1 = r2"
+          ]
+        },
+        {
+          "unit": "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(\", \")",
+          "successors": [
+            "$r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r8)"
+          ]
+        }
+      ]
+    },
+    "<dummyMainClass: com.example.pathexplorer.MainActivity dummyMainMethod_com_example_pathexplorer_MainActivity(android.content.Intent)>": {
+      "signature": "<dummyMainClass: com.example.pathexplorer.MainActivity dummyMainMethod_com_example_pathexplorer_MainActivity(android.content.Intent)>",
+      "entryPoint": "parameter0 := @parameter0: android.content.Intent",
+      "exitPoints": [
+        "return $r0"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r15[0] = \"\"",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>(\"\", null, null, $r15)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 74 goto (branch)",
+          "successors": [
+            "if $i0 == 0 goto return $r0",
+            "return $r0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 67 goto (branch)",
+          "successors": [
+            "if $i0 == 68 goto (branch)",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onPictureInPictureModeChanged(boolean)>(0)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 68 goto (branch)",
+          "successors": [
+            "if $i0 == 69 goto (branch)",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onLowMemory()>()"
+          ]
+        },
+        {
+          "unit": "if $i0 == 72 goto virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()",
+          "successors": [
+            "if $i0 != 73 goto virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()"
+          ]
+        },
+        {
+          "unit": "if $i0 == 17 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onBackPressed()>()",
+            "if $i0 == 18 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 55 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: android.view.View onCreateView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet)>($r1, \"\", $r0, null)",
+            "if $i0 == 56 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onPictureInPictureModeChanged(boolean,android.content.res.Configuration)>(0, null)",
+          "successors": [
+            "if $i0 == 11 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 59 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onStateNotSaved()>()",
+            "if $i0 == 60 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onPictureInPictureModeChanged(boolean)>(0)",
+          "successors": [
+            "if $i0 == 68 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()",
+          "successors": [
+            "if $i0 == 2 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r6[0] = \"\"",
+          "successors": [
+            "$r7 = newarray (int)[1]"
+          ]
+        },
+        {
+          "unit": "$r2 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0",
+          "successors": [
+            "specialinvoke $r2.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 37 goto (branch)",
+          "successors": [
+            "if $i0 == 38 goto (branch)",
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean onKeyDown(int,android.view.KeyEvent)>(0, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 42 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setContentView(android.view.View)>($r1)",
+            "if $i0 == 43 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onSaveInstanceState(android.os.Bundle)>(null)",
+          "successors": [
+            "if $i0 == 72 goto virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setContentView(android.view.View)>($r1)",
+          "successors": [
+            "if $i0 == 43 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void reportFullyDrawn()>()",
+          "successors": [
+            "if $i0 == 27 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean onKeyDown(int,android.view.KeyEvent)>(0, null)",
+          "successors": [
+            "if $i0 == 38 goto (branch)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>($r0)",
+          "successors": [
+            "if $i0 == 53 goto $r13 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onTitleChanged(java.lang.CharSequence,int)>(null, 0)",
+          "successors": [
+            "if $i0 == 39 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 46 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)",
+            "if $i0 == 47 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startActivityForResult(android.content.Intent,int)>(null, 0)",
+          "successors": [
+            "if $i0 == 12 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 49 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onPanelClosed(int,android.view.Menu)>(0, null)",
+            "if $i0 == 50 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void closeOptionsMenu()>()",
+          "successors": [
+            "if $i0 == 40 goto (branch)"
+          ]
+        },
+        {
+          "unit": "parameter0 := @parameter0: android.content.Intent",
+          "successors": [
+            "$i0 = 0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 12 goto (branch)",
+          "successors": [
+            "if $i0 == 13 goto (branch)",
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)>(null, 0, null, 0, 0, 0)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void attachBaseContext(android.content.Context)>($r0)",
+          "successors": [
+            "if $i0 == 46 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: android.view.View findViewById(int)>(0)",
+          "successors": [
+            "if $i0 == 45 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 31 goto $r8 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onActivityResult(int,int,android.content.Intent)>(0, 0, null)",
+            "$r8 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+          ]
+        },
+        {
+          "unit": "if $i0 == 41 goto (branch)",
+          "successors": [
+            "if $i0 == 42 goto (branch)",
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setTheme(int)>(0)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 39 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void closeOptionsMenu()>()",
+            "if $i0 == 40 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 22 goto (branch)",
+          "successors": [
+            "if $i0 == 23 goto (branch)",
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void setContentView(android.view.View)>($r1)"
+          ]
+        },
+        {
+          "unit": "$r13 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4",
+          "successors": [
+            "specialinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>($r0)"
+          ]
+        },
+        {
+          "unit": "$r17[0] = \"\"",
+          "successors": [
+            "$r18 = newarray (int)[1]"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r2.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void onClick(android.view.View)>($r1)",
+          "successors": [
+            "if $i0 == 4 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 5 goto $r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+          "successors": [
+            "virtualinvoke $r0.<androidx.core.app.ComponentActivity: boolean dispatchKeyEvent(android.view.KeyEvent)>(null)",
+            "$r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2"
+          ]
+        },
+        {
+          "unit": "if $i0 == 47 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>()",
+            "if $i0 == 48 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 45 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void attachBaseContext(android.content.Context)>($r0)",
+            "if $i0 == 46 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 3 goto (branch)",
+          "successors": [
+            "virtualinvoke $r2.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void onClick(android.view.View)>($r1)",
+            "if $i0 == 4 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 48 goto (branch)",
+          "successors": [
+            "if $i0 == 49 goto (branch)",
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void openOptionsMenu()>()"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: boolean onMenuItemSelected(int,android.view.MenuItem)>(0, null)",
+          "successors": [
+            "if $i0 == 67 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$i0 = 0",
+          "successors": [
+            "if $i0 == 0 goto return $r0"
+          ]
+        },
+        {
+          "unit": "$r15 = newarray (java.lang.String)[1]",
+          "successors": [
+            "$r15[0] = \"\""
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onConfigurationChanged(android.content.res.Configuration)>(null)",
+          "successors": [
+            "if $i0 == 17 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 71 goto (branch)",
+          "successors": [
+            "if $i0 == 2 goto (branch)",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onPause()>()"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onPanelClosed(int,android.view.Menu)>(0, null)",
+          "successors": [
+            "if $i0 == 15 goto (branch)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r4.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>($r1, $r1)",
+          "successors": [
+            "if $i0 == 7 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void setContentView(int)>(0)",
+          "successors": [
+            "if $i0 == 28 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r17 = newarray (java.lang.String)[1]",
+          "successors": [
+            "$r17[0] = \"\""
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setTheme(int)>(0)",
+          "successors": [
+            "if $i0 == 42 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 18 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: boolean onPreparePanel(int,android.view.View,android.view.Menu)>(0, $r1, null)",
+            "if $i0 == 19 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r8 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1",
+          "successors": [
+            "specialinvoke $r8.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onPanelClosed(int,android.view.Menu)>(0, null)",
+          "successors": [
+            "if $i0 == 66 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 24 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onTrimMemory(int)>(0)",
+            "if $i0 == 25 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r4.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void onClick(android.view.View)>($r1)",
+          "successors": [
+            "if $i0 == 8 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.core.app.ComponentActivity: boolean dispatchKeyEvent(android.view.KeyEvent)>(null)",
+          "successors": [
+            "$r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2"
+          ]
+        },
+        {
+          "unit": "if $i0 == 63 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet)>(\"\", $r0, null)",
+            "if $i0 == 64 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r4 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+          "successors": [
+            "specialinvoke $r4.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>($r1, $r1)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 53 goto $r13 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4",
+          "successors": [
+            "virtualinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void onClick(android.view.View)>($r1)",
+            "$r13 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>($r0)",
+          "successors": [
+            "if $i0 == 54 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 20 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: java.lang.Object onRetainNonConfigurationInstance()>()",
+            "if $i0 == 21 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r1 = new android.view.View",
+          "successors": [
+            "specialinvoke $r1.<android.view.View: void <init>(android.content.Context)>(null)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onMultiWindowModeChanged(boolean)>(0)",
+          "successors": [
+            "if $i0 == 63 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 35 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setContentView(int)>(0)",
+            "if $i0 == 36 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void onClick(android.view.View)>($r1)",
+          "successors": [
+            "$r13 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4"
+          ]
+        },
+        {
+          "unit": "if $i0 == 54 goto (branch)",
+          "successors": [
+            "if $i0 == 55 goto (branch)",
+            "virtualinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void onClick(android.view.View)>($r1)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet)>(\"\", $r0, null)",
+          "successors": [
+            "if $i0 == 64 goto (branch)"
+          ]
+        },
+        {
+          "unit": "return $r0",
+          "successors": []
+        },
+        {
+          "unit": "if $i0 == 58 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onNewIntent(android.content.Intent)>(null)",
+            "if $i0 == 59 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onPause()>()",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onSaveInstanceState(android.os.Bundle)>(null)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onConfigurationChanged(android.content.res.Configuration)>(null)",
+          "successors": [
+            "if $i0 == 44 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 44 goto (branch)",
+          "successors": [
+            "if $i0 == 45 goto (branch)",
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: android.view.View findViewById(int)>(0)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)",
+          "successors": [
+            "if $i0 == 6 goto $r4 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onActivityResult(int,int,android.content.Intent)>(0, 0, null)",
+          "successors": [
+            "$r8 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void onClick(android.view.View)>($r1)",
+          "successors": [
+            "if $i0 == 55 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)>(null, 0, null, 0, 0, 0)",
+          "successors": [
+            "if $i0 == 13 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 30 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onNewIntent(android.content.Intent)>(null)",
+            "if $i0 == 31 goto $r8 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+          ]
+        },
+        {
+          "unit": "if $i0 == 56 goto (branch)",
+          "successors": [
+            "if $i0 == 57 goto (branch)",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: boolean onCreatePanelMenu(int,android.view.Menu)>(0, null)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)>(null, 0, null, 0, 0, 0, null)",
+          "successors": [
+            "if $i0 == 16 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 10 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onPictureInPictureModeChanged(boolean,android.content.res.Configuration)>(0, null)",
+            "if $i0 == 11 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 34 goto (branch)",
+          "successors": [
+            "if $i0 == 35 goto (branch)",
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void invalidateOptionsMenu()>()"
+          ]
+        },
+        {
+          "unit": "if $i0 == 9 goto (branch)",
+          "successors": [
+            "if $i0 == 10 goto (branch)",
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 61 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onActivityResult(int,int,android.content.Intent)>(0, 0, null)",
+            "if $i0 == 62 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.core.app.ComponentActivity: boolean dispatchKeyShortcutEvent(android.view.KeyEvent)>(null)",
+          "successors": [
+            "if $i0 == 5 goto $r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2"
+          ]
+        },
+        {
+          "unit": "$r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+          "successors": [
+            "specialinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>($r0)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 7 goto (branch)",
+          "successors": [
+            "if $i0 == 8 goto (branch)",
+            "virtualinvoke $r4.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void onClick(android.view.View)>($r1)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 25 goto (branch)",
+          "successors": [
+            "if $i0 == 26 goto (branch)",
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onMultiWindowModeChanged(boolean,android.content.res.Configuration)>(0, null)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r8.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)",
+          "successors": [
+            "if $i0 == 32 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 65 goto (branch)",
+          "successors": [
+            "if $i0 == 66 goto (branch)",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onPanelClosed(int,android.view.Menu)>(0, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 32 goto (branch)",
+          "successors": [
+            "if $i0 == 33 goto (branch)",
+            "virtualinvoke $r8.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void onClick(android.view.View)>($r1)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onConfigurationChanged(android.content.res.Configuration)>(null)",
+          "successors": [
+            "if $i0 == 65 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)",
+          "successors": [
+            "if $i0 == 20 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 40 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)",
+            "if $i0 == 41 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 6 goto $r4 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+          "successors": [
+            "$r4 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+            "virtualinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void onClick(android.view.View)>($r1)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onRequestPermissionsResult(int,java.lang.String[],int[])>(0, $r17, $r18)",
+          "successors": [
+            "if $i0 == 70 goto $r2 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 19 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)",
+            "if $i0 == 20 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)",
+          "successors": [
+            "if $i0 == 41 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 11 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startActivityForResult(android.content.Intent,int)>(null, 0)",
+            "if $i0 == 12 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 15 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)>(null, 0, null, 0, 0, 0, null)",
+            "if $i0 == 16 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean onMenuOpened(int,android.view.Menu)>(0, null)",
+          "successors": [
+            "if $i0 == 37 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 50 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean dispatchKeyEvent(android.view.KeyEvent)>(null)",
+            "if $i0 == 51 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 66 goto (branch)",
+          "successors": [
+            "if $i0 == 67 goto (branch)",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: boolean onMenuItemSelected(int,android.view.MenuItem)>(0, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 38 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onTitleChanged(java.lang.CharSequence,int)>(null, 0)",
+            "if $i0 == 39 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: boolean onPreparePanel(int,android.view.View,android.view.Menu)>(0, $r1, null)",
+          "successors": [
+            "if $i0 == 19 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void setContentView(int)>(0)",
+          "successors": [
+            "if $i0 == 36 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onPanelClosed(int,android.view.Menu)>(0, null)",
+          "successors": [
+            "if $i0 == 50 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onActivityResult(int,int,android.content.Intent)>(0, 0, null)",
+          "successors": [
+            "if $i0 == 62 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean onMenuItemSelected(int,android.view.MenuItem)>(0, null)",
+          "successors": [
+            "if $i0 == 34 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onMultiWindowModeChanged(boolean)>(0)",
+          "successors": [
+            "if $i0 == 29 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 21 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: boolean onCreatePanelMenu(int,android.view.Menu)>(0, null)",
+            "if $i0 == 22 goto (branch)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r1.<android.view.View: void <init>(android.content.Context)>(null)",
+          "successors": [
+            "$r2 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>(\"\", null, null, $r15)",
+          "successors": [
+            "if $i0 == 61 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 != 73 goto virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()",
+          "successors": [
+            "if $i0 == 74 goto (branch)",
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean dispatchKeyEvent(android.view.KeyEvent)>(null)",
+          "successors": [
+            "if $i0 == 51 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r0 = new com.example.pathexplorer.MainActivity",
+          "successors": [
+            "specialinvoke $r0.<com.example.pathexplorer.MainActivity: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "if $i0 == 14 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onPanelClosed(int,android.view.Menu)>(0, null)",
+            "if $i0 == 15 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r8.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void onClick(android.view.View)>($r1)",
+          "successors": [
+            "if $i0 == 33 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 0 goto return $r0",
+          "successors": [
+            "$r0 = new com.example.pathexplorer.MainActivity",
+            "return $r0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 28 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onMultiWindowModeChanged(boolean)>(0)",
+            "if $i0 == 29 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 36 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean onMenuOpened(int,android.view.Menu)>(0, null)",
+            "if $i0 == 37 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onNewIntent(android.content.Intent)>(null)",
+          "successors": [
+            "if $i0 == 59 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 62 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onMultiWindowModeChanged(boolean)>(0)",
+            "if $i0 == 63 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 29 goto (branch)",
+          "successors": [
+            "$r6 = newarray (java.lang.String)[1]",
+            "if $i0 == 30 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r18 = newarray (int)[1]",
+          "successors": [
+            "$r18[0] = 0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 33 goto (branch)",
+          "successors": [
+            "if $i0 == 34 goto (branch)",
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: boolean onMenuItemSelected(int,android.view.MenuItem)>(0, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 2 goto (branch)",
+          "successors": [
+            "$r1 = new android.view.View",
+            "if $i0 == 71 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r18[0] = 0",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onRequestPermissionsResult(int,java.lang.String[],int[])>(0, $r17, $r18)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void openOptionsMenu()>()",
+          "successors": [
+            "if $i0 == 49 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 52 goto $r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: android.content.res.Resources getResources()>()",
+            "$r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3"
+          ]
+        },
+        {
+          "unit": "if $i0 == 57 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: boolean onPreparePanel(int,android.view.View,android.view.Menu)>(0, $r1, null)",
+            "if $i0 == 58 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onPictureInPictureModeChanged(boolean)>(0)",
+          "successors": [
+            "if $i0 == 14 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: boolean onPreparePanel(int,android.view.View,android.view.Menu)>(0, $r1, null)",
+          "successors": [
+            "if $i0 == 58 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: boolean onCreatePanelMenu(int,android.view.Menu)>(0, null)",
+          "successors": [
+            "if $i0 == 57 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 64 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onConfigurationChanged(android.content.res.Configuration)>(null)",
+            "if $i0 == 65 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 70 goto $r2 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0",
+          "successors": [
+            "if $i0 == 71 goto (branch)",
+            "$r2 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r2.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)",
+          "successors": [
+            "if $i0 == 3 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: boolean onCreatePanelMenu(int,android.view.Menu)>(0, null)",
+          "successors": [
+            "if $i0 == 22 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startActivityForResult(android.content.Intent,int,android.os.Bundle)>(null, 0, null)",
+          "successors": [
+            "if $i0 == 9 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 4 goto (branch)",
+          "successors": [
+            "if $i0 == 5 goto $r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+            "virtualinvoke $r0.<androidx.core.app.ComponentActivity: boolean dispatchKeyShortcutEvent(android.view.KeyEvent)>(null)"
+          ]
+        },
+        {
+          "unit": "$r7[0] = 0",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onRequestPermissionsResult(int,java.lang.String[],int[])>(0, $r6, $r7)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onContentChanged()>()",
+          "successors": [
+            "if $i0 == 52 goto $r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3"
+          ]
+        },
+        {
+          "unit": "$r7 = newarray (int)[1]",
+          "successors": [
+            "$r7[0] = 0"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onLowMemory()>()",
+          "successors": [
+            "if $i0 == 69 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 13 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onPictureInPictureModeChanged(boolean)>(0)",
+            "if $i0 == 14 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onBackPressed()>()",
+          "successors": [
+            "if $i0 == 18 goto (branch)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r0.<com.example.pathexplorer.MainActivity: void <init>()>()",
+          "successors": [
+            "$r0.<com.example.pathexplorer.MainActivity: android.content.Intent ipcIntent> = parameter0"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: java.lang.Object onRetainNonConfigurationInstance()>()",
+          "successors": [
+            "if $i0 == 21 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onStateNotSaved()>()",
+          "successors": [
+            "if $i0 == 60 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onRequestPermissionsResult(int,java.lang.String[],int[])>(0, $r6, $r7)",
+          "successors": [
+            "if $i0 == 30 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 23 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: boolean onMenuItemSelected(int,android.view.MenuItem)>(0, null)",
+            "if $i0 == 24 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r0.<com.example.pathexplorer.MainActivity: android.content.Intent ipcIntent> = parameter0",
+          "successors": [
+            "virtualinvoke $r0.<com.example.pathexplorer.MainActivity: void onCreate(android.os.Bundle)>(null)"
+          ]
+        },
+        {
+          "unit": "$r6 = newarray (java.lang.String)[1]",
+          "successors": [
+            "$r6[0] = \"\""
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onTrimMemory(int)>(0)",
+          "successors": [
+            "if $i0 == 25 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()>()",
+          "successors": [
+            "if $i0 == 48 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 26 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void reportFullyDrawn()>()",
+            "if $i0 == 27 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 51 goto (branch)",
+          "successors": [
+            "if $i0 == 52 goto $r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onContentChanged()>()"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void onClick(android.view.View)>($r1)",
+          "successors": [
+            "$r4 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5"
+          ]
+        },
+        {
+          "unit": "if $i0 == 43 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void onConfigurationChanged(android.content.res.Configuration)>(null)",
+            "if $i0 == 44 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: boolean onMenuItemSelected(int,android.view.MenuItem)>(0, null)",
+          "successors": [
+            "if $i0 == 24 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 69 goto (branch)",
+          "successors": [
+            "$r17 = newarray (java.lang.String)[1]",
+            "if $i0 == 70 goto $r2 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void invalidateOptionsMenu()>()",
+          "successors": [
+            "if $i0 == 35 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)",
+          "successors": [
+            "if $i0 == 47 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.appcompat.app.AppCompatActivity: android.content.res.Resources getResources()>()",
+          "successors": [
+            "$r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3"
+          ]
+        },
+        {
+          "unit": "$r3 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+          "successors": [
+            "specialinvoke $r3.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>($r0, $r1, $r1)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)>($r1, null)",
+          "successors": [
+            "if $i0 == 10 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 27 goto (branch)",
+          "successors": [
+            "if $i0 == 28 goto (branch)",
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void setContentView(int)>(0)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 8 goto (branch)",
+          "successors": [
+            "if $i0 == 9 goto (branch)",
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void startActivityForResult(android.content.Intent,int,android.os.Bundle)>(null, 0, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 16 goto (branch)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onConfigurationChanged(android.content.res.Configuration)>(null)",
+            "if $i0 == 17 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onNewIntent(android.content.Intent)>(null)",
+          "successors": [
+            "if $i0 == 31 goto $r8 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void onMultiWindowModeChanged(boolean,android.content.res.Configuration)>(0, null)",
+          "successors": [
+            "if $i0 == 26 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 60 goto (branch)",
+          "successors": [
+            "if $i0 == 61 goto (branch)",
+            "$r15 = newarray (java.lang.String)[1]"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.activity.ComponentActivity: void setContentView(android.view.View)>($r1)",
+          "successors": [
+            "if $i0 == 23 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: android.view.View onCreateView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet)>($r1, \"\", $r0, null)",
+          "successors": [
+            "if $i0 == 56 goto (branch)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r0.<com.example.pathexplorer.MainActivity: void onCreate(android.os.Bundle)>(null)",
+          "successors": [
+            "virtualinvoke $r0.<androidx.fragment.app.FragmentActivity: void onResume()>()"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$1: void lambda$run$0$com-example-pathexplorer-MainActivity$1()>": {
+      "signature": "<com.example.pathexplorer.MainActivity$1: void lambda$run$0$com-example-pathexplorer-MainActivity$1()>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$1",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$1",
+          "successors": [
+            "$r2 = r0.<com.example.pathexplorer.MainActivity$1: com.example.pathexplorer.MainActivity this$0>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r1.<android.widget.TextView: void append(java.lang.CharSequence)>(\"\\nTimer executed task!\")",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r2 = r0.<com.example.pathexplorer.MainActivity$1: com.example.pathexplorer.MainActivity this$0>",
+          "successors": [
+            "$r1 = staticinvoke <com.example.pathexplorer.MainActivity: android.widget.TextView '-$$Nest$fgetoutputTextView'(com.example.pathexplorer.MainActivity)>($r2)"
+          ]
+        },
+        {
+          "unit": "$r1 = staticinvoke <com.example.pathexplorer.MainActivity: android.widget.TextView '-$$Nest$fgetoutputTextView'(com.example.pathexplorer.MainActivity)>($r2)",
+          "successors": [
+            "virtualinvoke $r1.<android.widget.TextView: void append(java.lang.CharSequence)>(\"\\nTimer executed task!\")"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "$r3 := @parameter2: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: com.example.pathexplorer.MainActivity f$0> = $r1",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$1> = $r2"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$1> = $r2",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$2> = $r3"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: android.view.View f$2> = $r3",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: com.example.pathexplorer.MainActivity f$0> = $r1"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity"
+          ]
+        },
+        {
+          "unit": "$r3 := @parameter2: android.view.View",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void lambda$onCreate$0$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void lambda$onCreate$0$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 1",
+          "successors": [
+            "specialinvoke r0.<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>($r1, $r2)"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>($r1, $r2)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r3 := @parameter2: android.view.View",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 1"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "$r3 := @parameter2: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void lambda$onCreate$1$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void lambda$onCreate$1$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>($r1, $r2)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "$r3 := @parameter2: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 2",
+          "successors": [
+            "specialinvoke r0.<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>($r1, $r2)"
+          ]
+        },
+        {
+          "unit": "$r3 := @parameter2: android.view.View",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 2"
+          ]
+        }
+      ]
+    },
+    "<dummyMainClass: androidx.profileinstaller.ProfileInstallReceiver dummyMainMethod_androidx_profileinstaller_ProfileInstallReceiver(android.content.Intent)>": {
+      "signature": "<dummyMainClass: androidx.profileinstaller.ProfileInstallReceiver dummyMainMethod_androidx_profileinstaller_ProfileInstallReceiver(android.content.Intent)>",
+      "entryPoint": "parameter0 := @parameter0: android.content.Intent",
+      "exitPoints": [
+        "return $r0"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "specialinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void <init>()>()",
+          "successors": [
+            "$r0.<androidx.profileinstaller.ProfileInstallReceiver: android.content.Intent ipcIntent> = parameter0"
+          ]
+        },
+        {
+          "unit": "$i0 = 0",
+          "successors": [
+            "if $i0 == 0 goto return $r0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 3 goto (branch)",
+          "successors": [
+            "return $r0",
+            "if $i0 == 0 goto return $r0"
+          ]
+        },
+        {
+          "unit": "parameter0 := @parameter0: android.content.Intent",
+          "successors": [
+            "$i0 = 0"
+          ]
+        },
+        {
+          "unit": "if $i0 == 0 goto return $r0",
+          "successors": [
+            "$r0 = new androidx.profileinstaller.ProfileInstallReceiver",
+            "return $r0"
+          ]
+        },
+        {
+          "unit": "return $r0",
+          "successors": []
+        },
+        {
+          "unit": "virtualinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void onReceive(android.content.Context,android.content.Intent)>(null, null)",
+          "successors": [
+            "if $i0 == 1 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r1 = new android.view.View",
+          "successors": [
+            "specialinvoke $r1.<android.view.View: void <init>(android.content.Context)>(null)"
+          ]
+        },
+        {
+          "unit": "$r0 = new androidx.profileinstaller.ProfileInstallReceiver",
+          "successors": [
+            "specialinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r1.<android.view.View: void <init>(android.content.Context)>(null)",
+          "successors": [
+            "if $i0 == 2 goto virtualinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void onReceive(android.content.Context,android.content.Intent)>(null, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 1 goto (branch)",
+          "successors": [
+            "$r1 = new android.view.View",
+            "if $i0 == 2 goto virtualinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void onReceive(android.content.Context,android.content.Intent)>(null, null)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 2 goto virtualinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void onReceive(android.content.Context,android.content.Intent)>(null, null)",
+          "successors": [
+            "if $i0 == 3 goto (branch)",
+            "virtualinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void onReceive(android.content.Context,android.content.Intent)>(null, null)"
+          ]
+        },
+        {
+          "unit": "$r0.<androidx.profileinstaller.ProfileInstallReceiver: android.content.Intent ipcIntent> = parameter0",
+          "successors": [
+            "virtualinvoke $r0.<androidx.profileinstaller.ProfileInstallReceiver: void onReceive(android.content.Context,android.content.Intent)>(null, null)"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: void run()>": {
+      "signature": "<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: void run()>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 = r0.<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity$1 f$0>",
+          "successors": [
+            "virtualinvoke $r1.<com.example.pathexplorer.MainActivity$1: void lambda$run$0$com-example-pathexplorer-MainActivity$1()>()"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r1.<com.example.pathexplorer.MainActivity$1: void lambda$run$0$com-example-pathexplorer-MainActivity$1()>()",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0",
+          "successors": [
+            "$r1 = r0.<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity$1 f$0>"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void lambda$onCreate$2$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void lambda$onCreate$2$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>($r1, $r2)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "$r3 := @parameter2: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 3",
+          "successors": [
+            "specialinvoke r0.<com.example.pathexplorer.MainActivity: void showSubChoiceLayout(android.view.View,android.view.View)>($r1, $r2)"
+          ]
+        },
+        {
+          "unit": "$r3 := @parameter2: android.view.View",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 3"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r2 := @parameter1: android.view.View",
+          "successors": [
+            "$r3 := @parameter2: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity f$0> = $r1"
+          ]
+        },
+        {
+          "unit": "$r3 := @parameter2: android.view.View",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity f$0> = $r1",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$1> = $r2"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$1> = $r2",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$2> = $r3"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r2 := @parameter1: android.view.View"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$2> = $r3",
+          "successors": [
+            "return"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void setIntent(android.content.Intent)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void setIntent(android.content.Intent)>",
+      "entryPoint": "this := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "this := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "parameter0 := @parameter0: android.content.Intent"
+          ]
+        },
+        {
+          "unit": "parameter0 := @parameter0: android.content.Intent",
+          "successors": [
+            "this.<com.example.pathexplorer.MainActivity: android.content.Intent ipcIntent> = parameter0"
+          ]
+        },
+        {
+          "unit": "this.<com.example.pathexplorer.MainActivity: android.content.Intent ipcIntent> = parameter0",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void <init>(com.example.pathexplorer.MainActivity)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void <init>(com.example.pathexplorer.MainActivity)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: com.example.pathexplorer.MainActivity f$0> = $r1",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: com.example.pathexplorer.MainActivity f$0> = $r1"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$1: void <init>(com.example.pathexplorer.MainActivity)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$1: void <init>(com.example.pathexplorer.MainActivity)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$1",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$1",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$1: com.example.pathexplorer.MainActivity this$0> = $r1"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<java.util.TimerTask: void <init>()>()",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$1: com.example.pathexplorer.MainActivity this$0> = $r1",
+          "successors": [
+            "specialinvoke r0.<java.util.TimerTask: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$1: void run()>": {
+      "signature": "<com.example.pathexplorer.MainActivity$1: void run()>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$1",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "specialinvoke $r2.<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity$1)>(r0)",
+          "successors": [
+            "virtualinvoke $r1.<com.example.pathexplorer.MainActivity: void runOnUiThread(java.lang.Runnable)>($r2)"
+          ]
+        },
+        {
+          "unit": "$r2 = new com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0",
+          "successors": [
+            "specialinvoke $r2.<com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity$1)>(r0)"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$1",
+          "successors": [
+            "$r1 = r0.<com.example.pathexplorer.MainActivity$1: com.example.pathexplorer.MainActivity this$0>"
+          ]
+        },
+        {
+          "unit": "$r1 = r0.<com.example.pathexplorer.MainActivity$1: com.example.pathexplorer.MainActivity this$0>",
+          "successors": [
+            "$r2 = new com.example.pathexplorer.MainActivity$1$$ExternalSyntheticLambda0"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r1.<com.example.pathexplorer.MainActivity: void runOnUiThread(java.lang.Runnable)>($r2)",
+          "successors": [
+            "return"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void lambda$executeSubPath$6$com-example-pathexplorer-MainActivity()>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void lambda$executeSubPath$6$com-example-pathexplorer-MainActivity()>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "virtualinvoke $r1.<android.widget.TextView: void append(java.lang.CharSequence)>(\"\\nHandler executed delayed task!\")"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 = r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r1.<android.widget.TextView: void append(java.lang.CharSequence)>(\"\\nHandler executed delayed task!\")",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void onCreate(android.os.Bundle)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void onCreate(android.os.Bundle)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "r9 = (android.widget.Button) $r4"
+          ]
+        },
+        {
+          "unit": "$r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0",
+          "successors": [
+            "specialinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)"
+          ]
+        },
+        {
+          "unit": "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "r8 = (android.widget.Button) $r4"
+          ]
+        },
+        {
+          "unit": "$r14 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+          "successors": [
+            "specialinvoke $r14.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r8.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r14)",
+          "successors": [
+            "$r15 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r10.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r16)",
+          "successors": [
+            "$r17 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5"
+          ]
+        },
+        {
+          "unit": "$r17 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+          "successors": [
+            "specialinvoke $r17.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>($r2, $r3)"
+          ]
+        },
+        {
+          "unit": "r7 = (android.widget.Button) $r4",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int button_path3>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r11.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r17)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int outputTextView>",
+          "successors": [
+            "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "r8 = (android.widget.Button) $r4",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int button_subpath1>"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int button_subpath1>",
+          "successors": [
+            "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int button_back>",
+          "successors": [
+            "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r12.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)",
+          "successors": [
+            "virtualinvoke r6.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r12)"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int button_path2>",
+          "successors": [
+            "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "r5 = (android.widget.TextView) $r4"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int button_path3>",
+          "successors": [
+            "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 := @parameter0: android.os.Bundle"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int layout_sub_choice>",
+          "successors": [
+            "$r3 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "r6 = (android.widget.Button) $r4",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int button_path2>"
+          ]
+        },
+        {
+          "unit": "r11 = (android.widget.Button) $r4",
+          "successors": [
+            "$r12 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$layout: int activity_main>",
+          "successors": [
+            "virtualinvoke r0.<com.example.pathexplorer.MainActivity: void setContentView(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "r5 = (android.widget.TextView) $r4",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView> = r5"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r16.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>(r0)",
+          "successors": [
+            "virtualinvoke r10.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r16)"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r17.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void <init>(android.view.View,android.view.View)>($r2, $r3)",
+          "successors": [
+            "virtualinvoke r11.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r17)"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView> = r5",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int button_path1>"
+          ]
+        },
+        {
+          "unit": "$r2 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int layout_sub_choice>"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)",
+          "successors": [
+            "virtualinvoke r7.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r13)"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int button_path1>",
+          "successors": [
+            "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "$r3 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int outputTextView>"
+          ]
+        },
+        {
+          "unit": "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "r10 = (android.widget.Button) $r4"
+          ]
+        },
+        {
+          "unit": "$r16 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4",
+          "successors": [
+            "specialinvoke $r16.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>(r0)"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r0.<com.example.pathexplorer.MainActivity: void setContentView(int)>(i0)",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int layout_first_choice>"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "virtualinvoke r7.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r13)",
+          "successors": [
+            "$r14 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2"
+          ]
+        },
+        {
+          "unit": "$r13 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1",
+          "successors": [
+            "specialinvoke $r13.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)"
+          ]
+        },
+        {
+          "unit": "$r15 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+          "successors": [
+            "specialinvoke $r15.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>(r0)"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int button_subpath2>",
+          "successors": [
+            "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "i0 = <com.example.pathexplorer.R$id: int layout_first_choice>",
+          "successors": [
+            "$r2 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1)",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$layout: int activity_main>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r6.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r12)",
+          "successors": [
+            "$r13 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda1"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.os.Bundle",
+          "successors": [
+            "specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1)"
+          ]
+        },
+        {
+          "unit": "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "r6 = (android.widget.Button) $r4"
+          ]
+        },
+        {
+          "unit": "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "r7 = (android.widget.Button) $r4"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r14.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void <init>(com.example.pathexplorer.MainActivity,android.view.View,android.view.View)>(r0, $r2, $r3)",
+          "successors": [
+            "virtualinvoke r8.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r14)"
+          ]
+        },
+        {
+          "unit": "r10 = (android.widget.Button) $r4",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int button_back>"
+          ]
+        },
+        {
+          "unit": "$r4 = virtualinvoke r0.<com.example.pathexplorer.MainActivity: android.view.View findViewById(int)>(i0)",
+          "successors": [
+            "r11 = (android.widget.Button) $r4"
+          ]
+        },
+        {
+          "unit": "specialinvoke $r15.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>(r0)",
+          "successors": [
+            "virtualinvoke r9.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r15)"
+          ]
+        },
+        {
+          "unit": "r9 = (android.widget.Button) $r4",
+          "successors": [
+            "i0 = <com.example.pathexplorer.R$id: int button_subpath2>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke r9.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r15)",
+          "successors": [
+            "$r16 = new com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void onClick(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: void onClick(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity f$0>"
+          ]
+        },
+        {
+          "unit": "$r4 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$2>",
+          "successors": [
+            "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$0$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$0$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$1>",
+          "successors": [
+            "$r4 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$2>"
+          ]
+        },
+        {
+          "unit": "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: com.example.pathexplorer.MainActivity f$0>",
+          "successors": [
+            "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda0: android.view.View f$1>"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void onClick(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: void onClick(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$1>",
+          "successors": [
+            "staticinvoke <com.example.pathexplorer.MainActivity: void lambda$onCreate$5(android.view.View,android.view.View,android.view.View)>($r2, $r3, $r1)"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$0>"
+          ]
+        },
+        {
+          "unit": "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$0>",
+          "successors": [
+            "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda5: android.view.View f$1>"
+          ]
+        },
+        {
+          "unit": "staticinvoke <com.example.pathexplorer.MainActivity: void lambda$onCreate$5(android.view.View,android.view.View,android.view.View)>($r2, $r3, $r1)",
+          "successors": [
+            "return"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void lambda$onCreate$4$com-example-pathexplorer-MainActivity(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void lambda$onCreate$4$com-example-pathexplorer-MainActivity(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "specialinvoke r0.<com.example.pathexplorer.MainActivity: void executeSubPath(int)>(2)"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<com.example.pathexplorer.MainActivity: void executeSubPath(int)>(2)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: android.widget.TextView '-$$Nest$fgetoutputTextView'(com.example.pathexplorer.MainActivity)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: android.widget.TextView '-$$Nest$fgetoutputTextView'(com.example.pathexplorer.MainActivity)>",
+      "entryPoint": "$r0 := @parameter0: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return r1"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r0 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "r1 = $r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>"
+          ]
+        },
+        {
+          "unit": "return r1",
+          "successors": []
+        },
+        {
+          "unit": "r1 = $r0.<com.example.pathexplorer.MainActivity: android.widget.TextView outputTextView>",
+          "successors": [
+            "return r1"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void onClick(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: void onClick(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: com.example.pathexplorer.MainActivity f$0>"
+          ]
+        },
+        {
+          "unit": "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$2$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$1>",
+          "successors": [
+            "$r4 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$2>"
+          ]
+        },
+        {
+          "unit": "$r4 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$2>",
+          "successors": [
+            "virtualinvoke $r2.<com.example.pathexplorer.MainActivity: void lambda$onCreate$2$com-example-pathexplorer-MainActivity(android.view.View,android.view.View,android.view.View)>($r3, $r4, $r1)"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r2 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: com.example.pathexplorer.MainActivity f$0>",
+          "successors": [
+            "$r3 = r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2: android.view.View f$1>"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda2",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void <init>()>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void <init>()>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 0",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity: int selectedPath> = 0"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: android.content.Intent getIntent()>": {
+      "signature": "<com.example.pathexplorer.MainActivity: android.content.Intent getIntent()>",
+      "entryPoint": "this := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return $r0"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "return $r0",
+          "successors": []
+        },
+        {
+          "unit": "this := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r0 = this.<com.example.pathexplorer.MainActivity: android.content.Intent ipcIntent>"
+          ]
+        },
+        {
+          "unit": "$r0 = this.<com.example.pathexplorer.MainActivity: android.content.Intent ipcIntent>",
+          "successors": [
+            "return $r0"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void setResult(int,android.content.Intent)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void setResult(int,android.content.Intent)>",
+      "entryPoint": "this := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "this.<com.example.pathexplorer.MainActivity: android.content.Intent ipcResultIntent> = parameter1",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "parameter1 := @parameter1: android.content.Intent",
+          "successors": [
+            "this.<com.example.pathexplorer.MainActivity: android.content.Intent ipcResultIntent> = parameter1"
+          ]
+        },
+        {
+          "unit": "this := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "parameter0 := @parameter0: int"
+          ]
+        },
+        {
+          "unit": "parameter0 := @parameter0: int",
+          "successors": [
+            "parameter1 := @parameter1: android.content.Intent"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity: void lambda$onCreate$3$com-example-pathexplorer-MainActivity(android.view.View)>": {
+      "signature": "<com.example.pathexplorer.MainActivity: void lambda$onCreate$3$com-example-pathexplorer-MainActivity(android.view.View)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "specialinvoke r0.<com.example.pathexplorer.MainActivity: void executeSubPath(int)>(1)",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "$r1 := @parameter0: android.view.View",
+          "successors": [
+            "specialinvoke r0.<com.example.pathexplorer.MainActivity: void executeSubPath(int)>(1)"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "$r1 := @parameter0: android.view.View"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: void <init>(com.example.pathexplorer.MainActivity)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: com.example.pathexplorer.MainActivity f$0> = $r1"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3: com.example.pathexplorer.MainActivity f$0> = $r1",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda3",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity"
+          ]
+        }
+      ]
+    },
+    "<dummyMainClass: void dummyMainMethod(java.lang.String[])>": {
+      "signature": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+      "entryPoint": "$r0 := @parameter0: java.lang.String[]",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "if $i0 == 0 goto (branch)",
+          "successors": [
+            "if $i0 == 2 goto (branch)",
+            "staticinvoke <dummyMainClass: androidx.startup.InitializationProvider dummyMainMethod_androidx_startup_InitializationProvider(android.content.Intent)>(null)"
+          ]
+        },
+        {
+          "unit": "staticinvoke <dummyMainClass: androidx.profileinstaller.ProfileInstallReceiver dummyMainMethod_androidx_profileinstaller_ProfileInstallReceiver(android.content.Intent)>(null)",
+          "successors": [
+            "if $i0 == 3 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 1 goto (branch)",
+          "successors": [
+            "if $i0 == 0 goto (branch)",
+            "if $i0 == 2 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 3 goto (branch)",
+          "successors": [
+            "if $i0 == 2 goto (branch)",
+            "if $i0 == 4 goto (branch)"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "staticinvoke <dummyMainClass: com.example.pathexplorer.MainActivity dummyMainMethod_com_example_pathexplorer_MainActivity(android.content.Intent)>(null)",
+          "successors": [
+            "if $i0 == 5 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 6 goto (branch)",
+          "successors": [
+            "if $i0 == 0 goto (branch)",
+            "return"
+          ]
+        },
+        {
+          "unit": "if $i0 == 2 goto (branch)",
+          "successors": [
+            "staticinvoke <dummyMainClass: androidx.profileinstaller.ProfileInstallReceiver dummyMainMethod_androidx_profileinstaller_ProfileInstallReceiver(android.content.Intent)>(null)",
+            "if $i0 == 4 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 4 goto (branch)",
+          "successors": [
+            "staticinvoke <dummyMainClass: com.example.pathexplorer.MainActivity dummyMainMethod_com_example_pathexplorer_MainActivity(android.content.Intent)>(null)",
+            "if $i0 == 6 goto (branch)"
+          ]
+        },
+        {
+          "unit": "if $i0 == 5 goto (branch)",
+          "successors": [
+            "if $i0 == 6 goto (branch)",
+            "if $i0 == 4 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$i0 = 0",
+          "successors": [
+            "if $i0 == 0 goto (branch)"
+          ]
+        },
+        {
+          "unit": "staticinvoke <dummyMainClass: androidx.startup.InitializationProvider dummyMainMethod_androidx_startup_InitializationProvider(android.content.Intent)>(null)",
+          "successors": [
+            "if $i0 == 1 goto (branch)"
+          ]
+        },
+        {
+          "unit": "$r0 := @parameter0: java.lang.String[]",
+          "successors": [
+            "$i0 = 0"
+          ]
+        }
+      ]
+    },
+    "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>": {
+      "signature": "<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: void <init>(com.example.pathexplorer.MainActivity)>",
+      "entryPoint": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4",
+      "exitPoints": [
+        "return"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "$r1 := @parameter0: com.example.pathexplorer.MainActivity",
+          "successors": [
+            "specialinvoke r0.<java.lang.Object: void <init>()>()"
+          ]
+        },
+        {
+          "unit": "return",
+          "successors": []
+        },
+        {
+          "unit": "specialinvoke r0.<java.lang.Object: void <init>()>()",
+          "successors": [
+            "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: com.example.pathexplorer.MainActivity f$0> = $r1"
+          ]
+        },
+        {
+          "unit": "r0.<com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4: com.example.pathexplorer.MainActivity f$0> = $r1",
+          "successors": [
+            "return"
+          ]
+        },
+        {
+          "unit": "r0 := @this: com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda4",
+          "successors": [
+            "$r1 := @parameter0: com.example.pathexplorer.MainActivity"
+          ]
+        }
+      ]
+    },
+    "<androidx.profileinstaller.ProfileInstallReceiver: android.content.Intent getIntent()>": {
+      "signature": "<androidx.profileinstaller.ProfileInstallReceiver: android.content.Intent getIntent()>",
+      "entryPoint": "this := @this: androidx.profileinstaller.ProfileInstallReceiver",
+      "exitPoints": [
+        "return $r0"
+      ],
+      "basicBlocks": [
+        {
+          "unit": "return $r0",
+          "successors": []
+        },
+        {
+          "unit": "$r0 = this.<androidx.profileinstaller.ProfileInstallReceiver: android.content.Intent ipcIntent>",
+          "successors": [
+            "return $r0"
+          ]
+        },
+        {
+          "unit": "this := @this: androidx.profileinstaller.ProfileInstallReceiver",
+          "successors": [
+            "$r0 = this.<androidx.profileinstaller.ProfileInstallReceiver: android.content.Intent ipcIntent>"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+Analysis for method: <com.example.pathexplorer.MainActivity: void <init>()>
+=====================================
+
+Execution Paths Analysis
+======================
+
+Path 1:
+  Conditions and Branches:
+
+--------------------------------------------------
+
+
+Path Analysis Summary:
+Total Paths: 1
+Async Paths: 0

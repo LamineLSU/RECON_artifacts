@@ -1,0 +1,9 @@
+Simplified Basic Block Analysis Report
+===================================
+
+Method: <com.example.pathexplorer.MainActivity$$ExternalSyntheticLambda6: void run()>
+Analysis: Treated as single basic block
+Entry point: Method start
+Exit point: Method end
+
+Note: Detailed path analysis skipped for synthetic/synthetic-like methods

@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+  <graph mode="static" defaultedgetype="directed">
+    <attributes class="node">
+      <attribute id="lifecycle" title="Lifecycle Method" type="string"/>
+      <attribute id="component" title="Component Type" type="string"/>
+      <attribute id="resources" title="Resources" type="string"/>
+      <attribute id="hasBundle" title="Has Bundle Args" type="boolean"/>
+    </attributes>
+    <nodes>
+      <node id="onBind__com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent___0" label="ENTRY\nAppComponentManagerService\n[onBind]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onBind"/>
+          <attvalue for="component" value="Service"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onBind__com_facebook_appcomponentmanager_AppComponentManagerService__android_os_IBinder_onBind_android_content_Intent___1" label="EXIT\nAppComponentManagerService\n[onBind]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onBind"/>
+          <attvalue for="component" value="Service"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___0" label="ENTRY\n000">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___2" label="Alloc: java.io.File">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___1" label="EXIT\n000">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___4" label="Alloc: java.io.File">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___3" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___6" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___5" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="equals__java_lang_String__boolean_equals_java_lang_Object___2" label="Alloc: java.lang.RuntimeException">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="equals__java_lang_String__boolean_equals_java_lang_Object___1" label="EXIT\nString">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="equals__java_lang_String__boolean_equals_java_lang_Object___0" label="ENTRY\nString">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="equals__java_lang_String__boolean_equals_java_lang_Object___3" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___0" label="ENTRY\n04H">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___2" label="IF_CONDITION">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___1" label="EXIT\n04H">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___4" label="Alloc: java.lang.StringBuilder">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___3" label="IF_CONDITION">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___6" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___5" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___8" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___7" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_08G__long_A00____1" label="EXIT\n08G">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_08G__long_A00____0" label="ENTRY\n08G">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___9" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="getIntent__com_facebook_lite_pretos_LiteAppComponentReceiver__android_content_Intent_getIntent____0" label="ENTRY\nLiteAppComponentReceiver">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___8" label="Call\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="getIntent__com_facebook_lite_pretos_LiteAppComponentReceiver__android_content_Intent_getIntent____1" label="EXIT\nLiteAppComponentReceiver">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___9" label="Call\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___6" label="IF_CONDITION\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___7" label="Alloc: android.content.Intent\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___4" label="IF_CONDITION\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___5" label="IF_CONDITION\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___2" label="Call\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="clinit__X_04T__void_clinit____4" label="Alloc: java.util.HashMap">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___3" label="IF_CONDITION\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="clinit__X_04T__void_clinit____5" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___0" label="ENTRY\nLiteAppComponentReceiver\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___1" label="EXIT\nLiteAppComponentReceiver\n[onReceive]">
+        <attvalues>
+          <attvalue for="lifecycle" value="onReceive"/>
+          <attvalue for="component" value="Receiver"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___11" label="Alloc: X.098">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___10" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___12" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___0" label="ENTRY\n098">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___2" label="Alloc: android.content.Intent">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___1" label="EXIT\n098">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___4" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="clinit__X_04T__void_clinit____2" label="Alloc: java.lang.Object">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___3" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="clinit__X_04T__void_clinit____3" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___6" label="IF_CONDITION">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="clinit__X_04T__void_clinit____0" label="ENTRY\n04T">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___5" label="IF_CONDITION">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___0" label="ENTRY\n04T">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="clinit__X_04T__void_clinit____1" label="EXIT\n04T">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___8" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_098__void_A04_android_content_Intent___7" label="IF_CONDITION">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___10" label="Alloc: java.lang.IllegalArgumentException">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A03__X_04H__void_A03_int___11" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_04I__void_A04_android_content_Intent___1" label="EXIT\n04I">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_04I__void_A04_android_content_Intent___2" label="Alloc: android.app.job.JobWorkItem">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_04I__void_A04_android_content_Intent___3" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_04I__void_A04_android_content_Intent___4" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___3" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___2" label="Alloc: java.io.File">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___1" label="EXIT\n000">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___0" label="ENTRY\n000">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___5" label="IF_CONDITION">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___6" label="Alloc: X.04I">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___7" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___8" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___1" label="EXIT\n04T">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___2" label="Alloc: android.content.ComponentName">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="getIntent__com_facebook_appcomponentmanager_AppComponentManagerService__android_content_Intent_getIntent____0" label="ENTRY\nAppComponentManagerService">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Service"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___3" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A04__X_04I__void_A04_android_content_Intent___0" label="ENTRY\n04I">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="getIntent__com_facebook_appcomponentmanager_AppComponentManagerService__android_content_Intent_getIntent____1" label="EXIT\nAppComponentManagerService">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Service"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___4" label="IF_CONDITION">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+      <node id="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___9" label="Call">
+        <attvalues>
+          <attvalue for="lifecycle" value=""/>
+          <attvalue for="component" value="Object"/>
+          <attvalue for="resources" value=""/>
+          <attvalue for="hasBundle" value="false"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___0" target="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___2" type="NORMAL"/>
+      <edge id="1" source="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___2" target="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___3" type="NORMAL"/>
+      <edge id="2" source="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___4" target="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___5" type="NORMAL"/>
+      <edge id="3" source="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___3" target="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___4" type="METHOD_CALL"/>
+      <edge id="4" source="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___6" target="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___1" type="METHOD_CALL"/>
+      <edge id="5" source="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___5" target="A02__X_000__java_io_File_A02_android_content_Context_java_lang_String___6" type="METHOD_CALL"/>
+      <edge id="6" source="equals__java_lang_String__boolean_equals_java_lang_Object___2" target="equals__java_lang_String__boolean_equals_java_lang_Object___3" type="NORMAL"/>
+      <edge id="7" source="equals__java_lang_String__boolean_equals_java_lang_Object___0" target="equals__java_lang_String__boolean_equals_java_lang_Object___2" type="NORMAL"/>
+      <edge id="8" source="equals__java_lang_String__boolean_equals_java_lang_Object___3" target="equals__java_lang_String__boolean_equals_java_lang_Object___1" type="METHOD_CALL"/>
+      <edge id="9" source="A03__X_04H__void_A03_int___0" target="A03__X_04H__void_A03_int___2" type="NORMAL"/>
+      <edge id="10" source="A03__X_04H__void_A03_int___2" target="A03__X_04H__void_A03_int___3" type="NORMAL"/>
+      <edge id="11" source="A03__X_04H__void_A03_int___2" target="A03__X_04H__void_A03_int___1" type="NORMAL"/>
+      <edge id="12" source="A03__X_04H__void_A03_int___4" target="A03__X_04H__void_A03_int___5" type="NORMAL"/>
+      <edge id="13" source="A03__X_04H__void_A03_int___3" target="A03__X_04H__void_A03_int___4" type="NORMAL"/>
+      <edge id="14" source="A03__X_04H__void_A03_int___3" target="A03__X_04H__void_A03_int___1" type="NORMAL"/>
+      <edge id="15" source="A03__X_04H__void_A03_int___6" target="A03__X_04H__void_A03_int___7" type="METHOD_CALL"/>
+      <edge id="16" source="A03__X_04H__void_A03_int___5" target="A03__X_04H__void_A03_int___6" type="METHOD_CALL"/>
+      <edge id="17" source="A03__X_04H__void_A03_int___8" target="A03__X_04H__void_A03_int___9" type="METHOD_CALL"/>
+      <edge id="18" source="A03__X_04H__void_A03_int___7" target="A03__X_04H__void_A03_int___8" type="METHOD_CALL"/>
+      <edge id="19" source="A03__X_04H__void_A03_int___9" target="A03__X_04H__void_A03_int___10" type="METHOD_CALL"/>
+      <edge id="20" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___8" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___9" type="METHOD_CALL"/>
+      <edge id="21" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___6" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___7" type="NORMAL"/>
+      <edge id="22" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___7" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___8" type="NORMAL"/>
+      <edge id="23" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___4" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___6" type="NORMAL"/>
+      <edge id="24" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___4" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___5" type="NORMAL"/>
+      <edge id="25" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___5" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___7" type="NORMAL"/>
+      <edge id="26" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___5" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___6" type="NORMAL"/>
+      <edge id="27" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___2" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___3" type="METHOD_CALL"/>
+      <edge id="28" source="clinit__X_04T__void_clinit____4" target="clinit__X_04T__void_clinit____5" type="NORMAL"/>
+      <edge id="29" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___3" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___4" type="NORMAL"/>
+      <edge id="30" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___3" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___1" type="NORMAL"/>
+      <edge id="31" source="clinit__X_04T__void_clinit____5" target="clinit__X_04T__void_clinit____1" type="METHOD_CALL"/>
+      <edge id="32" source="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___0" target="onReceive__com_facebook_lite_pretos_LiteAppComponentReceiver__void_onReceive_android_content_Context_android_content_Intent___2" type="NORMAL"/>
+      <edge id="33" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___11" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___12" type="NORMAL"/>
+      <edge id="34" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___10" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___1" type="METHOD_CALL"/>
+      <edge id="35" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___12" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___8" type="METHOD_CALL"/>
+      <edge id="36" source="A04__X_098__void_A04_android_content_Intent___0" target="A04__X_098__void_A04_android_content_Intent___2" type="NORMAL"/>
+      <edge id="37" source="A04__X_098__void_A04_android_content_Intent___2" target="A04__X_098__void_A04_android_content_Intent___3" type="NORMAL"/>
+      <edge id="38" source="A04__X_098__void_A04_android_content_Intent___4" target="A04__X_098__void_A04_android_content_Intent___5" type="METHOD_CALL"/>
+      <edge id="39" source="clinit__X_04T__void_clinit____2" target="clinit__X_04T__void_clinit____3" type="NORMAL"/>
+      <edge id="40" source="A04__X_098__void_A04_android_content_Intent___3" target="A04__X_098__void_A04_android_content_Intent___4" type="METHOD_CALL"/>
+      <edge id="41" source="clinit__X_04T__void_clinit____3" target="clinit__X_04T__void_clinit____4" type="METHOD_CALL"/>
+      <edge id="42" source="A04__X_098__void_A04_android_content_Intent___6" target="A04__X_098__void_A04_android_content_Intent___7" type="NORMAL"/>
+      <edge id="43" source="A04__X_098__void_A04_android_content_Intent___6" target="A04__X_098__void_A04_android_content_Intent___1" type="NORMAL"/>
+      <edge id="44" source="clinit__X_04T__void_clinit____0" target="clinit__X_04T__void_clinit____2" type="NORMAL"/>
+      <edge id="45" source="A04__X_098__void_A04_android_content_Intent___5" target="A04__X_098__void_A04_android_content_Intent___6" type="NORMAL"/>
+      <edge id="46" source="A04__X_098__void_A04_android_content_Intent___5" target="A04__X_098__void_A04_android_content_Intent___1" type="NORMAL"/>
+      <edge id="47" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___0" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___2" type="NORMAL"/>
+      <edge id="48" source="A04__X_098__void_A04_android_content_Intent___7" target="A04__X_098__void_A04_android_content_Intent___8" type="NORMAL"/>
+      <edge id="49" source="A03__X_04H__void_A03_int___10" target="A03__X_04H__void_A03_int___11" type="NORMAL"/>
+      <edge id="50" source="A03__X_04H__void_A03_int___11" target="A03__X_04H__void_A03_int___1" type="METHOD_CALL"/>
+      <edge id="51" source="A04__X_04I__void_A04_android_content_Intent___2" target="A04__X_04I__void_A04_android_content_Intent___3" type="NORMAL"/>
+      <edge id="52" source="A04__X_04I__void_A04_android_content_Intent___3" target="A04__X_04I__void_A04_android_content_Intent___4" type="METHOD_CALL"/>
+      <edge id="53" source="A04__X_04I__void_A04_android_content_Intent___4" target="A04__X_04I__void_A04_android_content_Intent___1" type="METHOD_CALL"/>
+      <edge id="54" source="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___3" target="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___1" type="METHOD_CALL"/>
+      <edge id="55" source="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___2" target="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___3" type="NORMAL"/>
+      <edge id="56" source="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___0" target="A04__X_000__java_io_File_A04_java_io_File_java_lang_String___2" type="NORMAL"/>
+      <edge id="57" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___5" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___6" type="NORMAL"/>
+      <edge id="58" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___5" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___11" type="NORMAL"/>
+      <edge id="59" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___6" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___7" type="NORMAL"/>
+      <edge id="60" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___7" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___8" type="METHOD_CALL"/>
+      <edge id="61" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___8" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___9" type="METHOD_CALL"/>
+      <edge id="62" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___2" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___3" type="NORMAL"/>
+      <edge id="63" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___3" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___4" type="METHOD_CALL"/>
+      <edge id="64" source="A04__X_04I__void_A04_android_content_Intent___0" target="A04__X_04I__void_A04_android_content_Intent___2" type="NORMAL"/>
+      <edge id="65" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___4" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___9" type="NORMAL"/>
+      <edge id="66" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___4" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___5" type="NORMAL"/>
+      <edge id="67" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___4" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___1" type="NORMAL"/>
+      <edge id="68" source="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___9" target="A00__X_04T__void_A00_android_content_Context_android_content_Intent_java_lang_Class_int___10" type="METHOD_CALL"/>
+    </edges>
+  </graph>
+</gexf>

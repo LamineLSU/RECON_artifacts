@@ -1,0 +1,17 @@
+Analysis for method: <com.example.intchecker.MainActivity: void checkNumber()>
+=====================================
+
+Method Analysis Report
+=====================
+
+Method: <com.example.intchecker.MainActivity: void checkNumber()>
+Declaring Class: com.example.intchecker.MainActivity
+Return Type: void
+
+Branch Conditions:
+  Branch[1342700454]: i1 != 0 -> true (Type: if)
+  Branch[1294337444]: $z0 == 0 -> true (Type: if)
+  Branch[2048332259]: $i0 <= 10 -> true (Type: if)
+  Branch[1702087302]: $i0 <= 0 -> true (Type: if)
+  Branch[603918502]: $i0 != 0 -> true (Type: if)
+  Branch[268080710]: $i0 >= 0 -> true (Type: if)

@@ -1,0 +1,307 @@
+digraph AppCFG {
+  rankdir=TB;
+  node [shape=box, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=8];
+
+  subgraph cluster_onCreate {
+    label="onCreate";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "onCreate_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\n$r3 := @parameter0: android.os.Bundle\nspecialinvoke r0.\<b.l: void onCreate(...\n... (3 more)\n", style=filled, fillcolor=white];
+    "onCreate_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\n$r2 := @parameter0: android.os.Bundle\nspecialinvoke r0.\<b.l: void onCreate(...\n... (14 more)\n", style=filled, fillcolor=white];
+    "onCreate_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\nspecialinvoke r0.\<android.app.Applica...\n$r1 = \<l4.a: l4.a a\>\n... (3 more)\n", style=filled, fillcolor=white];
+    "onCreate_1" [label="Block 1\n---\n$i0 = virtualinvoke $r5.\<java.lang.St...\n$r6 = null\nlookupswitch($i0) {     case -1173683...\n", style=filled, fillcolor=white];
+    "onCreate_1" [label="Block 1\n---\n$r3 = new k4.a\n", style=filled, fillcolor=white];
+    "onCreate_2" [label="Block 2\n---\n$z0 = virtualinvoke $r5.\<java.lang.St...\nif $z0 == 0 goto virtualinvoke r0.\<co...\n", style=filled, fillcolor=white];
+    "onCreate_2" [label="Block 2\n---\nspecialinvoke $r3.\<k4.a: void \<init\>(...\n", style=filled, fillcolor=white];
+    "onCreate_3" [label="Block 3\n---\n$r4 = virtualinvoke r0.\<android.app.A...\n$r6 = virtualinvoke $r4.\<android.cont...\n$z0 = staticinvoke \<l3.j: boolean a(j...\n... (1 more)\n", style=filled, fillcolor=white];
+    "onCreate_3" [label="Block 3\n---\n$r4 = \<l4.a: A.b0 b\>\n", style=filled, fillcolor=white];
+    "onCreate_4" [label="Block 4\n---\n$r7 = r0.\<com.farmerbb.notepad.androi...\n$r8 = interfaceinvoke $r7.\<Y2.d: java...\n$r9 = (w2.F) $r8\n... (11 more)\n", style=filled, fillcolor=white];
+    "onCreate_4" [label="Block 4\n---\nif $r4 != null goto $r6 = new n4.b\n", style=filled, fillcolor=white];
+    "onCreate_5" [label="Block 5\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_5" [label="Block 5\n---\n$r4 = $r3.\<k4.a: A.b0 a\>\n", style=filled, fillcolor=white];
+    "onCreate_6" [label="Block 6\n---\n$z0 = virtualinvoke $r5.\<java.lang.St...\nif $z0 == 0 goto virtualinvoke r0.\<co...\n", style=filled, fillcolor=white];
+    "onCreate_6" [label="Block 6\n---\n\<l4.a: A.b0 b\> = $r4\n", style=filled, fillcolor=white];
+    "onCreate_7" [label="Block 7\n---\n$r4 = virtualinvoke r0.\<android.app.A...\n$r5 = virtualinvoke $r4.\<android.cont...\n$z0 = staticinvoke \<l3.j: boolean a(j...\n... (1 more)\n", style=filled, fillcolor=white];
+    "onCreate_7" [label="Block 7\n---\nvirtualinvoke $r2.\<m2.c: java.lang.Ob...\n", style=filled, fillcolor=white];
+    "onCreate_8" [label="Block 8\n---\n$r4 = $r3.\<k4.a: A.b0 a\>\n", style=filled, fillcolor=white];
+    "onCreate_8" [label="Block 8\n---\n$r4 = virtualinvoke r0.\<android.app.A...\n$r5 = virtualinvoke $r4.\<android.cont...\nif $r5 == null goto (branch)\n", style=filled, fillcolor=white];
+    "onCreate_9" [label="Block 9\n---\nvirtualinvoke $r4.\<A.b0: void f()\>()\n", style=filled, fillcolor=white];
+    "onCreate_9" [label="Block 9\n---\n$r4 = virtualinvoke r0.\<android.app.A...\n$r6 = virtualinvoke $r4.\<android.cont...\nif $r6 != null goto $r12 = new java.l...\n", style=filled, fillcolor=white];
+    "onCreate_10" [label="Block 10\n---\n$r6 = $r5\ngoto [?= (branch)]\n", style=filled, fillcolor=white];
+    "onCreate_10" [label="Block 10\n---\nexitmonitor $r1\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_11" [label="Block 11\n---\n$r12 = new java.lang.StringBuilder\nspecialinvoke $r12.\<java.lang.StringB...\nvirtualinvoke $r12.\<java.lang.StringB...\n... (5 more)\n", style=filled, fillcolor=white];
+    "onCreate_11" [label="Block 11\n---\n$r5 := @caughtexception\ngoto [?= exitmonitor $r1]\n", style=filled, fillcolor=white];
+    "onCreate_12" [label="Block 12\n---\nif $r6 == null goto virtualinvoke r0....\n", style=filled, fillcolor=white];
+    "onCreate_12" [label="Block 12\n---\n$r6 = new n4.b\n", style=filled, fillcolor=white];
+    "onCreate_13" [label="Block 13\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_13" [label="Block 13\n---\nspecialinvoke $r6.\<java.lang.Exceptio...\n", style=filled, fillcolor=white];
+    "onCreate_14" [label="Block 14\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_14" [label="Block 14\n---\nthrow $r6\n", style=filled, fillcolor=white];
+    "onCreate_15" [label="Block 15\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_15" [label="Block 15\n---\nexitmonitor $r1\nthrow $r5\n", style=filled, fillcolor=white];
+    "onCreate_16" [label="Block 16\n---\n$z0 = virtualinvoke $r5.\<java.lang.St...\nif $z0 == 0 goto virtualinvoke r0.\<co...\n", style=filled, fillcolor=white];
+    "onCreate_17" [label="Block 17\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_18" [label="Block 18\n---\n$z0 = virtualinvoke $r5.\<java.lang.St...\nif $z0 == 0 goto virtualinvoke r0.\<co...\n", style=filled, fillcolor=white];
+    "onCreate_19" [label="Block 19\n---\n$r4 = virtualinvoke r0.\<android.app.A...\n$r6 = virtualinvoke $r4.\<android.cont...\n$z0 = staticinvoke \<l3.j: boolean a(j...\n... (1 more)\n", style=filled, fillcolor=white];
+    "onCreate_20" [label="Block 20\n---\n$r4 = virtualinvoke r0.\<android.app.A...\n$r6 = virtualinvoke $r4.\<android.cont...\nif $r6 == null goto virtualinvoke r0....\n", style=filled, fillcolor=white];
+    "onCreate_21" [label="Block 21\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_22" [label="Block 22\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_23" [label="Block 23\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+    "onCreate_24" [label="Block 24\n---\nvirtualinvoke r0.\<com.farmerbb.notepa...\nreturn\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_h {
+    label="h";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "h_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\n$r1 = staticinvoke \<android.widget.To...\nvirtualinvoke $r1.\<android.widget.Toa...\n... (2 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_i {
+    label="i";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "i_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\n$r2 := @parameter0: java.lang.String\n$r1 = new m2.e\n... (5 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_onStart {
+    label="onStart";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "onStart_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\nspecialinvoke r0.\<android.app.Activit...\n$r3 = r0.\<com.farmerbb.notepad.androi...\n... (9 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_onStop {
+    label="onStop";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "onStop_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\nspecialinvoke r0.\<android.app.Activit...\n$z0 = virtualinvoke r0.\<android.app.A...\n... (1 more)\n", style=filled, fillcolor=white];
+    "onStop_1" [label="Block 1\n---\n$r2 = r0.\<com.farmerbb.notepad.androi...\n$r3 = interfaceinvoke $r2.\<Y2.d: java...\n$r4 = (w2.F) $r3\n... (3 more)\n", style=filled, fillcolor=white];
+    "onStop_2" [label="Block 2\n---\nreturn\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_getIntent {
+    label="getIntent";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "getIntent_0" [label="Block 0\n---\nthis := @this: com.farmerbb.notepad.a...\n$r0 = this.\<com.farmerbb.notepad.andr...\nreturn $r0\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_onDestroy {
+    label="onDestroy";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "onDestroy_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\nspecialinvoke r0.\<android.app.Activit...\n$r1 = r0.\<com.farmerbb.notepad.androi...\n... (2 more)\n", style=filled, fillcolor=white];
+  }
+
+  subgraph cluster_onActivityResult {
+    label="onActivityResult";
+    style=filled;
+    fillcolor=lightgray;
+    fontsize=12;
+    fontname="Arial Bold";
+
+    "onActivityResult_0" [label="Block 0\n---\nr0 := @this: com.farmerbb.notepad.and...\n$i0 := @parameter0: int\n$i1 := @parameter1: int\n... (10 more)\n", style=filled, fillcolor=white];
+    "onActivityResult_1" [label="Block 1\n---\n$r9 = new java.lang.StringBuilder\nspecialinvoke $r9.\<java.lang.StringBu...\nvirtualinvoke $r9.\<java.lang.StringBu...\n... (3 more)\n", style=filled, fillcolor=white];
+    "onActivityResult_2" [label="Block 2\n---\n$r3 = $r5.\<x2.a: y2.b d\>\n", style=filled, fillcolor=white];
+    "onActivityResult_3" [label="Block 3\n---\nif $r3 != null goto $z0 = $r8 instanc...\n", style=filled, fillcolor=white];
+    "onActivityResult_4" [label="Block 4\n---\nstaticinvoke \<android.util.Log: int d...\n", style=filled, fillcolor=white];
+    "onActivityResult_5" [label="Block 5\n---\n$r6 = staticinvoke \<java.lang.Integer...\nvirtualinvoke $r2.\<java.util.HashMap:...\nreturn\n", style=filled, fillcolor=white];
+    "onActivityResult_6" [label="Block 6\n---\n$r10 := @caughtexception\ngoto [?= $r6 = staticinvoke \<java.lan...\n", style=filled, fillcolor=white];
+    "onActivityResult_7" [label="Block 7\n---\n$z0 = $r8 instanceof u2.b\n", style=filled, fillcolor=white];
+    "onActivityResult_8" [label="Block 8\n---\nif $z0 == 0 goto $z0 = $r8 instanceof...\n", style=filled, fillcolor=white];
+    "onActivityResult_9" [label="Block 9\n---\n$r11 = (u2.b) $r8\n", style=filled, fillcolor=white];
+    "onActivityResult_10" [label="Block 10\n---\nvirtualinvoke $r5.\<x2.a: void a(u2.b,...\n", style=filled, fillcolor=white];
+    "onActivityResult_11" [label="Block 11\n---\ngoto [?= $r6 = staticinvoke \<java.lan...\n", style=filled, fillcolor=white];
+    "onActivityResult_12" [label="Block 12\n---\n$z0 = $r8 instanceof u2.a\n", style=filled, fillcolor=white];
+    "onActivityResult_13" [label="Block 13\n---\nif $z0 == 0 goto $z0 = $r8 instanceof...\n", style=filled, fillcolor=white];
+    "onActivityResult_14" [label="Block 14\n---\n$r12 = (u2.a) $r8\n", style=filled, fillcolor=white];
+    "onActivityResult_15" [label="Block 15\n---\nstaticinvoke \<x2.a: void c(u2.a,int,a...\n", style=filled, fillcolor=white];
+    "onActivityResult_16" [label="Block 16\n---\ngoto [?= $r6 = staticinvoke \<java.lan...\n", style=filled, fillcolor=white];
+    "onActivityResult_17" [label="Block 17\n---\n$z0 = $r8 instanceof u2.c\n", style=filled, fillcolor=white];
+    "onActivityResult_18" [label="Block 18\n---\nif $z0 == 0 goto $r14 = new java.lang...\n", style=filled, fillcolor=white];
+    "onActivityResult_19" [label="Block 19\n---\n$r13 = (u2.c) $r8\n", style=filled, fillcolor=white];
+    "onActivityResult_20" [label="Block 20\n---\nstaticinvoke \<x2.a: void b(u2.c,int,a...\n", style=filled, fillcolor=white];
+    "onActivityResult_21" [label="Block 21\n---\ngoto [?= $r6 = staticinvoke \<java.lan...\n", style=filled, fillcolor=white];
+    "onActivityResult_22" [label="Block 22\n---\n$r14 = new java.lang.IllegalArgumentE...\n", style=filled, fillcolor=white];
+    "onActivityResult_23" [label="Block 23\n---\n$r15 = virtualinvoke $r8.\<java.lang.O...\n", style=filled, fillcolor=white];
+    "onActivityResult_24" [label="Block 24\n---\n$r16 = virtualinvoke $r15.\<java.lang....\n", style=filled, fillcolor=white];
+    "onActivityResult_25" [label="Block 25\n---\n$r1 = virtualinvoke $r1.\<java.lang.St...\n", style=filled, fillcolor=white];
+    "onActivityResult_26" [label="Block 26\n---\nspecialinvoke $r14.\<java.lang.Illegal...\n", style=filled, fillcolor=white];
+    "onActivityResult_27" [label="Block 27\n---\nthrow $r14\n", style=filled, fillcolor=white];
+    "onActivityResult_28" [label="Block 28\n---\n$r6 = staticinvoke \<java.lang.Integer...\nvirtualinvoke $r2.\<java.util.HashMap:...\nthrow $r10\n", style=filled, fillcolor=white];
+  }
+
+  // Edges
+  "onCreate_20" -> "onCreate_22" [color=blue, label="succ"];
+  "onCreate_20" -> "onCreate_21" [color=blue, label="succ"];
+  "onCreate_24" -> "h_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_23" -> "h_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_22" -> "h_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_21" -> "i_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_8" -> "onCreate_9" [color=blue, label="succ"];
+  "onCreate_8" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_9" -> "onCreate_10" [color=blue, label="succ"];
+  "onCreate_9" -> "onCreate_11" [color=blue, label="succ"];
+  "h_0" -> "onCreate_5" [color=green, style=dashed, label="RETURN"];
+  "h_0" -> "onCreate_24" [color=green, style=dashed, label="RETURN"];
+  "h_0" -> "onCreate_23" [color=green, style=dashed, label="RETURN"];
+  "h_0" -> "onCreate_22" [color=green, style=dashed, label="RETURN"];
+  "h_0" -> "onCreate_15" [color=green, style=dashed, label="RETURN"];
+  "h_0" -> "onCreate_14" [color=green, style=dashed, label="RETURN"];
+  "i_0" -> "onCreate_13" [color=green, style=dashed, label="RETURN"];
+  "i_0" -> "onCreate_21" [color=green, style=dashed, label="RETURN"];
+  "i_0" -> "onCreate_17" [color=green, style=dashed, label="RETURN"];
+  "onCreate_0" -> "onCreate_24" [color=blue, label="succ"];
+  "onCreate_0" -> "onCreate_1" [color=blue, label="succ"];
+  "onCreate_2" -> "onCreate_24" [color=blue, label="succ"];
+  "onCreate_2" -> "onCreate_3" [color=blue, label="succ"];
+  "onCreate_1" -> "onCreate_6" [color=blue, label="succ"];
+  "onCreate_1" -> "onCreate_24" [color=blue, label="succ"];
+  "onCreate_1" -> "onCreate_16" [color=blue, label="succ"];
+  "onCreate_1" -> "onCreate_2" [color=blue, label="succ"];
+  "onCreate_1" -> "onCreate_18" [color=blue, label="succ"];
+  "onCreate_3" -> "onCreate_5" [color=blue, label="succ"];
+  "onCreate_3" -> "onCreate_4" [color=blue, label="succ"];
+  "onCreate_6" -> "onCreate_7" [color=blue, label="succ"];
+  "onCreate_6" -> "onCreate_24" [color=blue, label="succ"];
+  "onCreate_5" -> "h_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_8" -> "onCreate_9" [color=blue, label="succ"];
+  "onCreate_8" -> "onCreate_12" [color=blue, label="succ"];
+  "onCreate_7" -> "onCreate_8" [color=blue, label="succ"];
+  "onCreate_7" -> "onCreate_15" [color=blue, label="succ"];
+  "onCreate_13" -> "i_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_9" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_9" -> "onCreate_10" [color=blue, label="succ"];
+  "onCreate_12" -> "onCreate_13" [color=blue, label="succ"];
+  "onCreate_12" -> "onCreate_14" [color=blue, label="succ"];
+  "onCreate_11" -> "onCreate_12" [color=blue, label="succ"];
+  "onCreate_10" -> "onCreate_12" [color=blue, label="succ"];
+  "onCreate_17" -> "i_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_16" -> "onCreate_24" [color=blue, label="succ"];
+  "onCreate_16" -> "onCreate_17" [color=blue, label="succ"];
+  "onCreate_15" -> "h_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_14" -> "h_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onCreate_19" -> "onCreate_20" [color=blue, label="succ"];
+  "onCreate_19" -> "onCreate_23" [color=blue, label="succ"];
+  "onCreate_18" -> "onCreate_24" [color=blue, label="succ"];
+  "onCreate_18" -> "onCreate_19" [color=blue, label="succ"];
+  "onStop_1" -> "onStop_2" [color=blue, label="succ"];
+  "onCreate_14" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_13" -> "onCreate_14" [color=blue, label="succ"];
+  "onCreate_13" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_12" -> "onCreate_13" [color=blue, label="succ"];
+  "onCreate_12" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_11" -> "onCreate_15" [color=blue, label="succ"];
+  "onStop_0" -> "onStop_1" [color=blue, label="succ"];
+  "onStop_0" -> "onStop_2" [color=blue, label="succ"];
+  "getIntent_0" -> "onActivityResult_0" [color=green, style=dashed, label="RETURN"];
+  "onActivityResult_0" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_0" -> "onActivityResult_1" [color=blue, label="succ"];
+  "onActivityResult_0" -> "onActivityResult_2" [color=blue, label="succ"];
+  "onActivityResult_0" -> "getIntent_0" [color=red, style=bold, penwidth=2, label="CALL"];
+  "onActivityResult_6" -> "onActivityResult_28" [color=blue, label="succ"];
+  "onActivityResult_7" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_7" -> "onActivityResult_8" [color=blue, label="succ"];
+  "onActivityResult_8" -> "onActivityResult_9" [color=blue, label="succ"];
+  "onActivityResult_8" -> "onActivityResult_12" [color=blue, label="succ"];
+  "onActivityResult_8" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_2" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_2" -> "onActivityResult_3" [color=blue, label="succ"];
+  "onActivityResult_3" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_3" -> "onActivityResult_7" [color=blue, label="succ"];
+  "onActivityResult_3" -> "onActivityResult_4" [color=blue, label="succ"];
+  "onActivityResult_4" -> "onActivityResult_5" [color=blue, label="succ"];
+  "onActivityResult_4" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onCreate_0" -> "onCreate_1" [color=blue, label="succ"];
+  "onCreate_0" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_1" -> "onCreate_2" [color=blue, label="succ"];
+  "onCreate_1" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_2" -> "onCreate_3" [color=blue, label="succ"];
+  "onCreate_2" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_3" -> "onCreate_4" [color=blue, label="succ"];
+  "onCreate_3" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_4" -> "onCreate_5" [color=blue, label="succ"];
+  "onCreate_4" -> "onCreate_12" [color=blue, label="succ"];
+  "onCreate_4" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_5" -> "onCreate_6" [color=blue, label="succ"];
+  "onCreate_5" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_6" -> "onCreate_7" [color=blue, label="succ"];
+  "onCreate_6" -> "onCreate_11" [color=blue, label="succ"];
+  "onCreate_7" -> "onCreate_8" [color=blue, label="succ"];
+  "onCreate_7" -> "onCreate_11" [color=blue, label="succ"];
+  "onActivityResult_12" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_12" -> "onActivityResult_13" [color=blue, label="succ"];
+  "onActivityResult_13" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_13" -> "onActivityResult_17" [color=blue, label="succ"];
+  "onActivityResult_13" -> "onActivityResult_14" [color=blue, label="succ"];
+  "onActivityResult_10" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_10" -> "onActivityResult_11" [color=blue, label="succ"];
+  "onActivityResult_11" -> "onActivityResult_5" [color=blue, label="succ"];
+  "onActivityResult_16" -> "onActivityResult_5" [color=blue, label="succ"];
+  "onActivityResult_17" -> "onActivityResult_18" [color=blue, label="succ"];
+  "onActivityResult_17" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_14" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_14" -> "onActivityResult_15" [color=blue, label="succ"];
+  "onActivityResult_15" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_15" -> "onActivityResult_16" [color=blue, label="succ"];
+  "onActivityResult_18" -> "onActivityResult_19" [color=blue, label="succ"];
+  "onActivityResult_18" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_18" -> "onActivityResult_22" [color=blue, label="succ"];
+  "onActivityResult_19" -> "onActivityResult_20" [color=blue, label="succ"];
+  "onActivityResult_19" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_9" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_9" -> "onActivityResult_10" [color=blue, label="succ"];
+  "onActivityResult_20" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_20" -> "onActivityResult_21" [color=blue, label="succ"];
+  "onActivityResult_23" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_23" -> "onActivityResult_24" [color=blue, label="succ"];
+  "onActivityResult_24" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_24" -> "onActivityResult_25" [color=blue, label="succ"];
+  "onActivityResult_21" -> "onActivityResult_5" [color=blue, label="succ"];
+  "onActivityResult_22" -> "onActivityResult_23" [color=blue, label="succ"];
+  "onActivityResult_22" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_27" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_25" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_25" -> "onActivityResult_26" [color=blue, label="succ"];
+  "onActivityResult_26" -> "onActivityResult_6" [color=blue, label="succ"];
+  "onActivityResult_26" -> "onActivityResult_27" [color=blue, label="succ"];
+
+  // Legend
+  subgraph cluster_legend {
+    label="Legend";
+    style=filled;
+    fillcolor=white;
+    rankdir=LR;
+    
+    legend_succ [label="Successor", shape=plaintext];
+    legend_call [label="Method Call", shape=plaintext];
+    legend_return [label="Return", shape=plaintext];
+    
+    legend_succ -> legend_call [color=blue, label="succ"];
+    legend_call -> legend_return [color=red, style=bold, label="CALL"];
+    legend_return -> legend_succ [color=green, style=dashed, label="RETURN"];
+  }
+}

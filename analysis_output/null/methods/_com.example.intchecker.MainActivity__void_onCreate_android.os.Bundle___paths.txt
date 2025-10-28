@@ -1,0 +1,9 @@
+Analysis for method: <com.example.intchecker.MainActivity: void onCreate(android.os.Bundle)>
+=====================================
+
+Execution Paths Analysis
+======================
+
+Path 1:
+  Conditions:
+

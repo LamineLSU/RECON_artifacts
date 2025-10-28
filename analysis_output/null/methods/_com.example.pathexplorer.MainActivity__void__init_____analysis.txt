@@ -1,0 +1,11 @@
+Analysis for method: <com.example.pathexplorer.MainActivity: void <init>()>
+=====================================
+
+Method Analysis Report
+=====================
+
+Method: <com.example.pathexplorer.MainActivity: void <init>()>
+Declaring Class: com.example.pathexplorer.MainActivity
+Return Type: void
+
+Branch Conditions:

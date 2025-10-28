@@ -1,13 +1,24 @@
 package soot.jimple.infoflow.cmd;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.InputStreamReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.lang.String;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -19,12 +30,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import heros.InterproceduralCFG;
-import polyglot.visit.FlowGraph.Edge;
+import soot.jimple.toolkits.callgraph.Edge;
+import soot.jimple.Stmt;
 import soot.Body;
+import soot.Value;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.Unit;
+import soot.UnitBox;
+import soot.jimple.AssignStmt;
+import soot.jimple.GotoStmt;
+import soot.jimple.NewArrayExpr;
+import soot.jimple.NewExpr;
+import soot.jimple.NewMultiArrayExpr;
 import soot.jimple.infoflow.InfoflowConfiguration.AliasingAlgorithm;
 import soot.jimple.infoflow.InfoflowConfiguration.CallbackSourceMode;
 import soot.jimple.infoflow.InfoflowConfiguration.CallgraphAlgorithm;
@@ -41,6 +60,7 @@ import soot.jimple.infoflow.android.InfoflowAndroidConfiguration.CallbackAnalyze
 import soot.jimple.infoflow.android.SetupApplication;
 import soot.jimple.infoflow.android.config.XMLConfigurationParser;
 import soot.jimple.infoflow.android.resources.ARSCFileParser;
+import soot.jimple.infoflow.cmd.AllocationGraphAnalyzer.MethodAnalysisResult;
 import soot.jimple.infoflow.methodSummary.data.provider.LazySummaryProvider;
 import soot.jimple.infoflow.methodSummary.taintWrappers.ReportMissingSummaryWrapper;
 import soot.jimple.infoflow.methodSummary.taintWrappers.SummaryTaintWrapper;
@@ -53,9 +73,18 @@ import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.ide.icfg.JimpleBasedInterproceduralCFG;
 import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.DirectedGraph;
+import soot.toolkits.graph.ExceptionalUnitGraph;
+import soot.toolkits.graph.UnitGraph;
 import soot.tools.CFGViewer;
 import soot.util.HashMultiMap;
 import soot.util.MultiMap;
+import soot.jimple.infoflow.android.manifest.ProcessManifest;
+import soot.jimple.infoflow.android.entryPointCreators.*;
+import org.xmlpull.v1.XmlPullParserException;
+import soot.jimple.IfStmt;
+import soot.jimple.InvokeExpr;
+import soot.jimple.InvokeStmt;
+import soot.jimple.SwitchStmt;
 
 /**
  * Main class for running FlowDroid from the command-line
@@ -70,8 +99,18 @@ public class MainClass {
 	protected final Options options = new Options();
 	protected SetupApplication analyzer = null;
 	protected ReportMissingSummaryWrapper reportMissingSummaryWrapper;
-
+	public String appPackageName;
+	private static final int BATCH_SIZE = 50;
+	private static final long MIN_MEMORY_THRESHOLD = 100 * 1024 * 1024; // 100MB
 	protected Set<String> filesToSkip = new HashSet<>();
+	private CallGraph callGraph;
+	private String outputDir;
+	private static final String OUTPUT_DIR_BASE = "analysisOutput/";
+	private String appOutputDir;
+	private Map<String, AllocationNode> allNodes = new HashMap<>();
+	private Map<String, Set<String>> allEdges = new HashMap<>();
+	private Map<String, SootMethod> lambdaToOnClick = new HashMap<>();
+	private Set<String> processedOnClick = new HashSet<>();
 
 	// Files
 	private static final String OPTION_CONFIG_FILE = "c";
@@ -266,6 +305,10 @@ public class MainClass {
 		options.addOption(OPTION_CALLGRAPH_ONLY, "callgraphonly", false, "Only compute the callgraph and terminate");
 		options.addOption(OPTION_LENIENT_PARSING_MODE, "lenientparsing", false,
 				"Enables non-strict parsing, i.e. tries to continue rather than fail in case of a parsing error");
+		options.addOption("cg", "callgraph", true,
+				"Callgraph engine: cha | spark | none (default: cha)");
+		options.addOption(null, "wpa", false,
+				"Enable whole-program analysis (recommended)");
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -367,52 +410,230 @@ public class MainClass {
 					}
 				}
 
-				// com.example.unchecked
-
 				// Create the data flow analyzer
 				analyzer = createFlowDroidInstance(config);
+
 				analyzer.constructCallgraph();
-
 				CallGraph cg = Scene.v().getCallGraph();
+				System.out.println("Call graph constructed with " + cg.size() + " edges");
 
-				// Display the call graph using Soot's CFGViewer
-				// CFGViewer viewer = new CFGViewer();
-				// viewer.display(cg);
+				// analyzer.constructCallgraph();
 
-				InfoflowCFG icfg = new InfoflowCFG();
-				InterproceduralCFG jcfg = new JimpleBasedInterproceduralCFG();
+				String apkPath = cmd.getOptionValue(OPTION_APK_FILE);
 
-				for (soot.jimple.toolkits.callgraph.Edge edge : cg) {
-					SootMethod smSrc = edge.src();
-					Unit uSrc = edge.srcStmt();
-					SootMethod smDest = edge.tgt();
-					// System.out.println("Edge from " + uSrc + " in " + smSrc + " to " + smDest);
+				appPackageName = getPackageName(apkPath);
 
-					if (smSrc.hasActiveBody()) {
-						// if (smDest.toString().contains("android.view.View")) continue;
-						DirectedGraph<Unit> dg = icfg.getOrCreateUnitGraph(smSrc);
-						System.out.println("Directed Graph:");
-						System.out.println(dg);
+				System.out.println(appPackageName);
+
+				try {
+
+					AppCFGAnalyzer blockCfgAnalyzer = new AppCFGAnalyzer(appPackageName);
+
+					blockCfgAnalyzer.analyze();
+
+					// Get entry point classes from manifest
+					Set<String> entryClasses = getEntryPoints(apkPath);
+
+					System.out.println("=== Entry Point Classes from Manifest ===");
+					for (String className : entryClasses) {
+						System.out.println(className);
 					}
 
+					Set<SootClass> entrypoints = analyzer.getEntrypointClasses();
+					System.out.println("=== Entry Point Classes from Analyzer ===");
+					for (SootClass sClass : entrypoints) {
+						System.out.println("======================================================");
+						System.out.println(sClass.getName());
+						System.out.println("======================================================");
+						List<SootMethod> sootMethods = sClass.getMethods();
+						for (SootMethod sm : sootMethods) {
+							System.out.println(sm.getSignature());
+
+						}
+					}
+
+					AppLevelCFGBuilder builder = new AppLevelCFGBuilder(appPackageName);
+					// Automatically discover entry point methods
+					// Automatically discover entry point methods
+					Set<SootMethod> entryPoints = new HashSet<>();
+
+					// First, detect all app package prefixes
+					Set<String> appPackagePrefixes = new HashSet<>();
+					for (SootClass entryClass : analyzer.getEntrypointClasses()) {
+						String packageName = entryClass.getPackageName();
+						if (!isFrameworkPackage(packageName)) {
+							String rootPackage = getRootPackage(packageName);
+							appPackagePrefixes.add(rootPackage);
+						}
+					}
+
+					System.out.println("Detected app package prefixes: " + appPackagePrefixes);
+
+					// Then find entry point methods
+					for (SootClass entryClass : analyzer.getEntrypointClasses()) {
+						String componentType = determineComponentType(entryClass);
+
+						for (SootMethod method : entryClass.getMethods()) {
+							if (method.hasActiveBody() &&
+									isAppMethod(method, appPackagePrefixes) &&
+									isLikelyEntryPoint(method, componentType)) {
+
+								entryPoints.add(method);
+								System.out.println("Found entry point: " + method.getSignature());
+							}
+						}
+					}
+
+					builder.buildAppCFG(entryPoints);
+					// List<CompositePathBuilder.CompositePath> compositePaths =
+					// builder.buildCompositePaths(entryPoints);
+					// builder.printCompositePaths(compositePaths);
+					// builder.generateAngrGuidance(compositePaths, "angr_guidance_schoolApp.py");
+					String sanitizePackageName = appPackageName.replaceAll("[^a-zA-Z0-9._-]", "_");
+					String dotFileName = sanitizePackageName + "_cfg.dot";
+					String fileNameDot = sanitizePackageName + "SAG";
+
+					builder.generateDotVisualization(dotFileName);
+					// builder.printGraphVisualization();
+
+					// AppLevelPathFinder pathFinder = new
+					// AppLevelPathFinder(builder.getAppCFGNodes());
+					// pathFinder.findAllPaths(entryPoints);
+					// pathFinder.printAllPaths();
+
+					// Initialize the analyzer
+					AllocationGraphAnalyzer graphAnalyzer = new AllocationGraphAnalyzer();
+					AnalysisConfig llm_config = new AnalysisConfig(LLMProvider.OLLAMA,
+							"",
+							"codellama:7b", "./constraint_results");
+
+					// Start from dummyMain
+					graphAnalyzer.initializeAnalysis();
+
+					// Run the analysis
+					System.out.println("\n=== Starting Enhanced Analysis ===\n");
+					graphAnalyzer.analyze();
+
+					BackwardConstraintAnalyzer constraint_analyzer = new BackwardConstraintAnalyzer(graphAnalyzer,
+							llm_config);
+					constraint_analyzer.initialize();
+
+					// Create and visualize the complete graph
+					// CompleteAllocationGraph completeGraph = new
+					// CompleteAllocationGraph(graphAnalyzer);
+					// completeGraph.visualizeGraph(fileNameDot, "dot");
+
+					String cs = "com.rootminusone8004.bazarnote.AddEditNoteActivity";
+					SootClass sc = Scene.v().getSootClass(cs);
+
+					for (SootMethod sMethod : sc.getMethods()) {
+						String mSig = sMethod.getSignature();
+						System.out.println("================= " + mSig + " ===================");
+						printJimpleCode(sMethod);
+						System.out.println("=================================================");
+
+					}
+
+					String ms = "<com.rootminusone8004.bazarnote.SessionActivity: void lambda$onCreate$0$com-rootminusone8004-bazarnote-SessionActivity(android.view.View)>";
+					SootMethod sm = Scene.v().getMethod(ms);
+					printJimpleCode(sm);
+
+					System.out.println("\n=== BACKWARD REACHABILITY ANALYSIS ===\n");
+
+					// Get the sink method
+					String sinkMethodSig = "<com.rootminusone8004.bazarnote.AddEditNoteActivity: void savePrice(java.lang.String,float)>";
+					SootMethod sink = Scene.v().getMethod(sinkMethodSig);
+
+					ConstraintAnalysisResult result = constraint_analyzer.analyzeMethod(sink);
+					for (ConstraintPath path : result.getPaths()) {
+						System.out.println(path.getPathSummary());
+					}
+
+					// Create analyzer
+					// BackwardReachabilityAnalyzer backwardAnalyzer = new
+					// BackwardReachabilityAnalyzer(cg);
+					// backwardAnalyzer.setVerbose(false);
+
+					// BackwardReachabilityAnalyzer.CompleteAnalysisResult result = backwardAnalyzer
+					// .findPathsAndBuildCFGs(sink);
+
+					// System.out.println("\n" + "=".repeat(80));
+					// DetailedCFGVisualizer visualizer = new DetailedCFGVisualizer();
+					// visualizer.visualizeDetailedCFGStructure(result);
+
+					// Run analysis
+					// ReachabilityGraph reachGraph = backwardAnalyzer.findPathsToSink(sink);
+
+					// Print results
+					// System.out.println(reachGraph.getStatistics());
+
+					// System.out.println("\n=== COMPLETE PATHS TO SINK ===");
+					// for (ExecutionPath path : reachGraph.getCompletePaths()) {
+					// System.out.println(path);
+					// }
+
+					// System.out.println("\n=== ROOT METHODS ===");
+					// for (SootMethod root : reachGraph.getRootMethods()) {
+					// System.out.println(root.getSignature());
+					// }
+
+					System.out.println("\n=== CALL GRAPH DIAGNOSTIC ===");
+
+					// Get the methods
+					String callerSig = "<com.rootminusone8004.bazarnote.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
+					String calleeSig = "<com.rootminusone8004.bazarnote.NoteViewModel: void deleteAllSelectedNotes(int)>";
+
+					SootMethod caller = Scene.v().getMethod(callerSig);
+					SootMethod callee = Scene.v().getMethod(calleeSig);
+
+					System.out.println("Caller exists: " + (caller != null));
+					System.out.println("Callee exists: " + (callee != null));
+
+					// Check edges FROM caller
+					System.out.println("\nEdges OUT of " + caller.getName() + ":");
+					Iterator<Edge> edgesOut = cg.edgesOutOf(caller);
+					int outCount = 0;
+					while (edgesOut.hasNext()) {
+						Edge edge = edgesOut.next();
+						outCount++;
+						System.out.println("  -> " + edge.tgt().getSignature());
+						if (edge.tgt().equals(callee)) {
+							System.out.println("     ^^^ FOUND THE EDGE!");
+						}
+					}
+					System.out.println("Total edges out: " + outCount);
+
+					// Check edges TO callee
+					System.out.println("\nEdges INTO " + callee.getName() + ":");
+					Iterator<Edge> edgesIn = cg.edgesInto(callee);
+					int inCount = 0;
+					while (edgesIn.hasNext()) {
+						Edge edge = edgesIn.next();
+						inCount++;
+						System.out.println("  <- " + edge.src().getSignature());
+					}
+					System.out.println("Total edges in: " + inCount);
+
+					// System.out.println("\n=== Starting Dex Analysis ===\n");
+					// String dexFolderPath = "C:\\Users\\Babangida
+					// Bappah\\Downloads\\DexFiles\\DexFiles";
+					// String dexOutPutPath = "C:\\Users\\Babangida
+					// Bappah\\Desktop\\Research\\fd\\DexOutPut\\DexOutPut";
+					// DexAnalyzer dexAnalyzer = new DexAnalyzer(dexFolderPath, dexOutPutPath);
+					// dexAnalyzer.analyzeDexFiles();
+					// System.out.println("DEX ANALYSIS COMPLETE");
+
+					// PathBasedDexAnalyzer pathAnalyzer = new PathBasedDexAnalyzer(dexFolderPath,
+					// dexOutPutPath);
+
+					// pathAnalyzer.analyzeDexFiles();
+
+					// System.out.println("PATH-BASED DEX ANALYSIS COMPLETE");
+
+				} catch (Exception e) {
+					System.err.println("Error during allocation analysis: " + e.getMessage());
+					e.printStackTrace();
 				}
-
-
-				// Generate the ICFG
-				// for (SootClass sootClass : Scene.v().getApplicationClasses()) {
-				// 	if (sootClass.toString().contains("com.example.intchecker")) {
-				// 		for (SootMethod method : sootClass.getMethods()) {
-				// 			if (method.isConcrete()) {
-				// 				Body body = method.retrieveActiveBody();
-				// 				BriefUnitGraph cfg = new BriefUnitGraph(body);
-				// 				// Use the cfg object here for your analysis or export
-				// 				System.out.println("ICFG for method: " + method.getSignature());
-				// 				cfg.forEach(unit -> System.out.println(unit.toString()));
-				// 			}
-				// 		}
-				// 	}
-				// }
-		
 			}
 		} catch (AbortAnalysisException e) {
 			// Silently return
@@ -421,6 +642,628 @@ public class MainClass {
 			return;
 		} catch (Exception e) {
 			System.err.println(String.format("The data flow analysis has failed. Error message: %s", e.getMessage()));
+			e.printStackTrace();
+		}
+	}
+
+	private void printJimpleCode(SootMethod method) {
+		System.out.println("\n=== Jimple Code for " + method.getSignature() + " ===\n");
+		if (method.hasActiveBody()) {
+			Body body = method.getActiveBody();
+			System.out.println(body);
+		}
+	}
+
+	private static String determineComponentType(SootClass clazz) {
+		if (extendsClass(clazz, "android.app.Activity"))
+			return "Activity";
+		if (extendsClass(clazz, "android.app.Service"))
+			return "Service";
+		if (extendsClass(clazz, "android.content.BroadcastReceiver"))
+			return "BroadcastReceiver";
+		if (extendsClass(clazz, "android.content.ContentProvider"))
+			return "ContentProvider";
+		if (extendsClass(clazz, "android.app.Application"))
+			return "Application";
+		return "Unknown";
+	}
+
+	private static boolean extendsClass(SootClass clazz, String targetClassName) {
+		try {
+			SootClass current = clazz;
+			while (current != null) {
+				if (current.getName().equals(targetClassName)) {
+					return true;
+				}
+				if (current.hasSuperclass()) {
+					current = current.getSuperclass();
+				} else {
+					break;
+				}
+			}
+		} catch (Exception e) {
+			// Handle missing classes gracefully
+		}
+		return false;
+	}
+
+	private static boolean isFrameworkPackage(String packageName) {
+		return packageName.startsWith("android.") ||
+				packageName.startsWith("com.android.") ||
+				packageName.startsWith("java.") ||
+				packageName.startsWith("javax.") ||
+				packageName.startsWith("com.google.android.") ||
+				packageName.startsWith("com.facebook.") ||
+				packageName.startsWith("com.paypal.") ||
+				packageName.startsWith("ly.kite.") ||
+				packageName.startsWith("io.card.") ||
+				packageName.startsWith("com.stripe.") ||
+				packageName.startsWith("com.crashlytics.") ||
+				packageName.startsWith("com.appsflyer.");
+	}
+
+	private static String getRootPackage(String fullPackage) {
+		String[] parts = fullPackage.split("\\.");
+		if (parts.length >= 2) {
+			return parts[0] + "." + parts[1]; // e.g., "com.prisma"
+		}
+		return fullPackage;
+	}
+
+	private static boolean isAppMethod(SootMethod method, Set<String> appPackagePrefixes) {
+		String methodPackage = method.getDeclaringClass().getPackageName();
+		for (String prefix : appPackagePrefixes) {
+			if (methodPackage.startsWith(prefix)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static boolean isLikelyEntryPoint(SootMethod method, String componentType) {
+		String methodName = method.getName();
+
+		// Skip constructors and static initializers for now
+		if (methodName.equals("<init>") || methodName.equals("<clinit>")) {
+			return false;
+		}
+
+		// Main pattern: methods starting with "on"
+		if (methodName.startsWith("on")) {
+			return true;
+		}
+
+		// Component-specific additional patterns
+		if ("ContentProvider".equals(componentType)) {
+			return methodName.equals("query") || methodName.equals("insert") ||
+					methodName.equals("update") || methodName.equals("delete");
+		}
+
+		return false;
+	}
+
+	public void printAllNodes(Map<String, AllocationNode> allNodes) {
+		System.out.println("\n=== All Nodes ===\n");
+		for (Map.Entry<String, AllocationNode> entry : allNodes.entrySet()) {
+			printNode(entry.getKey(), entry.getValue());
+		}
+	}
+
+	public void printAllEdges(Map<String, Set<String>> allEdges) {
+		System.out.println("\n=== All Edges ===\n");
+		for (Map.Entry<String, Set<String>> entry : allEdges.entrySet()) {
+			printEdgesForNode(entry.getKey(), entry.getValue());
+		}
+	}
+
+	public void printEdgesForNode(String fromNodeId, Set<String> toNodeIds) {
+		for (String toNodeId : toNodeIds) {
+			System.out.println(fromNodeId + " -> " + toNodeId);
+		}
+	}
+
+	public void printFullGraph(Map<String, AllocationNode> allNodes, Map<String, Set<String>> allEdges) {
+		printAllNodes(allNodes);
+		printAllEdges(allEdges);
+	}
+
+	private static void findPathsDFS(AllocationNode current,
+			AllocationNode exit,
+			List<AllocationNode> currentPath,
+			List<List<AllocationNode>> allPaths,
+			Set<AllocationNode> visited) {
+		// Skip if already visited (avoid cycles)
+		if (visited.contains(current))
+			return;
+
+		// Add to current path and mark as visited
+		visited.add(current);
+		currentPath.add(current);
+
+		// If we reached exit node, save the path
+		if (current == exit) {
+			allPaths.add(new ArrayList<>(currentPath));
+		} else {
+			// Continue with all successors
+			for (AllocationNode succ : current.getSuccessors()) {
+				findPathsDFS(succ, exit, currentPath, allPaths, visited);
+			}
+		}
+
+		// Backtrack
+		visited.remove(current);
+		currentPath.remove(currentPath.size() - 1);
+	}
+
+	private void printControlFlowStructure(AllocationGraph graph) {
+		for (AllocationNode node : graph.getNodes()) {
+			System.out.println("\nNode: " + node);
+			System.out.println("Type: " + node.getType());
+
+			if (node.isAllocation()) {
+				System.out.println("Allocation Type: " + node.getAllocationTypeName());
+			}
+
+			if (node.getUnit() != null) {
+				System.out.println("Unit: " + node.getUnit());
+			}
+
+			System.out.println("Successors:");
+			for (AllocationNode succ : node.getSuccessors()) {
+				System.out.println("  -> " + succ);
+			}
+		}
+	}
+
+	private void findPathsRecursive(AllocationNode current, AllocationNode exit,
+			List<AllocationNode> currentPath,
+			List<List<AllocationNode>> allPaths,
+			Set<AllocationNode> visited) {
+		// Add current node to path and mark as visited
+		currentPath.add(current);
+		visited.add(current);
+
+		// If we reached exit node, we found a complete path
+		if (current.equals(exit)) {
+			allPaths.add(new ArrayList<>(currentPath));
+		} else {
+			// Process successors based on node type
+			switch (current.getType()) {
+				case IF_CONDITION:
+				case SWITCH:
+					// For control flow nodes, try all branches
+					processControlFlowNode(current, exit, currentPath, allPaths, visited);
+					break;
+				default:
+					// For other nodes, process all successors
+					processSuccessors(current, exit, currentPath, allPaths, visited);
+					break;
+			}
+		}
+
+		// Backtrack
+		currentPath.remove(currentPath.size() - 1);
+		visited.remove(current);
+	}
+
+	private void processControlFlowNode(AllocationNode node, AllocationNode exit,
+			List<AllocationNode> currentPath,
+			List<List<AllocationNode>> allPaths,
+			Set<AllocationNode> visited) {
+		// Process each branch
+		for (AllocationNode successor : node.getSuccessors()) {
+			if (!visited.contains(successor)) {
+				findPathsRecursive(successor, exit, currentPath, allPaths, new HashSet<>(visited));
+			}
+		}
+	}
+
+	private void processSuccessors(AllocationNode node, AllocationNode exit,
+			List<AllocationNode> currentPath,
+			List<List<AllocationNode>> allPaths,
+			Set<AllocationNode> visited) {
+		for (AllocationNode successor : node.getSuccessors()) {
+			if (!visited.contains(successor)) {
+				findPathsRecursive(successor, exit, currentPath, allPaths, visited);
+			}
+		}
+	}
+
+	private void findPathsFromNode(AllocationNode current, AllocationNode exit,
+			List<AllocationNode> currentPath,
+			List<List<AllocationNode>> allPaths,
+			Set<AllocationNode> visited) {
+		System.out.println("Visiting node: " + current);
+
+		currentPath.add(current);
+		visited.add(current);
+
+		if (current.equals(exit)) {
+			System.out.println("Found complete path with " + currentPath.size() + " nodes");
+			allPaths.add(new ArrayList<>(currentPath));
+		} else {
+			Set<AllocationNode> successors = current.getSuccessors();
+			if (!successors.isEmpty()) {
+				System.out.println("Node has " + successors.size() + " successors");
+				for (AllocationNode successor : successors) {
+					if (!visited.contains(successor)) {
+						findPathsFromNode(successor, exit, currentPath, allPaths, visited);
+					}
+				}
+			} else if (!current.equals(exit)) {
+				// If we hit a terminal node that's not the exit, try to reach the exit
+				System.out.println("Hit terminal node, attempting to reach exit");
+				if (!visited.contains(exit)) {
+					findPathsFromNode(exit, exit, currentPath, allPaths, visited);
+				}
+			}
+		}
+
+		currentPath.remove(currentPath.size() - 1);
+		visited.remove(current);
+	}
+
+	// DFS to find all paths from entry to exit
+	private void findPaths(AllocationNode current, AllocationNode exit,
+			List<AllocationNode> currentPath,
+			List<List<AllocationNode>> allPaths,
+			Set<AllocationNode> visited) {
+
+		// Add current node to path and mark as visited
+		currentPath.add(current);
+		visited.add(current);
+
+		// If we reached exit node, add the path to our collection
+		if (current.equals(exit)) {
+			allPaths.add(new ArrayList<>(currentPath));
+		} else {
+			// Continue DFS through successors
+			for (AllocationNode successor : current.getSuccessors()) {
+				if (!visited.contains(successor)) {
+					findPaths(successor, exit, currentPath, allPaths, visited);
+				}
+			}
+		}
+
+		// Backtrack
+		currentPath.remove(currentPath.size() - 1);
+		visited.remove(current);
+	}
+
+	// Helper method to check if path contains allocations
+	private static boolean pathContainsAllocation(List<AllocationNode> path) {
+		return path.stream().anyMatch(node -> node.getType() == NodeType.ALLOCATION);
+	}
+
+	private static void debugGraphConnections(AllocationGraph graph) {
+		System.out.println("\n=== Debug Graph Connections ===");
+
+		// Check ENTRY connections
+		AllocationNode entry = graph.getEntryNode();
+		System.out.println("\nENTRY node successors:");
+		for (AllocationNode succ : entry.getSuccessors()) {
+			System.out.println(" -> " + succ.getType() +
+					(succ.getUnit() != null ? ": " + succ.getUnit() : ""));
+		}
+
+		// Check each node's connections
+		for (AllocationNode node : graph.getNodes()) {
+			if (node.getType() != NodeType.ENTRY && node.getType() != NodeType.EXIT) {
+				System.out.println("\nNode " + node.getId() + " (" + node.getType() + ")");
+				System.out.println("Predecessors:");
+				for (AllocationNode pred : node.getPredecessors()) {
+					System.out.println(" <- " + pred.getId() + " (" + pred.getType() + ")");
+				}
+				System.out.println("Successors:");
+				for (AllocationNode succ : node.getSuccessors()) {
+					System.out.println(" -> " + succ.getId() + " (" + succ.getType() + ")");
+				}
+			}
+		}
+	}
+
+	private static String extractCaseValue(String unitString) {
+		// Handle different case statement formats
+		if (unitString.contains("goto")) {
+			unitString = unitString.substring(0, unitString.indexOf("goto")).trim();
+		}
+		return unitString;
+	}
+
+	// Helper method to clean if condition
+	private static String cleanIfCondition(String condition) {
+		// Remove goto statements and clean up condition
+		if (condition.contains("goto")) {
+			condition = condition.substring(0, condition.indexOf("goto")).trim();
+		}
+		// Clean up Jimple syntax but maintain important information
+		return condition.replaceAll("\\$[a-zA-Z][0-9]+", "")
+				.replaceAll("\\s+", " ")
+				.trim();
+	}
+
+	private void printPath(List<AllocationNode> path) {
+		int indent = 0;
+		Stack<NodeType> controlFlowStack = new Stack<>();
+
+		for (AllocationNode node : path) {
+			String indentation = "  ".repeat(indent);
+
+			switch (node.getType()) {
+				case ENTRY:
+					System.out.println(indentation + "ENTRY");
+					indent++;
+					break;
+
+				case EXIT:
+					if (!controlFlowStack.isEmpty()) {
+						indent--;
+					}
+					System.out.println(indentation + "EXIT");
+					break;
+
+				case SWITCH:
+				case IF_CONDITION:
+					printControlFlow(node, indentation);
+					controlFlowStack.push(node.getType());
+					indent++;
+					break;
+
+				case ALLOCATION:
+					printAllocation(node, indentation);
+					break;
+
+				case METHOD_CALL:
+					printMethodCall(node, indentation);
+					break;
+
+				case CONTROL_MERGE:
+					if (!controlFlowStack.isEmpty()) {
+						controlFlowStack.pop();
+						indent--;
+						System.out.println(indentation + "Control merge point");
+					}
+					break;
+			}
+		}
+	}
+
+	private static void printPathDetails(List<AllocationNode> path) {
+		System.out.println("  Path:");
+		for (AllocationNode node : path) {
+			printNode("    ", node);
+		}
+	}
+
+	private static void printNode(String indent, AllocationNode node) {
+		if (node.isAllocation()) {
+			printAllocation(node, indent);
+		} else if (node.isMethodCall()) {
+			printMethodCall(node, indent);
+		} else {
+			System.out.println(indent + node.toString());
+		}
+	}
+
+	private static void printAllocation(AllocationNode node, String indent) {
+		System.out.println(indent + "Allocation: " + node.getAllocationTypeName());
+	}
+
+	private static void printMethodCall(AllocationNode node, String indent) {
+		InvokeExpr invoke = node.getMethodCall();
+		if (invoke != null) {
+			System.out.println(indent + "Call: " + invoke.getMethod().getName());
+		} else {
+			System.out.println(indent + "Method Call (unknown)");
+		}
+	}
+
+	private void printControlFlow(AllocationNode node, String indent) {
+		String type = node.getType() == NodeType.SWITCH ? "Switch" : "If";
+		if (node.getUnit() != null) {
+			System.out.println(indent + type + ": " + formatUnit(node.getUnit()));
+		} else {
+			System.out.println(indent + type + " condition");
+		}
+	}
+
+	private String formatUnit(Unit unit) {
+		if (unit instanceof IfStmt) {
+			return ((IfStmt) unit).getCondition().toString();
+		} else if (unit instanceof SwitchStmt) {
+			return ((SwitchStmt) unit).getKey().toString();
+		}
+		return unit.toString();
+	}
+
+	private String formatControlStatement(AllocationNode node) {
+		if (node.getUnit() == null)
+			return node.getType().toString();
+
+		if (node.getType() == NodeType.SWITCH) {
+			return "Switch: " + formatSwitchStatement(node.getUnit());
+		} else if (node.getType() == NodeType.IF_CONDITION) {
+			return "If: " + formatIfStatement(node.getUnit());
+		}
+
+		return node.getUnit().toString();
+	}
+
+	private String formatSwitchStatement(Unit unit) {
+		if (unit instanceof SwitchStmt) {
+			SwitchStmt switchStmt = (SwitchStmt) unit;
+			StringBuilder sb = new StringBuilder("switch(");
+			sb.append(switchStmt.getKey()).append(") {");
+
+			// Add cases
+			for (Unit target : switchStmt.getTargets()) {
+				sb.append("\n    case -> ").append(target.toString());
+			}
+
+			// Add default
+			if (switchStmt.getDefaultTarget() != null) {
+				sb.append("\n    default -> ").append(switchStmt.getDefaultTarget().toString());
+			}
+
+			sb.append("\n}");
+			return sb.toString();
+		}
+		return unit.toString();
+	}
+
+	private String formatIfStatement(Unit unit) {
+		if (unit instanceof IfStmt) {
+			IfStmt ifStmt = (IfStmt) unit;
+			return "if " + ifStmt.getCondition() + " goto " + ifStmt.getTarget();
+		}
+		return unit.toString();
+	}
+
+	private String formatAllocationStatement(AllocationNode node) {
+		StringBuilder sb = new StringBuilder("Allocate: ");
+		sb.append(node.getAllocationTypeName());
+
+		if (node.getUnit() != null) {
+			sb.append(" (").append(node.getUnit().toString()).append(")");
+		}
+
+		return sb.toString();
+	}
+
+	private static String getControlStructureType(String statement) {
+		if (statement.contains("lookupswitch"))
+			return "Switch Statement";
+		if (statement.contains("if "))
+			return "If Statement";
+		if (statement.contains("goto"))
+			return "Goto Statement";
+		return "Unknown Control Structure";
+	}
+
+	private static String getControlStructureType(AllocationNode node) {
+		Unit unit = node.getUnit();
+		if (unit instanceof IfStmt)
+			return "If Statement";
+		if (unit instanceof SwitchStmt)
+			return "Switch Statement";
+		if (unit instanceof GotoStmt)
+			return "Goto Statement";
+		return "Unknown Control Structure";
+	}
+
+	private static String getIndent(int level) {
+		return "  ".repeat(level);
+	}
+
+	private static boolean isControlNode(AllocationNode node) {
+		if (node.getUnit() == null)
+			return false;
+		return node.getUnit() instanceof IfStmt ||
+				node.getUnit() instanceof SwitchStmt ||
+				node.getUnit() instanceof GotoStmt;
+	}
+
+	private static String getFullClassName(Value allocation) {
+		try {
+			if (allocation instanceof NewExpr) {
+				return ((NewExpr) allocation).getBaseType().toString();
+			} else if (allocation instanceof NewArrayExpr) {
+				return ((NewArrayExpr) allocation).getBaseType().toString() + "[]";
+			} else if (allocation instanceof NewMultiArrayExpr) {
+				return ((NewMultiArrayExpr) allocation).getBaseType().toString() + "[][]";
+			}
+			return allocation.getType().toString();
+		} catch (Exception e) {
+			return "Unknown Type";
+		}
+	}
+
+	private void initializeOutputDirs() {
+		appOutputDir = OUTPUT_DIR_BASE + appPackageName + "/";
+		new File(appOutputDir).mkdirs();
+	}
+
+	private String sanitizeFileName(String name) {
+		return name.replaceAll("[^a-zA-Z0-9.-]", "_");
+	}
+
+	public String getPackageName(String apkPath) {
+		String packageName = "";
+		try {
+			try (ProcessManifest manifest = new ProcessManifest(apkPath)) {
+				packageName = manifest.getPackageName();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return packageName;
+	}
+
+	public Set<String> getEntryPoints(String apkPath) {
+		Set<String> entryPointsClasses = new HashSet<String>();
+		try {
+			try (ProcessManifest manifest = new ProcessManifest(apkPath)) {
+				entryPointsClasses = manifest.getEntryPointClasses();
+			}
+		} catch (IOException e) {
+			System.err.println("Error reading manifest from APK: " + apkPath);
+			e.printStackTrace();
+		}
+		return entryPointsClasses;
+	}
+
+	/**
+	 * output the call graph to JSON format
+	 * 
+	 * @param cg
+	 * @return String
+	 */
+	private String dumpCallGraph(CallGraph cg) {
+		Iterator<Edge> itr = cg.iterator();
+		Map<String, Set<String>> map = new HashMap<String, Set<String>>();
+
+		while (itr.hasNext()) {
+			Edge e = itr.next();
+			String srcSig = e.getSrc().toString();
+			String destSig = e.getTgt().toString();
+			Set<String> neighborSet;
+			if (map.containsKey(srcSig)) {
+				neighborSet = map.get(srcSig);
+			} else {
+				neighborSet = new HashSet<String>();
+			}
+			neighborSet.add(destSig);
+			map.put(srcSig, neighborSet);
+
+		}
+
+		Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+		return gson.toJson(map);
+	}
+
+	/**
+	 *
+	 * @param output
+	 * @param packageName
+	 */
+	private void saveOutputToFile(String output, String packageName) {
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+		String timestamp = now.format(formatter);
+
+		String outputDir = System.getProperty("user.dir") + File.separator + "sootOutput";
+		Path outputPath = Paths.get(outputDir, "cfg-" + packageName + "-" + timestamp + ".json");
+		File out = outputPath.toFile();
+
+		try {
+			if (out.exists()) {
+				out.delete();
+			}
+			FileWriter fw = new FileWriter(out);
+			fw.write(output);
+			fw.flush();
+			fw.close();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -469,98 +1312,98 @@ public class MainClass {
 		ITaintPropagationWrapper result = null;
 		// Create the respective taint wrapper object
 		switch (taintWrapper.toLowerCase()) {
-		case "default":
-			// We use StubDroid, but with the summaries from inside the JAR
-			// files
-			result = createSummaryTaintWrapper(cmd, new LazySummaryProvider("summariesManual"));
-			break;
-		case "defaultfallback":
-			// We use StubDroid, but with the summaries from inside the JAR
-			// files
-			SummaryTaintWrapper summaryWrapper = createSummaryTaintWrapper(cmd,
-					new LazySummaryProvider("summariesManual"));
-			summaryWrapper.setFallbackTaintWrapper(EasyTaintWrapper.getDefault());
-			result = summaryWrapper;
-			break;
-		case "none":
-			break;
-		case "easy":
-			// If the user has not specified a definition file for the easy
-			// taint wrapper, we try to locate a default file
-			String defFile = null;
-			if (definitionFiles == null || definitionFiles.length == 0) {
-				File defaultFile = EasyTaintWrapper.locateDefaultDefinitionFile();
-				if (defaultFile == null) {
-					try {
-						return new EasyTaintWrapper(defFile);
-					} catch (Exception e) {
-						e.printStackTrace();
-						System.err.println(
-								"No definition file for the easy taint wrapper specified and could not find the default file");
-						throw new AbortAnalysisException();
-					}
-				} else
-					defFile = defaultFile.getCanonicalPath();
-			} else if (definitionFiles == null || definitionFiles.length != 1) {
-				System.err.println("Must specify exactly one definition file for the easy taint wrapper");
-				throw new AbortAnalysisException();
-			} else
-				defFile = definitionFiles[0];
-			result = new EasyTaintWrapper(defFile);
-			break;
-		case "stubdroid":
-			if (definitionFiles == null || definitionFiles.length == 0) {
-				System.err.println("Must specify at least one definition file for StubDroid");
-				throw new AbortAnalysisException();
-			}
-			result = TaintWrapperFactory.createTaintWrapper(Arrays.asList(definitionFiles));
-			break;
-		case "multi":
-			// We need explicit definition files
-			if (definitionFiles == null || definitionFiles.length == 0) {
-				System.err.println("Must explicitly specify the definition files for the multi mode");
-				throw new AbortAnalysisException();
-			}
-
-			// We need to group the definition files by their type
-			MultiMap<String, String> extensionToFile = new HashMultiMap<>(definitionFiles.length);
-			for (String str : definitionFiles) {
-				File f = new File(str);
-				if (f.isFile()) {
-					String fileName = f.getName();
-					extensionToFile.put(fileName.substring(fileName.lastIndexOf(".")), f.getCanonicalPath());
-				} else if (f.isDirectory()) {
-					extensionToFile.put(".xml", f.getCanonicalPath());
-				}
-			}
-
-			// For each definition file, we create the respective taint wrapper
-			TaintWrapperSet wrapperSet = new TaintWrapperSet();
-			SummaryTaintWrapper stubDroidWrapper = null;
-			if (extensionToFile.containsKey(".xml")) {
-				stubDroidWrapper = TaintWrapperFactory.createTaintWrapper(extensionToFile.get(".xml"));
-				wrapperSet.addWrapper(stubDroidWrapper);
-			}
-			Set<String> easyDefinitions = extensionToFile.get(".txt");
-			if (!easyDefinitions.isEmpty()) {
-				if (easyDefinitions.size() > 1) {
+			case "default":
+				// We use StubDroid, but with the summaries from inside the JAR
+				// files
+				result = createSummaryTaintWrapper(cmd, new LazySummaryProvider("summariesManual"));
+				break;
+			case "defaultfallback":
+				// We use StubDroid, but with the summaries from inside the JAR
+				// files
+				SummaryTaintWrapper summaryWrapper = createSummaryTaintWrapper(cmd,
+						new LazySummaryProvider("summariesManual"));
+				summaryWrapper.setFallbackTaintWrapper(EasyTaintWrapper.getDefault());
+				result = summaryWrapper;
+				break;
+			case "none":
+				break;
+			case "easy":
+				// If the user has not specified a definition file for the easy
+				// taint wrapper, we try to locate a default file
+				String defFile = null;
+				if (definitionFiles == null || definitionFiles.length == 0) {
+					File defaultFile = EasyTaintWrapper.locateDefaultDefinitionFile();
+					if (defaultFile == null) {
+						try {
+							return new EasyTaintWrapper(defFile);
+						} catch (Exception e) {
+							e.printStackTrace();
+							System.err.println(
+									"No definition file for the easy taint wrapper specified and could not find the default file");
+							throw new AbortAnalysisException();
+						}
+					} else
+						defFile = defaultFile.getCanonicalPath();
+				} else if (definitionFiles == null || definitionFiles.length != 1) {
 					System.err.println("Must specify exactly one definition file for the easy taint wrapper");
+					throw new AbortAnalysisException();
+				} else
+					defFile = definitionFiles[0];
+				result = new EasyTaintWrapper(defFile);
+				break;
+			case "stubdroid":
+				if (definitionFiles == null || definitionFiles.length == 0) {
+					System.err.println("Must specify at least one definition file for StubDroid");
+					throw new AbortAnalysisException();
+				}
+				result = TaintWrapperFactory.createTaintWrapper(Arrays.asList(definitionFiles));
+				break;
+			case "multi":
+				// We need explicit definition files
+				if (definitionFiles == null || definitionFiles.length == 0) {
+					System.err.println("Must explicitly specify the definition files for the multi mode");
 					throw new AbortAnalysisException();
 				}
 
-				// If we use StubDroid as well, we use the easy taint wrapper as
-				// a fallback
-				EasyTaintWrapper easyWrapper = new EasyTaintWrapper(easyDefinitions.iterator().next());
-				if (stubDroidWrapper == null)
-					wrapperSet.addWrapper(easyWrapper);
-				else
-					stubDroidWrapper.setFallbackTaintWrapper(easyWrapper);
-			}
-			result = wrapperSet;
-			break;
-		default:
-			System.err.println("Invalid taint propagation wrapper specified, ignoring.");
-			throw new AbortAnalysisException();
+				// We need to group the definition files by their type
+				MultiMap<String, String> extensionToFile = new HashMultiMap<>(definitionFiles.length);
+				for (String str : definitionFiles) {
+					File f = new File(str);
+					if (f.isFile()) {
+						String fileName = f.getName();
+						extensionToFile.put(fileName.substring(fileName.lastIndexOf(".")), f.getCanonicalPath());
+					} else if (f.isDirectory()) {
+						extensionToFile.put(".xml", f.getCanonicalPath());
+					}
+				}
+
+				// For each definition file, we create the respective taint wrapper
+				TaintWrapperSet wrapperSet = new TaintWrapperSet();
+				SummaryTaintWrapper stubDroidWrapper = null;
+				if (extensionToFile.containsKey(".xml")) {
+					stubDroidWrapper = TaintWrapperFactory.createTaintWrapper(extensionToFile.get(".xml"));
+					wrapperSet.addWrapper(stubDroidWrapper);
+				}
+				Set<String> easyDefinitions = extensionToFile.get(".txt");
+				if (!easyDefinitions.isEmpty()) {
+					if (easyDefinitions.size() > 1) {
+						System.err.println("Must specify exactly one definition file for the easy taint wrapper");
+						throw new AbortAnalysisException();
+					}
+
+					// If we use StubDroid as well, we use the easy taint wrapper as
+					// a fallback
+					EasyTaintWrapper easyWrapper = new EasyTaintWrapper(easyDefinitions.iterator().next());
+					if (stubDroidWrapper == null)
+						wrapperSet.addWrapper(easyWrapper);
+					else
+						stubDroidWrapper.setFallbackTaintWrapper(easyWrapper);
+				}
+				result = wrapperSet;
+				break;
+			default:
+				System.err.println("Invalid taint propagation wrapper specified, ignoring.");
+				throw new AbortAnalysisException();
 		}
 		return result;
 
