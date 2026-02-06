@@ -1,0 +1,219 @@
+{
+  "total_dangerous_apis": 4,
+  "category_statistics": {
+    "privacy_sensors": 1,
+    "device_information_collection": 1,
+    "network_data_exfiltration": 2
+  },
+  "analysis_timestamp": "2026-01-31 12:09:12",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_122672011966600_14m_15c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.matanalajjurumiyyah.ezroq.MainActivity dummyMainMethod_com_matanalajjurumiyyah_ezroq_MainActivity(android.content.Intent)>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.g: void a(com.google.android.gms.ads.c)>",
+            "<com.google.android.gms.ads.internal.client.g: void a(com.google.android.gms.ads.internal.client.e)>",
+            "<com.google.android.gms.ads.internal.client.g: void b(java.lang.String)>",
+            "<com.google.android.gms.ads.internal.client.x: com.google.android.gms.ads.internal.client.ag b(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.b.gl)>",
+            "<com.google.android.gms.ads.internal.client.x: java.lang.Object a(android.content.Context,boolean,com.google.android.gms.ads.internal.client.x$a)>",
+            "<com.google.android.gms.ads.internal.util.client.a: boolean b(android.content.Context)>",
+            "<com.google.android.gms.common.j: int a(android.content.Context)>",
+            "<com.google.android.gms.common.l: boolean b(android.content.Context,int)>",
+            "<com.google.android.gms.common.l: boolean a(android.content.Context,java.lang.String)>",
+            "<com.google.android.gms.common.l: boolean i(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_122672011966600_14m_15c",
+          "associated_call_chain": "path_122672011966600_14m_15c",
+          "boolean_logic_format": "($z0 != false) AND (agInstance == null) AND (g == null) AND (p == true) AND (isGooglePlayServicesAvailable == false) AND (errorCode != 18) AND (**\nintegerParameter == 1\n**) AND (param1_not_equal_to_com_google_android_gms) AND (utilityCheck == false) AND (**  \n`!hasMoreSessions`  \n**) AND (**  \nhasMoreElements == false  \n**) AND (!hasNext()) AND (param1.equals(\"com.google.android.gms\") == false) AND (applicationEnabled) AND (GooglePlayServicesEnabled == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 15
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769889836784,
+        "analysis_duration_ms": 129514,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_122806958590600_5m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity$a: void askEnableGPS()>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity: void d()>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity: boolean a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_122857905433200_6m_7c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.matanalajjurumiyyah.ezroq.MainActivity dummyMainMethod_com_matanalajjurumiyyah_ezroq_MainActivity(android.content.Intent)>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity: void onCreate(android.os.Bundle)>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity: void d()>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity: boolean a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_122806958590600_5m_2c",
+          "associated_call_chain": "path_122806958590600_5m_2c",
+          "boolean_logic_format": "(SDK_INT >= 19) AND (Location mode is not off)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        },
+        {
+          "constraint_id": "path_122857905433200_6m_7c",
+          "associated_call_chain": "path_122857905433200_6m_7c",
+          "boolean_logic_format": "(featureToggleDisabled) AND (`featureToggle2131099657 == false`) AND (featureToggleDisabled) AND (androidApiLevel < 19) AND (!isFeatureEnabled) AND (SDK_INT >= 19) AND (Location mode is not off)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 7
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769889836784,
+        "analysis_duration_ms": 315409,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_122777985189400_19m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.matanalajjurumiyyah.ezroq.MainActivity dummyMainMethod_com_matanalajjurumiyyah_ezroq_MainActivity(android.content.Intent)>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.g: void a(com.google.android.gms.ads.c)>",
+            "<com.google.android.gms.ads.internal.client.g: void a(com.google.android.gms.ads.internal.client.e)>",
+            "<com.google.android.gms.ads.internal.client.g: void b(java.lang.String)>",
+            "<com.google.android.gms.ads.internal.client.x: com.google.android.gms.ads.internal.client.ag b(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.b.gl)>",
+            "<com.google.android.gms.ads.internal.client.x: java.lang.Object a(android.content.Context,boolean,com.google.android.gms.ads.internal.client.x$a)>",
+            "<com.google.android.gms.ads.internal.client.x$a: java.lang.Object d()>",
+            "<com.google.android.gms.ads.internal.client.x$3: java.lang.Object b()>",
+            "<com.google.android.gms.ads.internal.client.x$3: com.google.android.gms.ads.internal.client.ag a()>",
+            "<com.google.android.gms.ads.internal.client.x: void a(com.google.android.gms.ads.internal.client.x,android.content.Context,java.lang.String)>",
+            "<com.google.android.gms.ads.internal.client.x: void a(android.content.Context,java.lang.String)>",
+            "<com.google.android.gms.ads.internal.util.client.a: void a(android.content.Context,java.lang.String,java.lang.String,android.os.Bundle,boolean)>",
+            "<com.google.android.gms.ads.internal.util.client.a: void a(android.content.Context,java.lang.String,java.lang.String,android.os.Bundle,boolean,com.google.android.gms.ads.internal.util.client.a$a)>",
+            "<com.google.android.gms.ads.internal.util.client.a$1: void a(java.lang.String)>",
+            "<com.google.android.gms.ads.internal.util.client.a$1$1: void run()>",
+            "<com.google.android.gms.ads.internal.util.client.c: void a(java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_122777985189400_19m_14c",
+          "associated_call_chain": "path_122777985189400_19m_14c",
+          "boolean_logic_format": "(resourceBooleanValue == true) AND (`agComponent == null`) AND (g == null) AND (p == true) AND (isServiceAvailable == false) AND (Google Play Services is not available) AND (featureEnabled == false) AND (objectFromMethodDIsNull) AND (isServiceAvailable == false) AND (GooglePlayServicesAvailable == false) AND (featureEnabled == false) AND (dMethodResult == null) AND ($r7 == null) AND (URLStringLength != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769889836784,
+        "analysis_duration_ms": 235490,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_122788889845300_4m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.matanalajjurumiyyah.ezroq.MainActivity dummyMainMethod_com_matanalajjurumiyyah_ezroq_MainActivity(android.content.Intent)>",
+            "<com.matanalajjurumiyyah.ezroq.MainActivity$10: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_122788889845300_4m_1c",
+          "associated_call_chain": "path_122788889845300_4m_1c",
+          "boolean_logic_format": "customConditionIsFalse",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769889836784,
+        "analysis_duration_ms": 246393,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,1495 @@
+{
+  "total_dangerous_apis": 22,
+  "category_statistics": {
+    "privacy_sensors": 5,
+    "device_information_collection": 5,
+    "file_system_operations": 2,
+    "sms_phone_operations": 4,
+    "dynamic_code_loading": 2,
+    "network_data_exfiltration": 4
+  },
+  "analysis_timestamp": "2026-02-01 05:17:14",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.hardware.Camera: android.hardware.Camera open()>",
+      "<android.media.MediaRecorder: void start()>",
+      "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+    ],
+    "sms_phone_operations": [
+      "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>",
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183004189421300_4m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.x$a: void onGpsStatusChanged(int)>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183004189421300_4m_13c",
+          "associated_call_chain": "path_183004189421300_4m_13c",
+          "boolean_logic_format": "(LocationManagerInstance == null) AND (switch_condition) AND (GPSConditionMet == false) AND (elapsedTimeSinceLastRecordedTime >= 10000) AND (GpsStatus == null) AND (IteratorHasMoreElements == true) AND (!hasNext()) AND (SNR < 0) AND (SNR < threshold) AND (GPSConditionMet == false) AND (timeElapsed >= 60000) AND (satellitesUsedInFix > 3) AND (**  \nNumberOfSatellites > 15  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 316391,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.hardware.Camera: android.hardware.Camera open()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183010732786100_4m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoVedioActivity dummyMainMethod_com_payeco_android_plugin_PayecoVedioActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.ac: void surfaceCreated(android.view.SurfaceHolder)>",
+            "<android.hardware.Camera: android.hardware.Camera open()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183010732786100_4m_1c",
+          "associated_call_chain": "path_183010732786100_4m_1c",
+          "boolean_logic_format": "cameraInstance == null",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 322935,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.media.MediaRecorder: void start()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183010757423500_5m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoVedioActivity dummyMainMethod_com_payeco_android_plugin_PayecoVedioActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.y: void onClick(android.view.View)>",
+            "<com.payeco.android.plugin.PayecoVedioActivity: void g(com.payeco.android.plugin.PayecoVedioActivity)>",
+            "<android.media.MediaRecorder: void start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183010757423500_5m_0c",
+          "associated_call_chain": "path_183010757423500_5m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 322957,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183035013419500_9m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ab: void do(com.baidu.location.ab)>",
+            "<com.baidu.location.ab: void bl()>",
+            "<com.baidu.location.x: void aU()>",
+            "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183035013419500_9m_4c",
+          "associated_call_chain": "path_183035013419500_9m_4c",
+          "boolean_logic_format": "(gv == true) AND (switch_condition) AND (messageType == 0) AND (**\nfeatureEnabled == true\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 347217,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183061346971900_8m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoPluginLoadingActivity dummyMainMethod_com_payeco_android_plugin_PayecoPluginLoadingActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: void onCreate(android.os.Bundle)>",
+            "<com.payeco.android.plugin.m: void onPostExecute(java.lang.Object)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: java.lang.String getHttpGetParams()>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: java.util.ArrayList getHttpParams()>",
+            "<com.payeco.android.plugin.util.k: java.lang.String a(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183081942737400_8m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoPluginLoadingActivity dummyMainMethod_com_payeco_android_plugin_PayecoPluginLoadingActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: void onCreate(android.os.Bundle)>",
+            "<com.payeco.android.plugin.m: void onPostExecute(java.lang.Object)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: java.util.ArrayList access$4(com.payeco.android.plugin.PayecoPluginLoadingActivity)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: java.util.ArrayList getHttpParams()>",
+            "<com.payeco.android.plugin.util.k: java.lang.String a(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183061346971900_8m_4c",
+          "associated_call_chain": "path_183061346971900_8m_4c",
+          "boolean_logic_format": "(parameterIsFalse) AND (isLoadUrlMode.equals(\"1\")) AND (upPay == null) AND (!upPay.has(\"MerchOrderId\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_183081942737400_8m_5c",
+          "associated_call_chain": "path_183081942737400_8m_5c",
+          "boolean_logic_format": "(parameterIsFalse) AND ($r5.equals($r4)) AND (httpGetParams != null) AND (upPay == null) AND (!upPay.has(\"MerchOrderId\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 394147,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183817159263800_8m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.a0$c dummyMainMethod_com_baidu_location_a0$c(android.content.Intent)>",
+            "<com.baidu.location.a0$c: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.baidu.location.a0$d: void run()>",
+            "<com.baidu.location.a0: java.util.List for(com.baidu.location.a0,boolean)>",
+            "<com.baidu.location.a0: java.util.List else(boolean)>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183900418928700_9m_15c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.a0$c dummyMainMethod_com_baidu_location_a0$c(android.content.Intent)>",
+            "<com.baidu.location.a0$c: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.baidu.location.a0$d: void run()>",
+            "<com.baidu.location.a0: void for(com.baidu.location.a0,java.util.List)>",
+            "<com.baidu.location.a0: void for(java.util.List)>",
+            "<com.baidu.location.a0: java.util.List else(boolean)>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183949651477800_11m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ab: void do(com.baidu.location.ab,android.os.Message)>",
+            "<com.baidu.location.ab: void i(android.os.Message)>",
+            "<com.baidu.location.k: boolean 'int'(android.os.Message)>",
+            "<com.baidu.location.x: void a0()>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183996842356400_10m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ah: void aw()>",
+            "<com.baidu.location.ah: void aE()>",
+            "<com.baidu.location.ah: boolean 'if'(com.baidu.location.t$a)>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_184019318921400_19m_7c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.maiy.sdk.ui.LoginActivity dummyMainMethod_com_maiy_sdk_ui_LoginActivity(android.content.Intent)>",
+            "<com.maiy.sdk.view.LoginView: void <init>(android.app.Activity,com.maiy.sdk.domain.OnLoginListener)>",
+            "<com.maiy.sdk.view.LoginView: void initData()>",
+            "<com.maiy.sdk.view.LoginView: void isLoadUserLogin()>",
+            "<com.maiy.sdk.view.LoginView: void getSqliteUser()>",
+            "<com.maiy.sdk.view.LoginView$4: void onPostExecute(java.lang.Object)>",
+            "<com.maiy.sdk.view.LoginView$4: void onPostExecute(com.maiy.sdk.domain.UserInfo)>",
+            "<com.maiy.sdk.view.LoginView: void access$1000(com.maiy.sdk.view.LoginView)>",
+            "<com.maiy.sdk.view.LoginView: void showquick()>",
+            "<com.nostra13.universalimageloader.core.ImageLoader: void displayImage(java.lang.String,android.widget.ImageView,com.nostra13.universalimageloader.core.DisplayImageOptions)>",
+            "<com.nostra13.universalimageloader.core.ImageLoader: void displayImage(java.lang.String,com.nostra13.universalimageloader.core.imageaware.ImageAware,com.nostra13.universalimageloader.core.DisplayImageOptions,com.nostra13.universalimageloader.core.listener.ImageLoadingListener,com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener)>",
+            "<com.nostra13.universalimageloader.core.ImageLoader: void displayImage(java.lang.String,com.nostra13.universalimageloader.core.imageaware.ImageAware,com.nostra13.universalimageloader.core.DisplayImageOptions,com.nostra13.universalimageloader.core.assist.ImageSize,com.nostra13.universalimageloader.core.listener.ImageLoadingListener,com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener)>",
+            "<com.nostra13.universalimageloader.core.LoadAndDisplayImageTask: void run()>",
+            "<com.nostra13.universalimageloader.core.LoadAndDisplayImageTask: void runTask(java.lang.Runnable,boolean,android.os.Handler,com.nostra13.universalimageloader.core.ImageLoaderEngine)>",
+            "<android.os.Handler: boolean post(java.lang.Runnable)>",
+            "<com.baidu.location.a0$d: void run()>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_184019324646300_6m_7c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.a0$c dummyMainMethod_com_baidu_location_a0$c(android.content.Intent)>",
+            "<com.baidu.location.a0$c: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.baidu.location.a0$d: void run()>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_184224514721600_10m_34c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.a0$c dummyMainMethod_com_baidu_location_a0$c(android.content.Intent)>",
+            "<com.baidu.location.a0$c: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.baidu.location.a0$d: void run()>",
+            "<com.baidu.location.a0: void for(com.baidu.location.a0,java.util.List)>",
+            "<com.baidu.location.a0: void for(java.util.List)>",
+            "<com.baidu.location.a0: void for(com.baidu.location.aq)>",
+            "<com.baidu.location.ag: java.lang.String e(java.lang.String)>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_184316508849100_10m_20c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ah: void aw()>",
+            "<com.baidu.location.ah: void aE()>",
+            "<com.baidu.location.ag: java.lang.String e(java.lang.String)>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_184357911776300_10m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.u: void 'long'(android.os.Message)>",
+            "<com.baidu.location.u: void 'void'(android.os.Message)>",
+            "<com.baidu.location.ag: java.lang.String e(java.lang.String)>",
+            "<com.baidu.location.t: com.baidu.location.t$a ak()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183817159263800_8m_4c",
+          "associated_call_chain": "path_183817159263800_8m_4c",
+          "boolean_logic_format": "(t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_183900418928700_9m_15c",
+          "associated_call_chain": "path_183900418928700_9m_15c",
+          "boolean_logic_format": "($r3.equals($r4) == false) AND (conditionIsTrue) AND (elseMethodResult == false) AND (inputList != null) AND (listSize == 0) AND (index >= listSize) AND (inputList == null) AND (iteratorHasMoreElements == false) AND (iteratorHasNoMoreElements) AND (timestampOlderThan30Minutes) AND (hasMoreElements == true) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 15
+        },
+        {
+          "constraint_id": "path_183949651477800_11m_12c",
+          "associated_call_chain": "path_183949651477800_11m_12c",
+          "boolean_logic_format": "(featureEnabled != true) AND (switch_condition) AND (messageType != 0) AND (messageWhat == 1) AND (instanceOfK$aIsNotNull) AND (scanSpan >= 1000) AND (fG == null) AND (SecondaryLocationIsNotNull) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        },
+        {
+          "constraint_id": "path_183996842356400_10m_12c",
+          "associated_call_chain": "path_183996842356400_10m_12c",
+          "boolean_logic_format": "(gv == 1) AND (switch_condition) AND (Message.what != 0) AND (**  \nmessageType != 1  \n**) AND (**  \n`ev == true`  \n**) AND (isEnabled == false) AND (timeElapsedSinceLastEvent >= 1000) AND (`ey` is not null) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        },
+        {
+          "constraint_id": "path_184019318921400_19m_7c",
+          "associated_call_chain": "path_184019318921400_19m_7c",
+          "boolean_logic_format": "(stringsAreNotEqual) AND (**\n`elseMethodResult == true`\n**) AND (isNewConditionMet == false) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 7
+        },
+        {
+          "constraint_id": "path_184019324646300_6m_7c",
+          "associated_call_chain": "path_184019324646300_6m_7c",
+          "boolean_logic_format": "(stringsAreNotEqual) AND (**\n`elseMethodResult == true`\n**) AND (isNewConditionMet == false) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 7
+        },
+        {
+          "constraint_id": "path_184224514721600_10m_34c",
+          "associated_call_chain": "path_184224514721600_10m_34c",
+          "boolean_logic_format": "($r3.equals($r4) == false) AND (elseMethodResult == true) AND (conditionNotMet) AND (listParameter != null) AND (listSize == 0) AND (index >= listSize) AND (**\nlistParameter == null\n**) AND (!hasMoreElements) AND (noMoreElementsInIteration) AND (elapsedTime >= 30 minutes) AND (!hasNext()) AND ($r12 == null) AND (listSize > 0) AND (**\nlistSize <= 0\n**) AND (iteratorHasMoreElements) AND (iteratorHasNoMoreElements) AND (!iteratorHasNext) AND (listSize > 0) AND (index >= listSize) AND ($r12 == null) AND ($r12 != null) AND (`!listContainsObject`) AND (listContainsObject) AND (iteratorHasNoMoreElements) AND (listIsNull) AND (**\nListSize > 0\n**) AND (hasNext() == true) AND (`$r6 != null`) AND ($r2 != null) AND (doMethodResult == false) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 34
+        },
+        {
+          "constraint_id": "path_184316508849100_10m_20c",
+          "associated_call_chain": "path_184316508849100_10m_20c",
+          "boolean_logic_format": "(gv == false) AND (switch_condition) AND (MessageType == 0) AND (messageType != 1) AND (`ev == true`) AND (`featureEnabled == false`) AND (elapsedTimeSinceLastEvent < 1000) AND (currentLocation != null) AND (`ifMethodReturnsTrue`) AND (validationOnLocationObjectIsSuccessful) AND (BDLocation_ey_is_null) AND (ep == 0) AND (BDLocationObjectIsNull) AND (**\ntimeElapsedSinceLastTimestamp > 30000\n**) AND ($r2 != null) AND (doMethodResult == false) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 20
+        },
+        {
+          "constraint_id": "path_184357911776300_10m_12c",
+          "associated_call_chain": "path_184357911776300_10m_12c",
+          "boolean_logic_format": "(gv != true) AND (switch_condition) AND (messageType != 0) AND (messageType != 1) AND (currentTimeMillis() - eF < 3000) AND (`$r2 != null`) AND ($r2 != null) AND (doMethodResult == false) AND (t$aInstance == null) AND (doMethodResult == true) AND ($z0 == false) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1670133,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_184448914864100_17m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ab: void do(com.baidu.location.ab,android.os.Message)>",
+            "<com.baidu.location.ab: void i(android.os.Message)>",
+            "<com.baidu.location.k: boolean 'int'(android.os.Message)>",
+            "<com.baidu.location.x: void a0()>",
+            "<com.baidu.location.q: void 'long'(java.lang.String)>",
+            "<com.baidu.location.q$a: void ae()>",
+            "<com.baidu.location.s: void N()>",
+            "<com.baidu.location.s$2: void run()>",
+            "<com.baidu.location.s: void 'if'(com.baidu.location.s)>",
+            "<com.baidu.location.s: void L()>",
+            "<com.baidu.location.s: int P()>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_184448914864100_17m_13c",
+          "associated_call_chain": "path_184448914864100_17m_13c",
+          "boolean_logic_format": "(gv == false) AND (switch_condition) AND (Message.what != 0) AND (messageType != 1) AND ($r3 != null) AND (scanInterval < 1000) AND (primaryLocation == null) AND (fv != null) AND (String $r7 is not empty\n####) AND (ConnectivityManagerInstance != null) AND (ActiveNetworkInfo != null\n####) AND (networkAvailable != false) AND (NetworkType != TYPE_WIFI)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1761131,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_184469831628000_9m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.swiftfintech.pay.activity.UnifiedPay dummyMainMethod_com_swiftfintech_pay_activity_UnifiedPay(android.content.Intent)>",
+            "<com.swiftfintech.pay.activity.UnifiedPay: void onResume()>",
+            "<com.swiftfintech.pay.service.OrderService: void unfiedQueryOrder(com.swiftfintech.pay.bean.RequestMsg,com.swiftfintech.pay.thread.UINotifyListener)>",
+            "<com.swiftfintech.pay.thread.ThreadHelper: void executeWithCallback(com.swiftfintech.pay.thread.Executable,com.swiftfintech.pay.thread.NotifyListener)>",
+            "<com.swiftfintech.pay.thread.b: void run()>",
+            "<com.swiftfintech.pay.utils.k: void onSucceed(java.lang.Object)>",
+            "<com.swiftfintech.pay.utils.PayDialogInfo: boolean b(android.content.Context)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_184477118807900_9m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.swiftfintech.pay.activity.UnifiedPay dummyMainMethod_com_swiftfintech_pay_activity_UnifiedPay(android.content.Intent)>",
+            "<com.swiftfintech.pay.activity.UnifiedPay: void onResume()>",
+            "<com.swiftfintech.pay.service.OrderService: void unfiedQueryOrder(com.swiftfintech.pay.bean.RequestMsg,com.swiftfintech.pay.thread.UINotifyListener)>",
+            "<com.swiftfintech.pay.thread.ThreadHelper: void executeWithCallback(com.swiftfintech.pay.thread.Executable,com.swiftfintech.pay.thread.NotifyListener)>",
+            "<com.swiftfintech.pay.thread.d: void onPostExecute(java.lang.Object)>",
+            "<com.swiftfintech.pay.utils.k: void onSucceed(java.lang.Object)>",
+            "<com.swiftfintech.pay.utils.PayDialogInfo: boolean b(android.content.Context)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_184469831628000_9m_3c",
+          "associated_call_chain": "path_184469831628000_9m_3c",
+          "boolean_logic_format": "(bf == false) AND (**\nTextUtils.isEmpty(orderTradeNumber) == true\n**) AND (!TextUtils.isEmpty(outTradeNumber))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_184477118807900_9m_3c",
+          "associated_call_chain": "path_184477118807900_9m_3c",
+          "boolean_logic_format": "(bf == false) AND (**\nTextUtils.isEmpty(orderTradeNumber) == true\n**) AND (!TextUtils.isEmpty(outTradeNumber))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1789334,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_184509830455300_14m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ab: void do(com.baidu.location.ab)>",
+            "<com.baidu.location.ab: void bl()>",
+            "<com.baidu.location.az: com.baidu.location.az cn()>",
+            "<com.baidu.location.az: void <init>()>",
+            "<com.baidu.location.b.a.a: java.lang.String 'if'(android.content.Context)>",
+            "<com.baidu.location.b.a.a: java.lang.String a(android.content.Context)>",
+            "<com.baidu.location.b.a.b: java.lang.String a(android.content.Context)>",
+            "<com.baidu.location.b.a.b: java.lang.String 'if'(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_184509830455300_14m_5c",
+          "associated_call_chain": "path_184509830455300_14m_5c",
+          "boolean_logic_format": "(`featureEnabled == true`) AND (switch_condition) AND (Message.what == 0) AND (`iQ == null`) AND ($z0 == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1822049,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_184509866030300_1m_0c",
+          "entry_point": "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>",
+          "method_sequence": [
+            "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_184509866030300_1m_0c",
+          "associated_call_chain": "path_184509866030300_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1822082,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183088718784400_7m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.maiy.sdk.ui.LoginActivity dummyMainMethod_com_maiy_sdk_ui_LoginActivity(android.content.Intent)>",
+            "<com.maiy.sdk.view.RegisterView: void onClick(android.view.View)>",
+            "<com.maiy.sdk.view.RegisterView$RegisterAsyTask: void onPostExecute(java.lang.Object)>",
+            "<com.maiy.sdk.view.RegisterView$RegisterAsyTask: void onPostExecute(org.json.JSONObject)>",
+            "<com.maiy.sdk.util.Util: java.lang.String getIMEI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183088731338200_10m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.maiy.sdk.ui.LoginActivity dummyMainMethod_com_maiy_sdk_ui_LoginActivity(android.content.Intent)>",
+            "<com.maiy.sdk.view.LoginView: void <init>(android.app.Activity,com.maiy.sdk.domain.OnLoginListener)>",
+            "<com.maiy.sdk.view.LoginView: void initData()>",
+            "<com.maiy.sdk.view.LoginView: void isLoadUserLogin()>",
+            "<com.maiy.sdk.view.LoginView: void getSqliteUser()>",
+            "<com.maiy.sdk.view.LoginView$4: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.maiy.sdk.view.LoginView$4: com.maiy.sdk.domain.UserInfo doInBackground(java.lang.Void[])>",
+            "<com.maiy.sdk.util.Util: java.lang.String getIMEI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183088741507900_5m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.maiy.sdk.view.LoginWebActivity$JsToJava: void getXHUserName(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.maiy.sdk.view.LoginWebActivity$JsToJava$1: void run()>",
+            "<com.maiy.sdk.util.Util: java.lang.String getIMEI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183088751326100_6m_1c",
+          "entry_point": "<com.maiy.sdk.view.LoginView$1: void onPostExecute(java.lang.Object)>",
+          "method_sequence": [
+            "<com.maiy.sdk.view.LoginView$1: void onPostExecute(java.lang.Object)>",
+            "<com.maiy.sdk.view.LoginView$1: void onPostExecute(java.lang.Void)>",
+            "<com.maiy.sdk.view.LoginView$UserLoginAsyTask: void onPostExecute(java.lang.Object)>",
+            "<com.maiy.sdk.view.LoginView$UserLoginAsyTask: void onPostExecute(org.json.JSONObject)>",
+            "<com.maiy.sdk.util.Util: java.lang.String getIMEI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183088760042400_9m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.maiy.sdk.ui.LoginActivity dummyMainMethod_com_maiy_sdk_ui_LoginActivity(android.content.Intent)>",
+            "<com.maiy.sdk.view.RegisterView: void onClick(android.view.View)>",
+            "<com.maiy.sdk.view.RegisterView$RegisterAsyTask: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.maiy.sdk.view.RegisterView$RegisterAsyTask: org.json.JSONObject doInBackground(java.lang.Void[])>",
+            "<com.maiy.sdk.util.GetDataImpl: org.json.JSONObject register(java.lang.String)>",
+            "<com.maiy.sdk.util.GetDataImpl: java.io.InputStream doRequest(java.lang.String,java.lang.String)>",
+            "<com.maiy.sdk.util.Util: java.lang.String getIMEI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183127486639100_10m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.maiy.sdk.ui.ChargeActivity dummyMainMethod_com_maiy_sdk_ui_ChargeActivity(android.content.Intent)>",
+            "<com.maiy.sdk.ui.TTBFragment: void onClick(android.view.View)>",
+            "<com.maiy.sdk.ui.TTBFragment: void refreshTTB()>",
+            "<com.maiy.sdk.ui.TTBFragment$5: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.maiy.sdk.ui.TTBFragment$5: com.maiy.sdk.domain.ResultCode doInBackground(java.lang.Void[])>",
+            "<com.maiy.sdk.util.GetDataImpl: com.maiy.sdk.domain.ResultCode getTTBTwo(java.lang.String)>",
+            "<com.maiy.sdk.util.GetDataImpl: java.io.InputStream doRequest(java.lang.String,java.lang.String)>",
+            "<com.maiy.sdk.util.Util: java.lang.String getIMEI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183127495271200_9m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.maiy.sdk.view.PayWebActivity$JsToJava: void logout()>",
+            "<com.maiy.sdk.view.PayWebActivity: void logoutUser()>",
+            "<com.maiy.sdk.view.PayWebActivity$9: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.maiy.sdk.view.PayWebActivity$9: java.lang.Void doInBackground(java.lang.Void[])>",
+            "<com.maiy.sdk.util.GetDataImpl: com.maiy.sdk.domain.ResultCode loginOut(java.lang.String)>",
+            "<com.maiy.sdk.util.GetDataImpl: java.io.InputStream doRequest(java.lang.String,java.lang.String)>",
+            "<com.maiy.sdk.util.Util: java.lang.String getIMEI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183088718784400_7m_1c",
+          "associated_call_chain": "path_183088718784400_7m_1c",
+          "boolean_logic_format": "isDeviceIdEmpty == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_183088731338200_10m_1c",
+          "associated_call_chain": "path_183088731338200_10m_1c",
+          "boolean_logic_format": "isDeviceIdEmpty == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_183088741507900_5m_1c",
+          "associated_call_chain": "path_183088741507900_5m_1c",
+          "boolean_logic_format": "isDeviceIdEmpty == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_183088751326100_6m_1c",
+          "associated_call_chain": "path_183088751326100_6m_1c",
+          "boolean_logic_format": "isDeviceIdEmpty == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_183088760042400_9m_1c",
+          "associated_call_chain": "path_183088760042400_9m_1c",
+          "boolean_logic_format": "isDeviceIdEmpty == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_183127486639100_10m_6c",
+          "associated_call_chain": "path_183127486639100_10m_6c",
+          "boolean_logic_format": "(tv_pay != null) AND (**\nclickedViewId == tvPayId\n**) AND (charge_money > ttb) AND (`tv_refresh` is not `null`) AND (clickedViewId == tvRefreshId) AND (isDeviceIdEmpty == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_183127495271200_9m_1c",
+          "associated_call_chain": "path_183127495271200_9m_1c",
+          "boolean_logic_format": "isDeviceIdEmpty == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 439698,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183127522449000_3m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.maiy.sdk.view.PayWebActivity$JsToJava: void openUrl(java.lang.String)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183127530042200_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.maiy.sdk.view.PayWebActivity$JsToJava: void openApp(java.lang.String,java.lang.String)>",
+            "<com.maiy.sdk.view.PayWebActivity$JsToJava: void openUrl(java.lang.String)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183127522449000_3m_0c",
+          "associated_call_chain": "path_183127522449000_3m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_183127530042200_4m_0c",
+          "associated_call_chain": "path_183127530042200_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 439731,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183204016964800_11m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onBackPressed()>",
+            "<com.qk.plugin.js.shell.MainActivity: void exit()>",
+            "<com.qk.plugin.js.shell.MainActivity$15: void run()>",
+            "<com.quicksdk.Sdk: void exit(android.app.Activity)>",
+            "<com.quicksdk.ex.ExCollector: void reportError(java.lang.Throwable,com.quicksdk.ex.ExNode)>",
+            "<com.quicksdk.ex.a: boolean a(java.lang.String,java.lang.String,java.lang.String,java.lang.Throwable,java.lang.String)>",
+            "<com.quicksdk.ex.a: java.io.File a()>",
+            "<com.quicksdk.ex.a: java.lang.String b(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183225482614500_10m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onDestroy()>",
+            "<com.quicksdk.Sdk: void onDestroy(android.app.Activity)>",
+            "<com.quicksdk.utility.UserCacheUtils: void a(java.lang.Boolean)>",
+            "<com.quicksdk.utility.k: void a(java.lang.Runnable)>",
+            "<com.quicksdk.ex.ExCollector$1: void run()>",
+            "<com.quicksdk.ex.a: java.io.File a()>",
+            "<com.quicksdk.ex.a: java.lang.String b(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183242163768900_11m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onDestroy()>",
+            "<com.quicksdk.Sdk: void onDestroy(android.app.Activity)>",
+            "<com.quicksdk.utility.UserCacheUtils: void a(java.lang.Boolean)>",
+            "<com.quicksdk.utility.k: void a(java.lang.Runnable)>",
+            "<com.quicksdk.ex.ExCollector$1: void run()>",
+            "<com.quicksdk.ex.a: java.lang.String c()>",
+            "<com.quicksdk.ex.a: java.io.File a()>",
+            "<com.quicksdk.ex.a: java.lang.String b(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183204016964800_11m_10c",
+          "associated_call_chain": "path_183204016964800_11m_10c",
+          "boolean_logic_format": "(isShowExitDialog() == true) AND (SwitchToQuickGameEnabled == true) AND (contextIsNotNull) AND (userInfo != null) AND (userID == null) AND ($userID is empty or null) AND (username == null) AND (User ID is not empty or null) AND ($z0 == false) AND (FileOrDirectoryDoesNotExist)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_183225482614500_10m_4c",
+          "associated_call_chain": "path_183225482614500_10m_4c",
+          "boolean_logic_format": "(k == true) AND (!TextUtils.isEmpty(logContent)) AND (!isStringEmpty) AND (FileOrDirectoryDoesNotExist)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_183242163768900_11m_3c",
+          "associated_call_chain": "path_183242163768900_11m_3c",
+          "boolean_logic_format": "(k is true) AND (elapsedTimeSinceLastRecord >= 300000) AND (FileOrDirectoryDoesNotExist)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 554368,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183295542710900_16m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ab: void do(com.baidu.location.ab,android.os.Message)>",
+            "<com.baidu.location.ab: void i(android.os.Message)>",
+            "<com.baidu.location.k: boolean 'int'(android.os.Message)>",
+            "<com.baidu.location.x: void a0()>",
+            "<com.baidu.location.q: void 'long'(java.lang.String)>",
+            "<com.baidu.location.q$a: void ae()>",
+            "<com.baidu.location.s: void N()>",
+            "<com.baidu.location.s$2: void run()>",
+            "<com.baidu.location.a0$a: void T()>",
+            "<com.baidu.location.au: int do(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183295542710900_16m_9c",
+          "associated_call_chain": "path_183295542710900_16m_9c",
+          "boolean_logic_format": "(gv == true) AND (switch_condition) AND (messageType != 0) AND (messageType == 1) AND (instanceOfLocationClientOptionIsNotNull) AND (**\nscanSpan >= 1000\n**) AND (currentLocationIsNull) AND (fvLocation != null) AND (!TextUtils.isEmpty(formattedString))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 607746,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_184540219977400_7m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoPluginLoadingActivity dummyMainMethod_com_payeco_android_plugin_PayecoPluginLoadingActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: void onActivityResult(int,int,android.content.Intent)>",
+            "<com.payeco.android.plugin.DoPhoto: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.payeco.android.plugin.DoPhoto: java.lang.String doInBackground(java.lang.String[])>",
+            "<com.payeco.android.plugin.util.BitmapUtil: void zoopImage(android.graphics.Bitmap,java.lang.String,java.lang.String,int,int)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_184540219977400_7m_4c",
+          "associated_call_chain": "path_184540219977400_7m_4c",
+          "boolean_logic_format": "(PhotoSizeSetting != null) AND (SDKVersion > 11) AND (rotationAngle == 0) AND (FileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1852434,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_184540256932700_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoVedioActivity dummyMainMethod_com_payeco_android_plugin_PayecoVedioActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.PayecoVedioActivity: void <init>()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_184540256932700_4m_0c",
+          "associated_call_chain": "path_184540256932700_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1852469,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_182803306416400_9m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoPluginLoadingActivity dummyMainMethod_com_payeco_android_plugin_PayecoPluginLoadingActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: void onCreate(android.os.Bundle)>",
+            "<com.payeco.android.plugin.m: void onPostExecute(java.lang.Object)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: java.util.ArrayList access$4(com.payeco.android.plugin.PayecoPluginLoadingActivity)>",
+            "<com.payeco.android.plugin.PayecoPluginLoadingActivity: java.util.ArrayList getHttpParams()>",
+            "<com.payeco.android.plugin.util.k: java.lang.String a(android.content.Context)>",
+            "<com.payeco.android.plugin.util.k: java.lang.String c()>",
+            "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_182803306416400_9m_13c",
+          "associated_call_chain": "path_182803306416400_9m_13c",
+          "boolean_logic_format": "(urlLoadingModeNotEqualToOne) AND (\"1\".equals(loadUrlMode)) AND (HTTPGetParams != null) AND (upPayJsonObject == null) AND (!upPay.has(\"MerchOrderId\")) AND (wifiInfoIsNull) AND (WiFiState == ENABLED) AND (wifiState != WIFI_STATE_ENABLING) AND (loopCounter >= 10) AND (WiFi is enabled or enabling) AND (loopCounter == 0) AND (resultFromWifiManagerMethod != null) AND (`wifiInfo == null`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 115515,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_182908129519100_11m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ah: void 'case'(android.os.Message)>",
+            "<com.baidu.location.ah: void else(android.os.Message)>",
+            "<com.baidu.location.ah: void aB()>",
+            "<com.baidu.location.ar: boolean bX()>",
+            "<com.baidu.location.ar: boolean b5()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_182908129519100_11m_14c",
+          "associated_call_chain": "path_182908129519100_11m_14c",
+          "boolean_logic_format": "(gv != true) AND (switch_condition) AND (messageType != 0) AND (messageType != 1) AND (locationServiceReady == true) AND (switch_condition) AND (locationProcessingRequirementMet == true) AND (ex == false) AND (`en` is false) AND (WiFiManagerAvailable) AND (currentTimeMillis - lastRecordedTime > 3000) AND (Wi-Fi is enabled) AND (Method hX is null) AND (hR != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 220330,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183413474780000_12m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onDestroy()>",
+            "<com.quicksdk.Sdk: void onDestroy(android.app.Activity)>",
+            "<com.quicksdk.utility.UserCacheUtils: void a(java.lang.Boolean)>",
+            "<com.quicksdk.utility.k: void a(java.lang.Runnable)>",
+            "<com.quicksdk.net.Connect$3: void run()>",
+            "<com.quicksdk.net.a: com.quicksdk.net.ApiResult b(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.quickjoy.lib.jkhttp.HttpClient: com.quickjoy.lib.jkhttp.Response excute()>",
+            "<com.quickjoy.lib.jkhttp.Connect: com.quickjoy.lib.jkhttp.Response doConnect()>",
+            "<com.quickjoy.lib.jkhttp.Connect: void a()>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183413474780000_12m_16c",
+          "associated_call_chain": "path_183413474780000_12m_16c",
+          "boolean_logic_format": "(k == true) AND (**  \nresponseCode != 301  \n**) AND (responseCode == 302) AND (Connect.d == true) AND (HeadersObjectHasNoMappings) AND (headersMap != null) AND (!hasNext) AND (hasNext() == false) AND (**  \nnumberOfParametersOrHeaders <= 0  \n**) AND (inputStream == null) AND (stringNotEqual) AND (outputStreamIsNull && inputStreamIsNull) AND (inputStreamIsNotNull) AND (outputStreamIsNull && inputStreamIsNull) AND (inputStream != null) AND (httpMethod.equalsIgnoreCase(\"GET\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 725680,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183475135616600_13m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ab: void for(com.baidu.location.ab,android.os.Message)>",
+            "<com.baidu.location.ab: void h(android.os.Message)>",
+            "<com.baidu.location.y: void a9()>",
+            "<com.baidu.location.y: void ba()>",
+            "<com.baidu.location.y$a: void 'if'(java.lang.String,boolean)>",
+            "<com.baidu.location.s: void N()>",
+            "<com.baidu.location.s$2: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183544828888100_14m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.f dummyMainMethod_com_baidu_location_f(android.content.Intent)>",
+            "<com.baidu.location.f: void onCreate()>",
+            "<com.baidu.location.ab: void onCreate(android.content.Context)>",
+            "<com.baidu.location.ab$a: void handleMessage(android.os.Message)>",
+            "<com.baidu.location.ab: void do(com.baidu.location.ab,android.os.Message)>",
+            "<com.baidu.location.ab: void i(android.os.Message)>",
+            "<com.baidu.location.k: boolean 'int'(android.os.Message)>",
+            "<com.baidu.location.x: void a0()>",
+            "<com.baidu.location.q: void 'long'(java.lang.String)>",
+            "<com.baidu.location.q$a: void ae()>",
+            "<com.baidu.location.s: void N()>",
+            "<com.baidu.location.s$2: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_183742688811400_11m_32c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.a0$c dummyMainMethod_com_baidu_location_a0$c(android.content.Intent)>",
+            "<com.baidu.location.a0$c: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.baidu.location.a0$d: void run()>",
+            "<com.baidu.location.a0: void for(com.baidu.location.a0,java.util.List)>",
+            "<com.baidu.location.a0: void for(java.util.List)>",
+            "<com.baidu.location.a0: void for(com.baidu.location.aq)>",
+            "<com.baidu.location.a0$a: void ai()>",
+            "<com.baidu.location.s: void N()>",
+            "<com.baidu.location.s$2: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183475135616600_13m_10c",
+          "associated_call_chain": "path_183475135616600_13m_10c",
+          "boolean_logic_format": "(gv == true) AND (switch_condition) AND (messageType == 1) AND (`messageType == 1`) AND ((currentTimeMillis - storedTime) > 72000000) AND (dv is true) AND (i0 > 0) AND (locationServiceMode != 1) AND (mode != 4) AND (`calculatedValueIsOdd`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_183544828888100_14m_13c",
+          "associated_call_chain": "path_183544828888100_14m_13c",
+          "boolean_logic_format": "(gv == true) AND (switch_condition) AND (messageWhat == 0) AND (MessageType == 1) AND (locationConfigObject != null) AND (**\nscanInterval >= 1000\n**) AND (fG == null) AND (fvLocation != null) AND (**\n!TextUtils.isEmpty(formattedString)\n**) AND (i0 > 0) AND (locationServiceMode != 1) AND (mode != 4) AND (`calculatedValueIsOdd`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        },
+        {
+          "constraint_id": "path_183742688811400_11m_32c",
+          "associated_call_chain": "path_183742688811400_11m_32c",
+          "boolean_logic_format": "(stringsAreNotEqual) AND (conditionMet == true) AND (`newMethodResult == false`) AND (listParameter != null) AND (**\nlistSize == 0\n**) AND (currentIndex >= listSize) AND (`!hasMoreElements`) AND (iteratorHasMoreElements == true) AND (iteratorHasMoreElements == true) AND (timeDifference >= 1800000) AND (iteratorHasNoMoreElements) AND ($r12 == null) AND (listSize > 0) AND (mapSize <= 0) AND (!iteratorHasNext) AND (iteratorHasNoMoreElements) AND (iteratorHasNoMoreElements) AND (listSize > 0) AND (index >= listSize) AND (`listFromElseMethod == null`) AND (`$r12 == null`) AND (!listContainsElement) AND (!listContainsObject) AND (iteratorHasNoMoreElements) AND ($r15 != null) AND (listSize > 0) AND (iteratorHasMoreElements) AND (`currentElement != null`) AND (i0 > 0) AND (locationServiceMode != 1) AND (mode != 4) AND (`calculatedValueIsOdd`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 32
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1054898,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183766769889000_6m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.baidu.location.ar$a dummyMainMethod_com_baidu_location_ar$a(android.content.Intent)>",
+            "<com.baidu.location.ar$a: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.baidu.location.ar: void 'if'(com.baidu.location.ar)>",
+            "<com.baidu.location.ar: void bV()>",
+            "<android.net.wifi.WifiManager: java.util.List getScanResults()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183766769889000_6m_3c",
+          "associated_call_chain": "path_183766769889000_6m_3c",
+          "boolean_logic_format": "(context != null) AND (intentAction.equals(\"android.net.wifi.SCAN_RESULTS\")) AND (WiFiManagerInitialized)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1078980,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_183783029428200_4m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.alipay.sdk.auth.AuthActivity dummyMainMethod_com_alipay_sdk_auth_AuthActivity(android.content.Intent)>",
+            "<com.alipay.sdk.auth.AuthActivity: void onCreate(android.os.Bundle)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_183783029428200_4m_2c",
+          "associated_call_chain": "path_183783029428200_4m_2c",
+          "boolean_logic_format": "(extrasBundle != null) AND (isParamsStringValid)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769949982087,
+        "analysis_duration_ms": 1095239,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

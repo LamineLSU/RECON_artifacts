@@ -1,9 +1,0 @@
-Simplified Basic Block Analysis Report
-===================================
-
-Method: <com.example.pathexplorer.MainActivity: android.widget.TextView '-$$Nest$fgetoutputTextView'(com.example.pathexplorer.MainActivity)>
-Analysis: Treated as single basic block
-Entry point: Method start
-Exit point: Method end
-
-Note: Detailed path analysis skipped for synthetic/synthetic-like methods

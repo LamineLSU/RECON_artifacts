@@ -1,0 +1,1264 @@
+{
+  "framework_methods": {
+    "Intent Operations": [
+      {
+        "signature": "android.content.Intent.<init>()",
+        "purpose_behavior": "Creates empty Intent instance with no action, data, or component specified",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns new Intent object instance"
+        }
+      },
+      {
+        "signature": "android.content.Intent.<init>(java.lang.String)",
+        "purpose_behavior": "Creates Intent with specified action string, commonly used for system actions like VIEW or SEND",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns new Intent object with action set"
+        }
+      },
+      {
+        "signature": "android.content.Intent.<init>(java.lang.String, android.net.Uri)",
+        "purpose_behavior": "Creates Intent with action and data URI, used for actions that operate on specific data",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns new Intent object with action and data URI"
+        }
+      },
+      {
+        "signature": "android.content.Intent.<init>(android.content.Context, java.lang.Class)",
+        "purpose_behavior": "Creates explicit Intent targeting specific component class within given context",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns new Intent targeting specified component"
+        }
+      },
+      {
+        "signature": "android.content.Intent.<init>(android.content.Intent)",
+        "purpose_behavior": "Creates copy of existing Intent, preserving all properties including action, data, extras, and flags",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns new Intent object copied from source"
+        }
+      },
+      {
+        "signature": "android.content.Intent.hasExtra(java.lang.String)",
+        "purpose_behavior": "Checks whether Intent contains specified extra parameter key, used for validating required data presence",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if parameter key exists in Intent extras, false if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getStringExtra(java.lang.String)",
+        "purpose_behavior": "Retrieves string value associated with specified parameter key from Intent extras bundle",
+        "return_values": {
+          "type": "String",
+          "description": "string value if key exists, null if key not found or value not string type"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getIntExtra(java.lang.String, int)",
+        "purpose_behavior": "Retrieves integer value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "int",
+          "description": "integer value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getBooleanExtra(java.lang.String, boolean)",
+        "purpose_behavior": "Retrieves boolean value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "boolean",
+          "description": "boolean value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getFloatExtra(java.lang.String, float)",
+        "purpose_behavior": "Retrieves float value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "float",
+          "description": "float value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getLongExtra(java.lang.String, long)",
+        "purpose_behavior": "Retrieves long integer value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "long",
+          "description": "long value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getDoubleExtra(java.lang.String, double)",
+        "purpose_behavior": "Retrieves double precision value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "double",
+          "description": "double value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getByteExtra(java.lang.String, byte)",
+        "purpose_behavior": "Retrieves byte value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "byte",
+          "description": "byte value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getCharExtra(java.lang.String, char)",
+        "purpose_behavior": "Retrieves character value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "char",
+          "description": "char value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getShortExtra(java.lang.String, short)",
+        "purpose_behavior": "Retrieves short integer value for specified key from Intent extras, returning default if key missing",
+        "return_values": {
+          "type": "short",
+          "description": "short value if key exists, default value if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getParcelableExtra(java.lang.String)",
+        "purpose_behavior": "Retrieves Parcelable object for specified key from Intent extras, used for complex object transfer",
+        "return_values": {
+          "type": "Parcelable",
+          "description": "Parcelable object if key exists, null if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getSerializableExtra(java.lang.String)",
+        "purpose_behavior": "Retrieves Serializable object for specified key from Intent extras, used for serialized object transfer",
+        "return_values": {
+          "type": "Serializable",
+          "description": "Serializable object if key exists, null if key not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.putExtra(java.lang.String, java.lang.String)",
+        "purpose_behavior": "Adds string value to Intent extras bundle with specified key for inter-component data transfer",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.putExtra(java.lang.String, int)",
+        "purpose_behavior": "Adds integer value to Intent extras bundle with specified key for numerical data transfer",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.putExtra(java.lang.String, boolean)",
+        "purpose_behavior": "Adds boolean value to Intent extras bundle with specified key for flag data transfer",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.putExtra(java.lang.String, float)",
+        "purpose_behavior": "Adds float value to Intent extras bundle with specified key for decimal data transfer",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.putExtra(java.lang.String, android.os.Parcelable)",
+        "purpose_behavior": "Adds Parcelable object to Intent extras bundle for complex object transfer between components",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.removeExtra(java.lang.String)",
+        "purpose_behavior": "Removes extra parameter with specified key from Intent extras bundle",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, modifies Intent extras in place"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getFlags()",
+        "purpose_behavior": "Retrieves current Intent flags that control behavior during activity launch and task management",
+        "return_values": {
+          "type": "int",
+          "description": "bitwise combination of Intent flag constants"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setFlags(int)",
+        "purpose_behavior": "Sets Intent flags that control launch behavior, task affinity, and activity stack management",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.addFlags(int)",
+        "purpose_behavior": "Adds additional flags to existing Intent flags using bitwise OR operation",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setAction(java.lang.String)",
+        "purpose_behavior": "Sets action string that describes operation Intent should perform, such as VIEW or SEND",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getAction()",
+        "purpose_behavior": "Retrieves action string describing operation this Intent should perform",
+        "return_values": {
+          "type": "String",
+          "description": "action string if set, null if no action specified"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setComponent(android.content.ComponentName)",
+        "purpose_behavior": "Sets explicit component name for Intent, making it target specific application component",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getComponent()",
+        "purpose_behavior": "Retrieves explicit component name that Intent targets, if component specified",
+        "return_values": {
+          "type": "ComponentName",
+          "description": "ComponentName if explicitly set, null for implicit intents"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setClass(android.content.Context, java.lang.Class)",
+        "purpose_behavior": "Sets Intent to target specific class within given context, creating explicit intent",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setClassName(java.lang.String, java.lang.String)",
+        "purpose_behavior": "Sets Intent to target specific class name within specified package name",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setClassName(android.content.Context, java.lang.String)",
+        "purpose_behavior": "Sets Intent to target class name within given context package",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setData(android.net.Uri)",
+        "purpose_behavior": "Sets data URI that Intent should operate on, used for actions requiring specific data",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getData()",
+        "purpose_behavior": "Retrieves data URI that Intent operates on, if data URI specified",
+        "return_values": {
+          "type": "Uri",
+          "description": "data URI if set, null if no data specified"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setType(java.lang.String)",
+        "purpose_behavior": "Sets MIME type of data Intent operates on, used for content type filtering",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getType()",
+        "purpose_behavior": "Retrieves MIME type of data Intent operates on, if type specified",
+        "return_values": {
+          "type": "String",
+          "description": "MIME type string if set, null if no type specified"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setDataAndType(android.net.Uri, java.lang.String)",
+        "purpose_behavior": "Sets both data URI and MIME type simultaneously, ensuring consistent data specification",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.addCategory(java.lang.String)",
+        "purpose_behavior": "Adds category to Intent for additional filtering during component resolution",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent object for method chaining"
+        }
+      },
+      {
+        "signature": "android.content.Intent.getCategories()",
+        "purpose_behavior": "Retrieves set of categories associated with Intent for component filtering",
+        "return_values": {
+          "type": "Set<String>",
+          "description": "set of category strings if categories added, null if no categories"
+        }
+      },
+      {
+        "signature": "android.content.Intent.hasCategory(java.lang.String)",
+        "purpose_behavior": "Checks whether Intent contains specified category string",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if category exists, false if category not found"
+        }
+      },
+      {
+        "signature": "android.content.Intent.resolveActivity(android.content.pm.PackageManager)",
+        "purpose_behavior": "Finds component that can handle this Intent using package manager resolution",
+        "return_values": {
+          "type": "ComponentName",
+          "description": "ComponentName of resolved component, null if no component found"
+        }
+      }
+    ],
+    "Menu Item Handling": [
+      {
+        "signature": "android.view.MenuItem.getItemId()",
+        "purpose_behavior": "Retrieves unique identifier associated with menu item, typically used in conditional logic to determine selected option",
+        "return_values": {
+          "type": "int",
+          "description": "unique menu item identifier as defined in R.id constants"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.setVisible(boolean)",
+        "purpose_behavior": "Controls visibility of menu item in menu display, hiding or showing item based on application state",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "returns this MenuItem for method chaining"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.isVisible()",
+        "purpose_behavior": "Checks current visibility state of menu item to determine if item appears in menu",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if menu item visible, false if hidden"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.setEnabled(boolean)",
+        "purpose_behavior": "Controls whether menu item can be selected by user, disabling interaction when false",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "returns this MenuItem for method chaining"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.isEnabled()",
+        "purpose_behavior": "Checks whether menu item is currently enabled for user interaction",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if menu item enabled, false if disabled"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.setTitle(java.lang.CharSequence)",
+        "purpose_behavior": "Sets display text for menu item that appears to user in menu",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "returns this MenuItem for method chaining"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.getTitle()",
+        "purpose_behavior": "Retrieves current display text associated with menu item",
+        "return_values": {
+          "type": "CharSequence",
+          "description": "menu item title text, null if no title set"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.setIcon(android.graphics.drawable.Drawable)",
+        "purpose_behavior": "Sets icon drawable resource to display alongside menu item text",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "returns this MenuItem for method chaining"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.setIcon(int)",
+        "purpose_behavior": "Sets icon using resource identifier to display alongside menu item text",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "returns this MenuItem for method chaining"
+        }
+      },
+      {
+        "signature": "android.view.MenuItem.getIcon()",
+        "purpose_behavior": "Retrieves current icon drawable associated with menu item",
+        "return_values": {
+          "type": "Drawable",
+          "description": "icon drawable if set, null if no icon specified"
+        }
+      },
+      {
+        "signature": "android.view.Menu.findItem(int)",
+        "purpose_behavior": "Searches menu for item with specified identifier, used to locate specific menu items",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "MenuItem with matching ID, null if item not found"
+        }
+      },
+      {
+        "signature": "android.view.Menu.add(java.lang.CharSequence)",
+        "purpose_behavior": "Adds new menu item with specified title text to menu",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "newly created MenuItem object"
+        }
+      },
+      {
+        "signature": "android.view.Menu.add(int, int, int, java.lang.CharSequence)",
+        "purpose_behavior": "Adds menu item with group ID, item ID, order, and title for organized menu structure",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "newly created MenuItem object with specified properties"
+        }
+      },
+      {
+        "signature": "android.view.Menu.add(int, int, int, int)",
+        "purpose_behavior": "Adds menu item using resource IDs for group, item, order, and title",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "newly created MenuItem object with resource-based properties"
+        }
+      },
+      {
+        "signature": "android.view.Menu.removeItem(int)",
+        "purpose_behavior": "Removes menu item with specified identifier from menu",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, removes item from menu structure"
+        }
+      },
+      {
+        "signature": "android.view.Menu.clear()",
+        "purpose_behavior": "Removes all menu items from menu, clearing entire menu structure",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, removes all menu items"
+        }
+      },
+      {
+        "signature": "android.view.Menu.size()",
+        "purpose_behavior": "Returns total number of menu items currently in menu",
+        "return_values": {
+          "type": "int",
+          "description": "count of menu items in menu"
+        }
+      },
+      {
+        "signature": "android.view.Menu.getItem(int)",
+        "purpose_behavior": "Retrieves menu item at specified position index in menu",
+        "return_values": {
+          "type": "MenuItem",
+          "description": "MenuItem at index position, throws exception if index invalid"
+        }
+      },
+      {
+        "signature": "android.view.MenuInflater.inflate(int, android.view.Menu)",
+        "purpose_behavior": "Inflates menu structure from XML resource into Menu object",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, populates menu with XML-defined items"
+        }
+      },
+      {
+        "signature": "android.view.MenuInflater.<init>(android.content.Context)",
+        "purpose_behavior": "Creates MenuInflater instance for inflating menu resources within given context",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns new MenuInflater object"
+        }
+      },
+      {
+        "signature": "android.app.ActionBar.setDisplayHomeAsUpEnabled(boolean)",
+        "purpose_behavior": "Enables or disables up navigation button in action bar for hierarchical navigation",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, modifies action bar display options"
+        }
+      },
+      {
+        "signature": "android.app.ActionBar.setHomeButtonEnabled(boolean)",
+        "purpose_behavior": "Enables or disables home button functionality in action bar",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, modifies home button behavior"
+        }
+      },
+      {
+        "signature": "android.view.ContextMenu.setHeaderTitle(java.lang.CharSequence)",
+        "purpose_behavior": "Sets title text displayed at top of context menu",
+        "return_values": {
+          "type": "ContextMenu",
+          "description": "returns this ContextMenu for method chaining"
+        }
+      },
+      {
+        "signature": "android.view.ContextMenu.setHeaderIcon(android.graphics.drawable.Drawable)",
+        "purpose_behavior": "Sets icon drawable displayed in context menu header",
+        "return_values": {
+          "type": "ContextMenu",
+          "description": "returns this ContextMenu for method chaining"
+        }
+      },
+      {
+        "signature": "android.widget.PopupMenu.<init>(android.content.Context, android.view.View)",
+        "purpose_behavior": "Creates PopupMenu instance anchored to specified view within given context",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns new PopupMenu object"
+        }
+      },
+      {
+        "signature": "android.widget.PopupMenu.inflate(int)",
+        "purpose_behavior": "Inflates popup menu content from XML menu resource",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, populates popup menu with XML-defined items"
+        }
+      },
+      {
+        "signature": "android.widget.PopupMenu.show()",
+        "purpose_behavior": "Displays popup menu to user at anchor position",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, shows popup menu on screen"
+        }
+      },
+      {
+        "signature": "android.widget.PopupMenu.setOnMenuItemClickListener(android.widget.PopupMenu$OnMenuItemClickListener)",
+        "purpose_behavior": "Sets callback listener for popup menu item selection events",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers click listener"
+        }
+      }
+    ],
+    "Activity Lifecycle": [
+      {
+        "signature": "android.app.Activity.onCreate(android.os.Bundle)",
+        "purpose_behavior": "Called when activity is first created, used for one-time initialization and UI setup",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, lifecycle callback method"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onStart()",
+        "purpose_behavior": "Called when activity becomes visible to user, used for starting animations or background processes",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, lifecycle callback method"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onResume()",
+        "purpose_behavior": "Called when activity gains user focus and becomes interactive",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, lifecycle callback method"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onPause()",
+        "purpose_behavior": "Called when activity loses focus but remains partially visible, used for pausing operations",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, lifecycle callback method"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onStop()",
+        "purpose_behavior": "Called when activity is no longer visible to user, used for stopping expensive operations",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, lifecycle callback method"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onDestroy()",
+        "purpose_behavior": "Called before activity is destroyed, used for final cleanup and resource release",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, lifecycle callback method"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onRestart()",
+        "purpose_behavior": "Called when stopped activity is restarted, followed by onStart and onResume",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, lifecycle callback method"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onSaveInstanceState(android.os.Bundle)",
+        "purpose_behavior": "Called to save activity state before potential destruction, preserves UI state",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, saves state to provided Bundle"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onRestoreInstanceState(android.os.Bundle)",
+        "purpose_behavior": "Called to restore previously saved activity state after recreation",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, restores state from provided Bundle"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onActivityResult(int, int, android.content.Intent)",
+        "purpose_behavior": "Called when launched activity returns result data to calling activity",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, processes result data from launched activity"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onRequestPermissionsResult(int, java.lang.String[], int[])",
+        "purpose_behavior": "Called when user responds to runtime permission request dialog",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, processes permission grant or denial results"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onNewIntent(android.content.Intent)",
+        "purpose_behavior": "Called when activity receives new Intent while already running with singleTop or singleTask launch mode",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, processes new Intent data"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onConfigurationChanged(android.content.res.Configuration)",
+        "purpose_behavior": "Called when device configuration changes such as screen rotation or language change",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, handles configuration change"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onLowMemory()",
+        "purpose_behavior": "Called when system is running low on memory, should release non-essential resources",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, memory management callback"
+        }
+      },
+      {
+        "signature": "android.app.Activity.onTrimMemory(int)",
+        "purpose_behavior": "Called when system requests memory trimming at specified level, used for memory optimization",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, trim level indicates urgency"
+        }
+      },
+      {
+        "signature": "android.app.Activity.finish()",
+        "purpose_behavior": "Terminates current activity and removes it from activity stack, returning to previous activity",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, initiates activity termination"
+        }
+      },
+      {
+        "signature": "android.app.Activity.finishAffinity()",
+        "purpose_behavior": "Finishes current activity and all activities below it in task with same affinity",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, terminates related activities"
+        }
+      },
+      {
+        "signature": "android.app.Activity.finishAndRemoveTask()",
+        "purpose_behavior": "Finishes activity and removes entire task from recents list",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, removes task from system"
+        }
+      },
+      {
+        "signature": "android.app.Activity.startActivity(android.content.Intent)",
+        "purpose_behavior": "Launches new activity using provided Intent, standard activity launching method",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, initiates activity launch"
+        }
+      },
+      {
+        "signature": "android.app.Activity.startActivityForResult(android.content.Intent, int)",
+        "purpose_behavior": "Launches activity expecting result data, using request code to identify response",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, initiates activity launch with result expectation"
+        }
+      },
+      {
+        "signature": "android.app.Activity.getIntent()",
+        "purpose_behavior": "Retrieves Intent that was used to start this activity, containing launch parameters",
+        "return_values": {
+          "type": "Intent",
+          "description": "Intent used to launch activity, never null"
+        }
+      },
+      {
+        "signature": "android.app.Activity.setResult(int)",
+        "purpose_behavior": "Sets result code that will be returned to calling activity when this activity finishes",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, sets result code for caller"
+        }
+      },
+      {
+        "signature": "android.app.Activity.setResult(int, android.content.Intent)",
+        "purpose_behavior": "Sets result code and data Intent that will be returned to calling activity",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, sets result code and data for caller"
+        }
+      },
+      {
+        "signature": "androidx.activity.ComponentActivity.onBackPressed()",
+        "purpose_behavior": "Handles back button press using modern AndroidX activity framework",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, processes back navigation"
+        }
+      }
+    ],
+    "UI Component Events": [
+      {
+        "signature": "android.view.View.setOnClickListener(android.view.View$OnClickListener)",
+        "purpose_behavior": "Registers callback to handle click events on view component",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers click listener"
+        }
+      },
+      {
+        "signature": "android.view.View.setOnLongClickListener(android.view.View$OnLongClickListener)",
+        "purpose_behavior": "Registers callback to handle long press events on view component",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers long click listener"
+        }
+      },
+      {
+        "signature": "android.view.View.setOnTouchListener(android.view.View$OnTouchListener)",
+        "purpose_behavior": "Registers callback to handle raw touch events including down, move, and up actions",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers touch listener"
+        }
+      },
+      {
+        "signature": "android.view.View.setOnFocusChangeListener(android.view.View$OnFocusChangeListener)",
+        "purpose_behavior": "Registers callback to handle focus gain and loss events on view component",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers focus change listener"
+        }
+      },
+      {
+        "signature": "android.widget.EditText.addTextChangedListener(android.text.TextWatcher)",
+        "purpose_behavior": "Registers callback to monitor text changes in EditText component during user input",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, adds text change monitoring"
+        }
+      },
+      {
+        "signature": "android.widget.Button.performClick()",
+        "purpose_behavior": "Programmatically triggers click event on button as if user pressed it",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if click event consumed, false otherwise"
+        }
+      },
+      {
+        "signature": "android.widget.CheckBox.setOnCheckedChangeListener(android.widget.CompoundButton$OnCheckedChangeListener)",
+        "purpose_behavior": "Registers callback to handle checkbox state changes between checked and unchecked",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers state change listener"
+        }
+      },
+      {
+        "signature": "android.widget.RadioButton.setOnCheckedChangeListener(android.widget.CompoundButton$OnCheckedChangeListener)",
+        "purpose_behavior": "Registers callback to handle radio button selection state changes",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers selection listener"
+        }
+      },
+      {
+        "signature": "android.widget.SeekBar.setOnSeekBarChangeListener(android.widget.SeekBar$OnSeekBarChangeListener)",
+        "purpose_behavior": "Registers callback to handle seek bar progress changes and user interaction events",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers progress change listener"
+        }
+      },
+      {
+        "signature": "android.widget.ListView.setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)",
+        "purpose_behavior": "Registers callback to handle clicks on individual items within list view",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers item click listener"
+        }
+      },
+      {
+        "signature": "android.widget.ListView.setOnItemLongClickListener(android.widget.AdapterView$OnItemLongClickListener)",
+        "purpose_behavior": "Registers callback to handle long press events on individual list view items",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers item long click listener"
+        }
+      },
+      {
+        "signature": "android.widget.Spinner.setOnItemSelectedListener(android.widget.AdapterView$OnItemSelectedListener)",
+        "purpose_behavior": "Registers callback to handle selection changes in spinner dropdown component",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers selection listener"
+        }
+      },
+      {
+        "signature": "android.view.View.findViewById(int)",
+        "purpose_behavior": "Searches view hierarchy for child view with specified resource identifier",
+        "return_values": {
+          "type": "View",
+          "description": "View with matching ID, null if not found"
+        }
+      },
+      {
+        "signature": "android.widget.TextView.setText(java.lang.CharSequence)",
+        "purpose_behavior": "Sets display text content for TextView component, replacing current text",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, updates text display"
+        }
+      },
+      {
+        "signature": "android.widget.EditText.getText()",
+        "purpose_behavior": "Retrieves current text content from EditText input component",
+        "return_values": {
+          "type": "Editable",
+          "description": "editable text content, never null but may be empty"
+        }
+      },
+      {
+        "signature": "android.widget.ImageView.setImageResource(int)",
+        "purpose_behavior": "Sets image content for ImageView using drawable resource identifier",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, updates image display"
+        }
+      },
+      {
+        "signature": "android.view.ViewGroup.addView(android.view.View)",
+        "purpose_behavior": "Adds child view to view group container at default position",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, adds view to container"
+        }
+      },
+      {
+        "signature": "android.view.ViewGroup.removeView(android.view.View)",
+        "purpose_behavior": "Removes specified child view from view group container",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, removes view from container"
+        }
+      }
+    ],
+    "Platform Compatibility": [
+      {
+        "signature": "android.os.Build$VERSION.SDK_INT",
+        "purpose_behavior": "Static field containing device Android SDK version number for compatibility checks",
+        "return_values": {
+          "type": "int",
+          "description": "Android API level integer, used for version-specific feature gates"
+        }
+      },
+      {
+        "signature": "android.os.Build.VERSION.RELEASE",
+        "purpose_behavior": "Static field containing human-readable Android version string such as '11' or '12'",
+        "return_values": {
+          "type": "String",
+          "description": "Android version release string for display purposes"
+        }
+      },
+      {
+        "signature": "androidx.core.os.BuildCompat.isAtLeastN()",
+        "purpose_behavior": "Checks if device runs Android N (API 24) or higher using AndroidX compatibility library",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if Android N or higher, false for older versions"
+        }
+      },
+      {
+        "signature": "androidx.core.os.BuildCompat.isAtLeastO()",
+        "purpose_behavior": "Checks if device runs Android O (API 26) or higher using AndroidX compatibility library",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if Android O or higher, false for older versions"
+        }
+      },
+      {
+        "signature": "androidx.core.os.BuildCompat.isAtLeastP()",
+        "purpose_behavior": "Checks if device runs Android P (API 28) or higher using AndroidX compatibility library",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if Android P or higher, false for older versions"
+        }
+      },
+      {
+        "signature": "androidx.core.os.BuildCompat.isAtLeastQ()",
+        "purpose_behavior": "Checks if device runs Android Q (API 29) or higher using AndroidX compatibility library",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if Android Q or higher, false for older versions"
+        }
+      },
+      {
+        "signature": "androidx.core.os.BuildCompat.isAtLeastR()",
+        "purpose_behavior": "Checks if device runs Android R (API 30) or higher using AndroidX compatibility library",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if Android R or higher, false for older versions"
+        }
+      },
+      {
+        "signature": "androidx.core.os.BuildCompat.isAtLeastS()",
+        "purpose_behavior": "Checks if device runs Android S (API 31) or higher using AndroidX compatibility library",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if Android S or higher, false for older versions"
+        }
+      },
+      {
+        "signature": "androidx.activity.ComponentActivity.getOnBackPressedDispatcher()",
+        "purpose_behavior": "Retrieves modern back button handler dispatcher for AndroidX activity framework",
+        "return_values": {
+          "type": "OnBackPressedDispatcher",
+          "description": "dispatcher instance for handling back navigation events"
+        }
+      },
+      {
+        "signature": "androidx.activity.OnBackPressedDispatcher.onBackPressed()",
+        "purpose_behavior": "Triggers back navigation event through modern AndroidX dispatcher system",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, processes back navigation"
+        }
+      },
+      {
+        "signature": "android.app.PendingIntent.getActivity(android.content.Context, int, android.content.Intent, int)",
+        "purpose_behavior": "Creates PendingIntent for launching activity, supporting immutable flags for security",
+        "return_values": {
+          "type": "PendingIntent",
+          "description": "PendingIntent for delayed activity launch"
+        }
+      },
+      {
+        "signature": "android.app.PendingIntent.getBroadcast(android.content.Context, int, android.content.Intent, int)",
+        "purpose_behavior": "Creates PendingIntent for sending broadcast, supporting modern security flags",
+        "return_values": {
+          "type": "PendingIntent",
+          "description": "PendingIntent for delayed broadcast sending"
+        }
+      },
+      {
+        "signature": "androidx.core.app.ActivityCompat.requestPermissions(android.app.Activity, java.lang.String[], int)",
+        "purpose_behavior": "Requests runtime permissions using AndroidX compatibility wrapper for all API levels",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, initiates permission request dialog"
+        }
+      },
+      {
+        "signature": "androidx.core.content.ContextCompat.checkSelfPermission(android.content.Context, java.lang.String)",
+        "purpose_behavior": "Checks permission status using AndroidX compatibility wrapper for consistent behavior",
+        "return_values": {
+          "type": "int",
+          "description": "PackageManager.PERMISSION_GRANTED or PERMISSION_DENIED"
+        }
+      },
+      {
+        "signature": "androidx.core.app.NotificationManagerCompat.from(android.content.Context)",
+        "purpose_behavior": "Creates notification manager using AndroidX compatibility wrapper for cross-version support",
+        "return_values": {
+          "type": "NotificationManagerCompat",
+          "description": "notification manager with compatibility features"
+        }
+      },
+      {
+        "signature": "androidx.core.app.NotificationCompat$Builder.<init>(android.content.Context, java.lang.String)",
+        "purpose_behavior": "Creates notification builder using AndroidX compatibility with channel support",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns notification builder with channel compatibility"
+        }
+      },
+      {
+        "signature": "android.app.NotificationChannel.<init>(java.lang.String, java.lang.CharSequence, int)",
+        "purpose_behavior": "Creates notification channel for Android O and higher, required for notifications",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns notification channel for API 26+"
+        }
+      },
+      {
+        "signature": "android.app.NotificationManager.createNotificationChannel(android.app.NotificationChannel)",
+        "purpose_behavior": "Registers notification channel with system for Android O and higher versions",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, registers channel with system"
+        }
+      },
+      {
+        "signature": "androidx.core.graphics.drawable.DrawableCompat.setTint(android.graphics.drawable.Drawable, int)",
+        "purpose_behavior": "Applies color tint to drawable using AndroidX compatibility wrapper for all API levels",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, modifies drawable tint"
+        }
+      },
+      {
+        "signature": "androidx.core.view.ViewCompat.setElevation(android.view.View, float)",
+        "purpose_behavior": "Sets view elevation using AndroidX compatibility wrapper for consistent shadow behavior",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, sets view elevation"
+        }
+      },
+      {
+        "signature": "androidx.core.content.FileProvider.getUriForFile(android.content.Context, java.lang.String, java.io.File)",
+        "purpose_behavior": "Creates secure URI for file sharing using AndroidX FileProvider for scoped storage compatibility",
+        "return_values": {
+          "type": "Uri",
+          "description": "content URI for secure file access"
+        }
+      },
+      {
+        "signature": "android.content.Intent.setClipData(android.content.ClipData)",
+        "purpose_behavior": "Sets clip data for Intent to support modern data sharing with proper URI permissions",
+        "return_values": {
+          "type": "Intent",
+          "description": "returns this Intent for method chaining"
+        }
+      }
+    ],
+    "Security APIs": [
+      {
+        "signature": "androidx.biometric.BiometricPrompt.authenticate(androidx.biometric.BiometricPrompt$PromptInfo)",
+        "purpose_behavior": "Initiates biometric authentication dialog using modern AndroidX biometric framework",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, displays biometric authentication prompt"
+        }
+      },
+      {
+        "signature": "androidx.biometric.BiometricPrompt$Builder.setTitle(java.lang.CharSequence)",
+        "purpose_behavior": "Sets title text displayed in biometric authentication dialog",
+        "return_values": {
+          "type": "BiometricPrompt.PromptInfo.Builder",
+          "description": "returns builder for method chaining"
+        }
+      },
+      {
+        "signature": "androidx.biometric.BiometricPrompt$Builder.setSubtitle(java.lang.CharSequence)",
+        "purpose_behavior": "Sets subtitle text displayed in biometric authentication dialog",
+        "return_values": {
+          "type": "BiometricPrompt.PromptInfo.Builder",
+          "description": "returns builder for method chaining"
+        }
+      },
+      {
+        "signature": "androidx.biometric.BiometricPrompt$Builder.setNegativeButton(java.lang.CharSequence, java.util.concurrent.Executor, android.content.DialogInterface$OnClickListener)",
+        "purpose_behavior": "Sets negative button text and callback for biometric dialog cancellation",
+        "return_values": {
+          "type": "BiometricPrompt.PromptInfo.Builder",
+          "description": "returns builder for method chaining"
+        }
+      },
+      {
+        "signature": "androidx.biometric.BiometricPrompt$Builder.setDeviceCredentialAllowed(boolean)",
+        "purpose_behavior": "Configures whether device PIN, pattern, or password can be used as fallback authentication",
+        "return_values": {
+          "type": "BiometricPrompt.PromptInfo.Builder",
+          "description": "returns builder for method chaining"
+        }
+      },
+      {
+        "signature": "android.security.keystore.KeyGenParameterSpec$Builder.<init>(java.lang.String, int)",
+        "purpose_behavior": "Creates builder for generating cryptographic keys in Android Keystore with specified alias and purposes",
+        "return_values": {
+          "type": "void",
+          "description": "constructor returns key generation parameter builder"
+        }
+      },
+      {
+        "signature": "android.security.keystore.KeyGenParameterSpec$Builder.setDigests(java.lang.String[])",
+        "purpose_behavior": "Specifies digest algorithms that generated key can be used with for cryptographic operations",
+        "return_values": {
+          "type": "KeyGenParameterSpec.Builder",
+          "description": "returns builder for method chaining"
+        }
+      },
+      {
+        "signature": "android.security.keystore.KeyGenParameterSpec$Builder.setEncryptionPaddings(java.lang.String[])",
+        "purpose_behavior": "Specifies encryption padding schemes that generated key supports for secure encryption",
+        "return_values": {
+          "type": "KeyGenParameterSpec.Builder",
+          "description": "returns builder for method chaining"
+        }
+      },
+      {
+        "signature": "javax.crypto.KeyGenerator.getInstance(java.lang.String)",
+        "purpose_behavior": "Creates KeyGenerator instance for specified algorithm to generate cryptographic keys",
+        "return_values": {
+          "type": "KeyGenerator",
+          "description": "KeyGenerator for specified algorithm"
+        }
+      },
+      {
+        "signature": "javax.crypto.KeyGenerator.generateKey()",
+        "purpose_behavior": "Generates new cryptographic key using configured parameters and algorithm",
+        "return_values": {
+          "type": "SecretKey",
+          "description": "newly generated cryptographic key"
+        }
+      },
+      {
+        "signature": "javax.crypto.Cipher.getInstance(java.lang.String)",
+        "purpose_behavior": "Creates Cipher instance for specified transformation string defining algorithm, mode, and padding",
+        "return_values": {
+          "type": "Cipher",
+          "description": "Cipher for specified cryptographic transformation"
+        }
+      },
+      {
+        "signature": "javax.crypto.Cipher.init(int, java.security.Key)",
+        "purpose_behavior": "Initializes cipher for encryption or decryption using specified key and operation mode",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, configures cipher for operation"
+        }
+      },
+      {
+        "signature": "javax.crypto.Cipher.doFinal(byte[])",
+        "purpose_behavior": "Performs final cryptographic operation on input data, completing encryption or decryption",
+        "return_values": {
+          "type": "byte[]",
+          "description": "encrypted or decrypted data bytes"
+        }
+      },
+      {
+        "signature": "java.security.KeyStore.getInstance(java.lang.String)",
+        "purpose_behavior": "Creates KeyStore instance for specified type such as Android Keystore or PKCS12",
+        "return_values": {
+          "type": "KeyStore",
+          "description": "KeyStore instance for specified type"
+        }
+      },
+      {
+        "signature": "java.security.KeyStore.load(java.io.InputStream, char[])",
+        "purpose_behavior": "Loads keystore data from input stream using password for keystore integrity verification",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, loads keystore contents"
+        }
+      },
+      {
+        "signature": "java.security.KeyStore.getKey(java.lang.String, char[])",
+        "purpose_behavior": "Retrieves cryptographic key from keystore using alias and password for key access",
+        "return_values": {
+          "type": "Key",
+          "description": "cryptographic key if found, null if alias not found"
+        }
+      },
+      {
+        "signature": "android.app.KeyguardManager.isKeyguardSecure()",
+        "purpose_behavior": "Checks whether device has secure lock screen configured such as PIN, pattern, password, or biometrics",
+        "return_values": {
+          "type": "boolean",
+          "description": "true if secure lock screen configured, false if no security"
+        }
+      },
+      {
+        "signature": "android.app.KeyguardManager.createConfirmDeviceCredentialIntent(java.lang.CharSequence, java.lang.CharSequence)",
+        "purpose_behavior": "Creates Intent for device credential confirmation dialog with title and description",
+        "return_values": {
+          "type": "Intent",
+          "description": "Intent for credential confirmation, null if no security configured"
+        }
+      },
+      {
+        "signature": "androidx.core.hardware.fingerprint.FingerprintManagerCompat.from(android.content.Context)",
+        "purpose_behavior": "Creates fingerprint manager using AndroidX compatibility wrapper for cross-version support",
+        "return_values": {
+          "type": "FingerprintManagerCompat",
+          "description": "fingerprint manager with compatibility features"
+        }
+      },
+      {
+        "signature": "androidx.core.hardware.fingerprint.FingerprintManagerCompat.authenticate(androidx.core.hardware.fingerprint.FingerprintManagerCompat$CryptoObject, int, androidx.core.os.CancellationSignal, androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback, android.os.Handler)",
+        "purpose_behavior": "Initiates fingerprint authentication with cryptographic object and callback using legacy fingerprint API",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, starts fingerprint authentication process"
+        }
+      },
+      {
+        "signature": "kotlin.jvm.internal.Intrinsics.checkNotNullParameter(java.lang.Object, java.lang.String)",
+        "purpose_behavior": "Kotlin runtime null safety check that throws exception if parameter is null",
+        "return_values": {
+          "type": "void",
+          "description": "no return value, throws exception if parameter null"
+        }
+      },
+      {
+        "signature": "android.content.Context.getSystemService(java.lang.String)",
+        "purpose_behavior": "Retrieves system service by name for accessing device hardware and system features",
+        "return_values": {
+          "type": "Object",
+          "description": "system service instance, null if service not available"
+        }
+      }
+    ]
+  }
+}

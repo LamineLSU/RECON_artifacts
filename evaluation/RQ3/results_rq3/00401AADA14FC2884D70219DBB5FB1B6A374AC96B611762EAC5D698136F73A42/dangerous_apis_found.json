@@ -1,0 +1,93 @@
+{
+  "total_dangerous_apis": 1,
+  "category_statistics": {
+    "file_system_operations": 1
+  },
+  "analysis_timestamp": "2026-02-01 09:49:06",
+  "apis_by_category": {
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200851770530000_5m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.SecShell.SecShell.ApplicationWrapper: void onTerminate()>",
+            "<com.SecShell.SecShell.ApplicationWrapper: void <clinit>()>",
+            "<com.SecShell.SecShell.FilesFileObserver: void miui_notify()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_200851771935700_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.SecShell.SecShell.ApplicationWrapper: void <clinit>()>",
+            "<com.SecShell.SecShell.FilesFileObserver: void miui_notify()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_200851774395100_5m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.SecShell.SecShell.ApplicationWrapper: void onLowMemory()>",
+            "<com.SecShell.SecShell.ApplicationWrapper: void <clinit>()>",
+            "<com.SecShell.SecShell.FilesFileObserver: void miui_notify()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200851770530000_5m_0c",
+          "associated_call_chain": "path_200851770530000_5m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_200851771935700_4m_0c",
+          "associated_call_chain": "path_200851771935700_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_200851774395100_5m_0c",
+          "associated_call_chain": "path_200851774395100_5m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769968146046,
+        "analysis_duration_ms": 13,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

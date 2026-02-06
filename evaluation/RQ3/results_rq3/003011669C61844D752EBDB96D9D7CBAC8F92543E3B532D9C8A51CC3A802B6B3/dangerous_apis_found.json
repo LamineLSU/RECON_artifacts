@@ -1,0 +1,115 @@
+{
+  "total_dangerous_apis": 2,
+  "category_statistics": {
+    "device_information_collection": 1,
+    "network_data_exfiltration": 1
+  },
+  "analysis_timestamp": "2026-02-01 01:53:21",
+  "apis_by_category": {
+    "device_information_collection": [
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "network_data_exfiltration": [
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_172306943354200_6m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ptzate.ktpsyllabus2018.MainActivity dummyMainMethod_com_ptzate_ktpsyllabus2018_MainActivity(android.content.Intent)>",
+            "<com.ptzate.ktpsyllabus2018.MainActivity: void onCreate(android.os.Bundle)>",
+            "<com.ptzate.ktpsyllabus2018.MainActivity: void d()>",
+            "<com.ptzate.ktpsyllabus2018.MainActivity: boolean a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_172306947920900_5m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.ptzate.ktpsyllabus2018.MainActivity$a: void askEnableGPS()>",
+            "<com.ptzate.ktpsyllabus2018.MainActivity: void d()>",
+            "<com.ptzate.ktpsyllabus2018.MainActivity: boolean a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_172306943354200_6m_5c",
+          "associated_call_chain": "path_172306943354200_6m_5c",
+          "boolean_logic_format": "(**\nconfigurationSettingIsNotNoCache\n**) AND (currentApiLevel < 19) AND (resourceFlag2131034121 == true) AND (SDK_INT < 19) AND (locationMode != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        },
+        {
+          "constraint_id": "path_172306947920900_5m_2c",
+          "associated_call_chain": "path_172306947920900_5m_2c",
+          "boolean_logic_format": "(SDK_INT < 19) AND (locationMode != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769939568363,
+        "analysis_duration_ms": 32878,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_172274112839200_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ptzate.ktpsyllabus2018.MainActivity dummyMainMethod_com_ptzate_ktpsyllabus2018_MainActivity(android.content.Intent)>",
+            "<com.ptzate.ktpsyllabus2018.MainActivity$6: void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_172274112839200_4m_0c",
+          "associated_call_chain": "path_172274112839200_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769939568363,
+        "analysis_duration_ms": 32,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

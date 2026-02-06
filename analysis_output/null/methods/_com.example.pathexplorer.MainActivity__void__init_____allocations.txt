@@ -1,6 +1,0 @@
-Analysis for method: <com.example.pathexplorer.MainActivity: void <init>()>
-=====================================
-
-Object Allocations Analysis
-=========================
-

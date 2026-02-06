@@ -1,0 +1,789 @@
+{
+  "total_dangerous_apis": 12,
+  "category_statistics": {
+    "privacy_sensors": 3,
+    "device_information_collection": 2,
+    "file_system_operations": 2,
+    "sms_phone_operations": 1,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 3
+  },
+  "analysis_timestamp": "2026-01-31 18:52:27",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_145940951275800_10m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.BService: void onStart(android.content.Intent,int)>",
+            "<com.glog.b.Prolab: void init(android.content.Context,com.glog.b.IResult)>",
+            "<com.glog.b.Prolab$1: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.glog.b.BService$2: void onResult()>",
+            "<com.glog.b.ProlabSDK: void startLandingPageAd()>",
+            "<com.glog.b.SetPreferences: void setPreferencesData()>",
+            "<com.glog.b.UserDetails: android.location.Location getLocation()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_145940964724100_10m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.BService: void onStart(android.content.Intent,int)>",
+            "<com.glog.b.Prolab: void init(android.content.Context,com.glog.b.IResult)>",
+            "<com.glog.b.Prolab$1: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.glog.b.BService$2: void onResult()>",
+            "<com.glog.b.ProlabSDK: void <init>(android.content.Context)>",
+            "<com.glog.b.SetPreferences: void setPreferencesData()>",
+            "<com.glog.b.UserDetails: android.location.Location getLocation()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_145940951275800_10m_14c",
+          "associated_call_chain": "path_145940951275800_10m_14c",
+          "boolean_logic_format": "(`context == null`) AND (mContext != null) AND (requiredPermissionsGranted == false) AND (requiredPermissionsGranted == false) AND (**\n\npermissionsGranted == true\n\n**) AND (latitudeIsZero == true) AND (adjustedLastLocationTime <= currentTime) AND (latitudeEqualsZero) AND (lastLocationTimePlus15Minutes > currentSystemTime) AND (**\npermissionNotGranted\n**) AND (locationPermissionGranted) AND (LocationManagerAvailable) AND (latitudeNotZero) AND (bestProviderName != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        },
+        {
+          "constraint_id": "path_145940964724100_10m_9c",
+          "associated_call_chain": "path_145940964724100_10m_9c",
+          "boolean_logic_format": "(latitudeIsZero == true) AND (adjustedLastLocationTime <= currentTime) AND (latitudeEqualsZero) AND (lastLocationTimePlus15Minutes > currentSystemTime) AND (**\npermissionNotGranted\n**) AND (locationPermissionGranted) AND (LocationManagerAvailable) AND (latitudeNotZero) AND (bestProviderName != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 134108,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_145940988952300_1m_0c",
+          "entry_point": "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+          "method_sequence": [
+            "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_145940988952300_1m_0c",
+          "associated_call_chain": "path_145940988952300_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 134131,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146220012454100_12m_41c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.funkylau.livewallpaper.Settings dummyMainMethod_com_funkylau_livewallpaper_Settings(android.content.Intent)>",
+            "<com.funkylau.livewallpaper.Settings: void onCreate(android.os.Bundle)>",
+            "<com.djabe.zvtlq156231.Main: void startInterstitialAd(com.djabe.zvtlq156231.AdConfig$AdType,com.djabe.zvtlq156231.AdListener)>",
+            "<com.djabe.zvtlq156231.Main$2: void a()>",
+            "<com.djabe.zvtlq156231.s: void a()>",
+            "<com.djabe.zvtlq156231.n: void run()>",
+            "<com.djabe.zvtlq156231.Main$2: void a(boolean,java.lang.Object)>",
+            "<com.djabe.zvtlq156231.Main: void parseAdJson(java.lang.String,com.djabe.zvtlq156231.k)>",
+            "<com.djabe.zvtlq156231.o: void a(android.content.Context,org.json.JSONObject,com.djabe.zvtlq156231.k)>",
+            "<com.djabe.zvtlq156231.q: int p(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_146309657005300_6m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.djabe.zvtlq156231.AdActivity dummyMainMethod_com_djabe_zvtlq156231_AdActivity(android.content.Intent)>",
+            "<com.djabe.zvtlq156231.AdActivity: void onCreate(android.os.Bundle)>",
+            "<com.djabe.zvtlq156231.VpaidLayout: void a()>",
+            "<com.djabe.zvtlq156231.q: int p(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_146448455403400_19m_23c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.funkylau.livewallpaper.Settings dummyMainMethod_com_funkylau_livewallpaper_Settings(android.content.Intent)>",
+            "<com.funkylau.livewallpaper.Settings: void onCreate(android.os.Bundle)>",
+            "<com.djabe.zvtlq156231.Main: void startInterstitialAd(com.djabe.zvtlq156231.AdConfig$AdType,com.djabe.zvtlq156231.AdListener)>",
+            "<com.djabe.zvtlq156231.Main$2: void a()>",
+            "<com.djabe.zvtlq156231.s: void a()>",
+            "<com.djabe.zvtlq156231.n: void run()>",
+            "<com.djabe.zvtlq156231.AdView$9: void a(boolean,java.lang.Object)>",
+            "<com.djabe.zvtlq156231.AdView: void access$1500(com.djabe.zvtlq156231.AdView,java.lang.String)>",
+            "<com.djabe.zvtlq156231.AdView: void parseVastAd(java.lang.String)>",
+            "<com.djabe.zvtlq156231.AdView: void downloadVideo(java.lang.String,boolean)>",
+            "<com.djabe.zvtlq156231.AdView$2: void a()>",
+            "<com.djabe.zvtlq156231.AdView$2: void a(boolean,java.lang.String)>",
+            "<com.djabe.zvtlq156231.AdView$2$1: void run()>",
+            "<com.djabe.zvtlq156231.AdView: void access$1600(com.djabe.zvtlq156231.AdView,java.lang.String)>",
+            "<com.djabe.zvtlq156231.AdView: void loadVastAd(java.lang.String)>",
+            "<com.djabe.zvtlq156231.VpaidLayout: void a()>",
+            "<com.djabe.zvtlq156231.q: int p(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146220012454100_12m_41c",
+          "associated_call_chain": "path_146220012454100_12m_41c",
+          "boolean_logic_format": "(SDK_INT >= 11) AND (switch_condition) AND (**\nisCachingEnabled() == false\n**) AND (isTestMode() == true) AND (param0 == false) AND (!stringContainsVAST) AND (isCachingEnabled() == false) AND (jsonObject.isNull(key) == false) AND (jsonObject.isNull(key) == false) AND ($jsonKeyIsNotNull) AND (i0 == 200) AND (jsonString.contains(\"<VAST\")) AND (`$r12.equals(\"\") == false`) AND (Caching is not enabled) AND (isCachingEnabled == false) AND (AdType == smartwall) AND (param0 == false) AND (jsonString.contains(\"<VAST\")) AND (!jsonString.contains(\"<VAST\")) AND (inputString.contains(keyword) == false) AND (jsonValue.equalsIgnoreCase(expectedString) == false) AND ($r1.equalsIgnoreCase($r4) == false) AND (retrievedString != \"\") AND (jsonFieldIsNull) AND (statusCode != 200) AND (retrievedString.equals(\"\")) AND (string1.equals(string2)) AND ($r1.equals($r4)) AND (jsonValue.equals(generatedString)) AND (**  \n`string1.equals(string2) == false`  \n**) AND (string1.equals(string2)) AND (JSON key is not null) AND (JSON key is not null) AND (keyExistsAndNotNull) AND (**\nJSON key specified by `$r4` is not null\n**) AND (statusCode != 200) AND (!stringEqualsIgnoreCase) AND (JSON key has a non-null value) AND ($z0 == false) AND (isNotNull) AND (jsonValue != 1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 41
+        },
+        {
+          "constraint_id": "path_146309657005300_6m_13c",
+          "associated_call_chain": "path_146309657005300_6m_13c",
+          "boolean_logic_format": "(intentAction.equals(generatedString)) AND (SDK_INT < 23) AND (permissionGranted == false) AND (**  \n`intentAction.equals(generatedString) == false`  \n**) AND (intentAction.equals(expectedAction) == false) AND ($i1 == 1) AND (isFeatureEnabled == false) AND (intentActionNotEqualToExpected) AND (g.equals(a(i1, 381, i2)) == false) AND (string1.equals(string2) == false) AND (!action.equals(generatedString)) AND (**\nSDK_INT >= 18\n**) AND (O == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        },
+        {
+          "constraint_id": "path_146448455403400_19m_23c",
+          "associated_call_chain": "path_146448455403400_19m_23c",
+          "boolean_logic_format": "(SDK_INT >= 11) AND (switch_condition) AND (**  \n!isCachingEnabled()  \n**) AND (!isTestMode) AND (isFeatureDisabled == true) AND (!jsonString.contains(\"<VAST\")) AND (!stringContainsVAST) AND (!mediaFilesMap.containsKey(specificKey)) AND (keyNotPresentInMediaFiles) AND (retrievedMediaFileOrAttribute == null) AND ($r7.equals($r8)) AND (`$r7 == null`) AND (`mediaFiles.containsKey(specificKey)`) AND (directoryExists == false) AND (directoryExists == false) AND (directoryExists == false) AND (directoryCreationFailed) AND (isWindowDetached == true) AND (VpaidLayoutConditionIsTrue) AND (AdActivity.a() == false) AND (xmlParser != null) AND (contentBarHeight > 0) AND (O == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 23
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 641619,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146483560871700_9m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.ProlabSDK: void <init>()>",
+            "<com.glog.b.ProlabSDK: void sendUserInfo()>",
+            "<com.glog.b.ProlabSDK$3: void launchNewHttpTask()>",
+            "<com.glog.b.NetworkThread: void run()>",
+            "<com.glog.b.SetPreferences: java.util.List setValues(android.content.Context)>",
+            "<com.glog.b.Util: java.lang.String isInstallFromMarketOnly(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_146483571275600_11m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.BService: void onStart(android.content.Intent,int)>",
+            "<com.glog.b.Prolab: void init(android.content.Context,com.glog.b.IResult)>",
+            "<com.glog.b.Prolab$1: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.glog.b.BService$2: void onResult()>",
+            "<com.glog.b.ProlabSDK: void startLandingPageAd()>",
+            "<com.glog.b.ProlabSDK$5: void launchNewHttpTask()>",
+            "<com.glog.b.SetPreferences: java.util.List setValues(android.content.Context)>",
+            "<com.glog.b.Util: java.lang.String isInstallFromMarketOnly(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146483560871700_9m_0c",
+          "associated_call_chain": "path_146483560871700_9m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_146483571275600_11m_0c",
+          "associated_call_chain": "path_146483571275600_11m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 676734,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146516220284400_9m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.ProlabSDK: void <init>()>",
+            "<com.glog.b.ProlabSDK: void sendUserInfo()>",
+            "<com.glog.b.ProlabSDK$3: void launchNewHttpTask()>",
+            "<com.glog.b.NetworkThread: void run()>",
+            "<com.glog.b.SetPreferences: java.util.List setValues(android.content.Context)>",
+            "<com.glog.b.Util: java.lang.String getName(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_146516227046700_11m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.BService: void onStart(android.content.Intent,int)>",
+            "<com.glog.b.Prolab: void init(android.content.Context,com.glog.b.IResult)>",
+            "<com.glog.b.Prolab$1: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.glog.b.BService$2: void onResult()>",
+            "<com.glog.b.ProlabSDK: void startLandingPageAd()>",
+            "<com.glog.b.ProlabSDK$5: void launchNewHttpTask()>",
+            "<com.glog.b.SetPreferences: java.util.List setValues(android.content.Context)>",
+            "<com.glog.b.Util: java.lang.String getName(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146516220284400_9m_5c",
+          "associated_call_chain": "path_146516220284400_9m_5c",
+          "boolean_logic_format": "(SDK_INT >= 14) AND (READ_CONTACTS_permission_granted) AND (Permission to read contacts is not granted) AND (contactsPermissionGranted) AND (permissionReadProfileGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        },
+        {
+          "constraint_id": "path_146516227046700_11m_5c",
+          "associated_call_chain": "path_146516227046700_11m_5c",
+          "boolean_logic_format": "(SDK_INT >= 14) AND (READ_CONTACTS_permission_granted) AND (Permission to read contacts is not granted) AND (contactsPermissionGranted) AND (permissionReadProfileGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 709385,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146454185328900_8m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.funkylau.livewallpaper.Settings dummyMainMethod_com_funkylau_livewallpaper_Settings(android.content.Intent)>",
+            "<com.funkylau.livewallpaper.Settings: void onCreate(android.os.Bundle)>",
+            "<com.djabe.zvtlq156231.Main: void <init>(android.app.Activity,com.djabe.zvtlq156231.AdListener)>",
+            "<com.djabe.zvtlq156231.Main$1: void a()>",
+            "<com.djabe.zvtlq156231.r: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.djabe.zvtlq156231.r: java.lang.Boolean a()>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_146454192110900_8m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.djabe.zvtlq156231.AdActivity dummyMainMethod_com_djabe_zvtlq156231_AdActivity(android.content.Intent)>",
+            "<com.djabe.zvtlq156231.AdView: void <init>(android.app.Activity,com.djabe.zvtlq156231.AdListener)>",
+            "<com.djabe.zvtlq156231.AdView: void init()>",
+            "<com.djabe.zvtlq156231.AdView$7: void a()>",
+            "<com.djabe.zvtlq156231.r: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.djabe.zvtlq156231.r: java.lang.Boolean a()>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146454185328900_8m_1c",
+          "associated_call_chain": "path_146454185328900_8m_1c",
+          "boolean_logic_format": "SDK_INT >= 11",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_146454192110900_8m_0c",
+          "associated_call_chain": "path_146454192110900_8m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 647374,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146660047597800_14m_21c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.funkylau.livewallpaper.Settings dummyMainMethod_com_funkylau_livewallpaper_Settings(android.content.Intent)>",
+            "<com.funkylau.livewallpaper.Settings: void onCreate(android.os.Bundle)>",
+            "<com.djabe.zvtlq156231.Main: void startInterstitialAd(com.djabe.zvtlq156231.AdConfig$AdType,com.djabe.zvtlq156231.AdListener)>",
+            "<com.djabe.zvtlq156231.Main$2: void a()>",
+            "<com.djabe.zvtlq156231.s: void a()>",
+            "<com.djabe.zvtlq156231.n: void run()>",
+            "<com.djabe.zvtlq156231.AdView$9: void a(boolean,java.lang.Object)>",
+            "<com.djabe.zvtlq156231.AdView: void access$1500(com.djabe.zvtlq156231.AdView,java.lang.String)>",
+            "<com.djabe.zvtlq156231.AdView: void parseVastAd(java.lang.String)>",
+            "<com.djabe.zvtlq156231.AdView: void downloadVideo(java.lang.String,boolean)>",
+            "<com.djabe.zvtlq156231.AdView$2: void a()>",
+            "<com.djabe.zvtlq156231.q: boolean a(java.io.File)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_146735329252200_13m_15c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.funkylau.livewallpaper.Settings dummyMainMethod_com_funkylau_livewallpaper_Settings(android.content.Intent)>",
+            "<com.funkylau.livewallpaper.Settings: void onCreate(android.os.Bundle)>",
+            "<com.djabe.zvtlq156231.Main: void startInterstitialAd(com.djabe.zvtlq156231.AdConfig$AdType,com.djabe.zvtlq156231.AdListener)>",
+            "<com.djabe.zvtlq156231.Main$2: void a()>",
+            "<com.djabe.zvtlq156231.s: void a()>",
+            "<com.djabe.zvtlq156231.n: void run()>",
+            "<com.djabe.zvtlq156231.s: void a(boolean,java.lang.Object)>",
+            "<com.djabe.zvtlq156231.s: void a(java.lang.String,boolean)>",
+            "<com.djabe.zvtlq156231.s: void a(java.lang.String,java.lang.String,boolean,boolean)>",
+            "<com.djabe.zvtlq156231.s$1: void a()>",
+            "<com.djabe.zvtlq156231.q: boolean a(java.io.File)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_147053422503200_10m_54c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.djabe.zvtlq156231.AdActivity dummyMainMethod_com_djabe_zvtlq156231_AdActivity(android.content.Intent)>",
+            "<com.djabe.zvtlq156231.VpaidLayout: void onPrepared(android.media.MediaPlayer)>",
+            "<com.djabe.zvtlq156231.VpaidLayout: void b(int)>",
+            "<com.djabe.zvtlq156231.VpaidLayout: void d()>",
+            "<com.djabe.zvtlq156231.VpaidLayout: void a(int)>",
+            "<com.djabe.zvtlq156231.VpaidLayout: void a(boolean,java.lang.String)>",
+            "<com.djabe.zvtlq156231.VpaidLayout$12: void run()>",
+            "<com.djabe.zvtlq156231.q: boolean a(java.io.File)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146660047597800_14m_21c",
+          "associated_call_chain": "path_146660047597800_14m_21c",
+          "boolean_logic_format": "(SDK_VERSION >= 11) AND (switch_condition) AND (!isCachingEnabled) AND (isTestMode() == false) AND (**  \n`featureEnabled == false`  \n**) AND (!stringContainsVAST) AND (!jsonString.contains(\"<VAST\")) AND (mediaFilesMapDoesNotContainKey) AND (!mediaFilesMap.containsKey(key)) AND (`mediaFileString == null`) AND ($r7.equals($r8) == false) AND (`mediaFileString == null`) AND (mediaFilesMap.containsKey(mediaFileKey)) AND (directoryDoesNotExist) AND (directoryExists == false) AND (directoryDoesNotExist && cannotCreateDirectory) AND (DirectoryCreationFailed) AND (directoryExists == false) AND (Directory does not exist) AND (if not isDirectory then attemptDelete) AND (currentIndex >= totalFiles)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 21
+        },
+        {
+          "constraint_id": "path_146735329252200_13m_15c",
+          "associated_call_chain": "path_146735329252200_13m_15c",
+          "boolean_logic_format": "(SDK_INT >= 11) AND (switch_condition) AND (isCachingEnabled == false) AND (isCachingEnabled == true) AND (booleanParameter == true) AND (dFieldIsNotNull) AND (!mediaFilesMap.containsKey(mediaFileKey)) AND (r5_is_not_empty) AND (mediaFilesMapDoesNotContainKey) AND (objectStringRepresentation == null) AND (mediaFileKeyExists) AND (directoryExists == false) AND (directoryExists == false) AND (if not isDirectory then attemptDelete) AND (currentIndex >= totalFiles)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 15
+        },
+        {
+          "constraint_id": "path_147053422503200_10m_54c",
+          "associated_call_chain": "path_147053422503200_10m_54c",
+          "boolean_logic_format": "(!isAdLinearSkipable()) AND (adIsNotSkippable) AND (skipOffset == null) AND (`isSkipOffsetEmpty`) AND (!skipOffsetString.isEmpty()) AND (isStringEmpty == true) AND (string1_not_equal_to_string2) AND (isAdLinearSkipable() == false) AND (**\ncontentBarParameter == 0\n**) AND (contentBarMode != 3) AND ($z0 == 0) AND (skipOffsetString.equals(specificString) == false) AND (**\nisAdLinearSkipable() == false\n**) AND (AdIsNotSkippable) AND (**\nisAdLinearSkipable() == false\n**) AND (skipOffset == null) AND (!skipOffsetString.isEmpty()) AND (!isStringEmpty) AND ($r7.isEmpty()) AND (skipOffsetStringNotEqualToSpecifiedString) AND (adIsNotSkippable) AND (contentBarConfig != 0) AND (contentBarState != 3) AND (O == true) AND (**\nstringsAreNotEqual\n**) AND (progressDialog == null) AND (VideoView is null) AND (G != false) AND (EndcardWebView == null) AND (AdViewInstance == null) AND (ImageButton == null) AND (ImageView_j_is_not_null) AND (VideoView == null) AND (VPaidWebView is not null) AND (f() returns true) AND (EndcardWebView != null) AND (AdViewInstance != null) AND (ImageButton_is_null) AND (ImageViewComponentInitialized) AND (VideoView == null) AND (VPaidWebViewIsNotNull) AND (featureEnabled == true) AND (S == false) AND (EndcardWebView == null) AND (VPaidWebViewInstance == null) AND (ContentBarViewInstance == null) AND (AdViewInstance != null) AND (**  \n`!isConditionMet`  \n**) AND (isInlineAd() == false) AND ($z0 == false) AND (**  \nisInlineAd == false  \n**) AND ($z0 == true) AND (if not isDirectory then attemptDelete) AND (currentIndex >= totalFiles)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 54
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 1246604,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_147053493623700_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.djabe.zvtlq156231.BrowserActivity dummyMainMethod_com_djabe_zvtlq156231_BrowserActivity(android.content.Intent)>",
+            "<com.djabe.zvtlq156231.f$1: void onClick(android.content.DialogInterface,int)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_147053493623700_4m_0c",
+          "associated_call_chain": "path_147053493623700_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 1246672,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_145843076370300_25m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.d.DService dummyMainMethod_com_glog_d_DService(android.content.Intent)>",
+            "<com.glog.d.DService: void onStart(android.content.Intent,int)>",
+            "<com.glog.d.SDKIntializer: void initInna(android.content.Context,com.glog.d.IInna)>",
+            "<com.glog.d.SDKIntializer$1: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.glog.d.DService$2: void onStart(android.content.Context)>",
+            "<com.glog.d.InnaSDK: void <init>(android.content.Context,boolean)>",
+            "<com.glog.d.InnaSDK$1: void onTaskComplete(java.lang.Object)>",
+            "<com.glog.d.InnaSDK$1: void onTaskComplete(java.lang.Boolean)>",
+            "<com.glog.d.InnaSDK: void run360Ad(android.content.Context)>",
+            "<com.glog.d.CC: void launchNewHttpTask()>",
+            "<com.glog.d.NetworkThread: void onPostExecute(java.lang.Object)>",
+            "<com.glog.d.NetworkThread: void onPostExecute(java.lang.String)>",
+            "<com.glog.d.CC: void onTaskComplete(java.lang.Object)>",
+            "<com.glog.d.CC: void onTaskComplete(java.lang.String)>",
+            "<com.glog.d.CC: void showBanner()>",
+            "<com.glog.d.AbstractAdView: void <init>(android.content.Context,com.glog.d.CC)>",
+            "<com.glog.d.AbstractAdView: void getAd()>",
+            "<com.glog.d.AbstractAdView: void showBanner(org.json.JSONObject)>",
+            "<com.glog.d.AbstractAdView$4: void run()>",
+            "<com.glog.d.AbstractAdView: void access$4(com.glog.d.AbstractAdView)>",
+            "<com.glog.d.AbstractAdView: void loadAdInWebView()>",
+            "<com.glog.d.WVUtils: void prepareWebView(android.content.Context,android.webkit.WebView,int,int)>",
+            "<com.glog.d.WVUtils: void onMeasure(android.webkit.WebView,int,int)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_145843076370300_25m_5c",
+          "associated_call_chain": "path_145843076370300_25m_5c",
+          "boolean_logic_format": "(**\nadData != null\n**) AND (urlLength != 0) AND (**  \nURL length is not zero  \n**) AND (bannerType != \"ABL\") AND (bannerTypeNotEqualToABS)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 36215,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146459644818400_7m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.djabe.zvtlq156231.AdActivity dummyMainMethod_com_djabe_zvtlq156231_AdActivity(android.content.Intent)>",
+            "<com.djabe.zvtlq156231.AdView: void <init>(android.app.Activity,com.djabe.zvtlq156231.AdListener)>",
+            "<com.djabe.zvtlq156231.Url: com.djabe.zvtlq156231.Url a(android.content.Context)>",
+            "<com.djabe.zvtlq156231.Url: void <init>(android.content.Context)>",
+            "<com.djabe.zvtlq156231.Url$1: void run()>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146459644818400_7m_1c",
+          "associated_call_chain": "path_146459644818400_7m_1c",
+          "boolean_logic_format": "Url.b == null",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 652798,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146483427047900_4m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.djabe.zvtlq156231.BrowserActivity dummyMainMethod_com_djabe_zvtlq156231_BrowserActivity(android.content.Intent)>",
+            "<com.djabe.zvtlq156231.BrowserActivity: void onCreate(android.os.Bundle)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146483427047900_4m_4c",
+          "associated_call_chain": "path_146483427047900_4m_4c",
+          "boolean_logic_format": "(intentAction.equals(\"browser\")) AND (isValidUrl == false) AND (**  \nURLString != null  \n**) AND (urlString.equals(\"\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 676597,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_146483492800800_7m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.ProlabSDK: void <init>()>",
+            "<com.glog.b.ProlabSDK: void sendUserInfo()>",
+            "<com.glog.b.ProlabSDK$3: void launchNewHttpTask()>",
+            "<com.glog.b.NetworkThread: void run()>",
+            "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_146483505503600_11m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.glog.b.BService dummyMainMethod_com_glog_b_BService(android.content.Intent)>",
+            "<com.glog.b.BService: void onStart(android.content.Intent,int)>",
+            "<com.glog.b.Prolab: void init(android.content.Context,com.glog.b.IResult)>",
+            "<com.glog.b.Prolab$1: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.glog.b.BService$2: void onResult()>",
+            "<com.glog.b.ProlabSDK: void <init>(android.content.Context)>",
+            "<com.glog.b.ProlabSDK$2: void run()>",
+            "<com.glog.b.ProlabSDK$1: void launchNewHttpTask()>",
+            "<com.glog.b.NetworkThread: void run()>",
+            "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_146483492800800_7m_0c",
+          "associated_call_chain": "path_146483492800800_7m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_146483505503600_11m_0c",
+          "associated_call_chain": "path_146483505503600_11m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769913101147,
+        "analysis_duration_ms": 676666,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

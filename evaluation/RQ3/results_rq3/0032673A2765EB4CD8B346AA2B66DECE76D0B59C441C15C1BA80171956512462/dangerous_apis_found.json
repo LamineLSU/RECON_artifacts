@@ -1,0 +1,1869 @@
+{
+  "total_dangerous_apis": 24,
+  "category_statistics": {
+    "privacy_sensors": 4,
+    "device_information_collection": 4,
+    "file_system_operations": 4,
+    "sms_phone_operations": 5,
+    "dynamic_code_loading": 2,
+    "network_data_exfiltration": 5
+  },
+  "analysis_timestamp": "2026-02-01 03:58:58",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.hardware.Camera: android.hardware.Camera open()>",
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.media.MediaRecorder: void start()>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>",
+      "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>",
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.ProcessBuilder: java.lang.Process start()>",
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+      "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.hardware.Camera: android.hardware.Camera open()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174389608503300_4m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoVedioActivity dummyMainMethod_com_payeco_android_plugin_PayecoVedioActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.PayecoVedioActivity$5: void surfaceCreated(android.view.SurfaceHolder)>",
+            "<android.hardware.Camera: android.hardware.Camera open()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174389608503300_4m_1c",
+          "associated_call_chain": "path_174389608503300_4m_1c",
+          "boolean_logic_format": "cameraInstance == null",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 314855,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174502450761800_9m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.tencent.connect.common.AssistActivity dummyMainMethod_com_tencent_connect_common_AssistActivity(android.content.Intent)>",
+            "<com.tencent.connect.common.AssistActivity: void onCreate(android.os.Bundle)>",
+            "<com.tencent.connect.common.AssistActivity: void openBrowser(android.os.Bundle)>",
+            "<com.tencent.open.b.d: void a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.g: void a(android.os.Bundle,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$2: void run()>",
+            "<com.tencent.open.utils.Util: java.lang.String getLocation(android.content.Context)>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174502450761800_9m_16c",
+          "associated_call_chain": "path_174502450761800_9m_16c",
+          "boolean_logic_format": "(intent != null) AND (Intent is not null) AND (intent == null) AND (bundle == null && isRestart == true) AND (isRestart == false) AND (h5ShareDataBundle == null) AND (**  \nIntent is not null  \n**) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpened == false) AND (ListenerIsRegistered) AND ($r3.equals(\"shareToQzone\")) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpened == false) AND (listenerIsNull) AND (ContextIsNotNull) AND (bestProviderName != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 427693,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.media.MediaRecorder: void start()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174502579830500_6m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.payeco.android.plugin.PayecoVedioActivity dummyMainMethod_com_payeco_android_plugin_PayecoVedioActivity(android.content.Intent)>",
+            "<com.payeco.android.plugin.PayecoVedioActivity$1: void onClick(android.view.View)>",
+            "<com.payeco.android.plugin.PayecoVedioActivity: void a(com.payeco.android.plugin.PayecoVedioActivity)>",
+            "<com.payeco.android.plugin.PayecoVedioActivity: void d()>",
+            "<android.media.MediaRecorder: void start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174502579830500_6m_0c",
+          "associated_call_chain": "path_174502579830500_6m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 427825,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174502706575300_10m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.book2345.reader.webview.JsToJava: void launchAlipay(java.lang.String)>",
+            "<com.pay2345.Pay2345: void pay(java.lang.Object,android.app.Activity,com.pay2345.listener.Pay)>",
+            "<com.pay2345.alipay.ZFAlipay: java.lang.String pay()>",
+            "<com.pay2345.alipay.ZFAlipay$1: void run()>",
+            "<com.alipay.sdk.app.c: void <init>(android.app.Activity)>",
+            "<com.alipay.sdk.app.a.a: void a(android.content.Context)>",
+            "<com.alipay.sdk.app.a.c: void <init>(android.content.Context)>",
+            "<com.alipay.sdk.k.b: com.alipay.sdk.k.e b(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174510314341000_12m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.book2345.reader.webview.JsToJava: void launchAlipay(java.lang.String)>",
+            "<com.pay2345.Pay2345: void pay(java.lang.Object,android.app.Activity,com.pay2345.listener.Pay)>",
+            "<com.pay2345.alipay.ZFAlipay: java.lang.String pay()>",
+            "<com.pay2345.alipay.ZFAlipay$1: void run()>",
+            "<com.alipay.sdk.app.c: java.lang.String a(java.lang.String,boolean)>",
+            "<com.alipay.sdk.d.a: void a(android.content.Context)>",
+            "<com.alipay.sdk.d.b: void run()>",
+            "<com.alipay.sdk.g.d: com.alipay.sdk.g.b a(android.content.Context,java.lang.String,java.lang.String,boolean)>",
+            "<com.alipay.sdk.g.d: java.lang.String a(java.lang.String,org.json.JSONObject)>",
+            "<com.alipay.sdk.k.b: com.alipay.sdk.k.e b(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174502706575300_10m_0c",
+          "associated_call_chain": "path_174502706575300_10m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_174510314341000_12m_1c",
+          "associated_call_chain": "path_174510314341000_12m_1c",
+          "boolean_logic_format": "!TextUtils.isEmpty(fieldA)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 435554,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_177053534469800_17m_23c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.user.LoginActivity dummyMainMethod_com_book2345_reader_activity_user_LoginActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void onClick(android.view.View)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void f()>",
+            "<com.book2345.reader.i.c: void a(android.app.Activity,com.book2345.reader.i.c$a)>",
+            "<com.tencent.tauth.Tencent: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int a(android.app.Activity,android.support.v4.app.Fragment,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int loginWithOEM(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,boolean,android.support.v4.app.Fragment)>",
+            "<com.tencent.connect.auth.AuthAgent: boolean a(android.app.Activity,android.support.v4.app.Fragment,boolean)>",
+            "<com.tencent.open.b.d: void a(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,int,int,java.lang.String)>",
+            "<com.tencent.open.utils.Util: android.os.Bundle composeHaboCgiReportParams(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.a: java.lang.String b(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_177204564495000_9m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.tencent.connect.common.AssistActivity dummyMainMethod_com_tencent_connect_common_AssistActivity(android.content.Intent)>",
+            "<com.tencent.connect.common.AssistActivity: void onCreate(android.os.Bundle)>",
+            "<com.tencent.connect.common.AssistActivity: void openBrowser(android.os.Bundle)>",
+            "<com.tencent.open.b.d: void a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.g: void a(android.os.Bundle,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$2: void run()>",
+            "<com.tencent.open.b.a: java.lang.String b(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_177460781246100_18m_34c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.user.LoginActivity dummyMainMethod_com_book2345_reader_activity_user_LoginActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void onClick(android.view.View)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void f()>",
+            "<com.book2345.reader.i.c: void a(android.app.Activity,com.book2345.reader.i.c$a)>",
+            "<com.tencent.tauth.Tencent: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int a(android.app.Activity,android.support.v4.app.Fragment,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int loginWithOEM(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,boolean,android.support.v4.app.Fragment)>",
+            "<com.tencent.connect.auth.AuthAgent: boolean a(android.app.Activity,android.support.v4.app.Fragment,boolean)>",
+            "<com.tencent.open.b.d: void a(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,int,int,java.lang.String)>",
+            "<com.tencent.open.utils.Util: android.os.Bundle composeHaboCgiReportParams(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.a: java.lang.String a(android.content.Context)>",
+            "<com.tencent.open.b.a: java.lang.String b(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_177621319369400_14m_33c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.tencent.connect.common.AssistActivity dummyMainMethod_com_tencent_connect_common_AssistActivity(android.content.Intent)>",
+            "<com.tencent.connect.common.AssistActivity: void onCreate(android.os.Bundle)>",
+            "<com.tencent.connect.common.AssistActivity: void openBrowser(android.os.Bundle)>",
+            "<com.tencent.open.b.d: void a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.g: void a(android.os.Bundle,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$2: void run()>",
+            "<com.tencent.open.b.g: void e()>",
+            "<com.tencent.open.b.g$5: void run()>",
+            "<com.tencent.open.b.g: void a(java.lang.String,long,long,long,int,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$3: void run()>",
+            "<com.tencent.open.b.a: java.lang.String a(android.content.Context)>",
+            "<com.tencent.open.b.a: java.lang.String b(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_177737381061400_10m_25c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.tencent.connect.common.AssistActivity dummyMainMethod_com_tencent_connect_common_AssistActivity(android.content.Intent)>",
+            "<com.tencent.connect.common.AssistActivity: void onCreate(android.os.Bundle)>",
+            "<com.tencent.connect.common.AssistActivity: void openBrowser(android.os.Bundle)>",
+            "<com.tencent.open.b.d: void a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.g: void a(android.os.Bundle,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$2: void run()>",
+            "<com.tencent.open.b.a: java.lang.String a(android.content.Context)>",
+            "<com.tencent.open.b.a: java.lang.String b(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_177961043981000_17m_33c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.tencent.connect.common.AssistActivity dummyMainMethod_com_tencent_connect_common_AssistActivity(android.content.Intent)>",
+            "<com.tencent.connect.common.AssistActivity: void onCreate(android.os.Bundle)>",
+            "<com.tencent.connect.common.AssistActivity: void openBrowser(android.os.Bundle)>",
+            "<com.tencent.open.b.d: void a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.g: void a(android.os.Bundle,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$2: void run()>",
+            "<com.tencent.open.b.g: void e()>",
+            "<com.tencent.open.b.g$5: void run()>",
+            "<com.tencent.open.b.g: void a(java.lang.String,long,long,long,int,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$3: void run()>",
+            "<com.tencent.open.b.g: void b()>",
+            "<com.tencent.open.b.g$4: void run()>",
+            "<com.tencent.open.b.g: android.os.Bundle c()>",
+            "<com.tencent.open.b.c: java.lang.String e(android.content.Context)>",
+            "<com.tencent.open.b.a: java.lang.String b(android.content.Context)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_177053534469800_17m_23c",
+          "associated_call_chain": "path_177053534469800_17m_23c",
+          "boolean_logic_format": "(isFeatureEnabled == false) AND (switch_condition) AND (resourceStringDoesNotMatchExpectedString) AND (featureFlagEnabled) AND (methodBReturnsFalse) AND ($r2 == null) AND (sessionIsNotValid) AND (!hasMoreApplications) AND (packageName.equals(installedPackageName) == false) AND (isChannelIdEmpty != false) AND (channelIdIsNotEmpty) AND ($r4 is not equal to \"\") AND (`$r5` is not equal to `\"\"`) AND ($r5.equals(\"\") == true) AND (C_LoginWeb is false) AND (isOEM == false) AND (isOEM == false) AND (noActivityForIntent == true) AND (isOEM == false) AND (isOEM == false) AND (!hasActivityForIntent(loginIntent)) AND (param5LongValue != 0L) AND (elapsedTimeSinceBoot - providedTime >= 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 23
+        },
+        {
+          "constraint_id": "path_177204564495000_9m_14c",
+          "associated_call_chain": "path_177204564495000_9m_14c",
+          "boolean_logic_format": "(Intent is not null) AND (Intent is not null) AND (intentIsNull) AND (isRestart == true) AND (isRestart == false) AND (h5ShareDataBundle == null) AND (intent != null) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpened == false) AND (listenerExists) AND (callbackAction.equals(\"shareToQzone\") == false) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpened == false) AND (callbackActionListenerIsNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        },
+        {
+          "constraint_id": "path_177460781246100_18m_34c",
+          "associated_call_chain": "path_177460781246100_18m_34c",
+          "boolean_logic_format": "(`conditionCheck == false`) AND (switch_condition) AND (featureCheck300L == false) AND ($z0 != 0) AND (isConditionMet == false) AND (`$r2 != null`) AND (sessionValid == false) AND (iteratorHasMoreElements) AND (`noMoreApplicationsToIterate`) AND (isChannelIdEmpty) AND (TextUtils.isEmpty(channelId)) AND ($r4.equals(\"\") == false) AND (r5_is_not_empty) AND (installChannel != \"\") AND (C_LoginWeb is false) AND (isOEM == false) AND (isOEM == false) AND (hasActivityForIntentResult == false) AND (isOEM == false) AND (isOEM == false) AND (hasActivityForIntentResult == false) AND (`param5.longValue() != 0`) AND (elapsedTimeSinceBoot - providedTime >= 0) AND (networkType != 2) AND (networkType != 1) AND (networkType == 4) AND (networkType == 16) AND (networkType != 8) AND (networkType != 64) AND (networkType != 32) AND (networkType == 512) AND (networkType != 256) AND (networkType != 2048) AND (networkType != 1024)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 34
+        },
+        {
+          "constraint_id": "path_177621319369400_14m_33c",
+          "associated_call_chain": "path_177621319369400_14m_33c",
+          "boolean_logic_format": "(Intent is not null) AND (intent != null) AND (intent == null) AND (BundleIsNull && IsRestart) AND (isRestart == false) AND (h5ShareDataBundle == null) AND (activityIntent != null) AND (callbackAction.equals(\"shareToQQ\")) AND (browserNotOpened) AND (listenerForActionIsNull) AND (callbackAction != \"shareToQzone\") AND ($r3.equals(\"shareToQQ\")) AND (actionEqualsShareToQQ == true) AND (listenerIsNull == true) AND (configuredReportInterval != 0) AND (`Agent_ReportTimeInterval != 0 && shouldSendReport`) AND (reportingConditionsMet == false) AND (b == false) AND (serverResponseCode == 0) AND (jsonResponseReturnCode != 0) AND ($r4 is empty) AND (currentAttemptCount >= maxAttemptsAllowed) AND (networkType != 2) AND (networkType != 1) AND (networkType == 4) AND (networkType == 16) AND (networkType != 8) AND (networkType != 64) AND (networkType != 32) AND (networkType == 512) AND (networkType != 256) AND (networkType != 2048) AND (networkType != 1024)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 33
+        },
+        {
+          "constraint_id": "path_177737381061400_10m_25c",
+          "associated_call_chain": "path_177737381061400_10m_25c",
+          "boolean_logic_format": "(Intent is not null) AND (intent != null) AND (Intent is null) AND (bundle == null && isRestart == true) AND (isRestart == false) AND (h5ShareDataBundle == null) AND (intent != null) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpenedSuccessfully == false) AND (listenerForCallbackAction != null) AND (callbackAction.equals(\"shareToQzone\")) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpenSuccess == false) AND (listenerForCallbackActionIsNull) AND (networkType != 2) AND (networkType != 1) AND (networkType == 4) AND (networkType == 16) AND (networkType != 8) AND (networkType != 64) AND (networkType != 32) AND (networkType == 512) AND (networkType != 256) AND (networkType != 2048) AND (networkType != 1024)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 25
+        },
+        {
+          "constraint_id": "path_177961043981000_17m_33c",
+          "associated_call_chain": "path_177961043981000_17m_33c",
+          "boolean_logic_format": "(intent != null) AND (intent != null) AND (Intent is null) AND (bundle == null) AND (isRestart == false) AND ($r6 == null) AND (Intent is not null) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpened == false) AND (listenerForActionIsNotNull) AND (!(callbackAction.equals(\"shareToQzone\"))) AND (callbackAction.equals(\"shareToQQ\")) AND (browserOpenSuccess == false) AND (listenerIsNull) AND (reportTimeInterval != 0) AND (reportTimeInterval != 0) AND ($z0 == false) AND (`b == false`) AND (statusCode == 0) AND (`serverResponseStatus != 0`) AND (responseIsNotEmpty) AND (currentAttemptCount >= maxAllowedAttempts) AND (externalStorageMounted == false) AND (transformedValueOfD <= 0) AND (reportTimeInterval != 0) AND (CGIReportCondition == false) AND (g == false) AND (listSize != 0) AND (firstElementInListC == null) AND (listOfReports != null) AND (listSize != 0) AND (currentIndex < listSize) AND (cachedValueOfMethodE == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 33
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 3886354,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_178091653468600_10m_17c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onResume()>",
+            "<com.statistic2345.log.Statistics: void onResume(android.content.Context)>",
+            "<com.statistic2345.log.c.b: void a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.c.a: void run()>",
+            "<com.statistic2345.a.a: java.lang.String a(java.lang.String,android.content.Context)>",
+            "<com.statistic2345.a.a: java.util.ArrayList a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.statistic2345.util.i: java.lang.String m(android.content.Context)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_178091653468600_10m_17c",
+          "associated_call_chain": "path_178091653468600_10m_17c",
+          "boolean_logic_format": "(isOpenStatic == false) AND (contextIsNotNull) AND (StatisticsFlagA == false) AND (contextIsNotActivity) AND (applicationContext != null) AND (currentTime - lastRecordedTime > 60000) AND (WeakReferenceIsNotNull && ReferencedObjectIsNull) AND ($r5 != null) AND (**\nsessionString is not empty or null\n**) AND (**  \nc > 0  \n**) AND (isLogSent == true) AND (booleanFlag == false) AND (storedAppUseInfoSendValue != \"0\") AND (**\ncontextParameter != null\n**) AND (!TextUtils.isEmpty(param1)) AND (isStringEmpty) AND (context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 17
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 4016983,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_178308295821900_12m_31c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onResume()>",
+            "<com.statistic2345.log.Statistics: void onResume(android.content.Context)>",
+            "<com.statistic2345.log.c.b: void a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.c.a: void run()>",
+            "<com.statistic2345.log.c: boolean a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context,java.lang.String)>",
+            "<com.statistic2345.util.TJDeviceInfoUtil: java.lang.String getUuid(android.content.Context)>",
+            "<com.statistic2345.util.TJDeviceInfoUtil: java.lang.String getAndroidID(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_178516351234000_11m_29c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onResume()>",
+            "<com.statistic2345.log.Statistics: void onResume(android.content.Context)>",
+            "<com.statistic2345.log.c.b: void a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.c.a: void run()>",
+            "<com.statistic2345.log.c: boolean a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context,java.lang.String)>",
+            "<com.statistic2345.util.TJDeviceInfoUtil: java.lang.String getAndroidID(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_178746405418200_12m_32c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onResume()>",
+            "<com.statistic2345.log.Statistics: void onResume(android.content.Context)>",
+            "<com.statistic2345.log.c.b: void a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.c.a: void run()>",
+            "<com.statistic2345.log.c: boolean a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context,java.lang.String)>",
+            "<com.statistic2345.util.i: java.lang.String c(android.content.Context)>",
+            "<com.statistic2345.util.TJDeviceInfoUtil: java.lang.String getAndroidID(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_178308295821900_12m_31c",
+          "associated_call_chain": "path_178308295821900_12m_31c",
+          "boolean_logic_format": "(isOpenStatic == false) AND (**  \nContext is not null  \n**) AND (isActivityCheck == 0) AND ($r0 is not an instance of android.app.Activity) AND ((currentTime - lastEventTime) <= 60000) AND (currentTime - lastEventTime <= 60000) AND (WeakReferenceObject != null) AND ($r5 != null) AND (isStringEmpty == false) AND (c > 0) AND (contextConditionMet == true) AND (**\n`comparisonResult <= 0`\n**) AND (`i3 <= 0`) AND (statusOrCount == 0) AND (logEntriesList == null\n####) AND (listSize >= listSize) AND (listSize > 0) AND (logEntry != null) AND (fieldE == 0) AND (longValue > 0L) AND ($r17 != null) AND (JSONArrayLength <= 0) AND (jsonArray == null) AND (**  \nlaunchEventCount <= 0  \n**) AND (!TextUtils.isEmpty(umengChannel)) AND (channelIsNotEmpty) AND (!isEmpty(projectName)) AND (!isEmpty(umengChannel)) AND (isStringEmpty) AND (lengthOfUtilityString > 6) AND (context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 31
+        },
+        {
+          "constraint_id": "path_178516351234000_11m_29c",
+          "associated_call_chain": "path_178516351234000_11m_29c",
+          "boolean_logic_format": "(isOpenStatic == true) AND (context != null) AND (Statistics.a == false) AND ($r0 is not an instance of android.app.Activity) AND ((currentTime - lastEventTime) <= 60000) AND (currentTimeMillis() - lastEventTime > 60000) AND (weakReference == null) AND (contextReference != null) AND (isStringEmpty == false) AND (c > 0) AND (isConditionMet == true) AND (sessionDuration <= 0) AND (timestampOrCount <= 0) AND (**\n`methodBResult != 0`\n**) AND (logEntriesList == null) AND (listSize <= 0) AND (listSize > 0) AND (elementFromList != null) AND (start_sended == 0) AND (sessionTimestamp > 0) AND ($r17 != null) AND (**\nterminationDataArray.length() <= 0\n**) AND (r3 == null) AND (launchEventsCount <= 0) AND (!TextUtils.isEmpty(channel)) AND (!isEmpty(UMENG_CHANNEL)) AND (projectNameIsNotEmpty) AND (!isEmpty(UMENG_CHANNEL)) AND (context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 29
+        },
+        {
+          "constraint_id": "path_178746405418200_12m_32c",
+          "associated_call_chain": "path_178746405418200_12m_32c",
+          "boolean_logic_format": "(isOpenStatic == true) AND (**  \ncontext != null  \n**) AND (Statistics.a == false) AND ($r0 is not an instance of android.app.Activity) AND ((currentTime - lastRecordedTime) <= 60000) AND (timeElapsedSinceLastEvent > 1 minute) AND ($r6 != null) AND ($r5 != null) AND (StringIsEmptyOrNull) AND (c > 0) AND ($z1 == true) AND (sessionMetric <= 0) AND (sessionOrLogDataValue <= 0L) AND (methodResult == 0) AND (isLogDataAvailable == false) AND (listSize >= listSize) AND (i1 < listSize) AND (currentLogEntry != null) AND (start_sended == 0) AND (`sessionDuration > 0`) AND ($r17 != null) AND (**\nJSONArray_length > 0\n**) AND (jsonArray == null) AND (JSONArrayLength <= 0) AND (!isEmpty(channel)) AND (isNotEmpty(channel)) AND (!TextUtils.isEmpty(projectName)) AND (channelIsEmpty) AND (TelephonyManager is not null) AND (isSubscriberIdEmpty) AND (!isSimOperatorEmpty) AND (context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 32
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 4671737,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_178746557447500_1m_0c",
+          "entry_point": "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>",
+          "method_sequence": [
+            "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_178746557447500_1m_0c",
+          "associated_call_chain": "path_178746557447500_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 4671893,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174552016794700_18m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.MainActivity dummyMainMethod_com_book2345_reader_MainActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment dummyMainMethod_com_book2345_reader_frgt_shelf_LeftSlidingMenuFragment(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment: void onResume()>",
+            "<com.book2345.reader.models.AutoMenuMod: void startGetAutoMenuInfoASync()>",
+            "<com.book2345.reader.models.AutoMenuMod: void getAutoMenuList(com.book2345.reader.g.r)>",
+            "<com.km.easyhttp.b: void a(java.lang.String,com.km.easyhttp.h.a,com.km.easyhttp.c.a)>",
+            "<com.km.easyhttp.g.a: void a(java.lang.String,com.km.easyhttp.h.a,int,com.km.easyhttp.c.a)>",
+            "<g.aa: void a(g.f)>",
+            "<g.p: void a(g.aa$a)>",
+            "<g.a.b: void run()>",
+            "<g.aa$a: void d()>",
+            "<com.km.easyhttp.g.a$1: void onResponse(g.e,g.ad)>",
+            "<com.km.easyhttp.g.a$1$3: void run()>",
+            "<com.book2345.reader.download.DownloadBooks$b: void onSuccess(java.lang.Object)>",
+            "<com.book2345.reader.download.DownloadBooks$b: void a(org.json.JSONObject)>",
+            "<com.book2345.reader.j.k: void a(android.content.Context,java.lang.String,int)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174552077982300_4m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.book2345.reader.webview.JsToJava: void syncCloud()>",
+            "<com.book2345.reader.j.k: void a(android.content.Context,java.lang.String,int)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174552139808500_4m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.book2345.reader.webview.JsToJava: void syncLocal(java.lang.String)>",
+            "<com.book2345.reader.j.k: void a(android.content.Context,java.lang.String,int)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174727724670600_18m_26c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.MainActivity dummyMainMethod_com_book2345_reader_MainActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment dummyMainMethod_com_book2345_reader_frgt_shelf_LeftSlidingMenuFragment(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment: void onResume()>",
+            "<com.book2345.reader.models.AutoMenuMod: void startGetAutoMenuInfoASync()>",
+            "<com.book2345.reader.models.AutoMenuMod: void getAutoMenuList(com.book2345.reader.g.r)>",
+            "<com.km.easyhttp.b: void a(java.lang.String,com.km.easyhttp.h.a,com.km.easyhttp.c.a)>",
+            "<com.km.easyhttp.g.a: void a(java.lang.String,com.km.easyhttp.h.a,int,com.km.easyhttp.c.a)>",
+            "<g.aa: void a(g.f)>",
+            "<g.p: void a(g.aa$a)>",
+            "<g.a.b: void run()>",
+            "<g.aa$a: void d()>",
+            "<com.km.easyhttp.g.a$1: void onResponse(g.e,g.ad)>",
+            "<com.km.easyhttp.g.a$1$3: void run()>",
+            "<com.book2345.reader.download.DownloadBooks$d: void onSuccess(java.lang.Object)>",
+            "<com.book2345.reader.download.DownloadBooks$d: void a(org.json.JSONObject)>",
+            "<com.book2345.reader.j.k: void a(android.content.Context,java.lang.String,int)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174790512308200_9m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.models.BookInfoMod: void importFile2Shelf(android.content.Context,java.util.List,java.lang.String,android.os.Handler)>",
+            "<com.book2345.reader.j.ag: void a(java.lang.Runnable)>",
+            "<com.book2345.reader.models.BookInfoMod$2: void run()>",
+            "<com.book2345.reader.j.k: void a(android.content.Context,java.lang.String,int)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174552016794700_18m_6c",
+          "associated_call_chain": "path_174552016794700_18m_6c",
+          "boolean_logic_format": "(e == false) AND (param0 != null) AND (status == 1) AND (BaseBookObject != null) AND (context != null) AND (d(stringParameter) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_174552077982300_4m_2c",
+          "associated_call_chain": "path_174552077982300_4m_2c",
+          "boolean_logic_format": "(context != null) AND (d(stringParameter) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        },
+        {
+          "constraint_id": "path_174552139808500_4m_2c",
+          "associated_call_chain": "path_174552139808500_4m_2c",
+          "boolean_logic_format": "(context != null) AND (d(stringParameter) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        },
+        {
+          "constraint_id": "path_174727724670600_18m_26c",
+          "associated_call_chain": "path_174727724670600_18m_26c",
+          "boolean_logic_format": "(methodNotExecuted) AND (SingleSectionInfoObject == null) AND ($r7 != null) AND (!TextUtils.isEmpty(discountCurrency)) AND (status != 1) AND (message == null) AND (isDiscountCurrencyEmpty) AND (discountCurrencyIsNotEmpty) AND (TextUtils.isEmpty(discountCurrency) == false) AND (downloadHandler != null) AND (**\nstatus >= 0\n**) AND (price > 0) AND ($i2 == 1) AND (isPurchased == 1) AND (downloadHandlerInitialized) AND (`isPurchased == 0`) AND (`downloadEventHandler == null`) AND (callbackIsSet) AND ($status == 0) AND ($r7 != null) AND (message != null) AND (!TextUtils.isEmpty(discountCurrency)) AND (message == null) AND (!retrievedString.equals(composedString)) AND (context != null) AND (d(stringParameter) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 26
+        },
+        {
+          "constraint_id": "path_174790512308200_9m_13c",
+          "associated_call_chain": "path_174790512308200_9m_13c",
+          "boolean_logic_format": "(!hasNext()) AND (iteratorHasNoMoreElements) AND (currentFileInfo == null) AND (hasNext == true) AND (isDirectory == false) AND (isDirectory) AND (isDirectory == false) AND (fileSize == null) AND (fileSize.length() > 0) AND (handlerIsNull) AND (contextIsNotNull) AND (context != null) AND (d(stringParameter) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 715776,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174870524210600_7m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vsofo.smspay.VsofoPayActivity dummyMainMethod_com_vsofo_smspay_VsofoPayActivity(android.content.Intent)>",
+            "<com.vsofo.smspay.VsofoPayActivity$c: void onDismiss(android.content.DialogInterface)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void a(com.vsofo.smspay.VsofoPayActivity,com.vsofo.smspay.q)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void b(com.vsofo.smspay.q)>",
+            "<com.vsofo.smspay.VsofoPayActivity: boolean c(com.vsofo.smspay.q)>",
+            "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174898159091000_8m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vsofo.smspay.VsofoPayActivity dummyMainMethod_com_vsofo_smspay_VsofoPayActivity(android.content.Intent)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void onCreate(android.os.Bundle)>",
+            "<com.vsofo.smspay.VsofoPayActivity$d: void handleMessage(android.os.Message)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void l(com.vsofo.smspay.VsofoPayActivity)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void p()>",
+            "<com.vsofo.smspay.VsofoPayActivity: boolean c(com.vsofo.smspay.q)>",
+            "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174930113400200_9m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vsofo.smspay.VsofoPayActivity dummyMainMethod_com_vsofo_smspay_VsofoPayActivity(android.content.Intent)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void onCreate(android.os.Bundle)>",
+            "<com.vsofo.smspay.VsofoPayActivity$d: void handleMessage(android.os.Message)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void m(com.vsofo.smspay.VsofoPayActivity)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void s()>",
+            "<com.vsofo.smspay.VsofoPayActivity: void d(java.lang.String)>",
+            "<com.vsofo.smspay.VsofoPayActivity: boolean c(com.vsofo.smspay.q)>",
+            "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_174964238143500_9m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vsofo.smspay.VsofoPayActivity dummyMainMethod_com_vsofo_smspay_VsofoPayActivity(android.content.Intent)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void onCreate(android.os.Bundle)>",
+            "<com.vsofo.smspay.VsofoPayActivity$d: void handleMessage(android.os.Message)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void k(com.vsofo.smspay.VsofoPayActivity)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void n()>",
+            "<com.vsofo.smspay.VsofoPayActivity: void d(java.lang.String)>",
+            "<com.vsofo.smspay.VsofoPayActivity: boolean c(com.vsofo.smspay.q)>",
+            "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_175012316075500_7m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vsofo.smspay.VsofoPayActivity dummyMainMethod_com_vsofo_smspay_VsofoPayActivity(android.content.Intent)>",
+            "<com.vsofo.smspay.VsofoPayActivity: void onCreate(android.os.Bundle)>",
+            "<com.vsofo.smspay.VsofoPayActivity$d: void handleMessage(android.os.Message)>",
+            "<com.vsofo.smspay.VsofoPayActivity: boolean c(com.vsofo.smspay.VsofoPayActivity,com.vsofo.smspay.q)>",
+            "<com.vsofo.smspay.VsofoPayActivity: boolean c(com.vsofo.smspay.q)>",
+            "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174870524210600_7m_14c",
+          "associated_call_chain": "path_174870524210600_7m_14c",
+          "boolean_logic_format": "(DialogInterfaceParameter != null) AND (switch_condition) AND (methodCResult == false) AND (!isConditionMet) AND (conditionFlag == false) AND (`paymentConditionCheck == false`) AND (methodCResult == false) AND (!TextUtils.isEmpty(smsCode)) AND (\"1\".equals(h)) AND (!TextUtils.isEmpty(smsCode)) AND (parameter0_is_null) AND (statusFlagIsFalse) AND (phoneNumber == null) AND (phoneNumberIsEmpty == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        },
+        {
+          "constraint_id": "path_174898159091000_8m_9c",
+          "associated_call_chain": "path_174898159091000_8m_9c",
+          "boolean_logic_format": "(processIsNotComplete) AND (switch_condition) AND (messageObject != null) AND (!TextUtils.isEmpty(authenticationResult)) AND (!isEmpty(authenticationResult)) AND (parameter0_is_null) AND (statusFlagIsFalse) AND (phoneNumber == null) AND (phoneNumberIsEmpty == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        },
+        {
+          "constraint_id": "path_174930113400200_9m_10c",
+          "associated_call_chain": "path_174930113400200_9m_10c",
+          "boolean_logic_format": "(isConditionMet == false) AND (switch_condition) AND (MessageObject == null) AND (!isEmpty(resultString)) AND (resultString.startsWith(\"yhxfsucc|\")) AND (\"0\".equals(h)) AND (parameter0_is_null) AND (statusFlagIsFalse) AND (phoneNumber == null) AND (phoneNumberIsEmpty == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_174964238143500_9m_11c",
+          "associated_call_chain": "path_174964238143500_9m_11c",
+          "boolean_logic_format": "(statusFlagIsFalse) AND (switch_condition) AND (**  \n`messageObject == null`  \n**) AND (TextUtils.isEmpty(secondElementOfKArray) == false) AND (responseStringNotEmpty) AND (resultString.startsWith(\"yhxfsucc|\")) AND (\"0\".equals(h)) AND (parameter0_is_null) AND (statusFlagIsFalse) AND (phoneNumber == null) AND (phoneNumberIsEmpty == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        },
+        {
+          "constraint_id": "path_175012316075500_7m_14c",
+          "associated_call_chain": "path_175012316075500_7m_14c",
+          "boolean_logic_format": "(processNotComplete) AND (switch_condition) AND (messagePayloadIsNull) AND (messageObject == null) AND (messageObject != null) AND (**  \n`processNotComplete`  \n**) AND (switch_condition) AND (messageObject == null) AND (messageObject == null) AND (`messageObject == null`) AND (parameter0_is_null) AND (statusFlagIsFalse) AND (phoneNumber == null) AND (phoneNumberIsEmpty == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 937576,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_175227088396900_11m_32c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onResume()>",
+            "<com.statistic2345.log.Statistics: void onResume(android.content.Context)>",
+            "<com.statistic2345.log.c.b: void a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.c.a: void run()>",
+            "<com.statistic2345.log.c: boolean a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context,java.lang.String)>",
+            "<com.statistic2345.util.TJDeviceInfoUtil: java.lang.String getICCID(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_175227088396900_11m_32c",
+          "associated_call_chain": "path_175227088396900_11m_32c",
+          "boolean_logic_format": "(isOpenStatic == true) AND (**\ncontext != null\n**) AND (isForeground == false) AND (isActivityInstance == false) AND (**  \napplicationContext != null  \n**) AND (currentTimeMillis - lastEventTime > 60000) AND (WeakReference is not null and referenced object is null) AND (WeakReferenceToContextIsNotNull) AND (String `b` is empty or null) AND (sessionStartTime > 0) AND (**  \n`isConditionMet == true`  \n**) AND (**\nloggingDataValue <= 0\n**) AND (timestampOrDuration <= 0L) AND (countOrStatus == 0) AND (logEntriesList == null) AND (listSize >= listSize) AND (index < listSize) AND (logEntryNotNull) AND (start_sended == 0) AND (**\n`duration > 0`\n**) AND ($r17 != null) AND (JSONArrayLength <= 0) AND (**\nJSONArray is not null\n**) AND (launchEventsCount <= 0) AND (!TextUtils.isEmpty(channelString)) AND (!isEmpty(channel)) AND (TextUtils.isEmpty(projectName)) AND (channelIdentifierIsNotEmpty) AND (!sharedPreferencesContainsIccid) AND (keyExistsInSharedPreferences) AND (`contextCondition != 3`) AND (ICCID is not empty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 32
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 1152349,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_175546283395500_20m_46c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.a.i: void b(java.lang.Runnable)>",
+            "<com.umeng.a.k: void run()>",
+            "<com.umeng.analytics.b$2: void a()>",
+            "<com.umeng.analytics.b: void a(com.umeng.analytics.b,android.content.Context)>",
+            "<com.umeng.analytics.b: void h(android.content.Context)>",
+            "<com.umeng.analytics.d.p: void c(android.content.Context)>",
+            "<com.umeng.analytics.d.p: void f(android.content.Context)>",
+            "<com.umeng.analytics.d.p: java.lang.String b(android.content.Context)>",
+            "<com.umeng.a.e: java.lang.String c(android.content.Context)>",
+            "<com.umeng.a.e: java.lang.String E(android.content.Context)>",
+            "<com.umeng.a.e: java.lang.String F(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_175782657886300_20m_36c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.a.i: void b(java.lang.Runnable)>",
+            "<com.umeng.a.k: void run()>",
+            "<com.umeng.analytics.b$2: void a()>",
+            "<com.umeng.analytics.b: void a(com.umeng.analytics.b,android.content.Context)>",
+            "<com.umeng.analytics.b: void h(android.content.Context)>",
+            "<com.umeng.analytics.d.p: void c(android.content.Context)>",
+            "<com.umeng.analytics.d.p: void f(android.content.Context)>",
+            "<com.umeng.analytics.d.p: java.lang.String b(android.content.Context)>",
+            "<com.umeng.a.e: java.lang.String c(android.content.Context)>",
+            "<com.umeng.a.e: java.lang.String D(android.content.Context)>",
+            "<com.umeng.a.e: java.lang.String F(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_175546283395500_20m_46c",
+          "associated_call_chain": "path_175546283395500_20m_46c",
+          "boolean_logic_format": "(context != null) AND (!TextUtils.isEmpty(inputString)) AND (k == true) AND (n == false) AND (context != null) AND (SDK_VERSION > 13) AND (n == false) AND (activityCheck == true) AND (n == false) AND (analyticsConfigInitialized) AND (n == false) AND (SharedPreferencesRetrieved) AND (storedVersionCode == 0) AND (parsedVersionCode != storedVersionCode) AND (configurationString == null) AND (sharedPreferences != null) AND (scenarioTypeValue != verticalTypeValue) AND (scenarioTypeValue == verticalType) AND (SDK_INT < 23) AND (!isEmpty(androidId)) AND ($r2 is not empty) AND (isEmpty(androidId)) AND (SDK_INT == 23) AND (**  \nisEmpty(r2)  \n**) AND (`!isEmpty(stringFromMethodC)`) AND ($r2 is not empty) AND (isNotEmpty(resultFromMethodC)) AND (isEmpty(r2) == true) AND (**\nSDK_INT >= 23\n**) AND (isAndroidIdNotEmpty) AND (isAndroidIdNotEmpty) AND ($r2 is empty) AND (SDK_INT < 23) AND (AndroidIDIsNotEmpty\n####) AND (!isAndroidIdEmpty) AND ($r2 is empty) AND (SDK_INT == 23) AND ($r2 is not empty) AND (`!TextUtils.isEmpty(r3)`) AND (StringReturnedByMethodBIsNotEmpty) AND (isStringEmptyOrNull) AND ($r2 is not empty) AND (!isEmpty(androidId)) AND ($r2 is not empty) AND (telephonyManagerServiceAvailable) AND (hasReadPhoneStatePermission == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 46
+        },
+        {
+          "constraint_id": "path_175782657886300_20m_36c",
+          "associated_call_chain": "path_175782657886300_20m_36c",
+          "boolean_logic_format": "(context != null) AND (stringIsNotEmpty) AND ($z0 != 0) AND (n == false) AND (contextIsNotNull) AND (SDK_VERSION <= 13) AND (featureNEnabled == false) AND (contextIsNotActivity) AND (n == false) AND (analyticsConfigInitialized) AND (n == false) AND (SharedPreferencesRetrieved == false) AND (versionCodeStored == 0) AND (parsedVersionCode != storedVersionCode) AND ($r5 == null) AND (SharedPreferences is not null) AND (scenarioTypeValue != verticalTypeValue) AND (scenarioTypeValue != configuredVerticalTypeValue) AND (SDK_VERSION >= 23) AND (SDK version is 23 or higher) AND (!TextUtils.isEmpty(retrievedString)) AND (!isEmpty(r1)) AND ($r1 is empty) AND (SDK_VERSION != 23) AND (!TextUtils.isEmpty(deviceId)) AND (`!TextUtils.isEmpty(r3)`) AND (`!TextUtils.isEmpty(r1)`) AND (`isEmpty(r3)`) AND (isStringEmpty) AND (**\nSDK_INT >= 23\n**) AND (!isEmpty(resultString)\n####) AND (!TextUtils.isEmpty(contextString)) AND ($r1 is empty or null) AND (SDK_INT != 23) AND (telephonyManagerServiceAvailable) AND (hasReadPhoneStatePermission == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 36
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 1707929,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_176021349730300_12m_31c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onResume()>",
+            "<com.statistic2345.log.Statistics: void onResume(android.content.Context)>",
+            "<com.statistic2345.log.c.b: void a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.c.a: void run()>",
+            "<com.statistic2345.log.c: boolean a(android.content.Context,java.lang.String,boolean)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context)>",
+            "<com.statistic2345.log.b: org.json.JSONObject a(android.content.Context,java.lang.String)>",
+            "<com.statistic2345.util.TJDeviceInfoUtil: java.lang.String getUuid(android.content.Context)>",
+            "<com.statistic2345.util.TJDeviceInfoUtil: java.lang.String getImsi(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_176021349730300_12m_31c",
+          "associated_call_chain": "path_176021349730300_12m_31c",
+          "boolean_logic_format": "(isOpenStatic == true) AND (**  \ncontext != null  \n**) AND (Statistics.a == false) AND (`contextIsNotActivity`) AND (timeDifference <= 60000) AND (timeSinceLastEvent > 60000) AND (WeakReference is not null) AND (weakReference != null) AND (sessionString is not empty) AND (c > 0) AND (`isConditionMet`) AND (sessionStartTimeOrEventCount <= 0) AND (sessionDuration <= 0) AND (conditionOrCount == 0) AND (logEntriesList == null || logEntriesListSize <= 0) AND (`listSize >= listSize`) AND (**  \nindex < listSize  \n**) AND (`currentListElement != null`) AND (fieldE == 0) AND (`timestampOrDuration <= 0`) AND (JSONArray_is_not_null) AND (**\nJSONArray_is_empty\n**) AND (jsonArray == null) AND (launchEventsCount <= 0) AND (isEmpty(umengChannel)) AND (channelIsNotEmpty) AND (`!TextUtils.isEmpty(projectName)`) AND ($r13 is not empty) AND (TextUtils.isEmpty(identifier) == true) AND (identifierLength > 6) AND (telephonyManager != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 31
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 1946635,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_179028017023600_17m_40c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.a.i: void b(java.lang.Runnable)>",
+            "<com.umeng.a.k: void run()>",
+            "<com.umeng.analytics.d.d$2: void a()>",
+            "<com.umeng.analytics.d.c: void a()>",
+            "<com.umeng.analytics.d.c: void d()>",
+            "<com.umeng.analytics.d.o: void a()>",
+            "<com.umeng.analytics.d.o: void b()>",
+            "<com.umeng.a.l$a: void a(com.umeng.a.l$b)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_179028017023600_17m_40c",
+          "associated_call_chain": "path_179028017023600_17m_40c",
+          "boolean_logic_format": "(contextIsNotNull) AND (stringIsNotEmpty) AND (k == true) AND (n == false) AND (contextParameter != null) AND (SDK_INT <= 13) AND (n == false) AND (contextIsActivity) AND (n == false) AND (analyticsConfigurationInitialized) AND (n == false) AND (networkAvailable == true) AND (featureIsActive) AND (com.umeng.analytics.e.b.d() == false) AND (`methodHReturnsFalse`) AND (FeatureIsActive == true) AND (jsonObjectLength > 0) AND (methodDReturnsTrue) AND (JSONObject_j_is_not_null) AND (contextConditionCheck == true) AND (SharedPreferencesInstance != null) AND (isTextEmpty == true) AND (storedTimestamp == -1L) AND (filesList != null) AND (numberOfFiles >= 10) AND (currentIndex < filesToDeleteCount) AND (fileList != null) AND (i2 >= numberOfFiles) AND (currentIndex >= numberOfFilesMinusTen) AND (fileArray != null) AND (numberOfFiles > 0) AND (currentIndex < totalFiles) AND (fileConditionMet == true) AND (directoryIsValidAndAccessible) AND (indexCounter >= numberOfFiles) AND (currentIndex < numberOfFiles) AND (fileList != null) AND (numberOfFiles > 0) AND (index < numberOfFiles) AND (fileMeetsCriteriaForDeletion)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 40
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 4953352,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_179129586145100_14m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.analytics.d.d: com.umeng.analytics.d.d b(android.content.Context)>",
+            "<com.umeng.analytics.d.d: void <init>(android.content.Context)>",
+            "<com.umeng.analytics.d.c: void <init>(android.content.Context)>",
+            "<com.umeng.analytics.c.h: com.umeng.analytics.c.h a(android.content.Context)>",
+            "<com.umeng.analytics.c.h: void c()>",
+            "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_179517690770700_17m_47c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.a.i: void b(java.lang.Runnable)>",
+            "<com.umeng.a.k: void run()>",
+            "<com.umeng.analytics.d.d$2: void a()>",
+            "<com.umeng.analytics.d.c: void a()>",
+            "<com.umeng.analytics.d.c: void d()>",
+            "<com.umeng.analytics.d.c: org.json.JSONObject a(int[])>",
+            "<com.umeng.analytics.c.h: com.umeng.analytics.c.h a(android.content.Context)>",
+            "<com.umeng.analytics.c.h: void c()>",
+            "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_179693318350600_21m_29c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.a.i: void b(java.lang.Runnable)>",
+            "<com.umeng.a.k: void run()>",
+            "<com.umeng.analytics.d.d$2: void a()>",
+            "<com.umeng.analytics.d.c: void a()>",
+            "<com.umeng.analytics.d.c: void d()>",
+            "<com.umeng.analytics.d.o: void a()>",
+            "<com.umeng.analytics.d.o: void c()>",
+            "<com.umeng.analytics.d.o: int a(byte[])>",
+            "<com.umeng.analytics.c.h: void b(com.umeng.analytics.f.e)>",
+            "<com.umeng.analytics.d.c: void a(com.umeng.analytics.c.h$a)>",
+            "<com.umeng.analytics.c.h: com.umeng.analytics.c.h a(android.content.Context)>",
+            "<com.umeng.analytics.c.h: void c()>",
+            "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_179129586145100_14m_13c",
+          "associated_call_chain": "path_179129586145100_14m_13c",
+          "boolean_logic_format": "(context != null) AND (!isEmpty(stringParameter)) AND (k != true) AND (n == false) AND (contextParameter != null) AND (SDK_INT <= 13) AND (n == false) AND (**\ncontextIsActivity == true\n**) AND (n == false) AND (singletonInstanceExists) AND (context != null) AND (singletonInstance != null) AND (!fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        },
+        {
+          "constraint_id": "path_179517690770700_17m_47c",
+          "associated_call_chain": "path_179517690770700_17m_47c",
+          "boolean_logic_format": "(context != null) AND (!TextUtils.isEmpty(eventName)) AND (k is true) AND (n == false) AND (context != null) AND (SDK_INT > 13) AND (n == false) AND (activityCheck == true) AND (n == false) AND (analyticsConfigInitialized) AND (n == false) AND (networkAvailable == true) AND (hMethodResult == true) AND (isConditionMet == false) AND (!isAppKeyEmpty) AND ($r2 == null) AND (sharedPreferences == null) AND (Appkey is not empty) AND (longField_i == 0) AND (`field_i_of_r0 != 0L`) AND (**\n`analyticsDataJson == null`\n**) AND (JSONObjectIsEmpty) AND (analyticsDataObject == null) AND (lengthOfJsonObject <= 0) AND (jsonObjectIsEmpty) AND (analyticsDataArray == null) AND (isAppKeyEmpty) AND (isAppKeyEmpty == true) AND (JSONObject is not empty) AND (analyticsFeatureNotActive) AND (inputArray == null) AND (lengthOfInputArray == 2) AND ($jsonObjectLength > 0) AND (!TextUtils.isEmpty(appKey)) AND (sharedPreferences == null) AND (sharedPreferences != null) AND ($appKey is empty) AND (wrapperType == null) AND (wrapperType == null) AND (param0 == null) AND (!TextUtils.isEmpty(appKey)) AND (appKeyIsNotEmpty) AND (appKeyIsEmptyOrNull) AND (The mobile network code information is empty or null) AND (isEmpty(mobileNetworkCode) == false) AND (singletonInstance != null) AND (!fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 47
+        },
+        {
+          "constraint_id": "path_179693318350600_21m_29c",
+          "associated_call_chain": "path_179693318350600_21m_29c",
+          "boolean_logic_format": "(context != null) AND (!TextUtils.isEmpty(inputString)) AND (k == true) AND (n == false) AND (contextParameter != null) AND (SDK_INT <= 13) AND (n == false) AND (contextIsActivity == true) AND (n == false) AND (analyticsConfigurationInitialized) AND (n == false) AND (networkAvailable == true) AND (`h() == false`) AND (`com.umeng.analytics.e.b.d() == false`) AND (`com.umeng.a.l.h() == false`) AND (analyticsConditionIsTrue) AND (jsonObjectLength > 0) AND (analyticsFeatureIsActive) AND (JSONObject j is not null) AND ($r5 is not empty) AND (JSONByteArray != null) AND (operationCheckFailed) AND (idTrackingStringIsNotEmpty) AND (`processedData != null`) AND (switch_condition) AND (operationFailedOrInvalidData) AND (operationResult == 1) AND (singletonInstance != null) AND (!fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 29
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 5618667,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_179700486531200_6m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onCreate(android.os.Bundle)>",
+            "<com.book2345.reader.activity.localfile.ScanningLocalFileActivity: void onInitData()>",
+            "<com.book2345.reader.j.aa: java.lang.String b()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_179700557121200_7m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)>",
+            "<com.book2345.reader.frgt.b.b: void c()>",
+            "<com.book2345.reader.j.aa: java.lang.String b()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_179700620075700_6m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.a dummyMainMethod_com_book2345_reader_frgt_b_a(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.a: void <init>()>",
+            "<com.book2345.reader.j.aa: java.lang.String b()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_179700486531200_6m_1c",
+          "associated_call_chain": "path_179700486531200_6m_1c",
+          "boolean_logic_format": "isFeatureEnabled == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_179700557121200_7m_1c",
+          "associated_call_chain": "path_179700557121200_7m_1c",
+          "boolean_logic_format": "isFeatureEnabled == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_179700620075700_6m_1c",
+          "associated_call_chain": "path_179700620075700_6m_1c",
+          "boolean_logic_format": "isFeatureEnabled == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 5625966,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_179843691539800_15m_20c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.tencent.connect.common.AssistActivity dummyMainMethod_com_tencent_connect_common_AssistActivity(android.content.Intent)>",
+            "<com.tencent.connect.common.AssistActivity: void onCreate(android.os.Bundle)>",
+            "<com.tencent.connect.common.AssistActivity: void openBrowser(android.os.Bundle)>",
+            "<com.tencent.open.b.d: void a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.open.b.g: void a(android.os.Bundle,java.lang.String,boolean)>",
+            "<com.tencent.open.b.g$2: void run()>",
+            "<com.tencent.open.utils.OpenConfig: com.tencent.open.utils.OpenConfig getInstance(android.content.Context,java.lang.String)>",
+            "<com.tencent.open.utils.OpenConfig: void <init>(android.content.Context,java.lang.String)>",
+            "<com.tencent.open.utils.OpenConfig: void b()>",
+            "<com.tencent.open.utils.OpenConfig$1: void run()>",
+            "<com.tencent.open.utils.OpenConfig: void a(com.tencent.open.utils.OpenConfig,org.json.JSONObject)>",
+            "<com.tencent.open.utils.OpenConfig: void a(org.json.JSONObject)>",
+            "<com.tencent.open.utils.OpenConfig: void a(java.lang.String,java.lang.String)>",
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_179843691539800_15m_20c",
+          "associated_call_chain": "path_179843691539800_15m_20c",
+          "boolean_logic_format": "(Intent != null) AND (Intent is not null) AND (intent == null) AND (bundle == null) AND (**\nisRestart == false\n**) AND (`h5ShareDataBundle == null`) AND (intent != null) AND (callbackAction.equals(\"shareToQQ\")) AND (openBrowserSuccess == false) AND ($r11 != null) AND ($r3 != \"shareToQzone\") AND (callbackAction.equals(\"shareToQQ\")) AND (openBrowserSuccess == false) AND (listenerIsNull) AND (existingBundleIsNotNull) AND (param1 != null) AND (StringIdentifier == null) AND ($r3 != null) AND (OpenConfigInstanceIsNull) AND (OpenConfig.d == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 20
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 5768982,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.ProcessBuilder: java.lang.Process start()>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174274305809000_23m_27c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.book2345.reader.webview.JsToJava: void launchAlipay(java.lang.String)>",
+            "<com.pay2345.Pay2345: void pay(java.lang.Object,android.app.Activity,com.pay2345.listener.Pay)>",
+            "<com.pay2345.wxpay.ZFWXpay: java.lang.String pay()>",
+            "<com.tencent.mm.opensdk.openapi.WXApiImplV10: boolean registerApp(java.lang.String)>",
+            "<com.tencent.mm.opensdk.openapi.WXApiImplV10: boolean registerApp(java.lang.String,long)>",
+            "<com.tencent.mm.opensdk.openapi.WXApiImplV10: void initMta(android.content.Context,java.lang.String)>",
+            "<com.tencent.wxop.stat.StatService: boolean startStatService(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.tencent.wxop.stat.StatServiceImpl: boolean startStatService(android.content.Context,java.lang.String,java.lang.String,com.tencent.wxop.stat.StatSpecifyReportedInfo)>",
+            "<com.tencent.wxop.stat.StatServiceImpl: com.tencent.wxop.stat.common.e c(android.content.Context)>",
+            "<com.tencent.wxop.stat.StatServiceImpl: void a(android.content.Context)>",
+            "<com.tencent.wxop.stat.common.e: void a(java.lang.Runnable)>",
+            "<com.tencent.wxop.stat.q: void run()>",
+            "<com.tencent.wxop.stat.StatServiceImpl: int a(android.content.Context,boolean,com.tencent.wxop.stat.StatSpecifyReportedInfo)>",
+            "<com.tencent.wxop.stat.StatServiceImpl: void a(android.content.Context,com.tencent.wxop.stat.StatSpecifyReportedInfo)>",
+            "<com.tencent.wxop.stat.event.k: void <init>(android.content.Context,int,org.json.JSONObject,com.tencent.wxop.stat.StatSpecifyReportedInfo)>",
+            "<com.tencent.wxop.stat.common.b: void <init>(android.content.Context)>",
+            "<com.tencent.wxop.stat.common.b: com.tencent.wxop.stat.common.d a(android.content.Context)>",
+            "<com.tencent.wxop.stat.common.d: void <init>(android.content.Context,com.tencent.wxop.stat.common.c)>",
+            "<com.tencent.wxop.stat.common.d: void <init>(android.content.Context)>",
+            "<com.tencent.wxop.stat.common.l: org.json.JSONObject s(android.content.Context)>",
+            "<com.tencent.wxop.stat.common.m: int b()>",
+            "<java.lang.ProcessBuilder: java.lang.Process start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174274305809000_23m_27c",
+          "associated_call_chain": "path_174274305809000_23m_27c",
+          "boolean_logic_format": "(`singletonInstance == null`) AND (`singletonInstance == null`) AND (staticFieldDInitialized != null) AND ($r2 == null) AND (`contextIsValid == true`) AND (StatisticalServiceEnabled) AND (StatServiceImpl.j == 0L) AND (currentTimeMillis < specificTime) AND (statusValue != 1) AND (StatSpecifyReportedInfoIsValid) AND (StatSpecifyReportedInfoIsNotValid) AND ($z1 != 0) AND ($z0 == false) AND (currentSessionCount < maxAllowedSessionsPerDay) AND (StatServiceImpl.j == 0L) AND (currentTimeMillis() >= storedTime) AND (**\nstatusValue != 1\n**) AND (StatSpecifyReportedInfoIsValid) AND ($z2 == 0) AND ($z1 != 0) AND (StatSpecifyReportedInfoConditionMet == false) AND (currentSessions < maxAllowedSessions) AND (`isStatSpecifyReportedInfoValid == true`) AND ($r2 != null) AND (!isDebugModeEnabled) AND (StatSpecifyReportedInfo == null) AND (sessionState == 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 27
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 199538,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_174383833596200_13m_18c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.MainActivity dummyMainMethod_com_book2345_reader_MainActivity(android.content.Intent)>",
+            "<com.book2345.reader.MainActivity: boolean onKeyUp(int,android.view.KeyEvent)>",
+            "<com.book2345.reader.frgt.user.a: boolean n()>",
+            "<com.book2345.reader.b.c: void b()>",
+            "<com.d.a.l: void a()>",
+            "<com.d.a.q: void a()>",
+            "<com.d.a.q: void a(boolean)>",
+            "<com.d.a.q: void e(long)>",
+            "<com.d.a.q: boolean c(long)>",
+            "<com.d.a.l: void a(float)>",
+            "<com.d.a.n$b: void d(java.lang.Object)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_174383833596200_13m_18c",
+          "associated_call_chain": "path_174383833596200_13m_18c",
+          "boolean_logic_format": "(switch_condition) AND (slidingMenuStateIsTrue) AND (slidingMenuState == false) AND (!SlidingMenuIsInStateF) AND (ShelfBookGroupPop == null) AND (ShelfBookGroupPopStateIsFalse) AND (ShelfDelBookPopIsNull) AND (ShelfDelBookPopIsNotActive) AND (RelativeLayoutIsNull) AND (RelativeLayoutVisibility == VISIBLE) AND (k() == true) AND (dMethodResult == false) AND (H == 0) AND (H == 0) AND (stateOfObjectIsNotOne) AND (jFieldIsNull) AND (`b == null`) AND (MethodObjectIsNotNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 18
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 309091,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_176255605673800_18m_33c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.a.i: void b(java.lang.Runnable)>",
+            "<com.umeng.a.k: void run()>",
+            "<com.umeng.analytics.d.d$2: void a()>",
+            "<com.umeng.analytics.d.c: void a()>",
+            "<com.umeng.analytics.d.c: void d()>",
+            "<com.umeng.analytics.d.o: void a()>",
+            "<com.umeng.analytics.d.o: void c()>",
+            "<com.umeng.analytics.d.i: byte[] a(byte[])>",
+            "<com.umeng.analytics.d.i: byte[] a(byte[],java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_176441538977400_20m_33c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.localfile.ImportLocalFileActivity dummyMainMethod_com_book2345_reader_activity_localfile_ImportLocalFileActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.b.b dummyMainMethod_com_book2345_reader_frgt_b_b(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.b.b: void onClick(android.view.View)>",
+            "<com.book2345.reader.j.k: void d(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.MobclickAgent: void onEvent(android.content.Context,java.lang.String)>",
+            "<com.umeng.analytics.b: void a(android.content.Context,java.lang.String,java.lang.String,long,int)>",
+            "<com.umeng.analytics.b: void g(android.content.Context)>",
+            "<com.umeng.a.i: void b(java.lang.Runnable)>",
+            "<com.umeng.a.k: void run()>",
+            "<com.umeng.analytics.d.d$2: void a()>",
+            "<com.umeng.analytics.d.c: void a()>",
+            "<com.umeng.analytics.d.c: void d()>",
+            "<com.umeng.analytics.d.o: void a()>",
+            "<com.umeng.analytics.d.o: void b()>",
+            "<com.umeng.a.l$a: void a(com.umeng.a.l$b)>",
+            "<com.umeng.analytics.d.o$1: boolean b(java.io.File)>",
+            "<com.umeng.analytics.d.i: byte[] a(byte[])>",
+            "<com.umeng.analytics.d.i: byte[] a(byte[],java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_176255605673800_18m_33c",
+          "associated_call_chain": "path_176255605673800_18m_33c",
+          "boolean_logic_format": "(Context is not null) AND (!TextUtils.isEmpty(inputString)) AND (k != true) AND (n == false) AND (contextIsNotNull) AND (SDK_INT <= 13) AND (n == false) AND (contextIsActivity) AND (`n` is false) AND (analyticsConfigurationInitialized) AND (n == false) AND (networkAvailable == true) AND (**  \n`h() == false`  \n**) AND (analyticsFeatureInactive) AND (methodHReturnsFalse) AND (analyticsConditionNotMet) AND (jsonObjectLength > 0) AND (featureEnabled == false) AND (j != null) AND (encodedStringIsNotEmpty) AND (byteArrayNotNull) AND (operationFailed) AND (The string is empty or null) AND (currentIndex < arrayLength) AND ($r3 == null && !c()) AND (`$z0 == 1`) AND (AndroidSDKVersion >= 8) AND (eFieldIsNull) AND (ContentTypeHeaderNotEmpty) AND (contentTypeIsNotApplicationThrift) AND (responseCode == 200) AND (contentTypeIsNotApplicationThrift) AND (HttpURLConnection is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 33
+        },
+        {
+          "constraint_id": "path_176441538977400_20m_33c",
+          "associated_call_chain": "path_176441538977400_20m_33c",
+          "boolean_logic_format": "(Context is not null) AND (!TextUtils.isEmpty(param1)) AND (featureEnabled == true) AND (n == false) AND (contextIsNotNull && apiLevelIsLessThanOrEqualTo13) AND (SDK_VERSION <= 13) AND (stateNIsActive) AND (Context is an instance of android.app.Activity) AND (n == false) AND (analyticsConfigInitialized) AND (n == false) AND (networkAvailable == true) AND (conditionNotMet) AND (if featureEnabled == false) AND (hMethodReturnsTrue) AND (isFeatureEnabled == false) AND (**  \nJSONObjectLength > 0  \n**) AND (methodDReturnsTrue) AND (**  \n`jsonObject != null`  \n**) AND (isEmpty(uopdtaValue)) AND (sharedPreferences != null) AND (TextUtils.isEmpty(sharedPreferencesValue)) AND (storedTimestamp == -1L) AND (currentIndex < arrayLength) AND ($r3 == null && !c()) AND (`$z0 == 1`) AND (AndroidSDKVersion >= 8) AND (eFieldIsNull) AND (ContentTypeHeaderNotEmpty) AND (contentTypeIsNotApplicationThrift) AND (responseCode == 200) AND (contentTypeIsNotApplicationThrift) AND (HttpURLConnection is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 33
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 2366808,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_176441645078300_1m_0c",
+          "entry_point": "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+          "method_sequence": [
+            "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_176441645078300_1m_0c",
+          "associated_call_chain": "path_176441645078300_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 2366919,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_176527529401400_13m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.comic.activity.ComicDownloadActivity dummyMainMethod_com_book2345_reader_comic_activity_ComicDownloadActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.BaseActivity: void onPause()>",
+            "<com.book2345.reader.app.MainApplication: void startActivityTransitionTimer()>",
+            "<java.util.Timer: void schedule(java.util.TimerTask,long)>",
+            "<com.book2345.reader.app.MainApplication$5: void run()>",
+            "<com.book2345.reader.app.MainApplication$4: void handleMessage(android.os.Message)>",
+            "<com.book2345.reader.app.MainApplication: void access$100()>",
+            "<com.book2345.reader.app.MainApplication: void onAppGoToBackground()>",
+            "<com.book2345.reader.models.BookTagManager: void pushTagCount()>",
+            "<android.os.Handler: boolean post(java.lang.Runnable)>",
+            "<com.tencent.open.b.g$6: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_176543745008800_18m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.MainActivity dummyMainMethod_com_book2345_reader_MainActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment dummyMainMethod_com_book2345_reader_frgt_shelf_LeftSlidingMenuFragment(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment: void onResume()>",
+            "<com.book2345.reader.models.AutoMenuMod: void startGetAutoMenuInfoASync()>",
+            "<com.book2345.reader.models.AutoMenuMod: void getAutoMenuList(com.book2345.reader.g.r)>",
+            "<com.km.easyhttp.b: void a(java.lang.String,com.km.easyhttp.h.a,com.km.easyhttp.c.a)>",
+            "<com.km.easyhttp.g.a: void a(java.lang.String,com.km.easyhttp.h.a,int,com.km.easyhttp.c.a)>",
+            "<g.aa: void a(g.f)>",
+            "<g.p: void a(g.aa$a)>",
+            "<g.a.b: void run()>",
+            "<g.aa$a: void d()>",
+            "<com.usercenter2345.library.c.b.c$2: void onFailure(g.e,java.io.IOException)>",
+            "<com.usercenter2345.library.c.b.c: void c(com.usercenter2345.library.c.b.c)>",
+            "<com.usercenter2345.library.c.b.c: void c()>",
+            "<android.os.Handler: boolean post(java.lang.Runnable)>",
+            "<com.tencent.open.b.g$6: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_176551502320200_16m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.MainActivity dummyMainMethod_com_book2345_reader_MainActivity(android.content.Intent)>",
+            "<dummyMainClass: com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment dummyMainMethod_com_book2345_reader_frgt_shelf_LeftSlidingMenuFragment(android.content.Intent,android.app.Activity)>",
+            "<com.book2345.reader.frgt.shelf.LeftSlidingMenuFragment: void onResume()>",
+            "<com.book2345.reader.models.AutoMenuMod: void startGetAutoMenuInfoASync()>",
+            "<com.book2345.reader.models.AutoMenuMod: void getAutoMenuList(com.book2345.reader.g.r)>",
+            "<com.km.easyhttp.b: void a(java.lang.String,com.km.easyhttp.h.a,com.km.easyhttp.c.a)>",
+            "<com.km.easyhttp.g.a: void a(java.lang.String,com.km.easyhttp.h.a,int,com.km.easyhttp.c.a)>",
+            "<g.aa: void a(g.f)>",
+            "<g.p: void a(g.aa$a)>",
+            "<g.a.b: void run()>",
+            "<g.aa$a: void d()>",
+            "<com.usercenter2345.library.c.b.c$2: void onResponse(g.e,g.ad)>",
+            "<android.os.Handler: boolean post(java.lang.Runnable)>",
+            "<com.tencent.open.b.g$6: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_176720673193900_18m_27c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.user.LoginActivity dummyMainMethod_com_book2345_reader_activity_user_LoginActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void onClick(android.view.View)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void f()>",
+            "<com.book2345.reader.i.c: void a(android.app.Activity,com.book2345.reader.i.c$a)>",
+            "<com.tencent.tauth.Tencent: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int a(android.app.Activity,android.support.v4.app.Fragment,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int loginWithOEM(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,boolean,android.support.v4.app.Fragment)>",
+            "<com.tencent.connect.auth.AuthAgent: boolean a(android.app.Activity,android.support.v4.app.Fragment,boolean)>",
+            "<com.tencent.open.b.d: void a(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,int,int,java.lang.String)>",
+            "<com.tencent.open.b.g: void a(java.lang.String,java.lang.String,android.os.Bundle,boolean)>",
+            "<com.tencent.open.utils.ThreadManager: void executeOnSubThread(java.lang.Runnable)>",
+            "<com.tencent.open.b.g$6: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_176841672921500_16m_21c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.book2345.reader.activity.user.LoginActivity dummyMainMethod_com_book2345_reader_activity_user_LoginActivity(android.content.Intent)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void onClick(android.view.View)>",
+            "<com.book2345.reader.activity.user.LoginActivity: void f()>",
+            "<com.book2345.reader.i.c: void a(android.app.Activity,com.book2345.reader.i.c$a)>",
+            "<com.tencent.tauth.Tencent: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.QQAuth: int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int a(android.app.Activity,android.support.v4.app.Fragment,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)>",
+            "<com.tencent.connect.auth.QQAuth: int loginWithOEM(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.connect.auth.AuthAgent: int doLogin(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,boolean,android.support.v4.app.Fragment)>",
+            "<com.tencent.connect.auth.AuthAgent: int a(boolean,com.tencent.tauth.IUiListener)>",
+            "<com.tencent.open.utils.ThreadManager: void executeOnSubThread(java.lang.Runnable)>",
+            "<com.tencent.open.b.g$6: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_176527529401400_13m_9c",
+          "associated_call_chain": "path_176527529401400_13m_9c",
+          "boolean_logic_format": "(isOpenStatic == true) AND (mIsBeginToBackground == false) AND (mTagCount.size() == 0) AND (elapsedTimeSinceLastSuccess < 86400000L) AND (elapsedTimeSinceLastPush >= 86400000L) AND (Bundle a is not null) AND (methodReturnValue == 0) AND ($z1 == false) AND ($z1 == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        },
+        {
+          "constraint_id": "path_176543745008800_18m_6c",
+          "associated_call_chain": "path_176543745008800_18m_6c",
+          "boolean_logic_format": "(methodNotExecuted == false) AND (k != -1) AND (Bundle a is not null) AND (methodReturnValue == 0) AND ($z1 == false) AND ($z1 == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_176551502320200_16m_5c",
+          "associated_call_chain": "path_176551502320200_16m_5c",
+          "boolean_logic_format": "(methodNotExecuted) AND (Bundle a is not null) AND (methodReturnValue == 0) AND ($z1 == false) AND ($z1 == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        },
+        {
+          "constraint_id": "path_176720673193900_18m_27c",
+          "associated_call_chain": "path_176720673193900_18m_27c",
+          "boolean_logic_format": "(`method_b_returns_false`) AND (switch_condition) AND (conditionNotMet) AND ($z0 != 0) AND (conditionMet == false) AND ($r2 == null) AND (sessionIsValid == false) AND (hasMoreElements == true) AND (currentAppPackageName.equals(installedAppPackageName) == false) AND (!TextUtils.isEmpty(channelId)) AND ($r5 is not empty or null) AND (thirdParameterIsNotEmpty) AND ($r5 != \"\") AND (`$r5` is not an empty string) AND (C_LoginWeb is false) AND (isOEM == false) AND (isOEM == false) AND (!hasActivityForIntent(loginIntent)) AND (isOEM == false) AND (**\nisOEM == false\n**) AND (isOEM == false) AND ($l4 != 0L) AND (elapsedTimeSinceBootMinusR5 >= 0) AND (Bundle a is not null) AND (methodReturnValue == 0) AND ($z1 == false) AND ($z1 == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 27
+        },
+        {
+          "constraint_id": "path_176841672921500_16m_21c",
+          "associated_call_chain": "path_176841672921500_16m_21c",
+          "boolean_logic_format": "(isFeatureEnabled == false) AND (switch_condition) AND (stringsAreNotEqual) AND (`isConditionMet`) AND (isConditionMet == false) AND (LoginActivityFieldDIsNull) AND (sessionIsValid == false) AND (iteratorHasMoreElements) AND (applicationPackageName.equals(installedPackageName)) AND (`isChannelIdEmpty`) AND (!isChannelIdEmpty) AND (`$r4.equals(\"\") == false`) AND ($r5.equals(\"\") == false) AND (`$r5 != \"\"`) AND (C_LoginWeb == false) AND ($z1 == false) AND (isOEM == false) AND (Bundle a is not null) AND (methodReturnValue == 0) AND ($z1 == false) AND ($z1 == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 21
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 2766970,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_176857845158400_18m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.xiaomi.push.service.XMPushService dummyMainMethod_com_xiaomi_push_service_XMPushService(android.content.Intent)>",
+            "<com.xiaomi.push.service.XMPushService: void onCreate()>",
+            "<com.xiaomi.push.service.x: void <init>(java.lang.String)>",
+            "<com.xiaomi.push.service.x: void <init>(java.lang.String,boolean)>",
+            "<com.xiaomi.push.service.x$c: void <init>(java.lang.String,boolean)>",
+            "<com.xiaomi.push.service.x$c: void run()>",
+            "<com.xiaomi.push.service.XMPushService$g: void run()>",
+            "<com.xiaomi.push.service.XMPushService$c: void a()>",
+            "<com.xiaomi.push.service.XMPushService: void h(com.xiaomi.push.service.XMPushService)>",
+            "<com.xiaomi.push.service.XMPushService: void o()>",
+            "<com.xiaomi.push.service.XMPushService: void p()>",
+            "<com.xiaomi.d.l: void t()>",
+            "<com.xiaomi.d.l: void a(com.xiaomi.d.b)>",
+            "<com.xiaomi.d.l: void a(java.lang.String,int)>",
+            "<com.xiaomi.d.l: void y()>",
+            "<com.xiaomi.d.l: void z()>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_176857845158400_18m_2c",
+          "associated_call_chain": "path_176857845158400_18m_2c",
+          "boolean_logic_format": "(featureOrStateIsNotActive) AND ($z0 == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 2783158,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_176887374507000_4m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.unionpay.UPPayWapActivity dummyMainMethod_com_unionpay_UPPayWapActivity(android.content.Intent)>",
+            "<com.unionpay.UPPayWapActivity: void onCreate(android.os.Bundle)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_176887374507000_4m_4c",
+          "associated_call_chain": "path_176887374507000_4m_4c",
+          "boolean_logic_format": "(wapType != \"new_page\") AND (!wapType.equals(\"new_page\")) AND (wapUrlExtraIsAbsent) AND (waptitle != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769941369053,
+        "analysis_duration_ms": 2812667,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

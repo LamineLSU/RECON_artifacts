@@ -1,0 +1,96 @@
+{
+    "metadata": {
+        "version": "1.0",
+        "description": "Critical dangerous Android APIs for malware analysis",
+        "sources": [
+            "DREBIN 2014",
+            "DroidAPIMiner 2013",
+            "MalGenome 2012",
+            "OWASP Mobile Security"
+        ],
+        "total_apis": 42,
+        "last_updated": "2026-01-12"
+    },
+    "api_categories": {
+        "sms_phone_operations": {
+            "description": "SMS sending and phone call operations",
+            "severity": "HIGH",
+            "apis": [
+                "<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>",
+                "<android.telephony.SmsManager: void sendMultipartTextMessage(java.lang.String,java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)>",
+                "<android.telephony.SmsManager: void sendDataMessage(java.lang.String,java.lang.String,short,byte[],android.app.PendingIntent,android.app.PendingIntent)>",
+                "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+                "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>",
+                "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>",
+                "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+                "<com.rootminusone8004.bazarnote.AddEditNoteActivity: void savePrice(java.lang.String,float)>"
+            ]
+        },
+        "network_data_exfiltration": {
+            "description": "Network communications and data transmission",
+            "severity": "HIGH",
+            "apis": [
+                "<java.net.HttpURLConnection: void connect()>",
+                "<java.net.HttpURLConnection: java.io.OutputStream getOutputStream()>",
+                "<java.net.URL: java.net.URLConnection openConnection()>",
+                "<java.net.Socket: void connect(java.net.SocketAddress)>",
+                "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+                "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+                "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+                "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+                "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+                "<android.net.wifi.WifiManager: java.util.List getScanResults()>"
+            ]
+        },
+        "dynamic_code_loading": {
+            "description": "Runtime code loading and execution",
+            "severity": "CRITICAL",
+            "apis": [
+                "<dalvik.system.DexClassLoader: java.lang.Class loadClass(java.lang.String)>",
+                "<dalvik.system.PathClassLoader: java.lang.Class loadClass(java.lang.String)>",
+                "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+                "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+                "<java.lang.ProcessBuilder: java.lang.Process start()>"
+            ]
+        },
+        "file_system_operations": {
+            "description": "File system access and external storage",
+            "severity": "MEDIUM",
+            "apis": [
+                "<java.io.FileOutputStream: void write(byte[])>",
+                "<java.io.FileInputStream: int read(byte[])>",
+                "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+                "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+                "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+                "<java.io.File: boolean delete()>"
+            ]
+        },
+        "device_information_collection": {
+            "description": "Device and user information gathering",
+            "severity": "MEDIUM",
+            "apis": [
+                "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>",
+                "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+                "<android.accounts.AccountManager: android.accounts.Account[] getAccounts()>",
+                "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+                "<android.app.ActivityManager: java.util.List getRunningTasks(int)>",
+                "<android.app.ActivityManager: java.util.List getRunningServices(int)>",
+                "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+                "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+            ]
+        },
+        "privacy_sensors": {
+            "description": "Camera, microphone, and location access",
+            "severity": "HIGH",
+            "apis": [
+                "<android.hardware.Camera: android.hardware.Camera open()>",
+                "<android.hardware.camera2.CameraManager: void openCamera(java.lang.String,android.hardware.camera2.CameraDevice$StateCallback,android.os.Handler)>",
+                "<android.media.MediaRecorder: void start()>",
+                "<android.media.AudioRecord: void startRecording()>",
+                "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+                "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+                "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+            ]
+        }
+    }
+}

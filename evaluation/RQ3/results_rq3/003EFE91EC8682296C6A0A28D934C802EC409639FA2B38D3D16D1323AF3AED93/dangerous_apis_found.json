@@ -1,0 +1,305 @@
+{
+  "total_dangerous_apis": 6,
+  "category_statistics": {
+    "privacy_sensors": 1,
+    "device_information_collection": 2,
+    "file_system_operations": 1,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 1
+  },
+  "analysis_timestamp": "2026-02-01 09:49:05",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200564229650500_12m_23c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity dummyMainMethod_com_KumpulanLaguMelindaTerpopuler2017_musik_yudhaapps_AdsActivity(android.content.Intent)>",
+            "<com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.f: void a(com.google.android.gms.ads.b)>",
+            "<com.google.android.gms.internal.ch: void a(com.google.android.gms.internal.ce)>",
+            "<com.google.android.gms.internal.zzt: boolean a(com.google.android.gms.internal.zzax)>",
+            "<com.google.android.gms.internal.na: com.google.android.gms.internal.ai a(android.content.Context)>",
+            "<com.google.android.gms.internal.ai: void a()>",
+            "<com.google.android.gms.internal.ai: void run()>",
+            "<com.google.android.gms.internal.ai: boolean b()>",
+            "<com.google.android.gms.internal.ai: boolean a(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200564229650500_12m_23c",
+          "associated_call_chain": "path_200564229650500_12m_23c",
+          "boolean_logic_format": "(currentAdRequest == null) AND (`$r3 == null`) AND (currentAdRequest == null) AND (zzbaFieldE == false) AND (if (adLoadingProcess == null) && !canProceedWithAdRequest()) AND (adRequestCanProceed == true) AND (isTestAdRequest) AND (`com.google.android.gms.internal.rz.a() == false`) AND (methodBReturnsFalse) AND (b() == false) AND (`p is null`) AND (contextIsActivity) AND (`field_r_is_initialized`) AND (existingInstanceOfAiIsNull) AND (`isTaskActive == false`) AND (contextIsNotNull) AND (ActivityManagerInstance != null) AND (keyguardManagerServiceAvailable) AND (runningAppProcessesList != null) AND (**  \nIterator has more elements  \n**) AND (currentProcessId == runningProcessId) AND (processImportance == IMPORTANCE_FOREGROUND) AND (deviceNotInRestrictedInputMode)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 23
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967696807,
+        "analysis_duration_ms": 161714,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200610599407900_9m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity dummyMainMethod_com_KumpulanLaguMelindaTerpopuler2017_musik_yudhaapps_AdsActivity(android.content.Intent)>",
+            "<com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.f: void a(com.google.android.gms.ads.b)>",
+            "<com.google.android.gms.internal.ch: void a(com.google.android.gms.internal.ce)>",
+            "<com.google.android.gms.internal.bb: com.google.android.gms.internal.zzax a(android.content.Context,com.google.android.gms.internal.ce)>",
+            "<com.google.android.gms.internal.ce: boolean a(android.content.Context)>",
+            "<com.google.android.gms.internal.om: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_200678911204100_8m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity dummyMainMethod_com_KumpulanLaguMelindaTerpopuler2017_musik_yudhaapps_AdsActivity(android.content.Intent)>",
+            "<com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.f: void a(com.google.android.gms.ads.b)>",
+            "<com.google.android.gms.internal.ch: void a(com.google.android.gms.internal.ce)>",
+            "<com.google.android.gms.internal.zzt: boolean a(com.google.android.gms.internal.zzax)>",
+            "<com.google.android.gms.internal.om: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200610599407900_9m_6c",
+          "associated_call_chain": "path_200610599407900_9m_6c",
+          "boolean_logic_format": "(field_f_is_null) AND (setIsNotEmpty) AND (The set of items is not empty) AND (`contentResolver == null`) AND (AndroidID != null) AND (`methodAResult == true`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_200678911204100_8m_10c",
+          "associated_call_chain": "path_200678911204100_8m_10c",
+          "boolean_logic_format": "(fieldEofObjectFIsNull) AND (`field_i_of_f_is_null`) AND (currentAdRequest != null) AND (featureEnabled == false) AND (interstitialAdLoading == null) AND (adRequestConditionsMet == true) AND (isTestRequest) AND (`contentResolver == null`) AND (AndroidID != null) AND (`methodAResult == true`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967696807,
+        "analysis_duration_ms": 276406,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.app.ActivityManager: java.util.List getRunningTasks(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200816923677200_10m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity dummyMainMethod_com_KumpulanLaguMelindaTerpopuler2017_musik_yudhaapps_AdsActivity(android.content.Intent)>",
+            "<com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.f: void a(com.google.android.gms.ads.b)>",
+            "<com.google.android.gms.internal.ch: void a(com.google.android.gms.internal.ce)>",
+            "<com.google.android.gms.internal.zzt: boolean a(com.google.android.gms.internal.zzax)>",
+            "<com.google.android.gms.internal.zzt: com.google.android.gms.internal.lq a(com.google.android.gms.internal.zzax,android.os.Bundle)>",
+            "<com.google.android.gms.internal.np: java.lang.String a(android.content.Context,android.view.View,com.google.android.gms.internal.zzba)>",
+            "<com.google.android.gms.internal.np: java.lang.String f(android.content.Context)>",
+            "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200816923677200_10m_16c",
+          "associated_call_chain": "path_200816923677200_10m_16c",
+          "boolean_logic_format": "(`xi.e == null`) AND (componentStateIIsNull) AND (currentAdRequest == null) AND (zzbaFieldE == false) AND ($r6 == null) AND (w() == true) AND (testRequest == true) AND (featureEnabled == false) AND (viewParentIsNull) AND (yCoordinate + viewHeight <= 0) AND ((yCoordinate + viewHeight) <= 0) AND ((yCoordinate + viewHeight <= 0) OR (screenWidth <= 0) OR (screenHeight <= 0)) AND (viewXCoordinate > screenWidth) AND (viewYCoordinate <= screenHeightPixels) AND ($z0 == false) AND (ActivityManagerServiceAvailable)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967696807,
+        "analysis_duration_ms": 414421,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200851277274900_16m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity dummyMainMethod_com_KumpulanLaguMelindaTerpopuler2017_musik_yudhaapps_AdsActivity(android.content.Intent)>",
+            "<com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.f: void a(com.google.android.gms.ads.b)>",
+            "<com.google.android.gms.internal.ch: void a(com.google.android.gms.internal.ce)>",
+            "<com.google.android.gms.internal.ch: void b(java.lang.String)>",
+            "<com.google.android.gms.internal.az: com.google.android.gms.internal.bn a(android.content.Context,com.google.android.gms.internal.zzba,java.lang.String,com.google.android.gms.internal.gc)>",
+            "<com.google.android.gms.internal.zzt: void <init>(android.content.Context,com.google.android.gms.internal.zzba,java.lang.String,com.google.android.gms.internal.gd,com.google.android.gms.internal.zzhy)>",
+            "<com.google.android.gms.internal.xi: void <init>(android.content.Context,com.google.android.gms.internal.zzba,java.lang.String,com.google.android.gms.internal.zzhy)>",
+            "<com.google.android.gms.internal.xi: void <init>(android.content.Context,com.google.android.gms.internal.zzba,java.lang.String,com.google.android.gms.internal.zzhy,com.google.android.gms.internal.qk)>",
+            "<com.google.android.gms.internal.aac: void <init>(com.google.android.gms.internal.xi)>",
+            "<com.google.android.gms.internal.aac: void run()>",
+            "<com.google.android.gms.internal.qc: com.google.android.gms.internal.qc a(java.lang.String,android.content.Context)>",
+            "<com.google.android.gms.internal.op: void a(java.lang.String,android.content.Context,com.google.android.gms.internal.ru)>",
+            "<com.google.android.gms.internal.op: void g(android.content.Context)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200851277274900_16m_4c",
+          "associated_call_chain": "path_200851277274900_16m_4c",
+          "boolean_logic_format": "(bnInstanceIsNull) AND (`g` is not null) AND (FeatureOrServiceAvailable == true) AND (`resultOfMethodB == null`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967696807,
+        "analysis_duration_ms": 448766,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200402551437100_1m_0c",
+          "entry_point": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+          "method_sequence": [
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200402551437100_1m_0c",
+          "associated_call_chain": "path_200402551437100_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967696807,
+        "analysis_duration_ms": 30,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200564248578300_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.KumpulanLaguMelindaTerpopuler2017 dummyMainMethod_com_KumpulanLaguMelindaTerpopuler2017_musik_yudhaapps_KumpulanLaguMelindaTerpopuler2017(android.content.Intent)>",
+            "<com.KumpulanLaguMelindaTerpopuler2017.musik.yudhaapps.KumpulanLaguMelindaTerpopuler2017: void onCreate(android.os.Bundle)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200564248578300_4m_0c",
+          "associated_call_chain": "path_200564248578300_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967696807,
+        "analysis_duration_ms": 161731,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

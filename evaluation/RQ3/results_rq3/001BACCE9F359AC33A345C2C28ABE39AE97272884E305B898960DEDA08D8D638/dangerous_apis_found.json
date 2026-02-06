@@ -1,0 +1,97 @@
+{
+  "total_dangerous_apis": 2,
+  "category_statistics": {
+    "device_information_collection": 1,
+    "network_data_exfiltration": 1
+  },
+  "analysis_timestamp": "2026-01-31 14:07:00",
+  "apis_by_category": {
+    "device_information_collection": [
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "network_data_exfiltration": [
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_129925730967200_9m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.bottlecap.seancrop.AdsActivity dummyMainMethod_com_bottlecap_seancrop_AdsActivity(android.content.Intent)>",
+            "<com.bottlecap.seancrop.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.i: void a(com.google.android.gms.ads.d)>",
+            "<com.google.android.gms.ads.internal.client.e: void a(com.google.android.gms.ads.internal.client.b)>",
+            "<com.google.android.gms.ads.internal.client.v: com.google.android.gms.ads.internal.client.AdRequestParcel a(android.content.Context,com.google.android.gms.ads.internal.client.b)>",
+            "<com.google.android.gms.ads.internal.client.b: boolean a(android.content.Context)>",
+            "<com.google.android.gms.ads.internal.util.client.a: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_129925730967200_9m_6c",
+          "associated_call_chain": "path_129925730967200_9m_6c",
+          "boolean_logic_format": "($r3 != null) AND (setIsNotEmpty) AND (Set is not empty) AND (ContentResolver is null) AND (AndroidID == null) AND (`methodAResult == true`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897168174,
+        "analysis_duration_ms": 51843,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_129873902980900_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.bottlecap.seancrop.bottlecap dummyMainMethod_com_bottlecap_seancrop_bottlecap(android.content.Intent)>",
+            "<com.bottlecap.seancrop.bottlecap: void onCreate(android.os.Bundle)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_129873902980900_4m_0c",
+          "associated_call_chain": "path_129873902980900_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897168174,
+        "analysis_duration_ms": 13,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

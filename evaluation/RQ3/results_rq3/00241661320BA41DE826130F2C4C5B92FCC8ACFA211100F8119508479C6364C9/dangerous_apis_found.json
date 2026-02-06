@@ -1,0 +1,1376 @@
+{
+  "total_dangerous_apis": 16,
+  "category_statistics": {
+    "privacy_sensors": 1,
+    "device_information_collection": 4,
+    "file_system_operations": 2,
+    "sms_phone_operations": 4,
+    "dynamic_code_loading": 2,
+    "network_data_exfiltration": 3
+  },
+  "analysis_timestamp": "2026-01-31 18:31:26",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "<android.app.ActivityManager: java.util.List getRunningTasks(int)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+    ],
+    "sms_phone_operations": [
+      "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>",
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.ProcessBuilder: java.lang.Process start()>",
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_139825069509500_21m_37c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: void onPostExecute(java.lang.Object)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void taskCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void modelCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.core.task.handle.IpaynowTaskHandler: void handleTaskResult(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.h: void handleSuccess(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void a(com.ipaynow.plugin.presenter.PayMethodActivity,java.lang.String)>",
+            "<com.ipaynow.plugin.presenter.d: void run()>",
+            "<com.alipay.sdk.app.PayTask: java.util.Map payV2(java.lang.String,boolean)>",
+            "<com.alipay.sdk.app.PayTask: java.lang.String pay(java.lang.String,boolean)>",
+            "<com.alipay.sdk.data.a: void a(android.content.Context)>",
+            "<com.alipay.sdk.data.b: void run()>",
+            "<com.alipay.sdk.packet.d: com.alipay.sdk.packet.b a(android.content.Context,java.lang.String,java.lang.String,boolean)>",
+            "<com.alipay.sdk.packet.d: java.lang.String a(java.lang.String,org.json.JSONObject)>",
+            "<com.alipay.sdk.util.a: com.alipay.sdk.util.d b(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_139855372491599_18m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: void onPostExecute(java.lang.Object)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void taskCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void modelCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.core.task.handle.IpaynowTaskHandler: void handleTaskResult(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.h: void handleSuccess(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void a(com.ipaynow.plugin.presenter.PayMethodActivity,java.lang.String)>",
+            "<com.ipaynow.plugin.presenter.d: void run()>",
+            "<com.alipay.sdk.app.PayTask: void <init>(android.app.Activity)>",
+            "<com.alipay.sdk.app.statistic.a: void a(android.content.Context)>",
+            "<com.alipay.sdk.app.statistic.c: void <init>(android.content.Context)>",
+            "<com.alipay.sdk.util.a: com.alipay.sdk.util.d b(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_139825069509500_21m_37c",
+          "associated_call_chain": "path_139825069509500_21m_37c",
+          "boolean_logic_format": "(b == true) AND (c == true) AND (`(a + 1) % 2 == 0`) AND (transactionTypeCode.equals(currentTransactionType) == false) AND (!paymentMethodContainsExpressGateway) AND (isNetworkAvailable == false) AND (**  \n!containsExpressGateway  \n**) AND (isNetworkAvailable == false) AND (TextUtils.isEmpty(transactionStatus)) AND (currentIndex >= arrayLength) AND (currentIndex < totalElements) AND (currentStringDoesNotStartWithResult) AND (!responseString.startsWith(\"result={\")) AND (currentIndex < arrayLength) AND (!stringSegment.startsWith(\"trade_token=\\\"\")) AND (`!currentString.startsWith(\"trade_token=\\\"\")`) AND (!currentSegment.startsWith(\"trade_token=\\\"\")) AND (`!inputString.contains(\"paymethod=\\\"expressGateway\\\"\")`) AND (isExpressGateway == true) AND (!stringContainsExpressGateway) AND ($r6 is not empty) AND (!isEmpty(resultString)) AND (isEmpty(tradeToken)) AND (!$r4.contains(\"paymethod=\\\"expressGateway\\\"\")) AND (serviceAvailable == false) AND (isExpressGateway == false) AND (`!isEmpty(resultString)`) AND (isEmpty(resultString)) AND (paymentMethodContainsExpressGateway == false) AND (currentIndex < arrayLength) AND (currentStringDoesNotStartWithResult) AND (!currentString.startsWith(\"trade_token=\\\"\")) AND (index < arrayLength) AND (!stringSegment.startsWith(\"trade_token=\\\"\")) AND (!currentSegment.startsWith(\"trade_token=\\\"\")) AND (The string does not end with a quotation mark) AND (!TextUtils.isEmpty(stringFieldA))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 37
+        },
+        {
+          "constraint_id": "path_139855372491599_18m_4c",
+          "associated_call_chain": "path_139855372491599_18m_4c",
+          "boolean_logic_format": "(b == false && c == false) AND (c == true) AND (incrementedValueOfA % 2 == 0) AND (transactionTypeCodeFromTRANS_TYPE != currentTransactionTypeCodeInActivity)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 766539,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_141142249804900_7m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.alipay.sdk.app.H5PayActivity dummyMainMethod_com_alipay_sdk_app_H5PayActivity(android.content.Intent)>",
+            "<com.alipay.sdk.app.b: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<com.alipay.sdk.util.l: boolean a(android.webkit.WebView,java.lang.String,android.app.Activity)>",
+            "<com.alipay.sdk.util.l: com.alipay.sdk.util.l$a a(android.content.Context,java.lang.String)>",
+            "<com.alipay.sdk.util.l: android.content.pm.PackageInfo c(android.content.Context,java.lang.String)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_141184066922700_19m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: void onPostExecute(java.lang.Object)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void taskCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void modelCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.core.task.handle.IpaynowTaskHandler: void handleTaskResult(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.h: void handleSuccess(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void a(com.ipaynow.plugin.presenter.PayMethodActivity,java.lang.String)>",
+            "<com.ipaynow.plugin.presenter.d: void run()>",
+            "<com.alipay.sdk.app.PayTask: java.util.Map payV2(java.lang.String,boolean)>",
+            "<com.alipay.sdk.app.PayTask: java.lang.String pay(java.lang.String,boolean)>",
+            "<com.alipay.sdk.util.e: java.lang.String a(java.lang.String)>",
+            "<com.alipay.sdk.util.l: com.alipay.sdk.util.l$a a(android.content.Context,java.lang.String)>",
+            "<com.alipay.sdk.util.l: android.content.pm.PackageInfo c(android.content.Context,java.lang.String)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_141197402588200_6m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.alipay.sdk.auth.AuthActivity dummyMainMethod_com_alipay_sdk_auth_AuthActivity(android.content.Intent)>",
+            "<com.alipay.sdk.auth.AuthActivity$b: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<com.alipay.sdk.util.l: com.alipay.sdk.util.l$a a(android.content.Context,java.lang.String)>",
+            "<com.alipay.sdk.util.l: android.content.pm.PackageInfo c(android.content.Context,java.lang.String)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_141142249804900_7m_8c",
+          "associated_call_chain": "path_141142249804900_7m_8c",
+          "boolean_logic_format": "(`packageInfoIsValid == false`) AND (PackageInfoIsValid) AND (`packageInfoIsValid`) AND ($z0 == false) AND (packageInfoIsValid) AND (`isPackageInfoValid`) AND (packageInfoMeetsCriteria) AND (`$z0 is false`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        },
+        {
+          "constraint_id": "path_141184066922700_19m_14c",
+          "associated_call_chain": "path_141184066922700_19m_14c",
+          "boolean_logic_format": "(b == true) AND (c == true) AND (incrementedValueOfAIsEven\n####) AND (ALIPAY_CODE.equals(currentTransactionType)) AND (!containsExpressGateway) AND (contextConditionIsTrue) AND (`packageInfoIsValid == false`) AND (PackageInfoIsValid) AND (`packageInfoIsValid`) AND ($z0 == false) AND (packageInfoIsValid) AND (`isPackageInfoValid`) AND (packageInfoMeetsCriteria) AND (`$z0 is false`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        },
+        {
+          "constraint_id": "path_141197402588200_6m_10c",
+          "associated_call_chain": "path_141197402588200_6m_10c",
+          "boolean_logic_format": "(URL does not start with the specified prefix) AND (!url.startsWith(\"intent://platformapi/startapp?\")) AND (`packageInfoIsValid == false`) AND (PackageInfoIsValid) AND (`packageInfoIsValid`) AND ($z0 == false) AND (packageInfoIsValid) AND (`isPackageInfoValid`) AND (packageInfoMeetsCriteria) AND (`$z0 is false`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 2108581,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.app.ActivityManager: java.util.List getRunningTasks(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_141291053824700_9m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.presenter.PayMethodActivity dummyMainMethod_com_ipaynow_plugin_presenter_PayMethodActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void onCreate(android.os.Bundle)>",
+            "<com.ipaynow.plugin.conf.a: void a(java.lang.Throwable)>",
+            "<com.ipaynow.plugin.conf.a: boolean b(java.lang.Throwable)>",
+            "<java.lang.Thread: void run()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.b: void run()>",
+            "<com.ipaynow.plugin.utils.BackgroundUtil: boolean getRunningTask(android.content.Context,java.lang.String)>",
+            "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_141311789031100_9m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.presenter.PayMethodActivity dummyMainMethod_com_ipaynow_plugin_presenter_PayMethodActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void onCreate(android.os.Bundle)>",
+            "<com.ipaynow.plugin.presenter.BasePresenter: void init()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void bindView()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: boolean a(java.lang.String)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.b: void run()>",
+            "<com.ipaynow.plugin.utils.BackgroundUtil: boolean getRunningTask(android.content.Context,java.lang.String)>",
+            "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_141291053824700_9m_12c",
+          "associated_call_chain": "path_141291053824700_9m_12c",
+          "boolean_logic_format": "(payChannelType.equals(transactionTypeCode)) AND (transactionTypeCode.equals(payChannelType)) AND (transactionTypeCode.equals(payChannelType)) AND (payChannelType != transactionTypeCode) AND (payChannelType != transactionTypeCode) AND (transactionTypeCode.equals(payChannelType)) AND (transactionTypeCode.equals(payChannelType)) AND (payChannelType != transactionTypeCode) AND (!transactionTypeCode.equals(payChannelType)) AND (WeChatNotifyActivity.d(WeChatNotifyActivityInstance) == false\n####) AND (**\nr1 != null\n**) AND (WeChatNotifyActivity.e(WeChatNotifyActivityInstance) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        },
+        {
+          "constraint_id": "path_141311789031100_9m_6c",
+          "associated_call_chain": "path_141311789031100_9m_6c",
+          "boolean_logic_format": "(bundleParameter != null) AND (BundleParameter != null) AND (themeId == 0) AND (WeChatNotifyActivity.d(WeChatNotifyActivityInstance) == false\n####) AND (**\nr1 != null\n**) AND (WeChatNotifyActivity.e(WeChatNotifyActivityInstance) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 2222995,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_141324916557500_12m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onDestroy()>",
+            "<com.quicksdk.Sdk: void onDestroy(android.app.Activity)>",
+            "<com.quicksdk.utility.UserCacheUtils: void a(java.lang.Boolean)>",
+            "<com.quicksdk.utility.k: void a(java.lang.Runnable)>",
+            "<com.quicksdk.net.Connect$3: void run()>",
+            "<com.quicksdk.net.a: com.quicksdk.net.ApiResult b(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.quicksdk.utility.f: com.quicksdk.utility.f a(android.content.Context)>",
+            "<com.quicksdk.utility.f: void <init>()>",
+            "<com.quicksdk.utility.f: java.lang.String b(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_141324916557500_12m_2c",
+          "associated_call_chain": "path_141324916557500_12m_2c",
+          "boolean_logic_format": "(Boolean value of `k` is `true`) AND (singletonInstance == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 2236131,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_141325006874300_1m_0c",
+          "entry_point": "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>",
+          "method_sequence": [
+            "<android.telephony.TelephonyManager: java.lang.String getLine1Number()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_141325006874300_1m_0c",
+          "associated_call_chain": "path_141325006874300_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 2236208,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_140061271866900_14m_32c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.crashreport.biz.a$2: void run()>",
+            "<com.tencent.bugly.crashreport.biz.a: void a(com.tencent.bugly.crashreport.biz.a)>",
+            "<com.tencent.bugly.crashreport.biz.a: void c()>",
+            "<com.tencent.bugly.proguard.a: com.tencent.bugly.proguard.am a(android.content.Context,int,byte[])>",
+            "<com.tencent.bugly.crashreport.common.info.a: java.lang.String z()>",
+            "<com.tencent.bugly.crashreport.common.info.b: java.lang.String e(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_140061271866900_14m_32c",
+          "associated_call_chain": "path_140061271866900_14m_32c",
+          "boolean_logic_format": "(z1 == false) AND (uInstance != null) AND (strategyManagerAvailable) AND (strategyEnabled == false) AND (featureEnabled) AND (userInfoList != null) AND (userInfoListSize > 0) AND (currentIndex < lastIndex) AND (nextIndex < listSize) AND (timestamp1 > timestamp2) AND (index < listSize) AND (`conditionIsInactive`) AND (userInfoBeanF == -1L) AND (comparisonResult <= 0) AND (currentIndex > 0) AND (userInfoType != 1) AND (userInfoType != 4) AND (userInfoType == 3) AND (userInfoListSize > 15) AND (listOfUserInfoEntries.isEmpty()) AND (featureEnabled == false) AND (listSize == 0) AND (field_c_equals_1) AND (UserInfoPackageCreated) AND (UserInfoPackageEncodingSuccessful == false) AND ($z1 == false) AND (`crashReportInfoInstance != null`) AND (strategyConfiguration != null) AND (byteArrayParameter != null) AND (SIMSerialNumberIsNull) AND (`context != null`) AND (TelephonyManagerInstance != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 32
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 972441,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_140073171316200_4m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vqs456.sdk.activity.WxH5WebViewActivity dummyMainMethod_com_vqs456_sdk_activity_WxH5WebViewActivity(android.content.Intent)>",
+            "<com.vqs456.sdk.activity.WxH5WebViewActivity$1: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_140073171316200_4m_2c",
+          "associated_call_chain": "path_140073171316200_4m_2c",
+          "boolean_logic_format": "(!url.startsWith(\"weixin://wap/pay?\")) AND (urlDoesNotStartWithAlipayPlatformApiAndStartsWithTel)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 984342,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_140143499241100_22m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: void onPostExecute(java.lang.Object)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void taskCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void modelCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.core.task.handle.IpaynowTaskHandler: void handleTaskResult(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.h: void handleSuccess(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void a(com.ipaynow.plugin.presenter.PayMethodActivity,java.lang.String)>",
+            "<com.ipaynow.plugin.presenter.d: void run()>",
+            "<com.alipay.sdk.app.PayTask: void <init>(android.app.Activity)>",
+            "<com.alipay.sdk.app.statistic.a: void a(android.content.Context)>",
+            "<com.alipay.sdk.app.statistic.c: void <init>(android.content.Context)>",
+            "<com.alipay.sdk.sys.b: java.lang.String c()>",
+            "<com.ta.utdid2.device.UTDevice: java.lang.String getUtdid(android.content.Context)>",
+            "<com.ta.utdid2.device.DeviceInfo: com.ta.utdid2.device.Device getDevice(android.content.Context)>",
+            "<com.ta.utdid2.device.DeviceInfo: com.ta.utdid2.device.Device _initDeviceMetadata(android.content.Context)>",
+            "<com.ta.utdid2.android.utils.PhoneInfoUtils: java.lang.String getImei(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_140287318267700_24m_23c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: void onPostExecute(java.lang.Object)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void taskCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void modelCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.core.task.handle.IpaynowTaskHandler: void handleTaskResult(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.h: void handleSuccess(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void a(com.ipaynow.plugin.presenter.PayMethodActivity,java.lang.String)>",
+            "<com.ipaynow.plugin.presenter.d: void run()>",
+            "<com.alipay.sdk.app.PayTask: void <init>(android.app.Activity)>",
+            "<com.alipay.sdk.app.statistic.a: void a(android.content.Context)>",
+            "<com.alipay.sdk.app.statistic.c: void <init>(android.content.Context)>",
+            "<com.alipay.sdk.sys.b: java.lang.String c()>",
+            "<com.ta.utdid2.device.UTDevice: java.lang.String getUtdid(android.content.Context)>",
+            "<com.ta.utdid2.device.DeviceInfo: com.ta.utdid2.device.Device getDevice(android.content.Context)>",
+            "<com.ta.utdid2.device.DeviceInfo: com.ta.utdid2.device.Device _initDeviceMetadata(android.content.Context)>",
+            "<com.ta.utdid2.device.UTUtdid: java.lang.String getValue()>",
+            "<com.ta.utdid2.device.UTUtdid: byte[] _generateUtdid()>",
+            "<com.ta.utdid2.android.utils.PhoneInfoUtils: java.lang.String getImei(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_140143499241100_22m_11c",
+          "associated_call_chain": "path_140143499241100_22m_11c",
+          "boolean_logic_format": "(c == true) AND (c == true) AND (`a % 2 == 0`) AND (transactionTypeCode.equals(currentTransactionType) == false) AND (mDevice == null) AND (context != null) AND (isDeviceMetadataEmpty) AND (isNotEmpty(utdidValue)) AND (deviceMetadataDoesNotEndWithNewline) AND (context == null) AND (telephonyServiceManager != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        },
+        {
+          "constraint_id": "path_140287318267700_24m_23c",
+          "associated_call_chain": "path_140287318267700_24m_23c",
+          "boolean_logic_format": "(b == true) AND (c == true) AND ((incrementedValueOfA % 2 == 0)) AND (transactionTypeCode.equals(expectedTransactionTypeCode)) AND (mDevice == null) AND (context != null) AND (contextIsNotNull) AND (mUtdid != null) AND (UTDID_is_invalid\n####) AND (isValidUTDID(utdidString) == false) AND (isValidUTDID(decodedUtdid) == false) AND (isValidUTDID(utdidString) == false) AND (UTDID_is_invalid) AND (isValidUTDID == false) AND (isValidUTDID(utdidString) == false) AND (UTDIDValidationFailed) AND (isValidUTDID == false) AND (**  \nisValidUTDID == false  \n**) AND (isValidUTDIDResult == false) AND (isValidUTDID == false) AND (`$z0 != 0`) AND (context == null) AND (telephonyServiceManager != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 23
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 1198491,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_140542319958800_15m_32c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.crashreport.biz.a$2: void run()>",
+            "<com.tencent.bugly.crashreport.biz.a: void a(com.tencent.bugly.crashreport.biz.a)>",
+            "<com.tencent.bugly.crashreport.biz.a: void c()>",
+            "<com.tencent.bugly.proguard.a: com.tencent.bugly.proguard.ar a(java.util.List,int)>",
+            "<com.tencent.bugly.crashreport.common.info.a: java.lang.String h()>",
+            "<com.tencent.bugly.crashreport.common.info.a: java.lang.String m()>",
+            "<com.tencent.bugly.crashreport.common.info.b: java.lang.String b(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_140770441516500_14m_34c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.crashreport.biz.a$2: void run()>",
+            "<com.tencent.bugly.crashreport.biz.a: void a(com.tencent.bugly.crashreport.biz.a)>",
+            "<com.tencent.bugly.crashreport.biz.a: void c()>",
+            "<com.tencent.bugly.proguard.a: com.tencent.bugly.proguard.am a(android.content.Context,int,byte[])>",
+            "<com.tencent.bugly.crashreport.common.info.a: java.lang.String m()>",
+            "<com.tencent.bugly.crashreport.common.info.b: java.lang.String b(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_140542319958800_15m_32c",
+          "associated_call_chain": "path_140542319958800_15m_32c",
+          "boolean_logic_format": "(`d == false`) AND ($r1 != null) AND (strategyConfigurationAvailable) AND (strategyEnabled == false) AND (methodBReturnsTrue) AND (listSize <= 0) AND (listSize > 0) AND (currentIndex < nextIndex) AND (nextIndex < listSize) AND (timestampL5 > timestampL0) AND (index >= listSize) AND (iteratorHasNext == false) AND (userInfoTimestamp == referenceTimestamp) AND (comparisonResult < 0) AND (index > 0) AND (userInfoBean.b == 1) AND (userInfoType != 3) AND (userInfoEventType == 3) AND (numberOfUserInfoEntries > 15) AND (listSize > 0) AND ($z1 != false) AND (listSize != 0) AND (field_c_not_equal_to_1) AND (listParameter != null) AND (listSize != 0) AND (`$r1 != null`) AND (cachedStringValueIsNull) AND (V == false) AND (cachedStringValue == null) AND (context != null && hasPermission) AND (PermissionGranted) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 32
+        },
+        {
+          "constraint_id": "path_140770441516500_14m_34c",
+          "associated_call_chain": "path_140770441516500_14m_34c",
+          "boolean_logic_format": "(d == true) AND ($r1 != null) AND (strategyManager != null) AND (strategyCheckEnabled == false) AND (method_b_returns_true_for_1001) AND (listSize <= 0) AND (listSize > 0) AND (currentIndex < lastIndex) AND (indexSecondElement < listSize) AND (currentTimestamp > nextTimestamp) AND (index < listSize) AND (!hasNext()) AND (userInfoTimestamp == referenceTimestamp) AND (userInfoTimestamp < thresholdValue) AND (indexCounter > 0) AND (userState == 1) AND (userInfoType != 4) AND (userInfoType == 3) AND (listSize <= 0) AND (listSize > 0) AND ($z1 == false) AND (listSize == 0) AND (field_c_not_equal_to_1) AND (UserInfoPackage != null) AND (encodedDataPackage == null) AND (featureActive == false) AND (crashReportInfo != null) AND (strategyBeanAvailable) AND (byteArrayParameter != null) AND (V == false) AND (cachedStringValue == null) AND (context != null && hasPermission) AND (PermissionGranted) AND (TelephonyManager is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 34
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 1681619,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_141520114015900_9m_27c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.presenter.PayMethodActivity dummyMainMethod_com_ipaynow_plugin_presenter_PayMethodActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void onCreate(android.os.Bundle)>",
+            "<com.ipaynow.plugin.conf.a: void a(java.lang.Throwable)>",
+            "<com.ipaynow.plugin.conf.a: boolean b(java.lang.Throwable)>",
+            "<java.lang.Thread: void run()>",
+            "<com.tencent.bugly.proguard.u$a: void run()>",
+            "<com.tencent.bugly.proguard.z: boolean b(android.content.Context,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_141520127030600_10m_18c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.proguard.u$a: void run()>",
+            "<com.tencent.bugly.proguard.z: boolean b(android.content.Context,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_141780103029100_17m_52c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.crashreport.biz.a$2: void run()>",
+            "<com.tencent.bugly.crashreport.biz.a: void a(com.tencent.bugly.crashreport.biz.a)>",
+            "<com.tencent.bugly.crashreport.biz.a: void c()>",
+            "<com.tencent.bugly.proguard.u: void a(int,com.tencent.bugly.proguard.am,java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,boolean)>",
+            "<com.tencent.bugly.proguard.u: void a(int,int,byte[],java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,int,int,boolean,java.util.Map)>",
+            "<com.tencent.bugly.proguard.u: void a(java.lang.Runnable,boolean,boolean,long)>",
+            "<com.tencent.bugly.proguard.z: java.lang.Thread a(java.lang.Runnable,java.lang.String)>",
+            "<com.tencent.bugly.proguard.u$a: void run()>",
+            "<com.tencent.bugly.proguard.z: boolean b(android.content.Context,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_142055742971900_18m_37c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.crashreport.biz.a$2: void run()>",
+            "<com.tencent.bugly.crashreport.biz.a: void a(com.tencent.bugly.crashreport.biz.a)>",
+            "<com.tencent.bugly.crashreport.biz.a: void c()>",
+            "<com.tencent.bugly.proguard.u: void a(int,com.tencent.bugly.proguard.am,java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,boolean)>",
+            "<com.tencent.bugly.proguard.u: void a(int,int,byte[],java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,int,int,boolean,java.util.Map)>",
+            "<com.tencent.bugly.proguard.u: void a(java.lang.Runnable,boolean,boolean,long)>",
+            "<com.tencent.bugly.proguard.z: java.lang.Thread a(java.lang.Runnable,java.lang.String)>",
+            "<com.tencent.bugly.proguard.u$a: void run()>",
+            "<com.tencent.bugly.proguard.z: boolean a(android.content.Context,java.lang.String,long)>",
+            "<com.tencent.bugly.proguard.z: boolean b(android.content.Context,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_142860215422400_18m_109c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.crashreport.biz.a$2: void run()>",
+            "<com.tencent.bugly.crashreport.biz.a: void a(com.tencent.bugly.crashreport.biz.a)>",
+            "<com.tencent.bugly.crashreport.biz.a: void c()>",
+            "<com.tencent.bugly.proguard.u: void a(int,com.tencent.bugly.proguard.am,java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,boolean)>",
+            "<com.tencent.bugly.proguard.u: void a(int,int,byte[],java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,int,int,boolean,java.util.Map)>",
+            "<com.tencent.bugly.proguard.u: void a(java.lang.Runnable,boolean,boolean,long)>",
+            "<com.tencent.bugly.proguard.z: java.lang.Thread a(java.lang.Runnable,java.lang.String)>",
+            "<com.tencent.bugly.proguard.v: void run()>",
+            "<com.tencent.bugly.proguard.u: void a(int,com.tencent.bugly.proguard.an)>",
+            "<com.tencent.bugly.proguard.z: boolean b(android.content.Context,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_145664392107800_19m_415c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.GameApplication: void onCreate()>",
+            "<com.tencent.bugly.crashreport.CrashReport: void initCrashReport(android.content.Context,java.lang.String,boolean)>",
+            "<com.tencent.bugly.b: void a(android.content.Context,java.lang.String,boolean,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void a(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.crashreport.biz.b: void c(android.content.Context,com.tencent.bugly.BuglyStrategy)>",
+            "<com.tencent.bugly.proguard.w: boolean a(java.lang.Runnable)>",
+            "<com.tencent.bugly.crashreport.biz.a$2: void run()>",
+            "<com.tencent.bugly.crashreport.biz.a: void a(com.tencent.bugly.crashreport.biz.a)>",
+            "<com.tencent.bugly.crashreport.biz.a: void c()>",
+            "<com.tencent.bugly.proguard.u: void a(int,com.tencent.bugly.proguard.am,java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,boolean)>",
+            "<com.tencent.bugly.proguard.u: void a(int,int,byte[],java.lang.String,java.lang.String,com.tencent.bugly.proguard.t,int,int,boolean,java.util.Map)>",
+            "<com.tencent.bugly.proguard.u: void a(java.lang.Runnable,boolean,boolean,long)>",
+            "<com.tencent.bugly.proguard.z: java.lang.Thread a(java.lang.Runnable,java.lang.String)>",
+            "<com.tencent.bugly.proguard.v: void run()>",
+            "<com.tencent.bugly.proguard.v: void a(com.tencent.bugly.proguard.an,boolean,int,java.lang.String,int)>",
+            "<com.tencent.bugly.proguard.u: void a(int,com.tencent.bugly.proguard.an)>",
+            "<com.tencent.bugly.proguard.z: boolean b(android.content.Context,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_141520114015900_9m_27c",
+          "associated_call_chain": "path_141520114015900_9m_27c",
+          "boolean_logic_format": "(payChannelType.equals(transTypeCode)) AND (payChannelType.equals(transactionTypeCode)) AND (transactionTypeCode.equals(payChannelType)) AND (transactionTypeCode.equals(payChannelType) == false) AND (!transactionTypeCode.equals(payChannelType)) AND (equalsResult == true) AND (transactionTypeCode.equals(payChannelType)) AND (transactionTypeCode.equals(payChannelType) == false) AND (payChannelType != transactionTypeCode) AND (securityConditionNotMet) AND (ThreadCreationSuccessful == false) AND (securityConditionMet) AND (securityConditionNotMet) AND (sessionId == null) AND (securityCheckFailed) AND ($r8 == null) AND (securityConditionMet == false) AND (ThreadCreationResult == null) AND ($r5 != null) AND (securityCheckFailed) AND (**  \nsessionId == null  \n**) AND (securityCheckFailed) AND (RunnableTaskIsNull) AND (`AESKey != null`) AND (byteArrayLength * 8 != 128) AND (RunnableTask == null) AND (fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 27
+        },
+        {
+          "constraint_id": "path_141520127030600_10m_18c",
+          "associated_call_chain": "path_141520127030600_10m_18c",
+          "boolean_logic_format": "(securityConditionNotMet) AND (ThreadCreationSuccessful == false) AND (securityConditionMet) AND (securityConditionNotMet) AND (sessionId == null) AND (securityCheckFailed) AND ($r8 == null) AND (securityConditionMet == false) AND (ThreadCreationResult == null) AND ($r5 != null) AND (securityCheckFailed) AND (**  \nsessionId == null  \n**) AND (securityCheckFailed) AND (RunnableTaskIsNull) AND (`AESKey != null`) AND (byteArrayLength * 8 != 128) AND (RunnableTask == null) AND (fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 18
+        },
+        {
+          "constraint_id": "path_141780103029100_17m_52c",
+          "associated_call_chain": "path_141780103029100_17m_52c",
+          "boolean_logic_format": "(d == false) AND (uInstance != null) AND (strategyConfigAvailable) AND (strategyEnabled == false) AND (method_b_returns_true) AND (**\n`userInfoList != null`\n**) AND (sizeOfUserInfoList > 0) AND (currentIndex < totalEntries) AND (nextIndex < listSize) AND (currentUserInfoTimestamp > nextUserInfoTimestamp) AND (userInfoComparisonResult < userInfoListSize) AND (noMoreElementsInIterator) AND (userInfoBeanFieldF == -1L) AND (userInfoTimestamp < currentTimeMinus10Minutes) AND (index <= 0) AND (userInfoType != 1) AND (userInfoBeanType != 4) AND (userInfoType == 3) AND (numberOfUserInfoEntries > 15) AND (listSize <= 0) AND (z1 == true) AND (listSize != 0) AND (c != 1) AND (arObject != null) AND (encodedData == null) AND (featureEnabled == true) AND (requestPackage == null) AND (featureEnabled == false) AND (isConditionActive == true) AND (mode != 1) AND (task != null) AND (sessionId == null) AND (sessionIsValid) AND (sessionIdIsInvalid) AND (securityConditionNotMet) AND (ThreadCreationSuccessful == false) AND (securityConditionMet) AND (securityConditionNotMet) AND (sessionId == null) AND (securityCheckFailed) AND ($r8 == null) AND (securityConditionMet == false) AND (ThreadCreationResult == null) AND ($r5 != null) AND (securityCheckFailed) AND (**  \nsessionId == null  \n**) AND (securityCheckFailed) AND (RunnableTaskIsNull) AND (`AESKey != null`) AND (byteArrayLength * 8 != 128) AND (RunnableTask == null) AND (fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 52
+        },
+        {
+          "constraint_id": "path_142055742971900_18m_37c",
+          "associated_call_chain": "path_142055742971900_18m_37c",
+          "boolean_logic_format": "(internalFlagDIsTrue) AND (utilityManagerInstance != null) AND (strategyConfiguration != null) AND (strategyEnabled == false) AND (b(1001) == false) AND (userInfoList != null) AND (listSize > 0) AND (index < listSize) AND (nextIndex < listSize) AND (currentTimestamp > nextTimestamp) AND (comparisonResult < userInfoListSize) AND (!hasNextElement) AND (UserInfoBean.f == -1L) AND (userInfoTimestamp < referenceTimestamp) AND (indexCounter > 0) AND (userInfoBeanStatus != 1) AND (statusCode != 4) AND (userInfoType == 3) AND (numberOfUserInfoEntries <= 15) AND (listSize <= 0) AND (featureEnabled == false) AND (listSize != 0) AND (c != 1) AND ($r14 != null) AND (encodedUserInfoPackage == null) AND (`$z1 == true`) AND (**\nrequestPackage == null\n**) AND ($z1 == false) AND ($z1 == true) AND (field_c_of_r0 != 1) AND (task != null) AND (sessionId == null) AND (sessionIsInvalidOrTaskNotReady) AND (sessionIsReady == false) AND (fileExists == false) AND (timeDifference >= 30000) AND (fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 37
+        },
+        {
+          "constraint_id": "path_142860215422400_18m_109c",
+          "associated_call_chain": "path_142860215422400_18m_109c",
+          "boolean_logic_format": "(d != false) AND (uInstanceAvailable) AND (strategyManager != null) AND (strategyCheckEnabled == false) AND (`$z1 != 0`\n####) AND (listSize > 0) AND (listSize > 0) AND (currentIndex < lastIndex) AND (currentIndex + 1 >= listSize) AND (timestamp1 > timestamp2) AND (currentIndex < listSizeMinusTwenty) AND (isFeatureActive == false) AND (userInfoTimestamp == referenceTimestamp) AND (UserInfoBeanTimestamp < CurrentSystemTime) AND (indexCounter > 0) AND (userInfoStatus == 1) AND (userInfoTypeCode != 4) AND (userInfoType == 3) AND (numberOfUserInfoEntries > 15) AND (userInfoListSize <= 0) AND (featureEnabled == true) AND (listSize != 0) AND (mode != 1) AND (UserInfoPackageCreatedAndEncoded) AND (encodingSuccessful == false) AND (isConditionActive == true) AND (RequestPackage != null) AND (isFeatureActive == false) AND ($z1 == true) AND (`field_c != 1`) AND ($r1 == null) AND (sessionId == null) AND (sessionIsValid == false) AND (sessionIsValid) AND (networkInfoAvailable) AND (requestPackageLength > 0) AND (requestPackageLength == 0) AND (exceptionNotRecognized) AND (dataUsageOrLimit < 2097152) AND (context != null) AND (**\ncrashReportInfo == null\n**) AND ($r11 != null) AND (componentSNotNull) AND (strategyBean == null) AND (`additionalParametersMap == null && !uploadFlag`) AND (s == true) AND (buglyVersion.contains(\"bugly\")) AND (requestPackage != null) AND (serverResponse == null) AND (attemptCounter < maxAttempts) AND (currentAttempt + 1 <= 1) AND (iterationCount != initialCount) AND (s == true) AND (responseNotNull && !featureEnabled) AND (s == false) AND (additionalParametersMap != null) AND (statusCode != 0) AND ($r14 == null || !$r14.containsKey(\"status\")) AND (mapObjectOIsNull) AND (!headersContainStatus) AND (`mapContainsStatusKey`) AND (headersContainBuglyVersion) AND (headersContainStatusKey) AND (statusCode != 2) AND (serverStatusCode != 2) AND (`$l1 > 0L`) AND (s == true) AND (responseDataLength == 0) AND (s == true) AND ($requestBody != null) AND (requestPackageData != null\n####) AND (r23 == null) AND (`s == true`) AND (networkOrContextUnavailable) AND ($requestPackage != null && lengthof $requestPackage != 0) AND (requestPackageLength != 0) AND (exceptionNotRecognized == false) AND (requestPackageLength >= 0) AND (contextIsNull) AND ($r10 != null) AND (strategyManager != null) AND ($r12 != null) AND ($r13 == null) AND (additionalParametersMap == null) AND (uploadFlag == true) AND (securityInfoAddedSuccessfully) AND (operationResult != null) AND (responseFromServer == null) AND (currentAttempt < maxAttempts) AND (attemptsMadePlusOne <= 1) AND (currentAttemptCount + 1 == maxAttemptsAllowed) AND (s == true) AND (responseReceived == false) AND (s == false) AND (additionalParametersMap != null) AND (statusCode == 0) AND (!mapContainsStatus) AND (mapObjectOIsNull) AND (**\nHTTP headers contain the key \"status\"\n**) AND (HTTPHeaders.containsKey(\"status\")) AND (containsBuglyVersionKey) AND (responseHeaders.containsKey(\"status\")) AND (parsedInteger != 0) AND (statusCode != 2) AND (accumulatedValue <= 0) AND (**\n`isConditionAEnabled == false`\n**) AND (param0 == 2) AND (flag == 1) AND (fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 109
+        },
+        {
+          "constraint_id": "path_145664392107800_19m_415c",
+          "associated_call_chain": "path_145664392107800_19m_415c",
+          "boolean_logic_format": "(flagDIsTrue) AND (instanceOfU != null) AND (strategyManagerIsAvailable) AND (strategyEnabled) AND (methodBReturnsTrue) AND (userInfoList != null) AND (**\nlistSize > 0\n**) AND (currentIndex < nextIndex) AND (nextIndex < listSize) AND (currentUserInfoBean.e <= nextUserInfoBean.e) AND (index >= listSize) AND (`featureEnabled == false`) AND (userInfoTimestamp == currentTimestamp) AND (userInfoTimestamp <= currentTimeThreshold) AND (index > 0) AND (userInfoType != 1) AND (userInfoType != 4) AND (type == 3) AND (numberOfUserInfoEntries > 15) AND (userInfoList.isEmpty()) AND (isConditionActive == true) AND (listSize != 0) AND (`c == 1`) AND (packageCreatedFromUserInfoListIsNotNull) AND (encodedDataPackage == null) AND (featureEnabled == true) AND (requestPackage != null) AND (isConditionInactive) AND (isConditionActive) AND (`c != 1`) AND (RunnableTask != null) AND (sessionId == null) AND (sessionIsNotValidOrTaskNotReady) AND (b() == true) AND (networkInfo == null) AND (**\nlength of requestPackage != 0\n**) AND (requestPackageLength == 0) AND (!isSpecificErrorCondition) AND (lengthOfByteArray >= 0) AND (**\ncontextIsNotNull\n**) AND (isFieldFNull) AND ($r11 != null) AND (componentServiceIsAvailable) AND (StrategyBean is not null) AND (`additionalParametersMap == null`) AND (s == true) AND (securityInfoValid == true) AND (requestPackageData != null) AND ($r15 == null) AND ($currentAttempt < $maxAttempts) AND (attempts > 1) AND (`incrementedAttemptCount == currentAttemptCount`) AND (`uploadFlag == true`) AND (methodInvocationResult == null) AND (s == false) AND (mapOfParameters != null) AND (statusCode != 0) AND (mapDoesNotContainStatusKey) AND (mapObjectIsNull) AND (headersContainStatusKey) AND (headers.containsKey(\"status\")) AND (!headersContainBuglyVersion) AND (httpHeaders.containsKey(\"status\")) AND (statusCode != 0) AND (statusCode != 2) AND (calculatedValue <= 0) AND (s == true) AND (responseLength == 0) AND (s == true) AND (responseDecryptionResult == null) AND (networkInfoAvailable) AND (lengthof requestPackage != 0) AND (lengthOfRequestPackage != 0) AND (exceptionIsNotRecognized) AND (lengthOfRequestPackage < 2097152) AND (context != null) AND (crashReportInfo == null) AND (strategyObject != null) AND (`componentSInstance != null`) AND (currentStrategy != null) AND (if additionalParametersMap == null then featureFlag == false) AND (s == true) AND ($z0 == false) AND (requestPackageData != null) AND (responseData == null) AND (attempts + 1 < maxAttempts) AND (currentAttempt <= 1) AND (currentAttempt != previousAttempt) AND (s == false) AND (serverResponse == null) AND (s == false) AND (mapOfHeaders != null) AND (statusCode != 0 && headers.containsKey(\"status\")) AND (`!headers.containsKey(\"status\")`) AND (s == false) AND (mapDoesNotContainStatusKey) AND (headersContainStatus) AND (headersContainBuglyVersion) AND (headersContainStatusKey) AND ($status != 0) AND (serverResponseStatusCode == 2) AND (accumulatedValue <= 0) AND (s == false) AND ($responseLength == 0) AND (s == false) AND (networkInfoAvailable) AND (requestPackageLength != 0) AND (requestPackageLength == 0) AND (exceptionCriteriaMet == false) AND (lengthOfRequestPackage >= 0) AND (contextIsNull) AND (`instanceOfInfoA == null`) AND (`strategyManager != null`) AND ($r12 != null) AND (strategyBean != null) AND (`additionalParametersMap == null`) AND (s == true) AND (securityInfoIsValid) AND (operationResult != null) AND (responseData != null) AND (attemptCount < maxAttempts) AND (i5 <= 1) AND (currentAttempt == incrementedAttempt) AND (`s` is `true`) AND (`responseFromServer == null`) AND (s == false) AND (additionalParametersMap != null) AND ($statusCode != 0) AND (!headersMap.containsKey(\"status\")) AND (additionalParametersMap == null) AND (HTTPHeaders.containsKey(\"status\")) AND (HTTPHeaders.containsKey(\"status\")) AND (!headersContainBuglyVersion) AND (headersContainStatus) AND (statusCode != 0) AND (statusCode == 2) AND ((methodReturnValue + fieldQ + fieldR) <= 0) AND (s == true) AND (responseDataLength == 0) AND (s == true) AND (requestPackageData != null) AND (requestPackageData == null) AND (networkInfo == null) AND (lengthOfRequestPackage != 0) AND (requestPackageLength == 0) AND (**\nexceptionCriteriaMet == false\n**) AND (lengthOfRequestPackage >= 0) AND (`context != null && infoObject == null`) AND (`$r10 != null`) AND (strategyManager != null) AND (componentAvailable) AND (strategyConfigurationAvailable) AND (`additionalParametersMap == null`) AND (s == true) AND (securityInfoIsValid == true) AND (responseBytes != null) AND ($responseData == null) AND (attemptCounter < maxAttempts) AND (attemptCount <= 1) AND (incrementedAttemptCount == currentAttemptCount) AND (s == true) AND (responseData == null) AND (s == false) AND (`$r14 != null`) AND (statusValue != 0) AND (!headersMap.containsKey(\"status\")) AND (additionalParametersMap == null) AND (mapDoesNotContainStatusKey) AND (mapContainsStatusKey) AND (headersContainBuglyVersion) AND (headersContainStatus) AND (serverStatus == 0) AND (statusCode != 2) AND (accumulatedValue > 0) AND (s == true) AND (responseLength == 0) AND (s == true) AND (requestData != null) AND (requestPackage != null) AND (decodedResponsePackage == null) AND (networkInfo == null) AND (lengthOfRequestPackage != 0) AND (requestPackageLength != 0) AND (exceptionNotRecognized) AND (lengthOfByteArray >= 0) AND (context != null) AND (crashReportInfo != null) AND (strategyObject != null) AND ($r12 != null) AND (strategyBean != null) AND (`r14 == null && z0 == false`) AND (s == true) AND (securityInfoAdded == false) AND (networkInfo == null) AND (networkInfo == null) AND (requestPackageLength != 0) AND (lengthOfRequestPackage == 0) AND (networkInfo == null) AND (requestPackageLength != 0) AND (lengthOfRequestPackage != 0) AND (exceptionCriteriaMet == false) AND (lengthOfRequestPackage >= 0) AND (contextIsNotNull) AND (crashReportCommonInfo != null) AND (strategyObject != null) AND (`uploadHandler != null`) AND (strategyAvailable) AND (`if additionalParametersMap == null and specificFlag == false`) AND (s == true) AND (securityInfoAddedSuccessfully) AND (requestPackageData != null) AND ($r15 == null) AND (attemptCountIncremented <= 1) AND (attemptCount <= 1) AND (incrementedCounter != currentCounter) AND (s == false) AND (responseData == null && !featureFlag) AND (s == false) AND (additionalParametersMap != null) AND (statusCode != 0 && responseHeaders.containsKey(\"status\")) AND (!mapContainsStatus) AND (mapObjectIsNull) AND (mapContainsStatusKey) AND (headersContainStatus) AND (headersContainBuglyVersion) AND (serverResponseHeaders.containsKey(\"status\")) AND (statusCode != 0) AND (statusCode != 2) AND (calculatedValue > 0) AND (networkInfoAvailable) AND (lengthOfRequestPackage != 0) AND (requestPackageLength != 0) AND ($z0 == false) AND ((lengthOfByteArray + additionalValue) >= 2097152) AND (contextIsNotNull) AND (crashReportInfo == null) AND ($r12 != null) AND (`h != null`) AND (strategyConfigurationAvailable) AND (`if additionalParametersMap == null and featureEnabled == false`) AND (s == true) AND (securityInfoAddedSuccessfully) AND (responseFromServer != null) AND (operationResult == null) AND (networkInfoAvailable) AND (requestPackage != null) AND (lengthOfRequestPackage == 0) AND (isExceptionHandled == false) AND (lengthOfRequestPackage >= 0) AND (context != null) AND (**  \n`field_f_is_null`  \n**) AND (strategyObject != null) AND ($r12 != null) AND (**\nStrategyBean is not null\n**) AND (additionalParametersMap == null) AND (s == true) AND (securityInfoIsValid == false) AND ($requestPackage == null) AND (networkInfoAvailable) AND (requestPackageLength != 0) AND (requestPackageLength != 0) AND ($z0 == false) AND (lengthOfByteArray >= 0) AND (`context != null`) AND (crashReportCommonInfo == null) AND (strategyManager != null) AND (hIsNotNull) AND (localStrategy == null) AND (networkState == null) AND (requestPackageLength != 0) AND (requestPackageLength == 0) AND (**  \n`exceptionIsNotRecognized`  \n**) AND (lengthOfByteArrayE >= 0) AND (contextIsNull) AND ($r10 != null) AND (uploadComponentAvailable) AND (field_h_is_null) AND (`networkStatusString == null`) AND (**  \nrequestPackageLength != 0  \n**) AND (requestPackageLength != 0) AND (**\nexceptionIsNotRecognized\n**) AND (sumOfByteArrayLengthAndLongValue >= 2097152L) AND (networkInfo == null) AND (requestPackage != null) AND (requestPackageLength != 0) AND (`exceptionCriteriaMet == false`) AND (lengthOfByteArrayE >= 0) AND (contextIsAvailable) AND (crashReportInfo != null) AND (strategyManager != null) AND (`serviceHandlerInstance != null`) AND (strategyConfiguration != null) AND ($r14 == null && !$z0) AND (s == true) AND (securityInfoAddedSuccessfully) AND (`resultOfMethodA != null`) AND (dataRetrievalResult == null) AND (currentAttempt < maxAttempts) AND (attemptsMadePlusOne <= 1) AND (currentAttemptCount + 1 == currentAttemptCount) AND (s == true) AND (responseData != null) AND (s == true) AND (mapObjectIsNotNull) AND (statusCode != 0 && headers.containsKey(\"status\")) AND (!mapContainsStatus) AND (additionalParametersMap == null) AND (mapContainsStatusKey == true) AND (headersContainStatus) AND (serverResponseHeaders.containsKey(\"Bugly-Version\")) AND (headersContainStatusKey) AND (status != 0) AND (**  \nstatusCode != 2  \n**) AND (accumulatedDataSizeOrCount <= 0) AND (s == true) AND ($responseDataLength == 0) AND (s == true) AND (processedByteArray != null) AND (byteArrayE != null) AND (responsePackageDecodedSuccessfully) AND (s == false) AND (processedRequestBody != null) AND (responseProcessingSuccessful == false) AND (**\nnetworkInfoAvailable == false\n**) AND (requestPackageData != null) AND (requestPackageLength == 0) AND (exceptionNotRecognized) AND (lengthOfByteArrayE >= 0) AND (**\ncontext != null\n**) AND (crashReportCommonInfo == null) AND (strategyObject != null) AND ($r12 != null) AND (`strategyBean != null`) AND (r14 == null && z0 == false) AND (s == true) AND (securityInfoIsValid == true) AND (responseReceived != null) AND (responseData == null) AND (0 < instanceVariableA) AND (attemptCount + 1 <= 1) AND (currentAttemptCount == nextAttemptCount) AND (s == true) AND (responseData == null) AND (s == true) AND (`additionalParametersMap != null`) AND (parsedStatusValue != 0) AND (!headersMap.containsKey(\"status\")) AND (additionalParametersMap == null) AND (Map contains key \"status\") AND (headersContainStatus) AND (headersContainBuglyVersion == false) AND (serverResponseHeaders.containsKey(\"status\")) AND (statusCode != 0) AND (statusCode == 2) AND (comparisonResult <= 0) AND (`s == false`) AND (responseDataLength == 0) AND (s == true) AND (byteArray != null) AND (byteArrayE != null) AND (r23 is not null and s is false) AND (s == false) AND (requestBodyCompressed != null) AND ($responseProcessingSuccessful == false) AND (networkInfo == null) AND (length of requestPackage != 0) AND (requestPackageLength == 0) AND (**\nexceptionIsNotRecognized\n**) AND ($l2 >= 2097152L) AND (contextIsNull) AND (crashReportInfo == null) AND ($r11 != null) AND (h != null) AND (strategyBeanIsAvailable) AND (`r14 == null && !z0`) AND (s == true) AND (securityInfoAddedSuccessfully) AND (resultOfMethodAIsNotNull) AND (responseData == null) AND (currentAttempt < maxAttempts) AND (**  \n`attemptCount <= 1`  \n**) AND (i5 == i4) AND (s == false) AND (operationResult == null) AND (s == true) AND (additionalParametersMap != null) AND (statusCode != 0) AND (!headers.containsKey(\"status\")) AND (serverResponseHeaders == null) AND (mapContainsStatusKey) AND (headersContainStatus) AND (!headersContainBuglyVersion) AND (HTTPHeaders.containsKey(\"status\")) AND (statusCode != 0) AND (serverResponseStatusCode != 2) AND ($l1 <= 0L) AND ($s == true) AND (responseLength == 0) AND (s == true) AND (requestPackageData != null) AND (byteArrayE != null) AND (responseDecodedSuccessfully && !flagSActive) AND (s == true) AND (processedRequestData != null) AND (responseSuccessfullyProcessed) AND (switch_condition) AND (booleanFlag == false) AND ((sumOfLongValues <= 0)) AND (`$r6 == null`) AND (k != null) AND (isUploadFlagFalse) AND (**\n`isConditionAEnabled == false`\n**) AND (param0 == 2) AND (flag == 1) AND (fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 415
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 6575790,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_145681193821100_7m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.MainActivity$QuickJsInterface: void callAndroidFunction(java.lang.String)>",
+            "<com.qk.plugin.js.shell.MainActivity: void logout()>",
+            "<com.qk.plugin.js.shell.MainActivity$12: void run()>",
+            "<com.quicksdk.User: void logout(android.app.Activity)>",
+            "<com.quicksdk.utility.UserCacheUtils: com.quicksdk.utility.UserCacheUtils getInstance(android.content.Context)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_145731735811200_9m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onDestroy()>",
+            "<com.quicksdk.Sdk: void onDestroy(android.app.Activity)>",
+            "<com.quicksdk.utility.UserCacheUtils: void a(java.lang.Boolean)>",
+            "<com.quicksdk.utility.k: void a(java.lang.Runnable)>",
+            "<com.quicksdk.net.Connect$4: void run()>",
+            "<com.quicksdk.utility.UserCacheUtils: com.quicksdk.utility.UserCacheUtils getInstance(android.content.Context)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_145731756780000_8m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qk.plugin.js.shell.MainActivity$QuickJsInterface: void callAndroidFunction(java.lang.String)>",
+            "<com.qk.plugin.js.shell.MainActivity: void setGameRoleInfo(org.json.JSONObject)>",
+            "<com.qk.plugin.js.shell.MainActivity$13: void run()>",
+            "<com.qk.plugin.js.shell.MainActivity: void qkSetGameRoleInfo(java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.quicksdk.User: void setGameRoleInfo(android.app.Activity,com.quicksdk.entity.GameRoleInfo,boolean)>",
+            "<com.quicksdk.utility.UserCacheUtils: com.quicksdk.utility.UserCacheUtils getInstance(android.content.Context)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_145791990491400_10m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onCreate(android.os.Bundle)>",
+            "<com.qk.plugin.js.shell.MainActivity: void init()>",
+            "<com.qk.plugin.js.shell.MainActivity$10: void run()>",
+            "<com.quicksdk.Sdk: void init(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<com.quicksdk.Sdk: void a(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<com.quicksdk.Sdk: void setSwitchToQuickGame()>",
+            "<com.quicksdk.utility.UserCacheUtils: com.quicksdk.utility.UserCacheUtils getInstance(android.content.Context)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_145792015971400_6m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.qk.plugin.js.shell.MainActivity dummyMainMethod_com_qk_plugin_js_shell_MainActivity(android.content.Intent)>",
+            "<com.qk.plugin.js.shell.MainActivity: void onDestroy()>",
+            "<com.quicksdk.Sdk: void onDestroy(android.app.Activity)>",
+            "<com.quicksdk.utility.UserCacheUtils: com.quicksdk.utility.UserCacheUtils getInstance(android.content.Context)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_145681193821100_7m_3c",
+          "associated_call_chain": "path_145681193821100_7m_3c",
+          "boolean_logic_format": "(UserCacheUtilsInstance == null) AND (UserCacheUtilsInstance == null) AND (Context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_145731735811200_9m_10c",
+          "associated_call_chain": "path_145731735811200_9m_10c",
+          "boolean_logic_format": "(cachedUserPreference == true) AND (apiCallSuccessful == true) AND (isQKLoginValue != \"1\") AND (resultFlag == false) AND (`$r9 != \"1\"`) AND (result == false) AND (`isQKLogin.equals(\"1\") == false`) AND (UserCacheUtilsInstance == null) AND (UserCacheUtilsInstance == null) AND (Context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_145731756780000_8m_3c",
+          "associated_call_chain": "path_145731756780000_8m_3c",
+          "boolean_logic_format": "(UserCacheUtilsInstance == null) AND (UserCacheUtilsInstance == null) AND (Context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_145791990491400_10m_11c",
+          "associated_call_chain": "path_145791990491400_10m_11c",
+          "boolean_logic_format": "(`!TextUtils.isEmpty(mUrl)`) AND (permissionGranted == true) AND (permissionWriteExternalStorageGranted == true) AND (!TextUtils.isEmpty(mUrl)) AND (permissionGranted) AND (permissionWriteExternalStorageGranted == true) AND (!TextUtils.isEmpty(productCode)) AND (TextUtils.isEmpty(productCode)) AND (UserCacheUtilsInstance == null) AND (UserCacheUtilsInstance == null) AND (Context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        },
+        {
+          "constraint_id": "path_145792015971400_6m_3c",
+          "associated_call_chain": "path_145792015971400_6m_3c",
+          "boolean_logic_format": "(UserCacheUtilsInstance == null) AND (UserCacheUtilsInstance == null) AND (Context != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 6703396,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.ProcessBuilder: java.lang.Process start()>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_139405475348800_22m_45c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: void onPostExecute(java.lang.Object)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void taskCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void modelCallBack(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.core.task.handle.IpaynowTaskHandler: void handleTaskResult(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.h: void handleSuccess(com.ipaynow.plugin.core.task.dto.TaskMessage)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void a(com.ipaynow.plugin.presenter.PayMethodActivity,java.lang.String)>",
+            "<com.ipaynow.plugin.presenter.d: void run()>",
+            "<com.alipay.sdk.app.PayTask: java.util.Map payV2(java.lang.String,boolean)>",
+            "<com.alipay.sdk.app.PayTask: java.lang.String pay(java.lang.String,boolean)>",
+            "<com.alipay.sdk.data.a: void a(android.content.Context)>",
+            "<com.alipay.sdk.data.b: void run()>",
+            "<com.alipay.sdk.packet.d: com.alipay.sdk.packet.b a(android.content.Context,java.lang.String,java.lang.String,boolean)>",
+            "<com.alipay.sdk.packet.d: java.lang.String a(java.lang.String,org.json.JSONObject)>",
+            "<com.alipay.sdk.sys.b: boolean b()>",
+            "<com.alipay.sdk.sys.b: java.lang.String a(java.lang.String[])>",
+            "<java.lang.ProcessBuilder: java.lang.Process start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_139405475348800_22m_45c",
+          "associated_call_chain": "path_139405475348800_22m_45c",
+          "boolean_logic_format": "(b == false) AND (c == true) AND ((incrementedValueOfA % 2 == 0)) AND (transactionTypeCodeFromTRANS_TYPE != currentTransactionTypeCodeInPayMethodActivity) AND (!stringContainsExpressGateway) AND (featureNotAvailable) AND (!stringContainsExpressGateway) AND (isExpressGateway == false) AND (isEmpty(responseString)) AND (!stringContainsExpressGateway) AND (indexCounter < listLength) AND (!currentString.startsWith(\"result={\")) AND (!currentString.startsWith(\"result={\")) AND (currentIndex < arrayLength) AND (!currentString.startsWith(\"trade_token=\\\"\")) AND (!currentString.startsWith(\"trade_token=\\\"\")) AND (stringStartsWithTradeTokenPrefix) AND (`!paymentMethod.contains(\"expressGateway\")`) AND ($z0 == false) AND (!isExpressGateway) AND (!isEmpty(resultString)) AND (isStringEmpty) AND (isTradeTokenEmptyOrNull) AND (isExpressGateway == false) AND (isNetworkAvailable == false) AND (!stringContainsExpressGateway) AND (`!isFeatureAvailable`) AND (isEmpty(paymentResultString)) AND (stringContainsExpressGateway) AND (currentIndex < totalElements) AND (!currentString.startsWith(\"result={\")) AND (!stringStartsWithResult) AND (currentIndex < arrayLength) AND (currentElementDoesNotStartWithTradeToken) AND (currentStringDoesNotStartWithTradeToken) AND (stringStartsWithTradeToken) AND (!TextUtils.isEmpty(tidString)) AND (!TextUtils.isEmpty(virtualImsi)) AND (!TextUtils.isEmpty(identifier)) AND (!isEmpty($r14)) AND ($r14 is not empty) AND ($r14 is not empty) AND ($r6 != null) AND (index < 5) AND (existsFlag == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 45
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 316636,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_139578577837700_4m_22c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.alipay.sdk.auth.AuthActivity dummyMainMethod_com_alipay_sdk_auth_AuthActivity(android.content.Intent)>",
+            "<com.alipay.sdk.auth.AuthActivity: void onCreate(android.os.Bundle)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_139578577837700_4m_22c",
+          "associated_call_chain": "path_139578577837700_4m_22c",
+          "boolean_logic_format": "(IntentExtras != null) AND (`paramsConditionMet`) AND (**\nAndroidApiLevel < 7\n**) AND (setDomStorageEnabledMethodNotAvailable) AND (AndroidAPILevel >= 19) AND (methodExists) AND (IntentExtras != null) AND (paramsStringIsValid) AND (SDK_VERSION >= 7) AND (methodRemoveJavascriptInterfaceDoesNotExist) AND (**\nSDK_INT >= 19\n**) AND (Method removeJavascriptInterface is available) AND (IntentExtras != null) AND (paramsStringIsValid) AND (SDK_INT >= 7) AND (setDomStorageEnabledMethodNotAvailable) AND (API level >= 19) AND (`removeJavascriptInterfaceMethodExists`) AND (intentExtras != null) AND (parametersAreInvalid) AND (**\nAndroidSDKVersion < 7\n**) AND (`methodExists`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 22
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 489741,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_140842083337400_9m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.presenter.PayMethodActivity dummyMainMethod_com_ipaynow_plugin_presenter_PayMethodActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.presenter.PayMethodActivity: void onCreate(android.os.Bundle)>",
+            "<com.ipaynow.plugin.conf.a: void a(java.lang.Throwable)>",
+            "<com.ipaynow.plugin.conf.a: boolean b(java.lang.Throwable)>",
+            "<com.ipaynow.plugin.conf.b: void run()>",
+            "<com.ipaynow.plugin.conf.a: void a(java.lang.String)>",
+            "<com.ipaynow.plugin.utils.b: java.lang.String d(java.lang.String,java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_140875815636400_12m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.ipaynow.plugin.core.task.service.b: com.ipaynow.plugin.core.task.dto.TaskMessage doWork(com.ipaynow.plugin.conf.code.FUNCODE_CODE,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.e: com.ipaynow.plugin.core.task.dto.TaskMessage a(java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.e: java.lang.String b(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.utils.b: java.lang.String d(java.lang.String,java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_140912123086800_12m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.ipaynow.plugin.core.task.service.b: com.ipaynow.plugin.core.task.dto.TaskMessage doWork(com.ipaynow.plugin.conf.code.FUNCODE_CODE,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.b: com.ipaynow.plugin.core.task.dto.TaskMessage a(java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.a: java.lang.String b(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.utils.b: java.lang.String d(java.lang.String,java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_140932660058100_13m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.ipaynow.plugin.core.task.service.b: com.ipaynow.plugin.core.task.dto.TaskMessage doWork(com.ipaynow.plugin.conf.code.FUNCODE_CODE,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.a: com.ipaynow.plugin.core.task.dto.TaskMessage a(java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.f: java.lang.String b(java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.a: java.lang.String b(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.utils.b: java.lang.String d(java.lang.String,java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_140952023375200_13m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.ipaynow.plugin.core.task.service.b: com.ipaynow.plugin.core.task.dto.TaskMessage doWork(com.ipaynow.plugin.conf.code.FUNCODE_CODE,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.a: com.ipaynow.plugin.core.task.dto.TaskMessage a(java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.c: java.lang.String b(java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.a: java.lang.String b(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.utils.b: java.lang.String d(java.lang.String,java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_140980093086000_12m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity dummyMainMethod_com_ipaynow_plugin_inner__plugin_wechatwp_activity_WeChatNotifyActivity(android.content.Intent)>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity: void onResume()>",
+            "<com.ipaynow.plugin.inner_plugin.wechatwp.model.WechatNotifyModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.model.BaseModel: void toSK003(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.manager.b.a: void a(com.ipaynow.plugin.conf.code.SERVICE_CODE,com.ipaynow.plugin.conf.code.FUNCODE_CODE,com.ipaynow.plugin.view.IpaynowLoading,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.ipaynow.plugin.core.task.service.b: com.ipaynow.plugin.core.task.dto.TaskMessage doWork(com.ipaynow.plugin.conf.code.FUNCODE_CODE,java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.d: com.ipaynow.plugin.core.task.dto.TaskMessage a(java.lang.String[])>",
+            "<com.ipaynow.plugin.core.task.a.d: java.lang.String b(java.lang.String,java.lang.String)>",
+            "<com.ipaynow.plugin.utils.b: java.lang.String d(java.lang.String,java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_140842083337400_9m_9c",
+          "associated_call_chain": "path_140842083337400_9m_9c",
+          "boolean_logic_format": "(transactionTypeCode.equals(payChannelType)) AND (payChannelType.equals(transactionTypeCode)) AND (transactionTypeCode.equals(payChannelType)) AND (transactionTypeCode.equals(payChannelType) == false) AND (payChannelType != transactionTypeCode) AND (payChannelType.equals(transactionTypeCode)) AND (payChannelType.equals(transactionTypeCode)) AND (payChannelType != transactionTypeCode) AND (transactionTypeCode.equals(payChannelType) == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        },
+        {
+          "constraint_id": "path_140875815636400_12m_5c",
+          "associated_call_chain": "path_140875815636400_12m_5c",
+          "boolean_logic_format": "(b == false) AND (c == false) AND (a is even after increment) AND (H == false) AND (counter <= 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        },
+        {
+          "constraint_id": "path_140912123086800_12m_5c",
+          "associated_call_chain": "path_140912123086800_12m_5c",
+          "boolean_logic_format": "(b == true) AND (c == true) AND (**  \n`incrementedValueOfA % 2 == 0`  \n**) AND (initialAttemptCounter <= 0) AND ($r1.equals(null))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        },
+        {
+          "constraint_id": "path_140932660058100_13m_5c",
+          "associated_call_chain": "path_140932660058100_13m_5c",
+          "boolean_logic_format": "(c == true) AND (c == true) AND (incrementedValueOfAIsEven) AND (initialAttemptCounter <= 0) AND ($r1.equals(null))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        },
+        {
+          "constraint_id": "path_140952023375200_13m_5c",
+          "associated_call_chain": "path_140952023375200_13m_5c",
+          "boolean_logic_format": "(b == true) AND (c == true) AND ((a + 1) % 2 == 0) AND (initialAttemptCounter <= 0) AND ($r1.equals(null))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        },
+        {
+          "constraint_id": "path_140980093086000_12m_4c",
+          "associated_call_chain": "path_140980093086000_12m_4c",
+          "boolean_logic_format": "(b == true) AND (c == false) AND (`a % 2 == 1`) AND ($i0 <= 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 1891282,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_141043669246300_9m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vqs456.sdk.pay.PayActivity dummyMainMethod_com_vqs456_sdk_pay_PayActivity(android.content.Intent)>",
+            "<com.vqs456.sdk.pay.PayActivity: void onClick(android.view.View)>",
+            "<com.vqs456.sdk.pay.PayActivity: void Pay()>",
+            "<com.vqs456.sdk.pay.PayFunc: void goToPay(android.app.Activity,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.vqs456.sdk.pay.PayFunc: void post(android.app.Activity,android.app.ProgressDialog,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.vqs456.sdk.http.HttpManger: void post(java.lang.String,com.vqs456.sdk.http.HttpCallBackInterface,org.apache.http.HttpEntity)>",
+            "<com.vqs456.sdk.http.HttpManger$3: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_141043678080900_8m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vqs456.sdk.activity.BindActivity dummyMainMethod_com_vqs456_sdk_activity_BindActivity(android.content.Intent)>",
+            "<com.vqs456.sdk.activity.BindActivity$3: void afterTextChanged(android.text.Editable)>",
+            "<com.vqs456.sdk.activity.BindActivity$4: void handleMessage(android.os.Message)>",
+            "<com.vqs456.sdk.login.LoginFunc: void checkAccount(java.lang.String,com.vqs456.sdk.http.HttpCallBackInterface)>",
+            "<com.vqs456.sdk.http.HttpManger: void post(java.lang.String,com.vqs456.sdk.http.HttpCallBackInterface,org.apache.http.HttpEntity)>",
+            "<com.vqs456.sdk.http.HttpManger$3: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_141043687011200_7m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vqs456.sdk.activity.ForgetPWActivity dummyMainMethod_com_vqs456_sdk_activity_ForgetPWActivity(android.content.Intent)>",
+            "<com.vqs456.sdk.activity.ForgetPWActivity: void onCreate(android.os.Bundle)>",
+            "<com.vqs456.sdk.activity.ForgetPWActivity: void getQQ()>",
+            "<com.vqs456.sdk.http.HttpManger: void post(java.lang.String,com.vqs456.sdk.http.HttpCallBackInterface,org.apache.http.HttpEntity)>",
+            "<com.vqs456.sdk.http.HttpManger$3: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_141043669246300_9m_10c",
+          "associated_call_chain": "path_141043669246300_9m_10c",
+          "boolean_logic_format": "(isClicked == true) AND (isAliTextViewClicked == false) AND (isclicked(view, wechatTextView) == false) AND (isToPayButtonClicked == false) AND (isClicked == true) AND (switch_condition) AND (activeNetworkInfo != null && !isConnected) AND (isConnected == true) AND (pay_platform.equals(\"51\")) AND (retryCount < 2)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_141043678080900_8m_1c",
+          "associated_call_chain": "path_141043678080900_8m_1c",
+          "boolean_logic_format": "retryCount < 2",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_141043687011200_7m_1c",
+          "associated_call_chain": "path_141043687011200_7m_1c",
+          "boolean_logic_format": "retryCount < 2",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 1954871,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_141085483448100_5m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.alipay.sdk.app.H5PayActivity dummyMainMethod_com_alipay_sdk_app_H5PayActivity(android.content.Intent)>",
+            "<com.alipay.sdk.app.H5PayActivity: void onCreate(android.os.Bundle)>",
+            "<com.alipay.sdk.util.l: android.webkit.WebView a(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_141085483448100_5m_5c",
+          "associated_call_chain": "path_141085483448100_5m_5c",
+          "boolean_logic_format": "(isUrlValid) AND (AndroidSDKVersion < 7) AND (**  \n`androidApiLevel >= 7`  \n**) AND ($r13 != null) AND (SDK_INT < 19)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769906383129,
+        "analysis_duration_ms": 1996663,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

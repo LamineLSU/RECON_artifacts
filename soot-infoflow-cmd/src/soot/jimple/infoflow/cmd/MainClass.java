@@ -19,6 +19,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.lang.String;
+import java.util.concurrent.TimeoutException;
+import java.nio.file.AccessDeniedException;
+import java.util.zip.ZipException;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -33,6 +36,7 @@ import heros.InterproceduralCFG;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.jimple.Stmt;
 import soot.Body;
+import soot.G;
 import soot.Value;
 import soot.Scene;
 import soot.SootClass;
@@ -387,6 +391,21 @@ public class MainClass {
 
 			int curAppIdx = 1;
 			for (File apkFile : apksToAnalyze) {
+
+				// === INITIALIZE RESULT COLLECTION FOR THIS APK ===
+				String apkName = apkFile.getName();
+				String apkPath = apkFile.getAbsolutePath();
+
+				ApkAnalysisResult apkResult = new ApkAnalysisResult(apkName, apkPath, null); // packageName will be set
+																								// later
+				ResultPersistenceManager persistenceManager = new ResultPersistenceManager("./results");
+
+				// Check if already analyzed (optional - for resume capability)
+				if (persistenceManager.hasExistingAnalysis(apkName)) {
+					System.out.println("APK already analyzed, skipping: " + apkName);
+					continue;
+				}
+
 				if (filesToSkip.contains(apkFile.getName())) {
 					logger.info(String.format("Skipping app %s (%d of %d)...", apkFile.getCanonicalPath(), curAppIdx++,
 							apksToAnalyze.size()));
@@ -394,6 +413,21 @@ public class MainClass {
 				}
 				logger.info(String.format("Analyzing app %s (%d of %d)...", apkFile.getCanonicalPath(), curAppIdx++,
 						apksToAnalyze.size()));
+
+				long fileSizeBytes = apkFile.length();
+				long maxFileSizeBytes = 10 * 1024 * 1024; // 10MB
+
+				if (fileSizeBytes > maxFileSizeBytes) {
+					double sizeMB = fileSizeBytes / (1024 * 1024);
+					System.err.println("SKIPPING: APK too large- " + apkFile.getCanonicalPath() + " ("
+							+ String.format("%.1f", sizeMB) + " MB > 30MB limit");
+					continue; // skip to the next apk
+				}
+
+				// Log APK size for monitoring
+				double sizeMB = fileSizeBytes / (1024.0 * 1024.0);
+				System.out.println("Processing APK: " + apkFile.getCanonicalPath() + " ("
+						+ String.format("%.1f", sizeMB) + " MB)");
 
 				// Configure the analyzer for the current APK file
 				config.getAnalysisFileConfig().setTargetAPKFile(apkFile);
@@ -413,24 +447,89 @@ public class MainClass {
 				// Create the data flow analyzer
 				analyzer = createFlowDroidInstance(config);
 
-				analyzer.constructCallgraph();
-				CallGraph cg = Scene.v().getCallGraph();
+				CallGraph cg = null;
+				try {
+					analyzer.constructCallgraph();
+					cg = Scene.v().getCallGraph();
+
+					if (cg == null || cg.size() == 0) {
+						System.err.println("WARNING: Empty call graph for " + apkFile.getName() + ", skipping...");
+						continue; // Skip to next APK
+					}
+
+				} catch (RuntimeException e) {
+					String errorMsg = e.getMessage() != null ? e.getMessage().toLowerCase() : "";
+
+					if (errorMsg.contains("zipexception") || errorMsg.contains("encrypted entry")) {
+						System.err.println("ERROR: APK is encrypted/packed - " + apkFile.getName());
+					} else if (errorMsg.contains("manifest")) {
+						System.err.println("ERROR: Manifest parsing failed - " + apkFile.getName());
+					} else if (errorMsg.contains("invalid cen header")) {
+						System.err.println("ERROR: APK file corrupted/encrypted - " + apkFile.getName());
+					} else {
+						System.err.println(
+								"ERROR: FlowDroid setup failed - " + apkFile.getName() + ": " + e.getMessage());
+					}
+
+					apkResult.setAnalysisCompleted(false, e.getMessage());
+					try {
+						persistenceManager.saveApkAnalysisResult(apkResult);
+					} catch (IOException saveError) {
+						System.err.println("WARNING: could not save file analysis results: " + saveError.getMessage());
+					}
+					continue; // Skip to next APK
+
+				} catch (OutOfMemoryError e) {
+					System.err.println("ERROR: Out of memory analyzing " + apkFile.getName());
+					System.gc(); // Force garbage collection
+
+					apkResult.setAnalysisCompleted(false, "Out of memory error");
+					try {
+						persistenceManager.saveApkAnalysisResult(apkResult);
+					} catch (IOException saveError) {
+						System.err
+								.println("WARNING: Could not save failed analysis results: " + saveError.getMessage());
+					}
+					continue; // Skip to next APK
+
+				} catch (Exception e) {
+					System.err.println("ERROR: Unexpected error during FlowDroid setup for " + apkFile.getName() + ": "
+							+ e.getMessage());
+					apkResult.setAnalysisCompleted(false, e.getMessage());
+					try {
+						persistenceManager.saveApkAnalysisResult(apkResult);
+					} catch (IOException saveError) {
+						System.err
+								.println("WARNING: Could not save failed analysis results: " + saveError.getMessage());
+					}
+
+					continue; // Skip to next APK
+				}
+
 				System.out.println("Call graph constructed with " + cg.size() + " edges");
 
-				// analyzer.constructCallgraph();
-
-				String apkPath = cmd.getOptionValue(OPTION_APK_FILE);
+				// String apkPath = apkFile.getAbsolutePath();
 
 				appPackageName = getPackageName(apkPath);
+				// Set package name in result object
+				apkResult.getApkMetadata().setPackageName(appPackageName);
 
 				System.out.println(appPackageName);
 
+				CallGraphExporter cgExporter = new CallGraphExporter();
+
+				String timestamp = java.time.LocalDateTime.now()
+						.format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+				String sPackageName = appPackageName.replaceAll("[^a-zA-Z0-9._-]", "_");
+
+				String jsonFileName = "./constraint_results/" + sPackageName + "_" + timestamp + "_call_graph.json";
+				String dotFileName = "./constraint_results/" + sPackageName + "_" + timestamp + "_call_graph.dot";
+
+				cgExporter.exportToJson(cg, jsonFileName);
+				cgExporter.exportToDot(cg, dotFileName);
+				cgExporter.printMethodStats(cg);
+
 				try {
-
-					AppCFGAnalyzer blockCfgAnalyzer = new AppCFGAnalyzer(appPackageName);
-
-					blockCfgAnalyzer.analyze();
-
 					// Get entry point classes from manifest
 					Set<String> entryClasses = getEntryPoints(apkPath);
 
@@ -451,61 +550,15 @@ public class MainClass {
 
 						}
 					}
-
-					AppLevelCFGBuilder builder = new AppLevelCFGBuilder(appPackageName);
-					// Automatically discover entry point methods
-					// Automatically discover entry point methods
-					Set<SootMethod> entryPoints = new HashSet<>();
-
-					// First, detect all app package prefixes
-					Set<String> appPackagePrefixes = new HashSet<>();
-					for (SootClass entryClass : analyzer.getEntrypointClasses()) {
-						String packageName = entryClass.getPackageName();
-						if (!isFrameworkPackage(packageName)) {
-							String rootPackage = getRootPackage(packageName);
-							appPackagePrefixes.add(rootPackage);
-						}
-					}
-
-					System.out.println("Detected app package prefixes: " + appPackagePrefixes);
-
-					// Then find entry point methods
-					for (SootClass entryClass : analyzer.getEntrypointClasses()) {
-						String componentType = determineComponentType(entryClass);
-
-						for (SootMethod method : entryClass.getMethods()) {
-							if (method.hasActiveBody() &&
-									isAppMethod(method, appPackagePrefixes) &&
-									isLikelyEntryPoint(method, componentType)) {
-
-								entryPoints.add(method);
-								System.out.println("Found entry point: " + method.getSignature());
-							}
-						}
-					}
-
-					builder.buildAppCFG(entryPoints);
-					// List<CompositePathBuilder.CompositePath> compositePaths =
-					// builder.buildCompositePaths(entryPoints);
-					// builder.printCompositePaths(compositePaths);
-					// builder.generateAngrGuidance(compositePaths, "angr_guidance_schoolApp.py");
-					String sanitizePackageName = appPackageName.replaceAll("[^a-zA-Z0-9._-]", "_");
-					String dotFileName = sanitizePackageName + "_cfg.dot";
+					String sanitizePackageName = appPackageName.replaceAll("[^a-zA-Z0-9._-]",
+							"_");
 					String fileNameDot = sanitizePackageName + "SAG";
-
-					builder.generateDotVisualization(dotFileName);
-					// builder.printGraphVisualization();
-
-					// AppLevelPathFinder pathFinder = new
-					// AppLevelPathFinder(builder.getAppCFGNodes());
-					// pathFinder.findAllPaths(entryPoints);
-					// pathFinder.printAllPaths();
 
 					// Initialize the analyzer
 					AllocationGraphAnalyzer graphAnalyzer = new AllocationGraphAnalyzer();
-					AnalysisConfig llm_config = new AnalysisConfig(LLMProvider.OLLAMA,
+					AnalysisConfig llm_config = new AnalysisConfig(LLMProvider.OPENAI,
 							"",
-							"codellama:7b", "./constraint_results");
+							"gpt-4o", "./constraint_results");
 
 					// Start from dummyMain
 					graphAnalyzer.initializeAnalysis();
@@ -514,16 +567,7 @@ public class MainClass {
 					System.out.println("\n=== Starting Enhanced Analysis ===\n");
 					graphAnalyzer.analyze();
 
-					BackwardConstraintAnalyzer constraint_analyzer = new BackwardConstraintAnalyzer(graphAnalyzer,
-							llm_config);
-					constraint_analyzer.initialize();
-
-					// Create and visualize the complete graph
-					// CompleteAllocationGraph completeGraph = new
-					// CompleteAllocationGraph(graphAnalyzer);
-					// completeGraph.visualizeGraph(fileNameDot, "dot");
-
-					String cs = "com.rootminusone8004.bazarnote.AddEditNoteActivity";
+					String cs = "com.rootminusone8004.bazarnote.MainActivity";
 					SootClass sc = Scene.v().getSootClass(cs);
 
 					for (SootMethod sMethod : sc.getMethods()) {
@@ -534,105 +578,155 @@ public class MainClass {
 
 					}
 
-					String ms = "<com.rootminusone8004.bazarnote.SessionActivity: void lambda$onCreate$0$com-rootminusone8004-bazarnote-SessionActivity(android.view.View)>";
-					SootMethod sm = Scene.v().getMethod(ms);
-					printJimpleCode(sm);
+					// === DANGEROUS API DETECTION PHASE ===
+					System.out.println("\n=== DANGEROUS API DETECTION PHASE ===");
+					DangerousApiDetector apiDetector = new DangerousApiDetector();
+					DangerousApiScanResult scanResult = null;
+
+					try {
+						apiDetector.loadDangerousApiConfig("./dangerous_apis.json");
+						scanResult = apiDetector.scanLoadedMethods();
+
+						if (scanResult.getTotalFoundApis() == 0) {
+							System.out.println("No dangerous APIs found in this APK - skipping constraint analysis");
+							continue; // Skip to next APK
+						}
+
+						System.out.println(apiDetector.generateScanSummary(scanResult));
+
+						for (Map.Entry<String, List<SootMethod>> entry : scanResult.getFoundApisByCategory()
+								.entrySet()) {
+							String category = entry.getKey();
+							List<SootMethod> foundMethods = entry.getValue();
+
+							// Get category info from detector
+							DangerousApiCategory categoryInfo = apiDetector.getApiCategories().get(category);
+							String severityLevel = categoryInfo != null ? categoryInfo.getSeverity() : "UNKNOWN";
+
+							for (SootMethod method : foundMethods) {
+								DangerousApiAnalysisResult apiAnalysisResult = new DangerousApiAnalysisResult(
+										method.getSignature(), category, severityLevel);
+								apkResult.addDangerousApiResult(apiAnalysisResult);
+							}
+						}
+
+					} catch (IOException e) {
+						System.err.println("Error loading dangerous API configuration: " + e.getMessage());
+						e.printStackTrace();
+						continue; // Skip this APK
+					}
+
+					// === CONSTRAINT ANALYSIS PHASE ===
+					BackwardConstraintAnalyzer constraint_analyzer = new BackwardConstraintAnalyzer(graphAnalyzer,
+							llm_config);
+					constraint_analyzer.initialize();
+
+					// Create and visualize the complete graph
+					CompleteAllocationGraph completeGraph = new CompleteAllocationGraph(graphAnalyzer);
+					completeGraph.visualizeGraph(fileNameDot, "dot");
 
 					System.out.println("\n=== BACKWARD REACHABILITY ANALYSIS ===\n");
 
-					// Get the sink method
-					String sinkMethodSig = "<com.rootminusone8004.bazarnote.AddEditNoteActivity: void savePrice(java.lang.String,float)>";
-					SootMethod sink = Scene.v().getMethod(sinkMethodSig);
+					// Get prioritized dangerous APIs instead of hardcoded sink
+					List<SootMethod> dangerousApisToAnalyze = apiDetector.getPrioritizedDangerousApis(scanResult);
 
-					ConstraintAnalysisResult result = constraint_analyzer.analyzeMethod(sink);
-					for (ConstraintPath path : result.getPaths()) {
-						System.out.println(path.getPathSummary());
+					if (dangerousApisToAnalyze.isEmpty()) {
+						System.out.println("No analyzable dangerous APIs found");
+						continue;
 					}
 
-					// Create analyzer
-					// BackwardReachabilityAnalyzer backwardAnalyzer = new
-					// BackwardReachabilityAnalyzer(cg);
-					// backwardAnalyzer.setVerbose(false);
+					// Analyze each dangerous API
+					for (SootMethod dangerousApi : dangerousApisToAnalyze) {
+						// Find the corresponding result object
+						DangerousApiAnalysisResult apiAnalysisResult = null;
+						for (DangerousApiAnalysisResult result : apkResult.getDangerousApisFound()) {
+							if (result.getMethodSignature().equals(dangerousApi.getSignature())) {
+								apiAnalysisResult = result;
+								break;
+							}
+						}
 
-					// BackwardReachabilityAnalyzer.CompleteAnalysisResult result = backwardAnalyzer
-					// .findPathsAndBuildCFGs(sink);
+						if (apiAnalysisResult == null) {
+							System.err
+									.println("ERROR: Could not find result object for " + dangerousApi.getSignature());
+							continue;
+						}
 
-					// System.out.println("\n" + "=".repeat(80));
-					// DetailedCFGVisualizer visualizer = new DetailedCFGVisualizer();
-					// visualizer.visualizeDetailedCFGStructure(result);
+						try {
+							System.out.println("\n" + "=".repeat(80));
+							System.out.println("ANALYZING DANGEROUS API: " + dangerousApi.getSignature());
+							System.out.println("=".repeat(80));
 
-					// Run analysis
-					// ReachabilityGraph reachGraph = backwardAnalyzer.findPathsToSink(sink);
+							ConstraintAnalysisResult result = constraint_analyzer.analyzeMethod(dangerousApi);
 
-					// Print results
-					// System.out.println(reachGraph.getStatistics());
+							// === COLLECT ANALYSIS RESULTS ===
 
-					// System.out.println("\n=== COMPLETE PATHS TO SINK ===");
-					// for (ExecutionPath path : reachGraph.getCompletePaths()) {
-					// System.out.println(path);
-					// }
+							// Extract call chains
+							List<DangerousApiAnalysisResult.MethodCallChain> callChains = CallChainExtractor
+									.extractCallChains(result, dangerousApi.getSignature());
+							for (DangerousApiAnalysisResult.MethodCallChain callChain : callChains) {
+								apiAnalysisResult.addCallChain(callChain);
+							}
 
-					// System.out.println("\n=== ROOT METHODS ===");
-					// for (SootMethod root : reachGraph.getRootMethods()) {
-					// System.out.println(root.getSignature());
-					// }
+							// Extract constraints
+							for (ConstraintPath path : result.getPaths()) {
+								DangerousApiAnalysisResult.ConstraintSpecification constraint = new DangerousApiAnalysisResult.ConstraintSpecification(
+										path.getPathId(), path.getPathId());
 
-					System.out.println("\n=== CALL GRAPH DIAGNOSTIC ===");
+								// constraint.setBooleanLogicFormat(path.getPathSummary(ConstraintFormat.FORMAT_1));
 
-					// Get the methods
-					String callerSig = "<com.rootminusone8004.bazarnote.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)>";
-					String calleeSig = "<com.rootminusone8004.bazarnote.NoteViewModel: void deleteAllSelectedNotes(int)>";
+								constraint
+										.setBooleanLogicFormat(path.getCombinedConstraints(ConstraintFormat.FORMAT_1));
+								// Add other formats if available
+								constraint.setConstraintComplexity(path.getConstraints().size());
 
-					SootMethod caller = Scene.v().getMethod(callerSig);
-					SootMethod callee = Scene.v().getMethod(calleeSig);
+								apiAnalysisResult.addConstraint(constraint);
+							}
 
-					System.out.println("Caller exists: " + (caller != null));
-					System.out.println("Callee exists: " + (callee != null));
+							// Mark analysis as successful
+							apiAnalysisResult.setAnalysisCompleted(true, null);
 
-					// Check edges FROM caller
-					System.out.println("\nEdges OUT of " + caller.getName() + ":");
-					Iterator<Edge> edgesOut = cg.edgesOutOf(caller);
-					int outCount = 0;
-					while (edgesOut.hasNext()) {
-						Edge edge = edgesOut.next();
-						outCount++;
-						System.out.println("  -> " + edge.tgt().getSignature());
-						if (edge.tgt().equals(callee)) {
-							System.out.println("     ^^^ FOUND THE EDGE!");
+							for (ConstraintPath path : result.getPaths()) {
+								System.out.println("=== Path: " + path.getPathId() + " ===");
+								System.out.println(
+										"Format 1 (Boolean Logic): " + path.getPathSummary(ConstraintFormat.FORMAT_1));
+							}
+
+							try {
+								apkResult.setAnalysisCompleted(true, null);
+								persistenceManager.saveApkAnalysisResult(apkResult);
+								System.out.println("✅ Results saved for " + apkName);
+							} catch (IOException e) {
+								System.err.println(
+										"ERROR: Failed to save results for " + apkName + ": " + e.getMessage());
+							}
+
+						} catch (Exception e) {
+							System.err
+									.println("Error analyzing " + dangerousApi.getSignature() + ": " + e.getMessage());
+
+							// Mark analysis as failed
+							apiAnalysisResult.setAnalysisCompleted(false, e.getMessage());
+							continue; // Continue with next dangerous API
 						}
 					}
-					System.out.println("Total edges out: " + outCount);
-
-					// Check edges TO callee
-					System.out.println("\nEdges INTO " + callee.getName() + ":");
-					Iterator<Edge> edgesIn = cg.edgesInto(callee);
-					int inCount = 0;
-					while (edgesIn.hasNext()) {
-						Edge edge = edgesIn.next();
-						inCount++;
-						System.out.println("  <- " + edge.src().getSignature());
-					}
-					System.out.println("Total edges in: " + inCount);
-
-					// System.out.println("\n=== Starting Dex Analysis ===\n");
-					// String dexFolderPath = "C:\\Users\\Babangida
-					// Bappah\\Downloads\\DexFiles\\DexFiles";
-					// String dexOutPutPath = "C:\\Users\\Babangida
-					// Bappah\\Desktop\\Research\\fd\\DexOutPut\\DexOutPut";
-					// DexAnalyzer dexAnalyzer = new DexAnalyzer(dexFolderPath, dexOutPutPath);
-					// dexAnalyzer.analyzeDexFiles();
-					// System.out.println("DEX ANALYSIS COMPLETE");
-
-					// PathBasedDexAnalyzer pathAnalyzer = new PathBasedDexAnalyzer(dexFolderPath,
-					// dexOutPutPath);
-
-					// pathAnalyzer.analyzeDexFiles();
-
-					// System.out.println("PATH-BASED DEX ANALYSIS COMPLETE");
 
 				} catch (Exception e) {
 					System.err.println("Error during allocation analysis: " + e.getMessage());
 					e.printStackTrace();
+				} finally {
+					// Cleanup for next APK
+					try {
+						if (Scene.v().hasCallGraph()) {
+							Scene.v().releaseCallGraph();
+						}
+						Scene.v().releaseFastHierarchy();
+						G.reset();
+						System.gc(); // Suggest garbage collection between APKs
+					} catch (Exception e) {
+						System.err
+								.println("WARNING: Cleanup failed after " + apkFile.getName() + ": " + e.getMessage());
+					}
 				}
 			}
 		} catch (AbortAnalysisException e) {
@@ -702,6 +796,48 @@ public class MainClass {
 				packageName.startsWith("com.appsflyer.");
 	}
 
+	// Batch processing statistics
+	private static class BatchStatistics {
+		public int totalApks = 0;
+		public int successfulApks = 0;
+		public int failedApks = 0;
+		public Map<String, Integer> failureReasons = new HashMap<>();
+		public List<String> successfulApkNames = new ArrayList<>();
+		public List<String> failedApkNames = new ArrayList<>();
+
+		public void recordSuccess(String apkName) {
+			successfulApks++;
+			successfulApkNames.add(apkName);
+		}
+
+		public void recordFailure(String apkName, String reason) {
+			failedApks++;
+			failedApkNames.add(apkName + " (" + reason + ")");
+			failureReasons.merge(reason, 1, Integer::sum);
+		}
+
+		public void printSummary() {
+			System.out.println("\n" + "=".repeat(80));
+			System.out.println("               BATCH PROCESSING SUMMARY");
+			System.out.println("=".repeat(80));
+			System.out.println("Total APKs: " + totalApks);
+			System.out.println("Successful: " + successfulApks);
+			System.out.println("Failed: " + failedApks);
+			System.out.println("Success Rate: " + String.format("%.1f%%", (successfulApks * 100.0 / totalApks)));
+
+			if (!failureReasons.isEmpty()) {
+				System.out.println("\nFailure Breakdown:");
+				failureReasons.forEach((reason, count) -> System.out.println("  " + reason + ": " + count + " APKs"));
+			}
+
+			if (!failedApkNames.isEmpty()) {
+				System.out.println("\nFailed APKs:");
+				failedApkNames.forEach(name -> System.out.println("  - " + name));
+			}
+			System.out.println("=".repeat(80));
+		}
+	}
+
 	private static String getRootPackage(String fullPackage) {
 		String[] parts = fullPackage.split("\\.");
 		if (parts.length >= 2) {
@@ -742,13 +878,6 @@ public class MainClass {
 		return false;
 	}
 
-	public void printAllNodes(Map<String, AllocationNode> allNodes) {
-		System.out.println("\n=== All Nodes ===\n");
-		for (Map.Entry<String, AllocationNode> entry : allNodes.entrySet()) {
-			printNode(entry.getKey(), entry.getValue());
-		}
-	}
-
 	public void printAllEdges(Map<String, Set<String>> allEdges) {
 		System.out.println("\n=== All Edges ===\n");
 		for (Map.Entry<String, Set<String>> entry : allEdges.entrySet()) {
@@ -760,431 +889,6 @@ public class MainClass {
 		for (String toNodeId : toNodeIds) {
 			System.out.println(fromNodeId + " -> " + toNodeId);
 		}
-	}
-
-	public void printFullGraph(Map<String, AllocationNode> allNodes, Map<String, Set<String>> allEdges) {
-		printAllNodes(allNodes);
-		printAllEdges(allEdges);
-	}
-
-	private static void findPathsDFS(AllocationNode current,
-			AllocationNode exit,
-			List<AllocationNode> currentPath,
-			List<List<AllocationNode>> allPaths,
-			Set<AllocationNode> visited) {
-		// Skip if already visited (avoid cycles)
-		if (visited.contains(current))
-			return;
-
-		// Add to current path and mark as visited
-		visited.add(current);
-		currentPath.add(current);
-
-		// If we reached exit node, save the path
-		if (current == exit) {
-			allPaths.add(new ArrayList<>(currentPath));
-		} else {
-			// Continue with all successors
-			for (AllocationNode succ : current.getSuccessors()) {
-				findPathsDFS(succ, exit, currentPath, allPaths, visited);
-			}
-		}
-
-		// Backtrack
-		visited.remove(current);
-		currentPath.remove(currentPath.size() - 1);
-	}
-
-	private void printControlFlowStructure(AllocationGraph graph) {
-		for (AllocationNode node : graph.getNodes()) {
-			System.out.println("\nNode: " + node);
-			System.out.println("Type: " + node.getType());
-
-			if (node.isAllocation()) {
-				System.out.println("Allocation Type: " + node.getAllocationTypeName());
-			}
-
-			if (node.getUnit() != null) {
-				System.out.println("Unit: " + node.getUnit());
-			}
-
-			System.out.println("Successors:");
-			for (AllocationNode succ : node.getSuccessors()) {
-				System.out.println("  -> " + succ);
-			}
-		}
-	}
-
-	private void findPathsRecursive(AllocationNode current, AllocationNode exit,
-			List<AllocationNode> currentPath,
-			List<List<AllocationNode>> allPaths,
-			Set<AllocationNode> visited) {
-		// Add current node to path and mark as visited
-		currentPath.add(current);
-		visited.add(current);
-
-		// If we reached exit node, we found a complete path
-		if (current.equals(exit)) {
-			allPaths.add(new ArrayList<>(currentPath));
-		} else {
-			// Process successors based on node type
-			switch (current.getType()) {
-				case IF_CONDITION:
-				case SWITCH:
-					// For control flow nodes, try all branches
-					processControlFlowNode(current, exit, currentPath, allPaths, visited);
-					break;
-				default:
-					// For other nodes, process all successors
-					processSuccessors(current, exit, currentPath, allPaths, visited);
-					break;
-			}
-		}
-
-		// Backtrack
-		currentPath.remove(currentPath.size() - 1);
-		visited.remove(current);
-	}
-
-	private void processControlFlowNode(AllocationNode node, AllocationNode exit,
-			List<AllocationNode> currentPath,
-			List<List<AllocationNode>> allPaths,
-			Set<AllocationNode> visited) {
-		// Process each branch
-		for (AllocationNode successor : node.getSuccessors()) {
-			if (!visited.contains(successor)) {
-				findPathsRecursive(successor, exit, currentPath, allPaths, new HashSet<>(visited));
-			}
-		}
-	}
-
-	private void processSuccessors(AllocationNode node, AllocationNode exit,
-			List<AllocationNode> currentPath,
-			List<List<AllocationNode>> allPaths,
-			Set<AllocationNode> visited) {
-		for (AllocationNode successor : node.getSuccessors()) {
-			if (!visited.contains(successor)) {
-				findPathsRecursive(successor, exit, currentPath, allPaths, visited);
-			}
-		}
-	}
-
-	private void findPathsFromNode(AllocationNode current, AllocationNode exit,
-			List<AllocationNode> currentPath,
-			List<List<AllocationNode>> allPaths,
-			Set<AllocationNode> visited) {
-		System.out.println("Visiting node: " + current);
-
-		currentPath.add(current);
-		visited.add(current);
-
-		if (current.equals(exit)) {
-			System.out.println("Found complete path with " + currentPath.size() + " nodes");
-			allPaths.add(new ArrayList<>(currentPath));
-		} else {
-			Set<AllocationNode> successors = current.getSuccessors();
-			if (!successors.isEmpty()) {
-				System.out.println("Node has " + successors.size() + " successors");
-				for (AllocationNode successor : successors) {
-					if (!visited.contains(successor)) {
-						findPathsFromNode(successor, exit, currentPath, allPaths, visited);
-					}
-				}
-			} else if (!current.equals(exit)) {
-				// If we hit a terminal node that's not the exit, try to reach the exit
-				System.out.println("Hit terminal node, attempting to reach exit");
-				if (!visited.contains(exit)) {
-					findPathsFromNode(exit, exit, currentPath, allPaths, visited);
-				}
-			}
-		}
-
-		currentPath.remove(currentPath.size() - 1);
-		visited.remove(current);
-	}
-
-	// DFS to find all paths from entry to exit
-	private void findPaths(AllocationNode current, AllocationNode exit,
-			List<AllocationNode> currentPath,
-			List<List<AllocationNode>> allPaths,
-			Set<AllocationNode> visited) {
-
-		// Add current node to path and mark as visited
-		currentPath.add(current);
-		visited.add(current);
-
-		// If we reached exit node, add the path to our collection
-		if (current.equals(exit)) {
-			allPaths.add(new ArrayList<>(currentPath));
-		} else {
-			// Continue DFS through successors
-			for (AllocationNode successor : current.getSuccessors()) {
-				if (!visited.contains(successor)) {
-					findPaths(successor, exit, currentPath, allPaths, visited);
-				}
-			}
-		}
-
-		// Backtrack
-		currentPath.remove(currentPath.size() - 1);
-		visited.remove(current);
-	}
-
-	// Helper method to check if path contains allocations
-	private static boolean pathContainsAllocation(List<AllocationNode> path) {
-		return path.stream().anyMatch(node -> node.getType() == NodeType.ALLOCATION);
-	}
-
-	private static void debugGraphConnections(AllocationGraph graph) {
-		System.out.println("\n=== Debug Graph Connections ===");
-
-		// Check ENTRY connections
-		AllocationNode entry = graph.getEntryNode();
-		System.out.println("\nENTRY node successors:");
-		for (AllocationNode succ : entry.getSuccessors()) {
-			System.out.println(" -> " + succ.getType() +
-					(succ.getUnit() != null ? ": " + succ.getUnit() : ""));
-		}
-
-		// Check each node's connections
-		for (AllocationNode node : graph.getNodes()) {
-			if (node.getType() != NodeType.ENTRY && node.getType() != NodeType.EXIT) {
-				System.out.println("\nNode " + node.getId() + " (" + node.getType() + ")");
-				System.out.println("Predecessors:");
-				for (AllocationNode pred : node.getPredecessors()) {
-					System.out.println(" <- " + pred.getId() + " (" + pred.getType() + ")");
-				}
-				System.out.println("Successors:");
-				for (AllocationNode succ : node.getSuccessors()) {
-					System.out.println(" -> " + succ.getId() + " (" + succ.getType() + ")");
-				}
-			}
-		}
-	}
-
-	private static String extractCaseValue(String unitString) {
-		// Handle different case statement formats
-		if (unitString.contains("goto")) {
-			unitString = unitString.substring(0, unitString.indexOf("goto")).trim();
-		}
-		return unitString;
-	}
-
-	// Helper method to clean if condition
-	private static String cleanIfCondition(String condition) {
-		// Remove goto statements and clean up condition
-		if (condition.contains("goto")) {
-			condition = condition.substring(0, condition.indexOf("goto")).trim();
-		}
-		// Clean up Jimple syntax but maintain important information
-		return condition.replaceAll("\\$[a-zA-Z][0-9]+", "")
-				.replaceAll("\\s+", " ")
-				.trim();
-	}
-
-	private void printPath(List<AllocationNode> path) {
-		int indent = 0;
-		Stack<NodeType> controlFlowStack = new Stack<>();
-
-		for (AllocationNode node : path) {
-			String indentation = "  ".repeat(indent);
-
-			switch (node.getType()) {
-				case ENTRY:
-					System.out.println(indentation + "ENTRY");
-					indent++;
-					break;
-
-				case EXIT:
-					if (!controlFlowStack.isEmpty()) {
-						indent--;
-					}
-					System.out.println(indentation + "EXIT");
-					break;
-
-				case SWITCH:
-				case IF_CONDITION:
-					printControlFlow(node, indentation);
-					controlFlowStack.push(node.getType());
-					indent++;
-					break;
-
-				case ALLOCATION:
-					printAllocation(node, indentation);
-					break;
-
-				case METHOD_CALL:
-					printMethodCall(node, indentation);
-					break;
-
-				case CONTROL_MERGE:
-					if (!controlFlowStack.isEmpty()) {
-						controlFlowStack.pop();
-						indent--;
-						System.out.println(indentation + "Control merge point");
-					}
-					break;
-			}
-		}
-	}
-
-	private static void printPathDetails(List<AllocationNode> path) {
-		System.out.println("  Path:");
-		for (AllocationNode node : path) {
-			printNode("    ", node);
-		}
-	}
-
-	private static void printNode(String indent, AllocationNode node) {
-		if (node.isAllocation()) {
-			printAllocation(node, indent);
-		} else if (node.isMethodCall()) {
-			printMethodCall(node, indent);
-		} else {
-			System.out.println(indent + node.toString());
-		}
-	}
-
-	private static void printAllocation(AllocationNode node, String indent) {
-		System.out.println(indent + "Allocation: " + node.getAllocationTypeName());
-	}
-
-	private static void printMethodCall(AllocationNode node, String indent) {
-		InvokeExpr invoke = node.getMethodCall();
-		if (invoke != null) {
-			System.out.println(indent + "Call: " + invoke.getMethod().getName());
-		} else {
-			System.out.println(indent + "Method Call (unknown)");
-		}
-	}
-
-	private void printControlFlow(AllocationNode node, String indent) {
-		String type = node.getType() == NodeType.SWITCH ? "Switch" : "If";
-		if (node.getUnit() != null) {
-			System.out.println(indent + type + ": " + formatUnit(node.getUnit()));
-		} else {
-			System.out.println(indent + type + " condition");
-		}
-	}
-
-	private String formatUnit(Unit unit) {
-		if (unit instanceof IfStmt) {
-			return ((IfStmt) unit).getCondition().toString();
-		} else if (unit instanceof SwitchStmt) {
-			return ((SwitchStmt) unit).getKey().toString();
-		}
-		return unit.toString();
-	}
-
-	private String formatControlStatement(AllocationNode node) {
-		if (node.getUnit() == null)
-			return node.getType().toString();
-
-		if (node.getType() == NodeType.SWITCH) {
-			return "Switch: " + formatSwitchStatement(node.getUnit());
-		} else if (node.getType() == NodeType.IF_CONDITION) {
-			return "If: " + formatIfStatement(node.getUnit());
-		}
-
-		return node.getUnit().toString();
-	}
-
-	private String formatSwitchStatement(Unit unit) {
-		if (unit instanceof SwitchStmt) {
-			SwitchStmt switchStmt = (SwitchStmt) unit;
-			StringBuilder sb = new StringBuilder("switch(");
-			sb.append(switchStmt.getKey()).append(") {");
-
-			// Add cases
-			for (Unit target : switchStmt.getTargets()) {
-				sb.append("\n    case -> ").append(target.toString());
-			}
-
-			// Add default
-			if (switchStmt.getDefaultTarget() != null) {
-				sb.append("\n    default -> ").append(switchStmt.getDefaultTarget().toString());
-			}
-
-			sb.append("\n}");
-			return sb.toString();
-		}
-		return unit.toString();
-	}
-
-	private String formatIfStatement(Unit unit) {
-		if (unit instanceof IfStmt) {
-			IfStmt ifStmt = (IfStmt) unit;
-			return "if " + ifStmt.getCondition() + " goto " + ifStmt.getTarget();
-		}
-		return unit.toString();
-	}
-
-	private String formatAllocationStatement(AllocationNode node) {
-		StringBuilder sb = new StringBuilder("Allocate: ");
-		sb.append(node.getAllocationTypeName());
-
-		if (node.getUnit() != null) {
-			sb.append(" (").append(node.getUnit().toString()).append(")");
-		}
-
-		return sb.toString();
-	}
-
-	private static String getControlStructureType(String statement) {
-		if (statement.contains("lookupswitch"))
-			return "Switch Statement";
-		if (statement.contains("if "))
-			return "If Statement";
-		if (statement.contains("goto"))
-			return "Goto Statement";
-		return "Unknown Control Structure";
-	}
-
-	private static String getControlStructureType(AllocationNode node) {
-		Unit unit = node.getUnit();
-		if (unit instanceof IfStmt)
-			return "If Statement";
-		if (unit instanceof SwitchStmt)
-			return "Switch Statement";
-		if (unit instanceof GotoStmt)
-			return "Goto Statement";
-		return "Unknown Control Structure";
-	}
-
-	private static String getIndent(int level) {
-		return "  ".repeat(level);
-	}
-
-	private static boolean isControlNode(AllocationNode node) {
-		if (node.getUnit() == null)
-			return false;
-		return node.getUnit() instanceof IfStmt ||
-				node.getUnit() instanceof SwitchStmt ||
-				node.getUnit() instanceof GotoStmt;
-	}
-
-	private static String getFullClassName(Value allocation) {
-		try {
-			if (allocation instanceof NewExpr) {
-				return ((NewExpr) allocation).getBaseType().toString();
-			} else if (allocation instanceof NewArrayExpr) {
-				return ((NewArrayExpr) allocation).getBaseType().toString() + "[]";
-			} else if (allocation instanceof NewMultiArrayExpr) {
-				return ((NewMultiArrayExpr) allocation).getBaseType().toString() + "[][]";
-			}
-			return allocation.getType().toString();
-		} catch (Exception e) {
-			return "Unknown Type";
-		}
-	}
-
-	private void initializeOutputDirs() {
-		appOutputDir = OUTPUT_DIR_BASE + appPackageName + "/";
-		new File(appOutputDir).mkdirs();
-	}
-
-	private String sanitizeFileName(String name) {
-		return name.replaceAll("[^a-zA-Z0-9.-]", "_");
 	}
 
 	public String getPackageName(String apkPath) {

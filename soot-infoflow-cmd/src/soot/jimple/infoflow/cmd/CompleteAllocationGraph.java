@@ -124,6 +124,11 @@ public class CompleteAllocationGraph {
     private void processGraph(AllocationGraph graph) {
         if (graph == null)
             return;
+        SootMethod method = graph.getMethod();
+        if (method == null) {
+            System.out.println("Skipping graph with null method");
+            return;
+        }
 
         String methodName = sanitizeMethodName(graph.getMethod().getName());
 

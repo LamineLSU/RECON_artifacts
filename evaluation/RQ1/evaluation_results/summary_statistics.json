@@ -1,0 +1,79 @@
+{
+  "evaluation_info": {
+    "total_methods": 156,
+    "categories": [
+      "Intent Operations",
+      "Menu Item Handling",
+      "UI Component Events",
+      "Platform Compatibility",
+      "Security APIs",
+      "Activity Lifecycle"
+    ],
+    "llms_evaluated": [
+      "gpt4o",
+      "deepseek",
+      "qwen",
+      "codellama",
+      "llama3"
+    ],
+    "evaluation_duration_seconds": 3864.0722217559814
+  },
+  "success_rates": {
+    "gpt4o": 1.0,
+    "deepseek": 1.0,
+    "qwen": 1.0,
+    "codellama": 1.0,
+    "llama3": 1.0
+  },
+  "similarity_averages": {
+    "gpt4o": 0.6551271680838022,
+    "deepseek": 0.6320959937113982,
+    "qwen": 0.6709593053047473,
+    "codellama": 0.6773987844204291,
+    "llama3": 0.6777799331989044
+  },
+  "category_performance": {
+    "Intent Operations": {
+      "gpt4o": 0.6701586927686419,
+      "deepseek": 0.6484650110914594,
+      "qwen": 0.6834756490730104,
+      "codellama": 0.6783620559033894,
+      "llama3": 0.683032343075389
+    },
+    "Menu Item Handling": {
+      "gpt4o": 0.6492572809968676,
+      "deepseek": 0.6621103414467403,
+      "qwen": 0.6874154465539115,
+      "codellama": 0.731590775506837,
+      "llama3": 0.7198501995631627
+    },
+    "UI Component Events": {
+      "gpt4o": 0.5891508360703787,
+      "deepseek": 0.5745730300744375,
+      "qwen": 0.6227950519985623,
+      "codellama": 0.6202396038505766,
+      "llama3": 0.6481879883342319
+    },
+    "Platform Compatibility": {
+      "gpt4o": 0.6747214035554365,
+      "deepseek": 0.6124973121014509,
+      "qwen": 0.6573137424208901,
+      "codellama": 0.6564855616201054,
+      "llama3": 0.6653974083336917
+    },
+    "Security APIs": {
+      "gpt4o": 0.6803261475129561,
+      "deepseek": 0.6300414909016002,
+      "qwen": 0.6950933174653486,
+      "codellama": 0.6597774123603647,
+      "llama3": 0.6667718304829164
+    },
+    "Activity Lifecycle": {
+      "gpt4o": 0.6440920035044352,
+      "deepseek": 0.6314244493842125,
+      "qwen": 0.6563656503955523,
+      "codellama": 0.6906818337738514,
+      "llama3": 0.6631416057546934
+    }
+  }
+}

@@ -1,0 +1,988 @@
+{
+  "total_dangerous_apis": 15,
+  "category_statistics": {
+    "privacy_sensors": 5,
+    "device_information_collection": 2,
+    "file_system_operations": 4,
+    "sms_phone_operations": 1,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 2
+  },
+  "analysis_timestamp": "2026-02-01 01:52:47",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.hardware.Camera: android.hardware.Camera open()>",
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.media.MediaRecorder: void start()>",
+      "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.hardware.Camera: android.hardware.Camera open()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170018898236600_6m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: net.sourceforge.zbar.android.ZBarScanner dummyMainMethod_net_sourceforge_zbar_android_ZBarScanner(android.content.Intent)>",
+            "<net.sourceforge.zbar.android.ZBarScanner: void onRequestPermissionsResult(int,java.lang.String[],int[])>",
+            "<net.sourceforge.zbar.android.ZBarScanner: void l()>",
+            "<net.sourceforge.zbar.android.ZBarScanner: android.hardware.Camera o()>",
+            "<android.hardware.Camera: android.hardware.Camera open()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170066996984600_6m_7c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: net.sourceforge.zbar.android.ZBarScanner dummyMainMethod_net_sourceforge_zbar_android_ZBarScanner(android.content.Intent)>",
+            "<net.sourceforge.zbar.android.ZBarScanner: void onCreate(android.os.Bundle)>",
+            "<net.sourceforge.zbar.android.ZBarScanner: void l()>",
+            "<net.sourceforge.zbar.android.ZBarScanner: android.hardware.Camera o()>",
+            "<android.hardware.Camera: android.hardware.Camera open()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170018898236600_6m_2c",
+          "associated_call_chain": "path_170018898236600_6m_2c",
+          "boolean_logic_format": "(switch_condition) AND (cameraPermissionGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        },
+        {
+          "constraint_id": "path_170066996984600_6m_7c",
+          "associated_call_chain": "path_170066996984600_6m_7c",
+          "boolean_logic_format": "(ComponentAvailable) AND (deviceHasCamera == false) AND (D == false) AND (IntentExtras != null) AND (SCAN_MODE is not specified) AND (scanMode.equalsIgnoreCase(\"PRODUCT_MODE\") == false) AND (q() == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 7
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 112825,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170325229694600_10m_35c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.revmob.FullscreenActivity dummyMainMethod_com_revmob_FullscreenActivity(android.content.Intent)>",
+            "<com.revmob.internal.t: void onPageFinished(android.webkit.WebView,java.lang.String)>",
+            "<com.revmob.a.e: void a(java.lang.String,double)>",
+            "<com.revmob.internal.v: void a(java.lang.Throwable,java.lang.String,java.lang.Enum,java.lang.String,java.lang.String)>",
+            "<com.revmob.internal.x: void run()>",
+            "<com.revmob.internal.v: void b(java.lang.Throwable,java.lang.String,java.lang.Enum,java.lang.String,java.lang.String)>",
+            "<com.revmob.a.e: org.json.JSONObject b()>",
+            "<com.revmob.a.e: org.json.JSONObject e()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170387425532600_15m_30c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.revmob.FullscreenActivity dummyMainMethod_com_revmob_FullscreenActivity(android.content.Intent)>",
+            "<com.revmob.FullscreenActivity: void onResume()>",
+            "<com.revmob.d: void run()>",
+            "<com.revmob.FullscreenActivity: void a()>",
+            "<com.revmob.FullscreenActivity: void j()>",
+            "<com.revmob.ads.c.b: void <init>(android.app.Activity,com.revmob.ads.c.a.b,com.revmob.ads.c.b.a,com.revmob.FullscreenActivity)>",
+            "<com.revmob.ads.c.b: void e()>",
+            "<com.revmob.ads.c.b: void o()>",
+            "<com.revmob.ads.c.b: void a(java.lang.String)>",
+            "<com.revmob.ads.c.g: void run()>",
+            "<com.revmob.a.e: java.lang.String a()>",
+            "<com.revmob.a.e: org.json.JSONObject b()>",
+            "<com.revmob.a.e: org.json.JSONObject e()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170325229694600_10m_35c",
+          "associated_call_chain": "path_170325229694600_10m_35c",
+          "boolean_logic_format": "(flagE == false) AND (`enumInstanceNotEqualToObject`) AND (enumInstanceNotEqual) AND (flagNotZero) AND (throwable == null) AND (currentIndex >= stackTraceLength) AND (z0 != 0) AND (fileName == null) AND (ThrowableParameterIsNotNull) AND (enumInstanceNotEqualToEnumConstant) AND (enumInstanceNotEqualToExpectedObject) AND (**  \n`g() == false`  \n**) AND ($z1 != 0) AND (k != 0.0) AND (jsonObjectIsEmpty) AND (JSONObject does not have key \"age_range_max\") AND (JSON object has entry for \"age_range_max\") AND (ageRangeMaxValue == null) AND (minimumAgeRangeValue != null) AND (ageRangeMax == null) AND ($r8 != null) AND (ageRangeMaxInt >= 13) AND (ageRangeMax < 13) AND (hasAgeRangeMax) AND (`!jsonObject.has(\"age_range_max\")`) AND (OSVersionDoesNotStartWith21) AND (OSVersionNotStartsWith21 AND ScreenNotInNaturalOrientation) AND (displayRotation == 0) AND (internalConditionIsTrue) AND (LocationManagerServiceAvailable) AND (!hasFineLocationPermission) AND (**  \n`permissionCoarseLocationGranted == true`  \n**) AND (`locationManager != null`) AND (!hasFineLocationPermission) AND (**  \n`permissionCoarseLocationGranted == true`  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 35
+        },
+        {
+          "constraint_id": "path_170387425532600_15m_30c",
+          "associated_call_chain": "path_170387425532600_15m_30c",
+          "boolean_logic_format": "(C() returns null) AND (BitmapFromDIsNull) AND (imageFromMethodDIsNull) AND (width >= height) AND (screenWidth < screenHeight) AND (orientation != Configuration.ORIENTATION_LANDSCAPE) AND (imageView == null) AND (TextView_H_is_null) AND (k != 0.0) AND (jsonObjectIsEmpty) AND (JSONObject does not have key \"age_range_max\") AND (JSON object has entry for \"age_range_max\") AND (ageRangeMaxValue == null) AND (minimumAgeRangeValue != null) AND (ageRangeMax == null) AND ($r8 != null) AND (ageRangeMaxInt >= 13) AND (ageRangeMax < 13) AND (hasAgeRangeMax) AND (`!jsonObject.has(\"age_range_max\")`) AND (OSVersionDoesNotStartWith21) AND (OSVersionNotStartsWith21 AND ScreenNotInNaturalOrientation) AND (displayRotation == 0) AND (internalConditionIsTrue) AND (LocationManagerServiceAvailable) AND (!hasFineLocationPermission) AND (**  \n`permissionCoarseLocationGranted == true`  \n**) AND (`locationManager != null`) AND (!hasFineLocationPermission) AND (**  \n`permissionCoarseLocationGranted == true`  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 30
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 433241,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.media.MediaRecorder: void start()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170406168141300_6m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity dummyMainMethod_com_seattleclouds_modules_voicerecord_VoiceRecordPickerActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.voicerecord.x: void onClick(android.view.View)>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: void b(com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity)>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: void r()>",
+            "<android.media.MediaRecorder: void start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170421349966200_5m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity dummyMainMethod_com_seattleclouds_modules_voicerecord_VoiceRecordPickerActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: void onResume()>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: void r()>",
+            "<android.media.MediaRecorder: void start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170406168141300_6m_3c",
+          "associated_call_chain": "path_170406168141300_6m_3c",
+          "boolean_logic_format": "(VoiceRecordPickerActivity.a() returns false) AND (v() == true) AND (MediaRecorderInstance != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_170421349966200_5m_4c",
+          "associated_call_chain": "path_170421349966200_5m_4c",
+          "boolean_logic_format": "(C == false) AND (C == true && D == true) AND (v() == true) AND (MediaRecorderInstance != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 467187,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170570808275200_6m_21c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.savephoto.SavePhotoActivity dummyMainMethod_com_seattleclouds_modules_savephoto_SavePhotoActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.savephoto.SavePhotoActivity: void onCreate(android.os.Bundle)>",
+            "<com.seattleclouds.modules.savephoto.SavePhotoActivity: void s()>",
+            "<com.seattleclouds.location.l: void a()>",
+            "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170570822150500_9m_15c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.savephoto.SavePhotoActivity dummyMainMethod_com_seattleclouds_modules_savephoto_SavePhotoActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.savephoto.g: void onClick(android.view.View)>",
+            "<com.seattleclouds.modules.savephoto.m: void onPostExecute(java.lang.Object)>",
+            "<com.seattleclouds.modules.savephoto.m: void a(java.lang.Boolean)>",
+            "<com.seattleclouds.modules.savephoto.SavePhotoActivity: void i(com.seattleclouds.modules.savephoto.SavePhotoActivity)>",
+            "<com.seattleclouds.modules.savephoto.SavePhotoActivity: void s()>",
+            "<com.seattleclouds.location.l: void a()>",
+            "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170575814581300_5m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.savephoto.SavePhotoActivity dummyMainMethod_com_seattleclouds_modules_savephoto_SavePhotoActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.savephoto.SavePhotoActivity: void onResume()>",
+            "<com.seattleclouds.location.l: void a()>",
+            "<android.location.LocationManager: void requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170570808275200_6m_21c",
+          "associated_call_chain": "path_170570808275200_6m_21c",
+          "boolean_logic_format": "(IntentExtras == null) AND (EXTRA_STORE_ID is not null) AND (storeIdProvided) AND (EXTRA_LEFT_TEXT_PREFIXES_is_null) AND ($r1 != null) AND (updateCurrentLocation == false) AND (LocationListener == null) AND (locationObjectIsNull) AND (`d` is not null) AND (**\n`field_f_is_not_null`\n**) AND (LocationListenerAssigned) AND (`locationObject == null`) AND (`com.seattleclouds.location.p` instance is not null) AND (locationProviderName == null) AND (locationServiceEnabled == false) AND (locationListener != null) AND (locationUpdateObject == null) AND (`locationProviderInstance != null`) AND (f == null) AND (l == false) AND (networkLocationUpdatesEnabled == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 21
+        },
+        {
+          "constraint_id": "path_170570822150500_9m_15c",
+          "associated_call_chain": "path_170570822150500_9m_15c",
+          "boolean_logic_format": "(LocationListener == null) AND (locationObjectIsNull) AND (`d` is not null) AND (**\n`field_f_is_not_null`\n**) AND (LocationListenerAssigned) AND (`locationObject == null`) AND (`com.seattleclouds.location.p` instance is not null) AND (locationProviderName == null) AND (locationServiceEnabled == false) AND (locationListener != null) AND (locationUpdateObject == null) AND (`locationProviderInstance != null`) AND (f == null) AND (l == false) AND (networkLocationUpdatesEnabled == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 15
+        },
+        {
+          "constraint_id": "path_170575814581300_5m_16c",
+          "associated_call_chain": "path_170575814581300_5m_16c",
+          "boolean_logic_format": "(locationObject != null) AND (LocationListener == null) AND (locationObjectIsNull) AND (`d` is not null) AND (**\n`field_f_is_not_null`\n**) AND (LocationListenerAssigned) AND (`locationObject == null`) AND (`com.seattleclouds.location.p` instance is not null) AND (locationProviderName == null) AND (locationServiceEnabled == false) AND (locationListener != null) AND (locationUpdateObject == null) AND (`locationProviderInstance != null`) AND (f == null) AND (l == false) AND (networkLocationUpdatesEnabled == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 621642,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170633611742300_7m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.startupoptions.WelcomeActivity dummyMainMethod_com_seattleclouds_startupoptions_WelcomeActivity(android.content.Intent)>",
+            "<com.seattleclouds.startupoptions.WelcomeActivity: void onCreate(android.os.Bundle)>",
+            "<com.seattleclouds.startupoptions.WelcomeActivity: int p()>",
+            "<com.seattleclouds.util.bt: int b(android.content.Context)>",
+            "<com.seattleclouds.util.bt: android.graphics.Point a(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170708695193000_6m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.TabsAppActivity dummyMainMethod_com_seattleclouds_TabsAppActivity(android.content.Intent)>",
+            "<com.seattleclouds.bx: void onGlobalLayout()>",
+            "<com.seattleclouds.util.bt: int b(android.content.Context)>",
+            "<com.seattleclouds.util.bt: android.graphics.Point a(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170732723741500_6m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.cameracover.CoverCamera dummyMainMethod_com_seattleclouds_modules_cameracover_CoverCamera(android.content.Intent)>",
+            "<com.seattleclouds.modules.cameracover.CoverCamera: void onCreate(android.os.Bundle)>",
+            "<com.seattleclouds.modules.cameracover.CoverCamera: android.hardware.Camera l()>",
+            "<com.seattleclouds.util.bt: android.graphics.Point a(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170633611742300_7m_8c",
+          "associated_call_chain": "path_170633611742300_7m_8c",
+          "boolean_logic_format": "(**  \nFeatureEnabled == false  \n**) AND (BundleParameter != null) AND ($r4 == null) AND (**\n`stringComparisonResult == false`\n**) AND (**\nconfigurationSettingN != 0\n**) AND (actionBarIsNull && !featureEnabled) AND (**  \n`WelcomeActivity.n() == false`  \n**) AND (`viewExists`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        },
+        {
+          "constraint_id": "path_170708695193000_6m_11c",
+          "associated_call_chain": "path_170708695193000_6m_11c",
+          "boolean_logic_format": "(isFirstTabLinearLayout) AND (viewAtIndex0IsNotLinearLayout) AND (SDK_VERSION >= 17) AND (modeIsNotOne) AND (indexOfChildView < totalChildViews) AND (isNotViewGroup) AND (**  \n`isNotTextView`  \n**) AND (modeSetting != 1) AND (textViewLayoutIsNull) AND (TextViewLineCount <= 0) AND (textEllipsizedInLastLine > 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        },
+        {
+          "constraint_id": "path_170732723741500_6m_4c",
+          "associated_call_chain": "path_170732723741500_6m_4c",
+          "boolean_logic_format": "(actionBar != null) AND (IntentExtras == null) AND (cameraCoversList != null) AND (cameraObject != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 778549,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_171354142889800_22m_37c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.facebook.FacebookActivity dummyMainMethod_com_facebook_FacebookActivity(android.content.Intent)>",
+            "<com.facebook.FacebookActivity: void onCreate(android.os.Bundle)>",
+            "<com.facebook.s: void a(android.content.Context)>",
+            "<com.facebook.s: void a(android.content.Context,com.facebook.x)>",
+            "<com.facebook.internal.ax: void a(android.content.Context,java.lang.String)>",
+            "<com.facebook.internal.ay: void run()>",
+            "<com.facebook.internal.ax: org.json.JSONObject e(java.lang.String)>",
+            "<com.facebook.internal.ax: org.json.JSONObject f(java.lang.String)>",
+            "<com.facebook.GraphRequest: com.facebook.an i()>",
+            "<com.facebook.GraphRequest: com.facebook.an a(com.facebook.GraphRequest)>",
+            "<com.facebook.GraphRequest: java.util.List a(com.facebook.GraphRequest[])>",
+            "<com.facebook.GraphRequest: java.util.List a(java.util.Collection)>",
+            "<com.facebook.GraphRequest: java.util.List b(com.facebook.ak)>",
+            "<com.facebook.GraphRequest: java.net.HttpURLConnection a(com.facebook.ak)>",
+            "<com.facebook.GraphRequest: void a(com.facebook.ak,java.net.HttpURLConnection)>",
+            "<com.facebook.GraphRequest: void a(com.facebook.ak,com.facebook.internal.ah,int,java.net.URL,java.io.OutputStream,boolean)>",
+            "<com.facebook.GraphRequest: void a(android.os.Bundle,com.facebook.ai,com.facebook.GraphRequest)>",
+            "<com.facebook.ai: void a(java.lang.String,java.lang.Object,com.facebook.GraphRequest)>",
+            "<com.facebook.ai: void a(java.lang.String,android.net.Uri,java.lang.String)>",
+            "<com.facebook.internal.ax: long e(android.net.Uri)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_171354142889800_22m_37c",
+          "associated_call_chain": "path_171354142889800_22m_37c",
+          "boolean_logic_format": "(FacebookSDKInitialized == false) AND (BooleanFieldT == true) AND (!isValidConfiguration) AND (JSONObjectIsNotNull) AND (sizeOfCollection == 1) AND (httpMethod == POST) AND (firstGraphRequestMethod == POST) AND (HTTPMethodIsNotPOST) AND (!isFeatureFEnabled && !isFeatureEEnabled) AND (GraphRequest.e(com.facebook.ak) == false) AND ($requestMethod == POST) AND (firstGraphRequestMethod == POST) AND (HTTPMethodIsNotPOST) AND (GraphRequest.f(request) == false && GraphRequest.e(request) == false) AND (GraphRequest.e(graphRequest) == false) AND (integerParameter == 1) AND (!hasMoreElements) AND (noMoreParametersInBundle) AND (param1 != null) AND (IteratorHasMoreElements) AND (GraphRequest.e(objectFromBundle) == true) AND (GraphRequest.b(object) == false) AND (GraphRequest.b(objectParameter) == false) AND (objectDoesNotMeetCriteria) AND (objectToCheck is not an instance of android.net.Uri) AND (isNotParcelFileDescriptor) AND (`!(objectInstance instanceof com.facebook.GraphRequest$ParcelableResourceWithMimeType)`) AND ($r12 is not an instance of android.os.ParcelFileDescriptor) AND ($r12 is not an instance of android.net.Uri) AND (isResourceUri) AND ($r4 is not an instance of com.facebook.bc) AND (isObjectHandled == false) AND ($z0 == false) AND (`objectIsNotUri`) AND (`$r3 instanceof android.net.Uri`) AND (outputStreamIsNotExpectedType) AND (outputStreamIsNotInstanceOfComFacebookAt)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 37
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 1399996,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_171504086487800_25m_23c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.AppStarterActivity dummyMainMethod_com_seattleclouds_AppStarterActivity(android.content.Intent)>",
+            "<com.seattleclouds.AppStarterActivity: void onCreate(android.os.Bundle)>",
+            "<com.seattleclouds.AppStarterActivity: void b(java.lang.String)>",
+            "<com.seattleclouds.b.f: void onPostExecute(java.lang.Object)>",
+            "<com.seattleclouds.b.f: void a(java.lang.String)>",
+            "<com.seattleclouds.cv: void a(java.lang.Object)>",
+            "<com.seattleclouds.AppStarterActivity: void g(com.seattleclouds.AppStarterActivity)>",
+            "<com.seattleclouds.AppStarterActivity: void u()>",
+            "<com.seattleclouds.b.e: void onPostExecute(java.lang.Object)>",
+            "<com.seattleclouds.b.e: void a(java.lang.String)>",
+            "<com.seattleclouds.cg: void a(java.lang.Object)>",
+            "<com.seattleclouds.AppStarterActivity: void h(com.seattleclouds.AppStarterActivity)>",
+            "<com.seattleclouds.AppStarterActivity: void v()>",
+            "<com.seattleclouds.AppStarterActivity: void w()>",
+            "<com.seattleclouds.AppStarterActivity: void x()>",
+            "<com.seattleclouds.AppStarterActivity: void y()>",
+            "<com.seattleclouds.gcm.f: void a(android.content.Context)>",
+            "<com.seattleclouds.gcm.f: void c()>",
+            "<com.seattleclouds.gcm.g: void run()>",
+            "<com.seattleclouds.gcm.f: boolean a(android.content.Context,java.lang.String)>",
+            "<com.seattleclouds.gcm.f: java.lang.String a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.seattleclouds.util.bs: java.lang.String a()>",
+            "<com.seattleclouds.util.bs: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_171947721885500_13m_65c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.PageStarterActivity dummyMainMethod_com_seattleclouds_PageStarterActivity(android.content.Intent)>",
+            "<com.seattleclouds.PageStarterActivity: void onCreate(android.os.Bundle)>",
+            "<com.seattleclouds.App: boolean b(java.lang.String,android.app.Activity)>",
+            "<com.seattleclouds.App: boolean c(java.lang.String,android.app.Activity)>",
+            "<com.seattleclouds.App: boolean a(java.lang.String,android.app.Activity,android.support.v4.app.Fragment)>",
+            "<com.seattleclouds.paypal.b: void a(java.lang.String)>",
+            "<com.seattleclouds.paypal.b: void a(java.util.Hashtable,java.net.URL)>",
+            "<com.seattleclouds.paypal.b: void a()>",
+            "<com.seattleclouds.paypal.b: java.lang.String b()>",
+            "<com.seattleclouds.util.bs: java.lang.String a()>",
+            "<com.seattleclouds.util.bs: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_172024586991400_15m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.savephoto.SavePhotoActivity dummyMainMethod_com_seattleclouds_modules_savephoto_SavePhotoActivity(android.content.Intent)>",
+            "<com.seattleclouds.p: void onStart()>",
+            "<com.seattleclouds.al: void a(android.app.Activity)>",
+            "<com.seattleclouds.al: void f(android.app.Activity)>",
+            "<com.seattleclouds.al: void j(android.app.Activity)>",
+            "<com.seattleclouds.al: void k(android.app.Activity)>",
+            "<com.seattleclouds.a.a: void a(int)>",
+            "<com.seattleclouds.a.b: void run()>",
+            "<com.seattleclouds.a.a: boolean a(com.seattleclouds.a.a,int)>",
+            "<com.seattleclouds.a.a: boolean b(int)>",
+            "<com.seattleclouds.ce: java.lang.String a(android.content.Context)>",
+            "<com.seattleclouds.util.bs: java.lang.String a()>",
+            "<com.seattleclouds.util.bs: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_171504086487800_25m_23c",
+          "associated_call_chain": "path_171504086487800_25m_23c",
+          "boolean_logic_format": "(UIComponentAvailable != null) AND (AppConfigurationFlagV == true) AND (**  \nIntentExtras == null  \n**) AND (AppFlagL == false) AND (startedInApp == false) AND (AppFlagL == false) AND (inputParameter == null) AND (AppFieldL == false) AND (FeatureEnabled == true) AND (applicationLicensingPublicKey == null) AND (isResourceAvailable == true) AND (resourceFileAvailable == false) AND (activityIsFinishing == true) AND (m == false) AND (n == true) AND (`$z0` is `true`) AND ($z0 == false) AND ($z0 == false) AND (F == true) AND (stringLength == 0) AND (registrationIdOrToken != \"BLACKLISTED\") AND (cachedDeviceId != null) AND (**  \nStoredDeviceID == null  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 23
+        },
+        {
+          "constraint_id": "path_171947721885500_13m_65c",
+          "associated_call_chain": "path_171947721885500_13m_65c",
+          "boolean_logic_format": "(isPageIdLocal == false) AND (Notification ID is not zero) AND (!inputString.startsWith(\"sendmail:\")) AND (inputString.contains(\"sendmail://\")) AND (!inputString.startsWith(\"map://\") && inputString.startsWith(\"latlong://\")) AND (!url.startsWith(\"latlong://\") && !url.startsWith(\"google.streetview:\")) AND (!startsWithSound) AND (!stringStartsWithMovie) AND (inputString.startsWith(\"xaudio://\")) AND (!stringStartsWithXaudio) AND (!url.startsWith(\"xaudio://\")) AND (stringContainsProtocol) AND (!inputString.startsWith(\"external://\")) AND (!urlString.startsWith(\"xvideo://\")) AND (!processedString.startsWith(\"external://\")) AND (stringContainsProtocol) AND (inputString.startsWith(\"external://\")) AND (stringStartsWithBgPlayerStop) AND (!inputString.startsWith(\"bgplayer-stop://\")) AND (urlIndex == -1) AND (!url.startsWith(\"bgplayer-stop://\")) AND (r6 == null) AND (!inputString.startsWith(\"bgplayer-play://\") && inputString.indexOf(\"://\") == -1) AND (stringDoesNotContainURL) AND (contextConditionNotMet) AND (!startsWithBgPlayerStop && startsWithBgPlayerPause) AND (!inputString.startsWith(\"save://\")) AND (r0.startsWith(\"lpforgotpassword://\")) AND (queryComponentIsNull) AND (`$r0` contains `\"://\"`) AND (queryIsNotNull) AND (retrievedString.equalsIgnoreCase(modifiedInputString) == false) AND (**\nretrievedString != null\n**) AND (!stringStartsWithBuy) AND (!urlString.startsWith(\"pay://\")) AND (pageObject == null) AND (!urlString.startsWith(\"pay://\")) AND (inputString.startsWith(\"addtocart://\")) AND (NodeList_is_null) AND (currentIndex >= nodeListLength) AND (currentIndex < nodeListLength) AND (attributeValue != null) AND (hostDoesNotMatchId) AND (nodeAtCurrentIndexIsNotNull) AND (currentIndex < itemAttributesLength) AND (attributeNodeExists) AND (currentIndex < itemAttributesLength) AND (itemAttributeNode == null) AND (i2 <= length of r2) AND (attributeNameNotInTransactionAttributes) AND (hashtableContainsKeyForElementAtOrAfterIndexFour) AND (keyNotPresentInHashtable) AND (lengthOfPaymentAttributes > 3) AND (itemName != null) AND (itemName == null) AND (**  \nitemPriceNotSetInHashtable  \n**) AND (Hashtable is not empty) AND (!sharedPreferencesContainsPaypalItems0) AND (!sharedPreferencesContainsKey) AND (numberOfElementsInSplitString >= 6) AND (productIdFromSharedPreferences.equalsIgnoreCase(itemIdFromHashtable)) AND (**  \n`!sharedPreferencesContainsPaypalItems0`  \n**) AND (!sharedPreferencesContainsPaypalItems) AND (cachedDeviceId != null) AND (**  \nStoredDeviceID == null  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 65
+        },
+        {
+          "constraint_id": "path_172024586991400_15m_12c",
+          "associated_call_chain": "path_172024586991400_15m_12c",
+          "boolean_logic_format": "(currentValueOfA < 1) AND (c == true) AND (AppStateFlagL == false) AND (currentTimeMillis() - storedTimestamp > 43200000) AND (elapsedTimeSinceStoredTimestamp > 12 hours) AND (`methodBResult == true`) AND (currentTimeMillis() - lastRecordedTime <= 43200000) AND (currentTimeMillis() - storedTimestamp > 43200000) AND (bCondition == true) AND (methodAResult == true) AND (cachedDeviceId != null) AND (**  \nStoredDeviceID == null  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 2070454,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170732788703100_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.savephoto.SavePhotoActivity dummyMainMethod_com_seattleclouds_modules_savephoto_SavePhotoActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.savephoto.c: void onClick(android.view.View)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170732788703100_4m_0c",
+          "associated_call_chain": "path_170732788703100_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 778612,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_172063546255900_5m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity dummyMainMethod_com_seattleclouds_modules_voicerecord_VoiceRecordPickerActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: boolean onOptionsItemSelected(android.view.MenuItem)>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: void p()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_172070825276500_5m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity dummyMainMethod_com_seattleclouds_modules_voicerecord_VoiceRecordPickerActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: void onDestroy()>",
+            "<com.seattleclouds.modules.voicerecord.VoiceRecordPickerActivity: void p()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_172063546255900_5m_6c",
+          "associated_call_chain": "path_172063546255900_5m_6c",
+          "boolean_logic_format": "(menuItemId == vrlMenuUseId) AND (m == false) AND (menuItemId == vrlMenuRetake) AND (mediaRecorder != null) AND (menuItemId == cancelMenuId) AND (File exists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_172070825276500_5m_2c",
+          "associated_call_chain": "path_172070825276500_5m_2c",
+          "boolean_logic_format": "(**  \nE == true  \n**) AND (File exists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 2116690,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_172070911411500_1m_0c",
+          "entry_point": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+          "method_sequence": [
+            "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_172070911411500_1m_0c",
+          "associated_call_chain": "path_172070911411500_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 2116780,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_172162960362300_10m_15c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.AppStarterActivity dummyMainMethod_com_seattleclouds_AppStarterActivity(android.content.Intent)>",
+            "<com.seattleclouds.AppStarterActivity: void onCreate(android.os.Bundle)>",
+            "<com.seattleclouds.AppStarterActivity: void p()>",
+            "<com.seattleclouds.AppStarterActivity: void t()>",
+            "<com.seattleclouds.b.d: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.seattleclouds.b.d: java.lang.String a(java.lang.String[])>",
+            "<com.seattleclouds.b.d: boolean c()>",
+            "<com.android.vending.expansion.zipfile.a: java.lang.String[] a(android.content.Context,int,int)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_172273364534300_12m_18c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.gcm.GCMBroadcastReceiver dummyMainMethod_com_seattleclouds_gcm_GCMBroadcastReceiver(android.content.Intent)>",
+            "<com.seattleclouds.gcm.GCMBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.seattleclouds.gcm.GCMBroadcastReceiver: void a(android.content.Context,android.content.Intent)>",
+            "<com.seattleclouds.util.r: void a(android.content.Context,android.os.Bundle)>",
+            "<com.seattleclouds.util.r: void b(android.content.Context,android.os.Bundle)>",
+            "<com.seattleclouds.App: void a(android.content.Context)>",
+            "<com.seattleclouds.App: void b(boolean)>",
+            "<com.seattleclouds.App: void b(android.content.Context)>",
+            "<com.android.vending.expansion.zipfile.a: com.android.vending.expansion.zipfile.b b(android.content.Context,int,int)>",
+            "<com.android.vending.expansion.zipfile.a: java.lang.String[] a(android.content.Context,int,int)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_172162960362300_10m_15c",
+          "associated_call_chain": "path_172162960362300_10m_15c",
+          "boolean_logic_format": "(UIComponentIsNull) AND (AppFeatureEnabled == false) AND (intentExtras == null) AND (AppFlagL == false) AND (startedInAppFlag == false) AND (AppFlagJ == true) AND (featureEnabled == true) AND (startedInAppFlag == false) AND (AppFlagJ == false) AND (if featureEnabled == false) AND (com.seattleclouds.util.w.a() == false) AND (E == true) AND (fileExists == false) AND (AppFlagJ == false) AND (externalStorageState.equals(\"mounted\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 15
+        },
+        {
+          "constraint_id": "path_172273364534300_12m_18c",
+          "associated_call_chain": "path_172273364534300_12m_18c",
+          "boolean_logic_format": "(GCMMessageType.equals(\"deleted_messages\")) AND (messageType != \"deleted_messages\") AND (intentExtras != null) AND (moduleType.equalsIgnoreCase(\"OSABB\") == false) AND ($r3.equalsIgnoreCase(\"OSABB\") == false) AND (typeInBundle != null) AND (typeString.equals(\"electronicSignature\") == false) AND ($r3.equals(\"electronicSignature\") == false) AND (messageString != null && messageString.length() > 255) AND (messageLength <= 255) AND (`isConditionMet == false`) AND (appStarted == true) AND (appStarted == false) AND (param0 == true) AND (applicationFlag == false) AND (expansionFilesAvailable != null) AND (currentIndex < totalElements) AND (externalStorageState.equals(\"mounted\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 18
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 2319271,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_172273478823800_1m_0c",
+          "entry_point": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+          "method_sequence": [
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_172273478823800_1m_0c",
+          "associated_call_chain": "path_172273478823800_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 2319350,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170013212112000_5m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.cameracover.CoverCamera dummyMainMethod_com_seattleclouds_modules_cameracover_CoverCamera(android.content.Intent)>",
+            "<com.seattleclouds.modules.cameracover.CoverCamera: void onCreate(android.os.Bundle)>",
+            "<net.sourceforge.zbar.android.a: void setDisplayOrientation(int)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170013212112000_5m_8c",
+          "associated_call_chain": "path_170013212112000_5m_8c",
+          "boolean_logic_format": "(UIComponentIsNull) AND (IntentExtras == null) AND (**\ncameraCoverOptionsList == null\n**) AND (cameraInstance != null) AND (cameraSupportsNoFocusModes) AND (cameraSupportsAutoFocus == false) AND (modeValue == 9) AND (Method setDisplayOrientation exists in Camera class)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 59026,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_170732859963700_9m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.order.OrderAlipayPersonToPersonActivity dummyMainMethod_com_seattleclouds_modules_order_OrderAlipayPersonToPersonActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.order.OrderAlipayPersonToPersonActivity: void sendReceipt(android.view.View)>",
+            "<com.seattleclouds.modules.order.b: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.seattleclouds.modules.order.b: java.lang.String a(java.lang.Void[])>",
+            "<com.seattleclouds.util.a: java.lang.String b(java.lang.String,java.util.Map)>",
+            "<com.seattleclouds.util.a: java.lang.String b(java.lang.String,java.util.Map,int)>",
+            "<com.seattleclouds.util.a: java.lang.String a(java.lang.String,java.lang.String,int)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_170732885258900_10m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.seattleclouds.modules.rateandreview.NewRateAndCommentActivity dummyMainMethod_com_seattleclouds_modules_rateandreview_NewRateAndCommentActivity(android.content.Intent)>",
+            "<com.seattleclouds.modules.rateandreview.a: void onClick(android.view.View)>",
+            "<com.seattleclouds.modules.rateandreview.NewRateAndCommentActivity: void a(com.seattleclouds.modules.rateandreview.NewRateAndCommentActivity)>",
+            "<com.seattleclouds.modules.rateandreview.NewRateAndCommentActivity: void l()>",
+            "<com.seattleclouds.modules.rateandreview.d: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.seattleclouds.modules.rateandreview.d: java.lang.String a(java.lang.Void[])>",
+            "<com.seattleclouds.util.a: java.lang.String a(java.lang.String,java.lang.String)>",
+            "<com.seattleclouds.util.a: java.lang.String a(java.lang.String,java.lang.String,int)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_170732859963700_9m_0c",
+          "associated_call_chain": "path_170732859963700_9m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_170732885258900_10m_0c",
+          "associated_call_chain": "path_170732885258900_10m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 778707,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_171079397126200_6m_41c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.revmob.FullscreenActivity dummyMainMethod_com_revmob_FullscreenActivity(android.content.Intent)>",
+            "<com.revmob.FullscreenActivity: void onCreate(android.os.Bundle)>",
+            "<com.revmob.ads.c.b.i: void <init>(android.content.Context,java.lang.String,java.lang.String,com.revmob.internal.t)>",
+            "<com.revmob.internal.s: void <init>(android.content.Context,java.lang.String,java.lang.String,android.webkit.WebViewClient)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_171079430477500_12m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.revmob.FullscreenActivity dummyMainMethod_com_revmob_FullscreenActivity(android.content.Intent)>",
+            "<com.revmob.ads.c.b.f: void onClick(android.view.View)>",
+            "<com.revmob.ads.c.b.a: boolean b()>",
+            "<com.revmob.ads.c.b.a: void d()>",
+            "<com.revmob.ads.c.b.b: void run()>",
+            "<com.revmob.internal.e: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.revmob.internal.g: void run()>",
+            "<com.revmob.ads.c.b.i: void <init>(android.content.Context,com.revmob.internal.t)>",
+            "<com.revmob.internal.s: void <init>(android.content.Context,com.revmob.internal.t)>",
+            "<com.revmob.internal.s: void <init>(android.content.Context,java.lang.String,java.lang.String,android.webkit.WebViewClient)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_171079397126200_6m_41c",
+          "associated_call_chain": "path_171079397126200_6m_41c",
+          "boolean_logic_format": "(BundleParameter != null) AND (SDKVersion <= 14) AND (screenDensity != 0) AND (noRetainedInstance == true) AND (lastNonConfigInstance != null) AND ($d0 != 0.0) AND (adConfigurationMode == 1) AND (orientation != Configuration.ORIENTATION_LANDSCAPE) AND (marketURL == null) AND (isRewarded == true) AND (SDKVersionString != null) AND (FullscreenActivity.c == null) AND (activitySavedState != null) AND (if adConfigurationConditionNotMet) AND (currentParallaxMode != defaultParallaxMode) AND (audioFocusGranted == true) AND (audioFocusRequestResult == AudioManager.AUDIOFOCUS_REQUEST_FAILED) AND (BundleParameter != null) AND (SDKVersion <= 14) AND (screenDensityDpi == 0) AND (`getLastNonConfigurationInstance() == null`) AND (retainedInstance != null) AND ($d0 != 0.0) AND (**\nR() == 1\n**) AND (deviceOrientation == Configuration.ORIENTATION_LANDSCAPE) AND (fetchId == null) AND (isRewarded == false) AND (SDKVersionString != null) AND ($cField == null) AND (lastNonConfigurationInstanceIsNull) AND (adFeatureEnabled == false) AND (BundleParameter != null) AND (sdkVersion <= 14) AND (screenDensity != 0) AND (lastNonConfigurationInstance == null) AND ($r13 != null) AND ($d0 != 0.0) AND (**\nresultOfMethodR != 1\n**) AND (orientation != Configuration.ORIENTATION_LANDSCAPE) AND (marketURLExtraIsNull) AND (isRewarded == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 41
+        },
+        {
+          "constraint_id": "path_171079430477500_12m_0c",
+          "associated_call_chain": "path_171079430477500_12m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937248470,
+        "analysis_duration_ms": 1125274,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

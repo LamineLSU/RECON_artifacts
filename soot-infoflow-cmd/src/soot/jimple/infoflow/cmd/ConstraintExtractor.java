@@ -19,6 +19,8 @@ import com.google.gson.*;
  * analysis.
  * Converts Soot variables and conditions into meaningful constraint
  * descriptions.
+ * Now uses step-by-step targeting approach with comprehensive prompts
+ * and full audit trail logging.
  */
 public class ConstraintExtractor {
     private final LLMService llmService;
@@ -26,17 +28,23 @@ public class ConstraintExtractor {
     private final Map<String, String> constraintCache;
     private final ExecutorService executorService;
     private final int maxRetries;
-    private final boolean useLLM; // NEW: Flag to enable/disable LLM
+    private final boolean useLLM;
+    private final LLMInteractionLogger interactionLogger;
 
     public ConstraintExtractor(LLMConfig config) {
-        this(config, true); // Default: use LLM
+        this(config, true, null);
     }
 
     public ConstraintExtractor(LLMConfig config, boolean useLLM) {
+        this(config, useLLM, null);
+    }
+
+    public ConstraintExtractor(LLMConfig config, boolean useLLM, LLMInteractionLogger logger) {
         this.useLLM = useLLM;
         this.variableCache = new ConcurrentHashMap<>();
         this.constraintCache = new ConcurrentHashMap<>();
         this.maxRetries = config != null ? config.getMaxRetries() : 3;
+        this.interactionLogger = logger;
 
         if (useLLM && config != null) {
             this.llmService = new LLMService(config);
@@ -49,7 +57,400 @@ public class ConstraintExtractor {
     }
 
     /**
-     * Extract constraint from an IF_CONDITION node
+     * Extract constraint for single condition with immediate target
+     * (step-by-step approach with enhanced logging)
+     */
+    public Constraint extractSingleConditionConstraint(AllocationNode conditionNode, AllocationNode targetNode,
+            SootMethod method) {
+        if (conditionNode.getType() != NodeType.IF_CONDITION) {
+            return null;
+        }
+
+        Unit ifUnit = conditionNode.getUnit();
+        if (!(ifUnit instanceof IfStmt)) {
+            return null;
+        }
+
+        IfStmt ifStmt = (IfStmt) ifUnit;
+        Value condition = ifStmt.getCondition();
+
+        // DEBUG: Stage 1 - Condition Discovery
+        System.out.println("\n=== DEBUG: Stage 1 - Condition Discovery ===");
+        System.out.println("DEBUG: Found condition node: " + conditionNode.getId());
+        System.out.println("DEBUG: Condition statement: " + ifStmt.toString());
+        System.out.println("DEBUG: Target statement: " + getTargetStatementString(targetNode));
+        System.out.println("DEBUG: Method context: " + method.getName());
+        System.out.println("=============================================\n");
+
+        // Generate unique ID for this constraint
+        String constraintId = generateConstraintId(method, ifUnit, "conditional");
+
+        String humanReadable;
+        String format1 = "";
+        String format2 = "";
+        String format3 = "";
+
+        if (useLLM) {
+            // Build comprehensive prompt with step-by-step targeting
+            SingleConditionResult result = extractSingleConditionWithLLM(conditionNode, targetNode, method);
+            if (result != null) {
+                humanReadable = result.format1; // Use format1 as primary
+                format1 = result.format1;
+                format2 = result.format2;
+                format3 = result.format3;
+            } else {
+                // Fallback
+                humanReadable = generateFallbackCondition(condition, true);
+                format1 = humanReadable;
+                format2 = humanReadable;
+                format3 = humanReadable;
+            }
+        } else {
+            // Use fallback method
+            humanReadable = generateFallbackCondition(condition, true);
+            format1 = humanReadable;
+            format2 = humanReadable;
+            format3 = humanReadable;
+        }
+
+        // Parse condition components
+        ConditionComponents components = parseCondition(condition, humanReadable);
+
+        // DEBUG: Stage 5 - Constraint Creation
+        System.out.println("\n--- DEBUG: Stage 5 - Constraint Creation ---");
+        System.out.println("DEBUG: Creating constraint object");
+        System.out.println("DEBUG: Constraint ID: " + constraintId);
+        System.out.println("DEBUG: Format1: " + format1);
+        System.out.println("DEBUG: Format2: " + format2);
+        System.out.println("DEBUG: Format3: " + format3);
+        System.out.println("--------------------------------------------\n");
+
+        // Create enhanced conditional constraint with three formats
+        return new EnhancedConditionalConstraint(
+                constraintId, method, ifUnit, humanReadable, true,
+                components.variable, components.operator, components.value,
+                format1, format2, format3);
+    }
+
+    /**
+     * Extract single condition using comprehensive LLM prompt with step-by-step
+     * targeting and full logging
+     */
+    private SingleConditionResult extractSingleConditionWithLLM(AllocationNode conditionNode, AllocationNode targetNode,
+            SootMethod method) {
+        try {
+            String methodBody = getMethodBodyAsString(method);
+            String conditionStatement = conditionNode.getUnit().toString();
+            String targetStatement = getTargetStatementString(targetNode);
+
+            // DEBUG: Stage 2 - Prompt Construction
+            System.out.println("\n=== DEBUG: Stage 2 - Prompt Construction ===");
+            System.out.println("DEBUG: Building LLM prompt");
+            System.out.println("DEBUG: Method body length: " + methodBody.length() + " characters");
+            System.out.println("DEBUG: Condition: " + conditionStatement);
+            System.out.println("DEBUG: Target: " + targetStatement);
+
+            String prompt = buildComprehensivePrompt(methodBody, conditionStatement, targetStatement);
+
+            System.out.println("DEBUG: Prompt length: " + prompt.length() + " characters");
+            System.out.println("DEBUG: Prompt preview: " + truncateForDisplay(prompt, 200));
+            System.out.println("==============================================\n");
+
+            // Log interaction start
+            String interactionId = null;
+            if (interactionLogger != null && interactionLogger.isEnabled()) {
+                interactionId = interactionLogger.logInteraction(
+                        "path_" + System.nanoTime(), // Will be updated with real path ID later
+                        method.getSignature(),
+                        conditionStatement,
+                        targetStatement,
+                        prompt,
+                        llmService.getConfig());
+            }
+
+            // Send LLM request
+            LLMRequest request = new LLMRequest(prompt, LLMRequestType.SINGLE_CONDITION_EXTRACTION);
+
+            long startTime = System.currentTimeMillis();
+            LLMResponse response = llmService.sendRequest(request);
+            long responseTime = System.currentTimeMillis() - startTime;
+
+            // Log response
+            if (interactionLogger != null && interactionId != null) {
+                interactionLogger.logResponse(
+                        interactionId,
+                        response.getContent(),
+                        response.isSuccess(),
+                        responseTime,
+                        response.isSuccess() ? null : "LLM request failed");
+            }
+
+            if (!response.isSuccess()) {
+                System.err.println("LLM request failed for condition: " + conditionStatement);
+                return null;
+            }
+
+            // DEBUG: Stage 4 - Response Parsing
+            System.out.println("\n--- DEBUG: Stage 4 - Response Parsing ---");
+            System.out.println("DEBUG: Parsing LLM response");
+            System.out.println("DEBUG: Response length: " + response.getContent().length() + " characters");
+            System.out.println("DEBUG: Raw LLM response: " + response.getContent());
+
+            SingleConditionResult result = parseStructuredLLMResponse(response.getContent());
+
+            boolean parseSuccess = result != null;
+            String parseError = null;
+
+            if (parseSuccess) {
+                System.out.println("DEBUG: Extracted branch direction: " + result.branchDirection);
+                System.out.println("DEBUG: Extracted variables: [parsed from response]");
+                System.out.println("DEBUG: Extracted constraint: " + result.format2);
+            } else {
+                parseError = "Failed to parse LLM response structure";
+                System.out.println("DEBUG: Parse error: " + parseError);
+            }
+
+            System.out.println("DEBUG: Parsing success: " + parseSuccess);
+            System.out.println("------------------------------------------\n");
+
+            // Log constraint creation
+            if (interactionLogger != null && interactionId != null) {
+                interactionLogger.logConstraintCreation(
+                        interactionId,
+                        result != null ? generateConstraintId(method, conditionNode.getUnit(), "conditional") : null,
+                        result != null ? result.format1 : null,
+                        result != null ? result.format2 : null,
+                        result != null ? result.format3 : null,
+                        parseSuccess,
+                        parseError);
+            }
+
+            return result;
+
+        } catch (Exception e) {
+            System.err.println("Error extracting single condition with LLM: " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Build comprehensive prompt with full analysis + placeholders for clean
+     * extraction
+     */
+    private String buildComprehensivePrompt(String methodBody, String conditionStatement, String targetStatement) {
+        StringBuilder prompt = new StringBuilder();
+
+        prompt.append("Given the bytecode for the method below:\n");
+        prompt.append("[METHOD_BODY]\n");
+        prompt.append(methodBody).append("\n");
+
+        prompt.append("And this conditional statement in the method: \"").append(conditionStatement).append("\"\n");
+        prompt.append(
+                "Analyze this condition to determine the execution constraint needed to reach the target statement: \"")
+                .append(targetStatement).append("\"\n");
+
+        prompt.append("INSTRUCTIONS:\n");
+        prompt.append("1. Identify ALL variables used in the conditional statement\n");
+        prompt.append(
+                "2. For each variable, trace its definition by finding the LAST assignment before this condition\n");
+        prompt.append("3. Be mindful of variable reassignment - use the most recent assignment to each variable\n");
+        prompt.append("4. If any variable is assigned the return value of a framework method, explain:\n");
+        prompt.append("   - What the framework method does\n");
+        prompt.append("   - What type it returns (boolean, int, String, etc.)\n");
+        prompt.append("   - What the possible return values are\n");
+        prompt.append("   - What each return value signifies in the business/application context\n");
+        prompt.append("5. Determine which branch (TRUE or FALSE) of this condition leads to the target statement\n");
+        prompt.append("6. Provide the constraint in human-readable form using meaningful terms, not variable names\n");
+        prompt.append(
+                "7. IMPORTANT: Replace bytecode variable names (z0, i1, etc.) with meaningful names based on what they represent (intent, menuItem, userInput, etc.) by analyzing their assignments\n");
+
+        prompt.append("ANALYSIS REQUIREMENTS:\n");
+        prompt.append(
+                "- Trace execution flow from the condition through labels/gotos to determine the correct branch\n");
+        prompt.append(
+                "- For framework method calls like Intent.hasExtra(), MenuItem.getItemId(), etc., explain their semantic meaning\n");
+        prompt.append("- Convert technical conditions into business logic constraints\n");
+        prompt.append("- Focus only on this specific conditional statement\n");
+
+        prompt.append("OUTPUT FORMAT:\n");
+        prompt.append("Branch Direction: [TRUE/FALSE - which branch leads to target]\n\n");
+
+        prompt.append("Variables:\n");
+        prompt.append("[For each variable in condition]\n");
+        prompt.append("Variable: [variable name]\n");
+        prompt.append("Assignment: [last assignment statement]\n");
+        prompt.append("Framework Method: [if applicable, name and purpose]\n");
+        prompt.append("Return Type: [data type]\n");
+        prompt.append("Possible Values: [range/options of return values]\n");
+        prompt.append("Meaning: [what this represents in application context]\n\n");
+
+        prompt.append("Constraint (Human Readable): [Business logic constraint in plain English]\n\n");
+
+        prompt.append("Now analyze the given condition and target.\n\n");
+
+        prompt.append("After your complete analysis above, provide clean outputs in these markers:\n\n");
+
+        prompt.append("BRANCH_DIRECTION_START\n");
+        prompt.append("[TRUE or FALSE only]\n");
+        prompt.append("BRANCH_DIRECTION_END\n\n");
+
+        prompt.append("BOOLEAN_CONSTRAINT_START\n");
+        prompt.append("[Clean boolean expression only using meaningful variable names]\n");
+        prompt.append("BOOLEAN_CONSTRAINT_END\n\n");
+
+        prompt.append("BUSINESS_CONSTRAINT_START\n");
+        prompt.append("[Single sentence requirement only]\n");
+        prompt.append("BUSINESS_CONSTRAINT_END\n\n");
+
+        prompt.append("TECHNICAL_CONSTRAINT_START\n");
+        prompt.append("[Framework method info only]\n");
+        prompt.append("TECHNICAL_CONSTRAINT_END");
+
+        return prompt.toString();
+    }
+
+    /**
+     * Parse structured LLM response using placeholder markers
+     */
+    private SingleConditionResult parseStructuredLLMResponse(String response) {
+        if (response == null || response.trim().isEmpty()) {
+            return null;
+        }
+
+        SingleConditionResult result = new SingleConditionResult();
+
+        try {
+            // Parse branch direction using placeholder markers
+            String branchDirection = extractBetweenMarkers(response, "BRANCH_DIRECTION_START", "BRANCH_DIRECTION_END");
+            if (branchDirection != null) {
+                result.branchDirection = branchDirection.trim().equalsIgnoreCase("TRUE");
+            }
+
+            // Parse Format 1 (Boolean Logic) using placeholder markers
+            result.format1 = extractBetweenMarkers(response, "BOOLEAN_CONSTRAINT_START", "BOOLEAN_CONSTRAINT_END");
+            if (result.format1 != null) {
+                result.format1 = result.format1.trim();
+            }
+
+            // Parse Format 2 (Business Logic) using placeholder markers
+            result.format2 = extractBetweenMarkers(response, "BUSINESS_CONSTRAINT_START", "BUSINESS_CONSTRAINT_END");
+            if (result.format2 != null) {
+                result.format2 = result.format2.trim();
+            }
+
+            // Parse Format 3 (Technical Context) using placeholder markers
+            result.format3 = extractBetweenMarkers(response, "TECHNICAL_CONSTRAINT_START", "TECHNICAL_CONSTRAINT_END");
+            if (result.format3 != null) {
+                result.format3 = result.format3.trim();
+            }
+
+            // Fallback handling - ensure all formats have values
+            if (result.format1 == null || result.format1.isEmpty()) {
+                result.format1 = result.format2 != null ? result.format2 : "unknown_condition";
+            }
+            if (result.format2 == null || result.format2.isEmpty()) {
+                result.format2 = result.format1 != null ? result.format1 : "Condition must be met";
+            }
+            if (result.format3 == null || result.format3.isEmpty()) {
+                result.format3 = result.format1 != null ? result.format1 : "Technical condition analysis";
+            }
+
+        } catch (Exception e) {
+            System.err.println("Error parsing structured LLM response: " + e.getMessage());
+            return null;
+        }
+
+        return result;
+    }
+
+    /**
+     * Extract content between start and end markers
+     */
+    private String extractBetweenMarkers(String text, String startMarker, String endMarker) {
+        if (text == null || startMarker == null || endMarker == null) {
+            return null;
+        }
+
+        int startIndex = text.indexOf(startMarker);
+        if (startIndex == -1) {
+            return null;
+        }
+
+        startIndex += startMarker.length();
+        int endIndex = text.indexOf(endMarker, startIndex);
+        if (endIndex == -1) {
+            return null;
+        }
+
+        String extracted = text.substring(startIndex, endIndex);
+        return extracted.trim();
+    }
+
+    /**
+     * Extract framework method information from variables section
+     */
+    private String extractFrameworkMethodInfo(String variablesSection) {
+        StringBuilder techInfo = new StringBuilder();
+
+        // Look for framework method patterns
+        Pattern frameworkPattern = Pattern.compile("Framework Method:\\s*(.+?)(?=\\n|$)", Pattern.CASE_INSENSITIVE);
+        Matcher frameworkMatcher = frameworkPattern.matcher(variablesSection);
+
+        if (frameworkMatcher.find()) {
+            techInfo.append("Framework method: ").append(frameworkMatcher.group(1).trim());
+        }
+
+        // Look for return type information
+        Pattern returnTypePattern = Pattern.compile("Return Type:\\s*(.+?)(?=\\n|$)", Pattern.CASE_INSENSITIVE);
+        Matcher returnTypeMatcher = returnTypePattern.matcher(variablesSection);
+
+        if (returnTypeMatcher.find()) {
+            if (techInfo.length() > 0)
+                techInfo.append("; ");
+            techInfo.append("Returns: ").append(returnTypeMatcher.group(1).trim());
+        }
+
+        return techInfo.length() > 0 ? techInfo.toString() : "Technical condition analysis";
+    }
+
+    /**
+     * Generate boolean logic format from variables section
+     */
+    private String generateBooleanLogicFormat(String variablesSection, String businessContext) {
+        // Try to extract variable names and create boolean expression
+        Pattern variablePattern = Pattern.compile("Variable:\\s*(.+?)(?=\\n|$)", Pattern.CASE_INSENSITIVE);
+        Matcher variableMatcher = variablePattern.matcher(variablesSection);
+
+        List<String> variables = new ArrayList<>();
+        while (variableMatcher.find()) {
+            variables.add(variableMatcher.group(1).trim());
+        }
+
+        if (!variables.isEmpty()) {
+            // Simple boolean logic format
+            return variables.get(0) + " == condition_value";
+        }
+
+        // Fallback to business context if no variables found
+        return businessContext != null ? businessContext : "condition_check";
+    }
+
+    /**
+     * Get target statement string for prompt
+     */
+    private String getTargetStatementString(AllocationNode targetNode) {
+        if (targetNode.getUnit() != null) {
+            return targetNode.getUnit().toString();
+        } else if (targetNode.getType() == NodeType.METHOD_CALL && targetNode.getMethodCall() != null) {
+            return targetNode.getMethodCall().toString();
+        } else {
+            return "target_statement";
+        }
+    }
+
+    /**
+     * Legacy method for backward compatibility - extract constraint from
+     * IF_CONDITION node
      */
     public ConditionalConstraint extractConditionalConstraint(AllocationNode ifNode, boolean takeTrueBranch) {
         if (ifNode.getType() != NodeType.IF_CONDITION) {
@@ -76,7 +477,7 @@ public class ConstraintExtractor {
             humanReadable = constraintCache.get(cacheKey);
 
             if (humanReadable == null) {
-                // Extract using LLM
+                // Extract using LLM (legacy method)
                 humanReadable = extractConditionWithLLM(method, condition, takeTrueBranch);
                 constraintCache.put(cacheKey, humanReadable);
             }
@@ -195,12 +596,12 @@ public class ConstraintExtractor {
     }
 
     /**
-     * Extract condition using LLM
+     * Legacy: Extract condition using LLM
      */
     private String extractConditionWithLLM(SootMethod method, Value condition, boolean takeTrueBranch) {
         try {
             String methodBody = getMethodBodyAsString(method);
-            String prompt = buildConditionPrompt(methodBody, condition, takeTrueBranch);
+            String prompt = buildLegacyConditionPrompt(methodBody, condition, takeTrueBranch);
 
             LLMRequest request = new LLMRequest(prompt, LLMRequestType.CONDITION_EXTRACTION);
             LLMResponse response = llmService.sendRequest(request);
@@ -271,22 +672,16 @@ public class ConstraintExtractor {
     }
 
     /**
-     * Build prompt for condition extraction
+     * Legacy: Build prompt for condition extraction (simpler version)
      */
-    private String buildConditionPrompt(String methodBody, Value condition, boolean takeTrueBranch) {
+    private String buildLegacyConditionPrompt(String methodBody, Value condition, boolean takeTrueBranch) {
         StringBuilder prompt = new StringBuilder();
-        prompt.append("Analyze this Android/Java method and convert the Jimple condition to human-readable form:\n\n");
-        prompt.append("Method Body (Jimple IR):\n");
-        prompt.append(methodBody).append("\n\n");
-        prompt.append("Target Condition: ").append(condition.toString()).append("\n");
-        prompt.append("Branch Taken: ").append(takeTrueBranch ? "TRUE" : "FALSE").append("\n\n");
-        prompt.append("Please provide a human-readable description of what this condition means ");
-        prompt.append("in the context of the method. Focus on:\n");
-        prompt.append("1. What variables represent (user input, settings, state, etc.)\n");
-        prompt.append("2. The semantic meaning of the condition\n");
-        prompt.append("3. Use meaningful names instead of Jimple variables ($i0, $r1, etc.)\n\n");
-        prompt.append("Example output: 'user.age > 18' or 'settings.isEnabled == true'\n");
-        prompt.append("Response (only the condition, no explanation):");
+        prompt.append("Convert this Jimple condition to readable form:\n\n");
+        prompt.append("Method context (first 500 chars):\n");
+        prompt.append(methodBody.substring(0, Math.min(500, methodBody.length()))).append("...\n\n");
+        prompt.append("Condition: ").append(condition.toString()).append("\n");
+        prompt.append("Branch taken: ").append(takeTrueBranch ? "TRUE" : "FALSE").append("\n\n");
+        prompt.append("Return only the readable condition:");
 
         return prompt.toString();
     }
@@ -296,10 +691,9 @@ public class ConstraintExtractor {
      */
     private String buildSwitchPrompt(String methodBody, Unit switchUnit, String caseValue, boolean isDefault) {
         StringBuilder prompt = new StringBuilder();
-        prompt.append(
-                "Analyze this Android/Java method and convert the Jimple switch statement to human-readable form:\n\n");
-        prompt.append("Method Body (Jimple IR):\n");
-        prompt.append(methodBody).append("\n\n");
+        prompt.append("Convert this Jimple switch to readable form:\n\n");
+        prompt.append("Method context (first 500 chars):\n");
+        prompt.append(methodBody.substring(0, Math.min(500, methodBody.length()))).append("...\n\n");
         prompt.append("Switch Statement: ").append(switchUnit.toString()).append("\n");
 
         if (isDefault) {
@@ -308,13 +702,7 @@ public class ConstraintExtractor {
             prompt.append("Case Value: ").append(caseValue).append("\n\n");
         }
 
-        prompt.append("Please provide a human-readable description of this switch condition ");
-        prompt.append("in the context of the method. Focus on:\n");
-        prompt.append("1. What the switch variable represents\n");
-        prompt.append("2. The semantic meaning of the case value\n");
-        prompt.append("3. Use meaningful names instead of Jimple variables\n\n");
-        prompt.append("Example output: 'userType == ADMIN' or 'requestCode == LOGIN_REQUEST'\n");
-        prompt.append("Response (only the condition, no explanation):");
+        prompt.append("Return only the readable condition:");
 
         return prompt.toString();
     }
@@ -324,17 +712,11 @@ public class ConstraintExtractor {
      */
     private String buildVariablePrompt(String methodBody, Value variable) {
         StringBuilder prompt = new StringBuilder();
-        prompt.append("Analyze this Android/Java method and determine what this Jimple variable represents:\n\n");
-        prompt.append("Method Body (Jimple IR):\n");
-        prompt.append(methodBody).append("\n\n");
-        prompt.append("Target Variable: ").append(variable.toString()).append("\n\n");
-        prompt.append("Please provide a meaningful name for this variable based on:\n");
-        prompt.append("1. How it's used in the method\n");
-        prompt.append("2. What values are assigned to it\n");
-        prompt.append("3. Android/Java naming conventions\n");
-        prompt.append("4. The business logic context\n\n");
-        prompt.append("Example outputs: 'user_age', 'is_premium_user', 'login_attempts', 'view_button'\n");
-        prompt.append("Response (only the variable name, no explanation):");
+        prompt.append("Determine what this variable represents:\n\n");
+        prompt.append("Method context (first 500 chars):\n");
+        prompt.append(methodBody.substring(0, Math.min(500, methodBody.length()))).append("...\n\n");
+        prompt.append("Variable: ").append(variable.toString()).append("\n\n");
+        prompt.append("Return only the variable meaning:");
 
         return prompt.toString();
     }
@@ -344,18 +726,12 @@ public class ConstraintExtractor {
      */
     private String buildParameterPrompt(String methodBody, Unit callUnit, Value parameter, int index) {
         StringBuilder prompt = new StringBuilder();
-        prompt.append("Analyze this Android/Java method call parameter:\n\n");
-        prompt.append("Method Body (Jimple IR):\n");
-        prompt.append(methodBody).append("\n\n");
+        prompt.append("Analyze this method parameter:\n\n");
+        prompt.append("Method context (first 500 chars):\n");
+        prompt.append(methodBody.substring(0, Math.min(500, methodBody.length()))).append("...\n\n");
         prompt.append("Method Call: ").append(callUnit.toString()).append("\n");
         prompt.append("Parameter ").append(index).append(": ").append(parameter.toString()).append("\n\n");
-        prompt.append("If this parameter has constraints or meaningful values, describe them.\n");
-        prompt.append("Return empty if the parameter is unconstrained.\n\n");
-        prompt.append("Examples:\n");
-        prompt.append("- 'userId must be > 0'\n");
-        prompt.append("- 'permission must be CAMERA'\n");
-        prompt.append("- '' (empty for unconstrained)\n\n");
-        prompt.append("Response:");
+        prompt.append("Return constraint if any:");
 
         return prompt.toString();
     }
@@ -404,7 +780,14 @@ public class ConstraintExtractor {
             String[] parts = condStr.split(" gt ");
             return new ConditionComponents(parts[0].trim(), ">", parts[1].trim());
         }
-        // Add more condition parsing logic...
+        if (condStr.contains(" eq ")) {
+            String[] parts = condStr.split(" eq ");
+            return new ConditionComponents(parts[0].trim(), "==", parts[1].trim());
+        }
+        if (condStr.contains(" ne ")) {
+            String[] parts = condStr.split(" ne ");
+            return new ConditionComponents(parts[0].trim(), "!=", parts[1].trim());
+        }
 
         return new ConditionComponents("unknown", "unknown", "unknown");
     }
@@ -439,13 +822,40 @@ public class ConstraintExtractor {
         if (response == null)
             return "";
 
-        // Remove common LLM artifacts
         response = response.trim();
-        response = response.replaceAll("^Response:\\s*", "");
-        response = response.replaceAll("^Answer:\\s*", "");
-        response = response.replaceAll("^Output:\\s*", "");
 
-        return response;
+        // Remove common prefixes
+        response = response.replaceAll("^(Response|Answer|Output|Condition|The condition is):?\\s*", "");
+        response = response.replaceAll("^Format \\d[^:]*:\\s*", "");
+
+        // Extract first meaningful line
+        String[] lines = response.split("\n");
+        for (String line : lines) {
+            line = line.trim();
+            if (!line.isEmpty() && !line.startsWith("This") && !line.startsWith("In this")) {
+                response = line;
+                break;
+            }
+        }
+
+        // Remove quotes and brackets
+        response = response.replaceAll("^[\"\\[]+|[\"\\]]+$", "");
+
+        // Remove explanatory text
+        response = response.replaceAll("\\s*\\(.*?\\)\\s*", "");
+
+        return response.trim();
+    }
+
+    /**
+     * Truncate text for display
+     */
+    private String truncateForDisplay(String text, int maxLength) {
+        if (text == null)
+            return "null";
+        if (text.length() <= maxLength)
+            return text;
+        return text.substring(0, maxLength) + "... [+" + (text.length() - maxLength) + " chars]";
     }
 
     /**
@@ -531,6 +941,47 @@ public class ConstraintExtractor {
             this.value = value;
         }
     }
+
+    /**
+     * Result container for single condition LLM analysis
+     */
+    private static class SingleConditionResult {
+        boolean branchDirection;
+        String format1; // Boolean logic
+        String format2; // Business context
+        String format3; // Technical details
+    }
+}
+
+/**
+ * Enhanced conditional constraint with three output formats
+ */
+class EnhancedConditionalConstraint extends ConditionalConstraint {
+    private final String format1; // Boolean logic
+    private final String format2; // Business context
+    private final String format3; // Technical details
+
+    public EnhancedConditionalConstraint(String constraintId, SootMethod sourceMethod, Unit sourceUnit,
+            String humanReadableCondition, boolean requiredValue,
+            String variable, String operator, String value,
+            String format1, String format2, String format3) {
+        super(constraintId, sourceMethod, sourceUnit, humanReadableCondition, requiredValue, variable, operator, value);
+        this.format1 = format1;
+        this.format2 = format2;
+        this.format3 = format3;
+    }
+
+    public String getFormat1() {
+        return format1;
+    }
+
+    public String getFormat2() {
+        return format2;
+    }
+
+    public String getFormat3() {
+        return format3;
+    }
 }
 
 /**
@@ -550,11 +1001,29 @@ class LLMService {
     }
 
     public LLMResponse sendRequest(LLMRequest request) throws Exception {
+
+        // add delay before making request (rate-limiting)
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         // Build HTTP request based on LLM provider
         HttpRequest httpRequest = buildHttpRequest(request);
 
         // Send request
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() == 429) {
+            System.out.println("Rate limited 429, waiting for 5 seconds and retrying...");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            // Retry the request once
+            response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        }
 
         if (response.statusCode() != 200) {
             throw new RuntimeException("LLM request failed with status: " + response.statusCode());
@@ -612,6 +1081,11 @@ class LLMService {
 
         return new LLMResponse("", false);
     }
+
+    // Getter for config access
+    public LLMConfig getConfig() {
+        return config;
+    }
 }
 
 /**
@@ -631,7 +1105,7 @@ class LLMConfig {
         this.provider = provider;
         this.apiKey = apiKey;
         this.model = model;
-        this.maxTokens = 150;
+        this.maxTokens = 1000; // Increased for comprehensive prompts
         this.temperature = 0.1;
         this.maxConcurrentRequests = 5;
         this.maxRetries = 3;
@@ -749,5 +1223,6 @@ enum LLMRequestType {
     CONDITION_EXTRACTION,
     SWITCH_EXTRACTION,
     VARIABLE_NAMING,
-    PARAMETER_ANALYSIS
+    PARAMETER_ANALYSIS,
+    SINGLE_CONDITION_EXTRACTION
 }

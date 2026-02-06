@@ -1,0 +1,671 @@
+{
+  "total_dangerous_apis": 11,
+  "category_statistics": {
+    "privacy_sensors": 1,
+    "device_information_collection": 2,
+    "file_system_operations": 2,
+    "sms_phone_operations": 2,
+    "dynamic_code_loading": 2,
+    "network_data_exfiltration": 2
+  },
+  "analysis_timestamp": "2026-01-31 16:39:38",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+    ],
+    "sms_phone_operations": [
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "<java.net.URL: java.net.URLConnection openConnection()>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138438945879400_5m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.ui.widget.V2GuideBannerView: void <init>(android.content.Context,android.util.AttributeSet)>",
+            "<com.packet.theme.util.i: java.lang.String d(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_138460852890799_6m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.ui.widget.V2GuideBannerView: void <init>(android.content.Context,android.util.AttributeSet)>",
+            "<com.packet.b.f: java.lang.String d(android.content.Context)>",
+            "<com.packet.theme.util.i: java.lang.String d(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_138460857108700_7m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.ThemeActivity dummyMainMethod_com_packet_activity_ThemeActivity(android.content.Intent)>",
+            "<com.packet.activity.ThemeActivity: void onCreate(android.os.Bundle)>",
+            "<com.packet.b.f: java.lang.String a(android.content.Context)>",
+            "<com.packet.b.f: java.lang.String d(android.content.Context)>",
+            "<com.packet.theme.util.i: java.lang.String d(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138438945879400_5m_1c",
+          "associated_call_chain": "path_138438945879400_5m_1c",
+          "boolean_logic_format": "deviceIdIsNotEmpty",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_138460852890799_6m_4c",
+          "associated_call_chain": "path_138460852890799_6m_4c",
+          "boolean_logic_format": "(screenWidthPixels > 0) AND (**  \nAndroidID != null  \n**) AND (`$r3 != null`) AND (deviceIdIsNotEmpty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_138460857108700_7m_4c",
+          "associated_call_chain": "path_138460857108700_7m_4c",
+          "boolean_logic_format": "(screenWidthPixels > 0) AND (**  \nAndroidID != null  \n**) AND (`$r3 != null`) AND (deviceIdIsNotEmpty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 250394,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138663129868299_5m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.ui.widget.V2GuideBannerView: void <init>(android.content.Context,android.util.AttributeSet)>",
+            "<com.packet.b.f: java.lang.String d(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_138663133491599_6m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.ThemeActivity dummyMainMethod_com_packet_activity_ThemeActivity(android.content.Intent)>",
+            "<com.packet.activity.ThemeActivity: void onCreate(android.os.Bundle)>",
+            "<com.packet.b.f: java.lang.String a(android.content.Context)>",
+            "<com.packet.b.f: java.lang.String d(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138663129868299_5m_2c",
+          "associated_call_chain": "path_138663129868299_5m_2c",
+          "boolean_logic_format": "(displayWidth > 0) AND (staticFieldIIsNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        },
+        {
+          "constraint_id": "path_138663133491599_6m_2c",
+          "associated_call_chain": "path_138663133491599_6m_2c",
+          "boolean_logic_format": "(displayWidth > 0) AND (staticFieldIIsNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 452672,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.app.ActivityManager: java.util.List getRunningTasks(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138808914611299_8m_18c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.ui.cover.CameraActivity dummyMainMethod_com_packet_ui_cover_CameraActivity(android.content.Intent)>",
+            "<com.packet.ui.cover.CameraActivity: void onResume()>",
+            "<com.packet.ui.cover.c: void run()>",
+            "<com.packet.ui.cover.a: void run()>",
+            "<com.packet.ui.cover.CameraActivity: boolean a()>",
+            "<com.packet.ui.cover.CameraActivity: java.lang.String[] a(android.app.ActivityManager)>",
+            "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138808914611299_8m_18c",
+          "associated_call_chain": "path_138808914611299_8m_18c",
+          "boolean_logic_format": "(CameraActivityConditionIsFalse) AND (d != 3) AND (`d != 4`) AND (state != 6) AND (d != 8) AND (d != 5) AND (mode != 12) AND (state != 9) AND (d != 7) AND (d != 11) AND (d != 15) AND (`cameraActivityMode == 15`) AND (activityManagerServiceAvailable) AND (**\nsecurityCheckFailed\n**) AND (r3 != null) AND (index >= arrayLength) AND (SDK_INT >= 20) AND (securityCheckFailed)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 18
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 598454,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138460880454400_5m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.ui.widget.V2GuideBannerView: void <init>(android.content.Context,android.util.AttributeSet)>",
+            "<com.packet.theme.util.i: java.lang.String d(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_138481204155399_6m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.ui.widget.V2GuideBannerView: void <init>(android.content.Context,android.util.AttributeSet)>",
+            "<com.packet.b.f: java.lang.String d(android.content.Context)>",
+            "<com.packet.theme.util.i: java.lang.String d(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_138481207276700_7m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.ThemeActivity dummyMainMethod_com_packet_activity_ThemeActivity(android.content.Intent)>",
+            "<com.packet.activity.ThemeActivity: void onCreate(android.os.Bundle)>",
+            "<com.packet.b.f: java.lang.String a(android.content.Context)>",
+            "<com.packet.b.f: java.lang.String d(android.content.Context)>",
+            "<com.packet.theme.util.i: java.lang.String d(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138460880454400_5m_0c",
+          "associated_call_chain": "path_138460880454400_5m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_138481204155399_6m_3c",
+          "associated_call_chain": "path_138481204155399_6m_3c",
+          "boolean_logic_format": "(displayWidth > 0) AND (AndroidID != null) AND (cachedStringValue != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_138481207276700_7m_3c",
+          "associated_call_chain": "path_138481207276700_7m_3c",
+          "boolean_logic_format": "(displayWidth > 0) AND (AndroidID != null) AND (cachedStringValue != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 270749,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138500989691900_4m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.activity.SettingsActivity: void onCreate(android.os.Bundle)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138500989691900_4m_2c",
+          "associated_call_chain": "path_138500989691900_4m_2c",
+          "boolean_logic_format": "(isVlockerLockerAvailable == false) AND (isVlockerLockerPresent)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 290528,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_139015853554300_6m_27c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.activity.SettingsActivity: void onCreate(android.os.Bundle)>",
+            "<com.packet.update.i: void a(java.lang.String)>",
+            "<com.packet.update.p: void run()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_139015853554300_6m_27c",
+          "associated_call_chain": "path_139015853554300_6m_27c",
+          "boolean_logic_format": "(**\nFeature \"com.vlocker.locker\" is not available\n**) AND (featureAvailable == false) AND ($l1 != 0L) AND (`com.packet.a.a.b() == true`) AND (J() == false) AND (com.packet.c.a.b() == false) AND ($z0 == false) AND (`V2GuideBannerView l is not null`) AND (isVlockerLockerActive == false) AND (b() == true) AND (stringsAreNotEqual) AND (temporaryFileDoesNotExist) AND (stringsAreEqual == false && fileExists == false) AND (methodAResult == false) AND (stringsAreNotEqual) AND (!fileTmpExists) AND (fileExists == false) AND (fileCriteriaCheck == false) AND (methodBReturnsFalse) AND (stringsAreNotEqual) AND (fileDoesNotExist) AND (stringsAreNotEqual) AND (**\nfileExists\n**) AND (fileExists) AND (`!stringEquals`) AND (fileDoesNotExist) AND (stringComparisonResult == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 27
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 805395,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_139015877942700_10m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.ThemeActivity dummyMainMethod_com_packet_activity_ThemeActivity(android.content.Intent)>",
+            "<com.packet.activity.J: void onClick(android.view.View)>",
+            "<com.packet.update.e: void a()>",
+            "<com.packet.update.h: void run()>",
+            "<com.packet.update.f: void handleMessage(android.os.Message)>",
+            "<com.packet.update.g: void run()>",
+            "<com.packet.update.e: void a(com.packet.update.e,boolean)>",
+            "<com.packet.b.e: void <clinit>()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_139022612267700_9m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.ThemeActivity dummyMainMethod_com_packet_activity_ThemeActivity(android.content.Intent)>",
+            "<com.packet.activity.J: void onClick(android.view.View)>",
+            "<com.packet.update.e: void a()>",
+            "<com.packet.update.h: void run()>",
+            "<com.packet.update.f: void handleMessage(android.os.Message)>",
+            "<com.packet.update.e: void a(com.packet.update.e,boolean)>",
+            "<com.packet.b.e: void <clinit>()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_139083694202599_6m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.activity.SettingsActivity: void onCreate(android.os.Bundle)>",
+            "<com.packet.update.i: void a(java.lang.String)>",
+            "<com.packet.b.e: void <clinit>()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_139083699229300_7m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vlocker.ui.cover.LockerService dummyMainMethod_com_vlocker_ui_cover_LockerService(android.content.Intent)>",
+            "<com.vlocker.ui.cover.LockerService: void onCreate()>",
+            "<com.vlocker.ui.cover.c: void run()>",
+            "<com.vlocker.ui.cover.LockerService: void b(com.vlocker.ui.cover.LockerService,java.lang.String)>",
+            "<com.packet.b.e: void <clinit>()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_139083703084500_7m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vlocker.ui.cover.LockerService dummyMainMethod_com_vlocker_ui_cover_LockerService(android.content.Intent)>",
+            "<com.vlocker.ui.cover.LockerService: void onCreate()>",
+            "<com.vlocker.ui.cover.c: void run()>",
+            "<com.vlocker.ui.cover.LockerService: void a(com.vlocker.ui.cover.LockerService,java.lang.String)>",
+            "<com.packet.b.e: void <clinit>()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_139015877942700_10m_0c",
+          "associated_call_chain": "path_139015877942700_10m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_139022612267700_9m_2c",
+          "associated_call_chain": "path_139022612267700_9m_2c",
+          "boolean_logic_format": "(switch_condition) AND (conditionRelatedToString1IsNotMet)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        },
+        {
+          "constraint_id": "path_139083694202599_6m_9c",
+          "associated_call_chain": "path_139083694202599_6m_9c",
+          "boolean_logic_format": "(isVlockerLockerAvailable == false) AND (J() == false) AND (p() != 0L) AND (com.packet.a.a.b() == true) AND ($z0 == 0) AND (methodBReturnsFalse) AND (`com.packet.c.a.b() == false`) AND (V2GuideBannerViewInstance != null) AND (isLockerAvailable == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        },
+        {
+          "constraint_id": "path_139083699229300_7m_0c",
+          "associated_call_chain": "path_139083699229300_7m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_139083703084500_7m_0c",
+          "associated_call_chain": "path_139083703084500_7m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 873247,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138300208412600_7m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.moxiu.sdk.statistics.MxCacheManager$StatPollingReceiver dummyMainMethod_com_moxiu_sdk_statistics_MxCacheManager$StatPollingReceiver(android.content.Intent)>",
+            "<com.moxiu.sdk.statistics.MxCacheManager$StatPollingReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.moxiu.sdk.statistics.c: void handleMessage(android.os.Message)>",
+            "<com.moxiu.sdk.statistics.MxCacheManager: void d(com.moxiu.sdk.statistics.MxCacheManager)>",
+            "<com.moxiu.sdk.statistics.d.j: boolean a()>",
+            "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138300208412600_7m_11c",
+          "associated_call_chain": "path_138300208412600_7m_11c",
+          "boolean_logic_format": "(retrievedCacheManager == defaultCacheManager) AND (networkOrCacheManagerInstance != defaultInstance) AND (`cacheConditionMet == true`) AND (**\nfileLockHeld != null\n**) AND (b() == false) AND (listIsEmpty == true) AND (currentIndex >= listSize) AND (networkConditionCheck == false) AND ($z1 != 0) AND (successfulOperationsCount >= 30) AND (field_b_value == 1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 89746,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138428200270500_6m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.vlocker.ui.cover.LockerService dummyMainMethod_com_vlocker_ui_cover_LockerService(android.content.Intent)>",
+            "<com.vlocker.ui.cover.LockerService: void onCreate()>",
+            "<com.packet.theme.util.a: void b(android.content.Context,java.lang.String)>",
+            "<com.packet.theme.util.a: android.content.pm.ApplicationInfo f(android.content.Context,java.lang.String)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138428200270500_6m_16c",
+          "associated_call_chain": "path_138428200270500_6m_16c",
+          "boolean_logic_format": "(isLockerPackageEnabled == false) AND (securityConditionMet == true) AND (applicationContextConditionMet) AND (themeName != null) AND (!isStringEmpty) AND (androidApiLevel < 18) AND (`isConditionMet == false`) AND (displayWidth > displayHeight) AND (widgetConfiguration != null) AND (**  \nheight < width  \n**) AND ($r6 != null) AND (isLockerFeatureEnabled == false) AND (ahObject == null) AND (ahInstance == null) AND ($r12 != null) AND ($r3 != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 217744,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138501003097899_1m_0c",
+          "entry_point": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+          "method_sequence": [
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138501003097899_1m_0c",
+          "associated_call_chain": "path_138501003097899_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 290538,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_138645121424200_7m_17c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.packet.activity.SettingsActivity dummyMainMethod_com_packet_activity_SettingsActivity(android.content.Intent)>",
+            "<com.packet.activity.SettingsActivity: void onCreate(android.os.Bundle)>",
+            "<com.packet.update.i: void a(java.lang.String)>",
+            "<com.packet.update.p: void run()>",
+            "<com.packet.update.n: boolean a(java.lang.String,java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_138645121424200_7m_17c",
+          "associated_call_chain": "path_138645121424200_7m_17c",
+          "boolean_logic_format": "(featureAvailable == false) AND (!isFeatureEnabled) AND (longValueFromMethodP == 0) AND (`com.packet.a.a.b() == true`) AND (J() == false) AND (featureEnabled == true\n####) AND (`com.packet.c.a.b() == false`) AND (V2GuideBannerViewFieldIsNotNull) AND (isVlockerLockerAvailable == false) AND (method_b_returns_true) AND (fileExists == false) AND (temporaryFileExists == false) AND (stringsAreNotEqual) AND (validationResult == false) AND (param1 is not empty or null) AND (!TextUtils.isEmpty(fileName)) AND (!isEmpty(firstParameter))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 17
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769905504753,
+        "analysis_duration_ms": 434659,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

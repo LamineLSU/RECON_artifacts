@@ -6,9 +6,9 @@ import java.util.*;
 
 /**
  * Abstract base class representing execution constraints that must be satisfied
- * to reach a target method. Constraints are extracted from control flow
- * conditions
+ * to reach a target method. Constraints are extracted from control flow conditions
  * and converted to human-readable form using LLM analysis.
+ * Now supports three output formats for different analysis needs.
  */
 public abstract class Constraint {
     protected final String id;
@@ -16,19 +16,47 @@ public abstract class Constraint {
     protected final Unit sourceUnit;
     protected final String humanReadableCondition;
     protected final ConstraintType type;
+    
+    // New: Three-format support
+    protected final String format1; // Boolean logic
+    protected final String format2; // Business context
+    protected final String format3; // Technical details
 
     public Constraint(String id, SootMethod sourceMethod, Unit sourceUnit,
             String humanReadableCondition, ConstraintType type) {
+        this(id, sourceMethod, sourceUnit, humanReadableCondition, type,
+             humanReadableCondition, humanReadableCondition, humanReadableCondition);
+    }
+    
+    public Constraint(String id, SootMethod sourceMethod, Unit sourceUnit,
+            String humanReadableCondition, ConstraintType type,
+            String format1, String format2, String format3) {
         this.id = id;
         this.sourceMethod = sourceMethod;
         this.sourceUnit = sourceUnit;
         this.humanReadableCondition = humanReadableCondition;
         this.type = type;
+        this.format1 = format1 != null ? format1 : humanReadableCondition;
+        this.format2 = format2 != null ? format2 : humanReadableCondition;
+        this.format3 = format3 != null ? format3 : humanReadableCondition;
     }
 
     public abstract boolean isCompatibleWith(Constraint other);
 
     public abstract String getConditionExpression();
+
+    // New: Three-format getters
+    public String getFormat1() {
+        return format1;
+    }
+
+    public String getFormat2() {
+        return format2;
+    }
+
+    public String getFormat3() {
+        return format3;
+    }
 
     // Getters
     public String getId() {
@@ -91,6 +119,18 @@ class ConditionalConstraint extends Constraint {
         this.operator = operator;
         this.compareValue = compareValue;
     }
+    
+    public ConditionalConstraint(String id, SootMethod sourceMethod, Unit sourceUnit,
+            String humanReadableCondition, boolean takeTrueBranch,
+            String conditionVariable, String operator, String compareValue,
+            String format1, String format2, String format3) {
+        super(id, sourceMethod, sourceUnit, humanReadableCondition, ConstraintType.CONDITIONAL,
+              format1, format2, format3);
+        this.takeTrueBranch = takeTrueBranch;
+        this.conditionVariable = conditionVariable;
+        this.operator = operator;
+        this.compareValue = compareValue;
+    }
 
     @Override
     public boolean isCompatibleWith(Constraint other) {
@@ -112,7 +152,7 @@ class ConditionalConstraint extends Constraint {
 
     @Override
     public String getConditionExpression() {
-        return takeTrueBranch ? humanReadableCondition : "!(" + humanReadableCondition + ")";
+        return takeTrueBranch ? format1 : "!(" + format1 + ")";
     }
 
     // Getters
@@ -149,6 +189,17 @@ class SwitchConstraint extends Constraint {
         this.caseValue = caseValue;
         this.isDefaultCase = isDefaultCase;
     }
+    
+    public SwitchConstraint(String id, SootMethod sourceMethod, Unit sourceUnit,
+            String humanReadableCondition, String switchVariable,
+            String caseValue, boolean isDefaultCase,
+            String format1, String format2, String format3) {
+        super(id, sourceMethod, sourceUnit, humanReadableCondition, ConstraintType.SWITCH,
+              format1, format2, format3);
+        this.switchVariable = switchVariable;
+        this.caseValue = caseValue;
+        this.isDefaultCase = isDefaultCase;
+    }
 
     @Override
     public boolean isCompatibleWith(Constraint other) {
@@ -167,10 +218,7 @@ class SwitchConstraint extends Constraint {
 
     @Override
     public String getConditionExpression() {
-        if (isDefaultCase) {
-            return switchVariable + " == default";
-        }
-        return switchVariable + " == " + caseValue;
+        return format1;
     }
 
     // Getters
@@ -205,6 +253,18 @@ class ParameterConstraint extends Constraint {
         this.requiredValue = requiredValue;
         this.parameterType = parameterType;
     }
+    
+    public ParameterConstraint(String id, SootMethod sourceMethod, Unit sourceUnit,
+            String humanReadableCondition, int parameterIndex,
+            String parameterName, String requiredValue, String parameterType,
+            String format1, String format2, String format3) {
+        super(id, sourceMethod, sourceUnit, humanReadableCondition, ConstraintType.PARAMETER,
+              format1, format2, format3);
+        this.parameterIndex = parameterIndex;
+        this.parameterName = parameterName;
+        this.requiredValue = requiredValue;
+        this.parameterType = parameterType;
+    }
 
     @Override
     public boolean isCompatibleWith(Constraint other) {
@@ -224,7 +284,7 @@ class ParameterConstraint extends Constraint {
 
     @Override
     public String getConditionExpression() {
-        return parameterName + " == " + requiredValue;
+        return format1;
     }
 
     // Getters
@@ -263,6 +323,18 @@ class FieldConstraint extends Constraint {
         this.requiredValue = requiredValue;
         this.fieldType = fieldType;
     }
+    
+    public FieldConstraint(String id, SootMethod sourceMethod, Unit sourceUnit,
+            String humanReadableCondition, String fieldName,
+            String objectName, String requiredValue, String fieldType,
+            String format1, String format2, String format3) {
+        super(id, sourceMethod, sourceUnit, humanReadableCondition, ConstraintType.FIELD,
+              format1, format2, format3);
+        this.fieldName = fieldName;
+        this.objectName = objectName;
+        this.requiredValue = requiredValue;
+        this.fieldType = fieldType;
+    }
 
     @Override
     public boolean isCompatibleWith(Constraint other) {
@@ -282,7 +354,7 @@ class FieldConstraint extends Constraint {
 
     @Override
     public String getConditionExpression() {
-        return objectName + "." + fieldName + " == " + requiredValue;
+        return format1;
     }
 
     // Getters
@@ -319,6 +391,17 @@ class AndroidConstraint extends Constraint {
         this.componentName = componentName;
         this.properties = new HashMap<>(properties);
     }
+    
+    public AndroidConstraint(String id, SootMethod sourceMethod, Unit sourceUnit,
+            String humanReadableCondition, AndroidConstraintSubType subType,
+            String componentName, Map<String, String> properties,
+            String format1, String format2, String format3) {
+        super(id, sourceMethod, sourceUnit, humanReadableCondition, ConstraintType.ANDROID,
+              format1, format2, format3);
+        this.subType = subType;
+        this.componentName = componentName;
+        this.properties = new HashMap<>(properties);
+    }
 
     @Override
     public boolean isCompatibleWith(Constraint other) {
@@ -339,18 +422,7 @@ class AndroidConstraint extends Constraint {
 
     @Override
     public String getConditionExpression() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(subType.toString().toLowerCase()).append(": ");
-        sb.append(humanReadableCondition);
-
-        if (!properties.isEmpty()) {
-            sb.append(" {");
-            properties.forEach((k, v) -> sb.append(k).append("=").append(v).append(", "));
-            sb.setLength(sb.length() - 2); // Remove last comma
-            sb.append("}");
-        }
-
-        return sb.toString();
+        return format1;
     }
 
     // Getters

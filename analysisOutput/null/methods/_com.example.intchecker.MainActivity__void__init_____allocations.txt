@@ -1,6 +1,0 @@
-Analysis for method: <com.example.intchecker.MainActivity: void <init>()>
-=====================================
-
-Object Allocations Analysis
-=========================
-

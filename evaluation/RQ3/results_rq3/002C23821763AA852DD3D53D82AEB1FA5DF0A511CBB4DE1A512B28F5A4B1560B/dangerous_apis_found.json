@@ -1,0 +1,1063 @@
+{
+  "total_dangerous_apis": 13,
+  "category_statistics": {
+    "privacy_sensors": 2,
+    "device_information_collection": 2,
+    "file_system_operations": 2,
+    "sms_phone_operations": 2,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 4
+  },
+  "analysis_timestamp": "2026-02-01 01:03:37",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_167572449975400_14m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.mo$1: void run()>",
+            "<com.yandex.metrica.impl.ob.mt: void a()>",
+            "<com.yandex.metrica.impl.ob.mq: void a()>",
+            "<com.yandex.metrica.impl.ob.mk: android.location.Location a()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_167620283363900_16m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.mo$3: void run()>",
+            "<com.yandex.metrica.impl.ob.mt: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.mh)>",
+            "<com.yandex.metrica.impl.ob.mq: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.mh)>",
+            "<com.yandex.metrica.impl.ob.mq: void f()>",
+            "<com.yandex.metrica.impl.ob.mq: void a()>",
+            "<com.yandex.metrica.impl.ob.mk: android.location.Location a()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_167572449975400_14m_12c",
+          "associated_call_chain": "path_167572449975400_14m_12c",
+          "boolean_logic_format": "(`intentMeetsCriteria`) AND (referrerIsNotEmpty) AND (cjStaticFieldA == null) AND (param1 != null) AND (mtInstance != null) AND (LocationManager is not null) AND (`locationProvidersList != null`) AND (providerIsInAllowedSet) AND (providerNameNotInAllowedSet) AND (contextConditionNotMet) AND (providerNotInSet) AND (bMethodReturnsTrue)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        },
+        {
+          "constraint_id": "path_167620283363900_16m_13c",
+          "associated_call_chain": "path_167620283363900_16m_13c",
+          "boolean_logic_format": "(intentConditionMet == true) AND ($r3 is not null and not empty) AND (`com.yandex.metrica.impl.ob.cj.a == null`) AND (`param1 != null`) AND (`mtInstance != null`) AND (internalStateFlag == true) AND (LocationManager is not null) AND (`locationProvidersList != null`) AND (providerIsInAllowedSet) AND (providerNameNotInAllowedSet) AND (contextConditionNotMet) AND (providerNotInSet) AND (bMethodReturnsTrue)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 183495,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_167639416504300_7m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver dummyMainMethod_com_augapp_reci_nnrecsevea_sdk_receiver_BootReceiver(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.Init: void execute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.DefaultAndroidOInit: void doExecute()>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_167697177767700_8m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver dummyMainMethod_com_augapp_reci_nnrecsevea_sdk_receiver_BootReceiver(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.CryopiggyManagerImpl: void executeInits()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.Init: void execute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.DefaultAndroidOInit: void doExecute()>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_167639416504300_7m_3c",
+          "associated_call_chain": "path_167639416504300_7m_3c",
+          "boolean_logic_format": "(Context is not null) AND (applicationContext != null) AND (isMainProcess == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_167697177767700_8m_8c",
+          "associated_call_chain": "path_167697177767700_8m_8c",
+          "boolean_logic_format": "(**\napplicationContext == null\n**) AND (isMainProcess == true) AND (isMainProcess(context) == false) AND (applicationContext == null) AND (i0 >= 26) AND (isMainProcess(context) == true) AND (inits != null) AND (currentIndex < totalInits)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 260387,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_168883010156900_42m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: com.yandex.metrica.impl.ob.s a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.bj: android.graphics.Point b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cg: java.lang.Object a(java.util.concurrent.Callable,java.lang.Object,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.so$4: java.lang.Object call()>",
+            "<com.yandex.metrica.impl.ob.so$4: java.lang.Integer a()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_168883010156900_42m_11c",
+          "associated_call_chain": "path_168883010156900_42m_11c",
+          "boolean_logic_format": "(IntentIsValid == true) AND (isReferrerEmpty == false) AND (com.yandex.metrica.impl.ob.cj.a == null) AND (param1 != null) AND (intent != null) AND (`intentDoesNotMeetCriteria`) AND (czConditionNotMet) AND (`m() | n()`) AND (singletonInstanceIsNull) AND (singletonInstance == null) AND (prerequisiteConditionMet == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 1446242,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_168949242444400_40m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: com.yandex.metrica.impl.ob.s a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s$a: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s$a: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_169020684344400_39m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: java.lang.String a(com.yandex.metrica.impl.ob.sc)>",
+            "<com.yandex.metrica.impl.ob.s$a: java.lang.String a(com.yandex.metrica.impl.ob.sc)>",
+            "<com.yandex.metrica.impl.ob.s$a: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_168949242444400_40m_10c",
+          "associated_call_chain": "path_168949242444400_40m_10c",
+          "boolean_logic_format": "(intentMeetsCriteria) AND (!TextUtils.isEmpty(referrer)) AND (**  \n`com.yandex.metrica.impl.ob.cj.a == null`  \n**) AND (param1 != null) AND (intent != null) AND (`intentDoesNotMeetCriteria`) AND (czConditionMet == false) AND (eitherConditionMOrNIsTrue) AND (singletonInstanceIsNull) AND (singletonInstance == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_169020684344400_39m_10c",
+          "associated_call_chain": "path_169020684344400_39m_10c",
+          "boolean_logic_format": "(intentCriteriaMet == true) AND (referrer is not empty) AND (SingletonInstanceNotInitialized) AND (param1 != null) AND (intent != null) AND (intentDoesNotMeetCriteria) AND (`methodAResult == false`) AND (!(conditionM || conditionN)) AND (!TextUtils.isEmpty(currentStringValue)) AND (isStringEmpty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 1583921,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_167731065560000_8m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver dummyMainMethod_com_augapp_reci_nnrecsevea_sdk_receiver_BootReceiver(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.Init: void execute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.AndroidInit: void doExecute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.android.AndroidManagerImpl: void startService()>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_167750656752600_9m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver dummyMainMethod_com_augapp_reci_nnrecsevea_sdk_receiver_BootReceiver(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.Init: void execute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.DefaultAndroidOInit: void doExecute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.AndroidOInit: void doExecute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.android.AndroidManagerImpl: void startService()>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_167731065560000_8m_4c",
+          "associated_call_chain": "path_167731065560000_8m_4c",
+          "boolean_logic_format": "(applicationContext == null) AND (applicationContext != null) AND (isMainProcess == false) AND (Context is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_167750656752600_9m_4c",
+          "associated_call_chain": "path_167750656752600_9m_4c",
+          "boolean_logic_format": "(**\napplicationContext == null\n**) AND (applicationContext != null) AND (isMainProcess(context)) AND (Context is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 313869,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_167841757307200_42m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: com.yandex.metrica.impl.ob.s a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.bj: android.graphics.Point b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cg: java.lang.Object a(java.util.concurrent.Callable,java.lang.Object,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.sr$1: java.lang.Object call()>",
+            "<com.yandex.metrica.impl.ob.sr$1: java.lang.String a()>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_167841757307200_42m_12c",
+          "associated_call_chain": "path_167841757307200_42m_12c",
+          "boolean_logic_format": "(`intentIsValid == true`) AND (referrerStringIsNotEmpty) AND (cjStaticFieldA == null) AND (param1 != null) AND (intent != null) AND (intentDoesNotMeetCriteria) AND (czConditionNotMet) AND (`m() || n()`) AND (singletonInstanceExists) AND (singletonInstance == null) AND (isConditionMet == true) AND (telephonyManagerInstance != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 404971,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_169020766140100_11m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaService dummyMainMethod_com_yandex_metrica_MetricaService(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaService: void onCreate()>",
+            "<com.yandex.metrica.impl.ob.aw: void <init>(android.content.Context,com.yandex.metrica.MetricaService$c)>",
+            "<com.yandex.metrica.impl.ob.aw: void <init>(android.content.Context,com.yandex.metrica.MetricaService$c,com.yandex.metrica.impl.ob.en)>",
+            "<com.yandex.metrica.impl.ob.aw: void <init>(android.content.Context,com.yandex.metrica.MetricaService$c,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.ei,com.yandex.metrica.impl.ob.ax,com.yandex.metrica.impl.ob.ro$a)>",
+            "<com.yandex.metrica.impl.ob.jg: void <init>(android.content.Context,com.yandex.metrica.impl.ob.uc)>",
+            "<com.yandex.metrica.impl.ob.jg: void <init>(java.io.File,com.yandex.metrica.impl.ob.uc,com.yandex.metrica.impl.ob.uv)>",
+            "<com.yandex.metrica.impl.ob.jg: void <init>(android.os.FileObserver,java.io.File,com.yandex.metrica.impl.ob.uc,com.yandex.metrica.impl.ob.uv,com.yandex.metrica.impl.ob.iq)>",
+            "<com.yandex.metrica.impl.ob.iq: boolean a(java.io.File)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_169020766140100_11m_0c",
+          "associated_call_chain": "path_169020766140100_11m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 1583984,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_169322878614000_42m_35c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.eo: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ep: void <init>(android.content.Context,com.yandex.metrica.impl.ob.dx)>",
+            "<com.yandex.metrica.impl.ob.eg: void <init>(android.content.Context,com.yandex.metrica.impl.ob.dx)>",
+            "<com.yandex.metrica.impl.ob.mx: void <init>(com.yandex.metrica.impl.ob.mo,com.yandex.metrica.impl.ob.sv,com.yandex.metrica.impl.ob.ch,com.yandex.metrica.impl.ob.kj)>",
+            "<com.yandex.metrica.impl.ob.mx: void a()>",
+            "<com.yandex.metrica.impl.ob.mo: void a(boolean)>",
+            "<com.yandex.metrica.impl.ob.mo: void d()>",
+            "<com.yandex.metrica.impl.ob.mo: void f()>",
+            "<com.yandex.metrica.impl.ob.mo: void g()>",
+            "<com.yandex.metrica.impl.ob.mo: void i()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable,long)>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable,long,java.util.concurrent.TimeUnit)>",
+            "<com.yandex.metrica.impl.ob.mo$2: void run()>",
+            "<com.yandex.metrica.impl.ob.mt: void d()>",
+            "<com.yandex.metrica.impl.ob.mw: void a()>",
+            "<com.yandex.metrica.impl.ob.mw: void b()>",
+            "<com.yandex.metrica.impl.ob.mw: void c()>",
+            "<com.yandex.metrica.impl.ob.nd: boolean b()>",
+            "<com.yandex.metrica.impl.ob.bf: boolean b()>",
+            "<com.yandex.metrica.impl.ob.bi: boolean b()>",
+            "<com.yandex.metrica.impl.ob.ca: boolean a(int,byte[],java.util.Map)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.cb$b,com.yandex.metrica.impl.ob.qq,java.util.Map)>",
+            "<com.yandex.metrica.impl.ob.ls: void a(android.content.Context,com.yandex.metrica.impl.ob.lq,com.yandex.metrica.impl.ob.nq)>",
+            "<com.yandex.metrica.impl.ob.ls: void a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.ag: void a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_169322878614000_42m_35c",
+          "associated_call_chain": "path_169322878614000_42m_35c",
+          "boolean_logic_format": "(IntentIsValid) AND (referrerString is not null and not empty) AND (com.yandex.metrica.impl.ob.cj.a == null) AND (param1 != null) AND (intent != null) AND (intentCriteriaNotMet) AND (czConditionNotMet) AND (conditionM || conditionN) AND (currentStateOfG != param0) AND (q == false) AND (WeakHashMap_isEmpty == true) AND (WeakHashMap is not empty) AND (Map is not empty) AND (WeakHashMap is not empty) AND (Field `j` of object `r0` is not null) AND (`r0.l == null`) AND ($r1 != null) AND (d() == true) AND (isConditionMet == true) AND (`nj.b() == false`) AND (`nj.b() == false`) AND (`njConditionNotMet`) AND (`njConditionNotMet`) AND (`nj.b() == false`) AND (conditionNotMet) AND (i0 == 200) AND (isContentEncodingValid == false) AND (firstElementOfContentEncodingList != \"encrypted\") AND (transformedByteArray != null) AND (constantState == currentState) AND (lrObjectIsNull) AND (componentAvailable != null) AND (methodAResult == false) AND (b() == true) AND ($b == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 35
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 1886115,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_167463002507500_8m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver dummyMainMethod_com_augapp_reci_nnrecsevea_sdk_receiver_BootReceiver(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.receiver.BootReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.Init: void execute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.main.init.FlurryInit: void doExecute()>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.flurry.FlurryManagerImpl: void init(android.content.Context,java.lang.String)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_167463002507500_8m_4c",
+          "associated_call_chain": "path_167463002507500_8m_4c",
+          "boolean_logic_format": "(context != null) AND (applicationContext != null) AND (isMainProcess(context) == false) AND (FlurryApiKey != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 26214,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_168042308455500_36m_25c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.eo: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ep: void <init>(android.content.Context,com.yandex.metrica.impl.ob.dx)>",
+            "<com.yandex.metrica.impl.ob.eg: void <init>(android.content.Context,com.yandex.metrica.impl.ob.dx)>",
+            "<com.yandex.metrica.impl.ob.mx: void <init>(com.yandex.metrica.impl.ob.mo,com.yandex.metrica.impl.ob.sv,com.yandex.metrica.impl.ob.ch,com.yandex.metrica.impl.ob.kj)>",
+            "<com.yandex.metrica.impl.ob.mx: void a()>",
+            "<com.yandex.metrica.impl.ob.mo: void a(boolean)>",
+            "<com.yandex.metrica.impl.ob.mo: void d()>",
+            "<com.yandex.metrica.impl.ob.mo: void f()>",
+            "<com.yandex.metrica.impl.ob.mo: void g()>",
+            "<com.yandex.metrica.impl.ob.mo: void i()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable,long)>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable,long,java.util.concurrent.TimeUnit)>",
+            "<com.yandex.metrica.impl.ob.mo$2: void run()>",
+            "<com.yandex.metrica.impl.ob.mt: void d()>",
+            "<com.yandex.metrica.impl.ob.mw: void a()>",
+            "<com.yandex.metrica.impl.ob.mw: void b()>",
+            "<com.yandex.metrica.impl.ob.mw: void c()>",
+            "<com.yandex.metrica.impl.ob.bg: void a(com.yandex.metrica.impl.ob.be)>",
+            "<com.yandex.metrica.impl.ob.nj: java.net.HttpURLConnection a()>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_168150540692800_29m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.bc: com.yandex.metrica.impl.ob.bb a(android.content.Context,com.yandex.metrica.impl.ob.df)>",
+            "<com.yandex.metrica.impl.ob.bb: void run()>",
+            "<com.yandex.metrica.impl.ob.bh: void run()>",
+            "<com.yandex.metrica.impl.ob.bh: boolean a()>",
+            "<com.yandex.metrica.impl.ob.bg: void a(com.yandex.metrica.impl.ob.be)>",
+            "<com.yandex.metrica.impl.ob.nj: java.net.HttpURLConnection a()>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_168042308455500_36m_25c",
+          "associated_call_chain": "path_168042308455500_36m_25c",
+          "boolean_logic_format": "(IntentIsValid == true) AND (referrerStringIsNotEmpty) AND (staticFieldAIsNull) AND (`param1 != null`) AND (intent != null) AND (d(intent) == false) AND (`czConditionMet == false`) AND (eitherConditionMOrNIsTrue) AND (currentState != inputParameter) AND (q is false) AND (q == false) AND (isEmptyResult == false) AND (WeakHashMap is empty) AND (`WeakHashMap is not empty`) AND (`j == null`) AND (`runnableField == null`) AND (`mtObject != null`) AND (d() == true) AND (flagMIsTrue) AND (`njConditionNotMet`) AND (`nj.b() == false`) AND (`nj.b() == false`) AND (`njConditionNotMet`) AND (njConditionIsTrue) AND (ndConditionMet == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 25
+        },
+        {
+          "constraint_id": "path_168150540692800_29m_14c",
+          "associated_call_chain": "path_168150540692800_29m_14c",
+          "boolean_logic_format": "(`intentCriteriaMet == false`) AND (`referrer` is not empty) AND (singletonInstanceIsNull) AND (param1 != null) AND (intent != null) AND (`intentMeetsCriteria`) AND (`czConditionNotMet`) AND (!(m() || n())) AND (niConditionNotMet) AND (niConditionNotMet) AND (**  \n`beConditionMet == false`  \n**) AND (`$z2 == false`) AND ($z2 == false) AND (methodTResultIsFalse)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 713751,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_168412424936500_37m_34c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity dummyMainMethod_com_augapp_reci_nnrecsevea_sdk_activity_BannerActivity(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity: void onCreate(android.os.Bundle)>",
+            "<com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity: void doIteration()>",
+            "<com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity: void loadBanner(java.util.Map)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs: void load()>",
+            "<kotlinx.coroutines.BuildersKt: kotlinx.coroutines.Job launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object)>",
+            "<kotlinx.coroutines.BuildersKt__Builders_commonKt: kotlinx.coroutines.Job launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object)>",
+            "<kotlinx.coroutines.BuildersKt: kotlinx.coroutines.Job launch(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2)>",
+            "<kotlinx.coroutines.BuildersKt__Builders_commonKt: kotlinx.coroutines.Job launch(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2)>",
+            "<kotlinx.coroutines.AbstractCoroutine: void start(kotlinx.coroutines.CoroutineStart,java.lang.Object,kotlin.jvm.functions.Function2)>",
+            "<kotlinx.coroutines.CoroutineStart: void invoke(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation)>",
+            "<kotlinx.coroutines.intrinsics.UndispatchedKt: void startCoroutineUndispatched(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1: java.lang.Object invoke(java.lang.Object,java.lang.Object)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1: java.lang.Object invokeSuspend(java.lang.Object)>",
+            "<kotlinx.coroutines.BuildersKt: java.lang.Object withContext(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)>",
+            "<kotlinx.coroutines.BuildersKt__Builders_commonKt: java.lang.Object withContext(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)>",
+            "<kotlinx.coroutines.intrinsics.UndispatchedKt: java.lang.Object startUndispatchedOrReturn(kotlinx.coroutines.AbstractCoroutine,java.lang.Object,kotlin.jvm.functions.Function2)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1$1: java.lang.Object invoke(java.lang.Object,java.lang.Object)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1$1: java.lang.Object invokeSuspend(java.lang.Object)>",
+            "<com.augapp.reci.nnrecsevea.sdk.repository.ad.CryopiggyAdRepository: com.augapp.reci.nnrecsevea.sdk.model.HTMLAd getHTMLAd(com.augapp.reci.nnrecsevea.sdk.model.HTMLAd$Type)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.request.RequestManagerImpl: java.lang.Object sendRequest(java.lang.String,java.lang.Class)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.request.RequestManagerImpl: java.lang.Object sendRequest(java.lang.String,java.lang.Class,java.lang.String)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.request.RequestManagerImpl: java.lang.Object sendRequest(java.lang.String,java.lang.Class,java.lang.String,com.augapp.reci.nnrecsevea.lib.okhttp3.RequestBody)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall: com.augapp.reci.nnrecsevea.lib.okhttp3.Response execute()>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall: com.augapp.reci.nnrecsevea.lib.okhttp3.Response getResponseWithInterceptorChain(boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall$ApplicationInterceptorChain: com.augapp.reci.nnrecsevea.lib.okhttp3.Response proceed(com.augapp.reci.nnrecsevea.lib.okhttp3.Request)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall: com.augapp.reci.nnrecsevea.lib.okhttp3.Response getResponse(com.augapp.reci.nnrecsevea.lib.okhttp3.Request,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpEngine: void sendRequest()>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpEngine: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpStream connect()>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.StreamAllocation: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpStream newStream(int,int,int,boolean,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.StreamAllocation: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection findHealthyConnection(int,int,int,boolean,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.StreamAllocation: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection findConnection(int,int,int,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection: void connect(int,int,int,java.util.List,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection: void connectSocket(int,int,int,com.augapp.reci.nnrecsevea.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.augapp.reci.nnrecsevea.lib.okio.Okio: com.augapp.reci.nnrecsevea.lib.okio.Sink sink(java.net.Socket)>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_168686054633600_38m_39c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity dummyMainMethod_com_augapp_reci_nnrecsevea_sdk_activity_BannerActivity(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity: void onCreate(android.os.Bundle)>",
+            "<com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity: void doIteration()>",
+            "<com.augapp.reci.nnrecsevea.sdk.activity.BannerActivity: void loadBanner(java.util.Map)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs: void load()>",
+            "<kotlinx.coroutines.BuildersKt: kotlinx.coroutines.Job launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object)>",
+            "<kotlinx.coroutines.BuildersKt__Builders_commonKt: kotlinx.coroutines.Job launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object)>",
+            "<kotlinx.coroutines.BuildersKt: kotlinx.coroutines.Job launch(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2)>",
+            "<kotlinx.coroutines.BuildersKt__Builders_commonKt: kotlinx.coroutines.Job launch(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2)>",
+            "<kotlinx.coroutines.AbstractCoroutine: void start(kotlinx.coroutines.CoroutineStart,java.lang.Object,kotlin.jvm.functions.Function2)>",
+            "<kotlinx.coroutines.CoroutineStart: void invoke(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation)>",
+            "<kotlinx.coroutines.intrinsics.UndispatchedKt: void startCoroutineUndispatched(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1: java.lang.Object invoke(java.lang.Object,java.lang.Object)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1: java.lang.Object invokeSuspend(java.lang.Object)>",
+            "<kotlinx.coroutines.BuildersKt: java.lang.Object withContext(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)>",
+            "<kotlinx.coroutines.BuildersKt__Builders_commonKt: java.lang.Object withContext(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)>",
+            "<kotlinx.coroutines.intrinsics.UndispatchedKt: java.lang.Object startUndispatchedOrReturn(kotlinx.coroutines.AbstractCoroutine,java.lang.Object,kotlin.jvm.functions.Function2)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1$1: java.lang.Object invoke(java.lang.Object,java.lang.Object)>",
+            "<com.augapp.reci.nnrecsevea.sdk.banner.Customtabs$load$1$1: java.lang.Object invokeSuspend(java.lang.Object)>",
+            "<com.augapp.reci.nnrecsevea.sdk.repository.ad.CryopiggyAdRepository: com.augapp.reci.nnrecsevea.sdk.model.HTMLAd getHTMLAd(com.augapp.reci.nnrecsevea.sdk.model.HTMLAd$Type)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.request.RequestManagerImpl: java.lang.Object sendRequest(java.lang.String,java.lang.Class)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.request.RequestManagerImpl: java.lang.Object sendRequest(java.lang.String,java.lang.Class,java.lang.String)>",
+            "<com.augapp.reci.nnrecsevea.sdk.manager.request.RequestManagerImpl: java.lang.Object sendRequest(java.lang.String,java.lang.Class,java.lang.String,com.augapp.reci.nnrecsevea.lib.okhttp3.RequestBody)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall: com.augapp.reci.nnrecsevea.lib.okhttp3.Response execute()>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall: com.augapp.reci.nnrecsevea.lib.okhttp3.Response getResponseWithInterceptorChain(boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall$ApplicationInterceptorChain: com.augapp.reci.nnrecsevea.lib.okhttp3.Response proceed(com.augapp.reci.nnrecsevea.lib.okhttp3.Request)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.RealCall: com.augapp.reci.nnrecsevea.lib.okhttp3.Response getResponse(com.augapp.reci.nnrecsevea.lib.okhttp3.Request,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpEngine: void sendRequest()>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpEngine: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpStream connect()>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.StreamAllocation: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.HttpStream newStream(int,int,int,boolean,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.StreamAllocation: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection findHealthyConnection(int,int,int,boolean,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.http.StreamAllocation: com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection findConnection(int,int,int,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection: void connect(int,int,int,java.util.List,boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection: void connectSocket(int,int,int,com.augapp.reci.nnrecsevea.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.augapp.reci.nnrecsevea.lib.okhttp3.internal.io.RealConnection: void connectTls(int,int,com.augapp.reci.nnrecsevea.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.augapp.reci.nnrecsevea.lib.okio.Okio: com.augapp.reci.nnrecsevea.lib.okio.Sink sink(java.net.Socket)>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_168412424936500_37m_34c",
+          "associated_call_chain": "path_168412424936500_37m_34c",
+          "boolean_logic_format": "(isWaterfallEmpty == false) AND (isConnected == true) AND (HTTPMethod.equals(\"GET\")) AND (executed == false) AND (currentInterceptorIndex >= totalInterceptors) AND (`interceptedResponse == null`) AND (requestBody != null) AND (requestBodyHasContentType) AND (contentLength != -1L) AND (RealCallNotCanceled) AND (r1 == null) AND (r2 == null) AND (internalCacheIsNull) AND (clientHasNoInternalCache) AND (cachedResponseIsNull) AND (cachedResponse != null) AND (networkRequestFromCacheStrategy != null) AND (cacheResponse == null) AND (networkRequest == null) AND (released == false) AND (stream == null) AND (canceled == false) AND (noExistingConnectionFound) AND (RealConnection.noNewStreams == true) AND (r3 == null && $r7 != null) AND (noNewRouteAvailable) AND (canceled == false) AND (protocolNotSet) AND ($r8 == null) AND (connectionFailed) AND (**  \nProtocol is not set  \n**) AND (proxyType == DIRECT) AND (**\nproxyType == DIRECT\n**) AND (socket != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 34
+        },
+        {
+          "constraint_id": "path_168686054633600_38m_39c",
+          "associated_call_chain": "path_168686054633600_38m_39c",
+          "boolean_logic_format": "(isWaterfallEmpty == false) AND (isConnected == true) AND (HTTPMethod.equals(\"GET\")) AND (executed == false) AND (currentInterceptorIndex >= totalInterceptors) AND (interceptorResponse != null) AND (requestBodyIsNotNull) AND (contentTypeIsNull) AND (contentLengthIsUnspecified) AND (callNotCanceled) AND (cacheStrategyIsNull && httpStreamIsNotNull) AND (HttpStream is null) AND (internalCacheIsNull) AND (internalCacheIsNull) AND (cachedResponseIsNull) AND (cachedResponseAvailable) AND (networkRequestFromCacheStrategy != null) AND (cacheResponse == null) AND (`networkRequest == null`) AND (StreamAllocationReleased == false) AND (currentHttpStream == null) AND (streamAllocationNotCanceled) AND (noExistingConnectionFound) AND (noNewStreams == false) AND (r3 == null && $r7 != null) AND (route == null) AND (canceled == false) AND (protocol == null) AND (sslSocketFactoryAvailable == false) AND (connectionFailed) AND (protocol == null) AND (proxyType == DIRECT) AND (proxyType == DIRECT) AND (sslSocketFactory != null) AND (routeDoesNotRequireTunnel) AND (supportsTlsExtensions() == false) AND (**  \nhostnameVerificationFailed  \n**) AND (ConnectionSpec does not support TLS extensions) AND (socket != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 39
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 1249286,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_168756215378900_42m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$3: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: com.yandex.metrica.impl.ob.s a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.bj: android.graphics.Point b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cg: java.lang.Object a(java.util.concurrent.Callable,java.lang.Object,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.ch$1: java.lang.Object call()>",
+            "<com.yandex.metrica.impl.ob.ch$1: java.util.List a()>",
+            "<android.net.wifi.WifiManager: java.util.List getScanResults()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_168756215378900_42m_10c",
+          "associated_call_chain": "path_168756215378900_42m_10c",
+          "boolean_logic_format": "(intentCriteriaMet == true) AND (!TextUtils.isEmpty(referrer)) AND (singletonInstanceIsNull) AND (param1 != null) AND (intent != null) AND (`d(intent) == false`) AND (`a(cz) == false`) AND (`m() || n()`) AND (singletonInstance != null) AND (singletonInstanceIsNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 1319454,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_168800029365400_7m_7c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.lib.mopub.mobileads.MraidActivity dummyMainMethod_com_augapp_reci_nnrecsevea_lib_mopub_mobileads_MraidActivity(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.lib.mopub.mobileads.MraidActivity: void onDestroy()>",
+            "<com.augapp.reci.nnrecsevea.lib.mopub.mraid.MraidController: void destroy()>",
+            "<com.augapp.reci.nnrecsevea.lib.mopub.mraid.MraidController: void pause(boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.mopub.mobileads.util.WebViews: void onPause(android.webkit.WebView,boolean)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_168805059799900_6m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.augapp.reci.nnrecsevea.lib.mopub.mobileads.MraidActivity dummyMainMethod_com_augapp_reci_nnrecsevea_lib_mopub_mobileads_MraidActivity(android.content.Intent)>",
+            "<com.augapp.reci.nnrecsevea.lib.mopub.mobileads.MraidActivity: void onPause()>",
+            "<com.augapp.reci.nnrecsevea.lib.mopub.mraid.MraidController: void pause(boolean)>",
+            "<com.augapp.reci.nnrecsevea.lib.mopub.mobileads.util.WebViews: void onPause(android.webkit.WebView,boolean)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_168800029365400_7m_7c",
+          "associated_call_chain": "path_168800029365400_7m_7c",
+          "boolean_logic_format": "(mMraidController != null) AND (exceptionMessage.contains(\"Receiver not registered\")) AND (`mIsPaused == false`) AND (**  \nmMraidWebView != null  \n**) AND (mMraidWebView == null && mTwoPartWebView == null) AND (`MraidWebView is not null`) AND (**  \nparam1 == true  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 7
+        },
+        {
+          "constraint_id": "path_168805059799900_6m_5c",
+          "associated_call_chain": "path_168805059799900_6m_5c",
+          "boolean_logic_format": "(MraidController is not null) AND (**  \nmMraidWebView != null  \n**) AND (mMraidWebView == null && mTwoPartWebView == null) AND (`MraidWebView is not null`) AND (**  \nparam1 == true  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769934731083,
+        "analysis_duration_ms": 1368288,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

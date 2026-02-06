@@ -1,0 +1,965 @@
+{
+  "total_dangerous_apis": 15,
+  "category_statistics": {
+    "privacy_sensors": 2,
+    "device_information_collection": 3,
+    "file_system_operations": 3,
+    "sms_phone_operations": 2,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 4
+  },
+  "analysis_timestamp": "2026-01-31 19:45:15",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149080211217900_14m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.mo$1: void run()>",
+            "<com.yandex.metrica.impl.ob.mt: void a()>",
+            "<com.yandex.metrica.impl.ob.mq: void a()>",
+            "<com.yandex.metrica.impl.ob.mk: android.location.Location a()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_149117354175400_16m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.mo$3: void run()>",
+            "<com.yandex.metrica.impl.ob.mt: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.mh)>",
+            "<com.yandex.metrica.impl.ob.mq: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.mh)>",
+            "<com.yandex.metrica.impl.ob.mq: void f()>",
+            "<com.yandex.metrica.impl.ob.mq: void a()>",
+            "<com.yandex.metrica.impl.ob.mk: android.location.Location a()>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149080211217900_14m_12c",
+          "associated_call_chain": "path_149080211217900_14m_12c",
+          "boolean_logic_format": "(isIntentValid == false) AND (!TextUtils.isEmpty(referrerString)) AND (cjStaticFieldAIsNull) AND (param1 != null) AND ($r2 != null) AND (LocationManager is not null) AND (locationProvidersList != null) AND (!providerSet.contains(currentProvider)) AND (providerNameNotInAllowedSet) AND (**\nfeatureEnabled == false\n**) AND (providerNameInSet) AND (featureEnabled)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        },
+        {
+          "constraint_id": "path_149117354175400_16m_13c",
+          "associated_call_chain": "path_149117354175400_16m_13c",
+          "boolean_logic_format": "(intentCriteriaMet == false) AND (referrerString != null && referrerString.length() > 0) AND (`existingInstanceOfCJ == null`) AND (param1 != null) AND (mtObject != null) AND (`e == true`) AND (LocationManager is not null) AND (locationProvidersList != null) AND (!providerSet.contains(currentProvider)) AND (providerNameNotInAllowedSet) AND (**\nfeatureEnabled == false\n**) AND (providerNameInSet) AND (featureEnabled)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 358141,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149144189892700_8m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver dummyMainMethod_com_webbigbang_massadepanqueca_sdk_receiver_ScreenReceiver(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.init.Init: void execute()>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.init.WakeLockTimerInit: void doExecute()>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.WakeLockManager: void acquire(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_149199369740800_5m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver dummyMainMethod_com_webbigbang_massadepanqueca_sdk_receiver_ScreenReceiver(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.WakeLockManager: void acquire(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149144189892700_8m_4c",
+          "associated_call_chain": "path_149144189892700_8m_4c",
+          "boolean_logic_format": "(Context is not null) AND (applicationContext != null) AND (**\nisMainProcess == false\n**) AND (wakeLockIsNotNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_149199369740800_5m_11c",
+          "associated_call_chain": "path_149199369740800_5m_11c",
+          "boolean_logic_format": "(CryopiggyManagerInitializationSuccessful) AND (actionHashCode != -2128145023) AND (actionHashCode != 823795052) AND (intentAction != \"USER_PRESENT\") AND (InitializationFailed) AND (b0 == 1) AND (b0 == 1) AND (isBannerVisible == false) AND (!isBannerVisible) AND (SDK_INT < 26) AND (wakeLockIsNotNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 440144,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149934303338400_42m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$2: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: com.yandex.metrica.impl.ob.s a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.bj: android.graphics.Point b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cg: java.lang.Object a(java.util.concurrent.Callable,java.lang.Object,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.so$4: java.lang.Object call()>",
+            "<com.yandex.metrica.impl.ob.so$4: java.lang.Integer a()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149934303338400_42m_11c",
+          "associated_call_chain": "path_149934303338400_42m_11c",
+          "boolean_logic_format": "(methodA(intent) == false) AND (`referrer` is not empty or null) AND (singletonInstanceIsNull) AND (param1 != null) AND (intent != null) AND (intentDoesNotMeetCriteria) AND (`a(czObject) == false`) AND (conditionM || conditionN) AND (singletonInstance != null) AND (singletonInstanceIsNull) AND (`conditionMet == true`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1175106,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149934372296400_1m_0c",
+          "entry_point": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+          "method_sequence": [
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149934372296400_1m_0c",
+          "associated_call_chain": "path_149934372296400_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1175161,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149934446453500_9m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.outplaylab.videotrim.c: void onCreate()>",
+            "<com.outplaylab.videotrim.c: void b()>",
+            "<com.google.android.gms.ads.InterstitialAd: void loadAd(com.google.android.gms.ads.AdRequest)>",
+            "<com.google.android.gms.internal.ads.aqp: void a(com.google.android.gms.internal.ads.aqk)>",
+            "<com.google.android.gms.internal.ads.any: com.google.android.gms.internal.ads.anv a(android.content.Context,com.google.android.gms.internal.ads.aqk)>",
+            "<com.google.android.gms.internal.ads.aqk: boolean a(android.content.Context)>",
+            "<com.google.android.gms.internal.ads.ma: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149934446453500_9m_0c",
+          "associated_call_chain": "path_149934446453500_9m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1175231,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149228267741300_9m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver dummyMainMethod_com_webbigbang_massadepanqueca_sdk_receiver_ScreenReceiver(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.init.Init: void execute()>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.init.DefaultAndroidOInit: void doExecute()>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.init.AndroidOInit: void doExecute()>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.android.AndroidManagerImpl: void startService()>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_149245423455200_8m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver dummyMainMethod_com_webbigbang_massadepanqueca_sdk_receiver_ScreenReceiver(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.receiver.ScreenReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.CryopiggyManagerImpl: boolean init(android.content.Context)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.init.Init: void execute()>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.main.init.AndroidInit: void doExecute()>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.android.AndroidManagerImpl: void startService()>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149228267741300_9m_4c",
+          "associated_call_chain": "path_149228267741300_9m_4c",
+          "boolean_logic_format": "(context != null) AND (applicationContext != null) AND (isMainProcess(context) == true) AND (Context is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_149245423455200_8m_4c",
+          "associated_call_chain": "path_149245423455200_8m_4c",
+          "boolean_logic_format": "(**  \n`context != null`  \n**) AND (applicationContext != null) AND (isMainProcess == false) AND (Context is not null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 486204,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149322003707500_42m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$2: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: com.yandex.metrica.impl.ob.s a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.bj: android.graphics.Point b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cg: java.lang.Object a(java.util.concurrent.Callable,java.lang.Object,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.sr$1: java.lang.Object call()>",
+            "<com.yandex.metrica.impl.ob.sr$1: java.lang.String a()>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149322003707500_42m_12c",
+          "associated_call_chain": "path_149322003707500_42m_12c",
+          "boolean_logic_format": "(**  \nIntentMeetsCriteria == true  \n**) AND (referrerStringIsNotEmpty) AND (singletonInstanceDoesNotExist) AND (param1 != null) AND (intent != null) AND ($z0 == false) AND (czConditionNotMet) AND (m() OR n()) AND (singletonInstanceExists) AND (singletonInstance == null) AND (`isConditionMet`) AND (telephonyManager != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 562788,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149957891840100_4m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.outplaylab.videotrim.ShareMovie_ dummyMainMethod_com_outplaylab_videotrim_ShareMovie__(android.content.Intent)>",
+            "<com.outplaylab.videotrim.k: void onDestroy()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149957891840100_4m_4c",
+          "associated_call_chain": "path_149957891840100_4m_4c",
+          "boolean_logic_format": "(MediaPlayerInitialized) AND (isConditionEnabled == false) AND (filePath != null) AND (fileExists)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1198697,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149977619920000_5m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.outplaylab.videotrim.LoadCropMovie_ dummyMainMethod_com_outplaylab_videotrim_LoadCropMovie__(android.content.Intent)>",
+            "<com.outplaylab.videotrim.h: void onActivityResult(int,int,android.content.Intent)>",
+            "<com.outplaylab.videotrim.d.f: java.lang.String a(android.content.Context,android.net.Uri)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149977619920000_5m_4c",
+          "associated_call_chain": "path_149977619920000_5m_4c",
+          "boolean_logic_format": "(switch_condition) AND (resultCode == RESULT_OK) AND (resultCode == RESULT_OK) AND (requestCode >= 19)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1218416,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_150221145856500_42m_35c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$2: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.eo: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ep: void <init>(android.content.Context,com.yandex.metrica.impl.ob.dx)>",
+            "<com.yandex.metrica.impl.ob.eg: void <init>(android.content.Context,com.yandex.metrica.impl.ob.dx)>",
+            "<com.yandex.metrica.impl.ob.mx: void <init>(com.yandex.metrica.impl.ob.mo,com.yandex.metrica.impl.ob.sv,com.yandex.metrica.impl.ob.ch,com.yandex.metrica.impl.ob.kj)>",
+            "<com.yandex.metrica.impl.ob.mx: void a()>",
+            "<com.yandex.metrica.impl.ob.mo: void a(boolean)>",
+            "<com.yandex.metrica.impl.ob.mo: void d()>",
+            "<com.yandex.metrica.impl.ob.mo: void f()>",
+            "<com.yandex.metrica.impl.ob.mo: void g()>",
+            "<com.yandex.metrica.impl.ob.mo: void i()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable,long)>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable,long,java.util.concurrent.TimeUnit)>",
+            "<com.yandex.metrica.impl.ob.mo$2: void run()>",
+            "<com.yandex.metrica.impl.ob.mt: void d()>",
+            "<com.yandex.metrica.impl.ob.mw: void a()>",
+            "<com.yandex.metrica.impl.ob.mw: void b()>",
+            "<com.yandex.metrica.impl.ob.mw: void c()>",
+            "<com.yandex.metrica.impl.ob.nd: boolean b()>",
+            "<com.yandex.metrica.impl.ob.bf: boolean b()>",
+            "<com.yandex.metrica.impl.ob.bi: boolean b()>",
+            "<com.yandex.metrica.impl.ob.ca: boolean a(int,byte[],java.util.Map)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.cb$b,com.yandex.metrica.impl.ob.qq,java.util.Map)>",
+            "<com.yandex.metrica.impl.ob.ls: void a(android.content.Context,com.yandex.metrica.impl.ob.lq,com.yandex.metrica.impl.ob.nq)>",
+            "<com.yandex.metrica.impl.ob.ls: void a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.ag: void a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_150221145856500_42m_35c",
+          "associated_call_chain": "path_150221145856500_42m_35c",
+          "boolean_logic_format": "(intentMeetsCriteria) AND (referrerStringIsNotEmpty) AND (com.yandex.metrica.impl.ob.cj.a == null) AND (param1 != null) AND (intent != null) AND (intentDoesNotMeetCriteria) AND (czConditionNotMet) AND ($z0 == false) AND (currentStateOfG != param0) AND (isQFlagSet == false && isGFlagSet == false) AND (`q` is `false`) AND (isMapEmpty == true) AND (WeakHashMap is empty) AND (WeakHashMap is not empty) AND (j == null) AND (`Runnable l is null`) AND ($r1 != null) AND (d() == true) AND (m == true) AND (`nj.b() == false`) AND (`njConditionNotMet`) AND (`nj.b() == false`) AND (`featureOrStatusIsNotActive`) AND (`$z1` is `true`) AND (conditionCheckedByMethodAIsTrue) AND (statusCode == 200) AND (CollectionDoesNotMeetCriteria) AND (firstElementOfContentEncodingList.equals(\"encrypted\")) AND (transformedByteArray != null) AND (currentState == expectedState) AND ($r4 == null) AND (`ltObject == null`) AND (`featureEnabled == false`) AND (b() == false) AND ($b == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 35
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1461942,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_148985184872300_19m_34c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.activity.WebActivity dummyMainMethod_com_webbigbang_massadepanqueca_sdk_activity_WebActivity(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.web.CryoWebViewClient: android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView,java.lang.String)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.web.CryoWebViewClient: android.webkit.WebResourceResponse interceptRequest(android.webkit.WebView,java.lang.String,java.util.Map)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response execute()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response getResponseWithInterceptorChain(boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall$ApplicationInterceptorChain: com.webbigbang.massadepanqueca.lib.okhttp3.Response proceed(com.webbigbang.massadepanqueca.lib.okhttp3.Request)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response getResponse(com.webbigbang.massadepanqueca.lib.okhttp3.Request,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpEngine: void sendRequest()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpEngine: com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpStream connect()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpStream newStream(int,int,int,boolean,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection findHealthyConnection(int,int,int,boolean,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection findConnection(int,int,int,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connect(int,int,int,java.util.List,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connectSocket(int,int,int,com.webbigbang.massadepanqueca.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connectTls(int,int,com.webbigbang.massadepanqueca.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.CertificatePinner: void check(java.lang.String,java.util.List)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.tls.CertificateChainCleaner$AndroidCertificateChainCleaner: java.util.List clean(java.util.List,java.lang.String)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_148985184872300_19m_34c",
+          "associated_call_chain": "path_148985184872300_19m_34c",
+          "boolean_logic_format": "(executed == false) AND (currentInterceptorIndex < totalInterceptors) AND (`interceptorResponse != null`) AND (Request has a body) AND (RequestBody.contentType() == null) AND (contentLengthKnown) AND (!canceled) AND (cacheStrategy != null) AND (httpStream == null) AND (isCacheAvailable == false) AND (InternalCache is null) AND (cachedResponseIsNull) AND (cacheResponseExists) AND (networkRequestIsNull) AND (**\ncacheResponse == null\n**) AND (networkRequest != null) AND (released == true) AND (HttpStream == null) AND (canceled == false) AND (existingConnection == null) AND (noNewStreams == false) AND (noExistingConnection) AND (currentRoute == null) AND (`canceled == false`) AND (protocolIsNotSet) AND (sslSocketFactory == null) AND ($z1 == false) AND (proxyType == DIRECT) AND (proxyType == DIRECT) AND (Proxy type is DIRECT) AND (sslSocketFactory != null) AND (supportsTlsExtensions() == false) AND (supportsTlsExtensions() == false) AND (hostnameVerificationFailed)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 34
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 225970,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149322081156500_14m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.outplaylab.videotrim.c: void onCreate()>",
+            "<com.google.android.gms.ads.MobileAds: void initialize(android.content.Context,java.lang.String)>",
+            "<com.google.android.gms.ads.MobileAds: void initialize(android.content.Context,java.lang.String,com.google.android.gms.ads.MobileAds$Settings)>",
+            "<com.google.android.gms.internal.ads.aod: java.lang.Object a(android.content.Context,boolean,com.google.android.gms.internal.ads.aod$a)>",
+            "<com.google.android.gms.internal.ads.aod$a: java.lang.Object c()>",
+            "<com.google.android.gms.internal.ads.aoi: java.lang.Object a()>",
+            "<com.google.android.gms.internal.ads.aod: void a(android.content.Context,java.lang.String)>",
+            "<com.google.android.gms.internal.ads.ma: void a(android.content.Context,java.lang.String,android.os.Bundle)>",
+            "<com.google.android.gms.internal.ads.ma: void a(android.content.Context,java.lang.String,java.lang.String,android.os.Bundle,boolean,com.google.android.gms.internal.ads.md)>",
+            "<com.google.android.gms.internal.ads.mb: void a(java.lang.String)>",
+            "<com.google.android.gms.internal.ads.mc: void run()>",
+            "<com.google.android.gms.internal.ads.mm: void a(java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149322081156500_14m_0c",
+          "associated_call_chain": "path_149322081156500_14m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 562859,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149534802018900_17m_31c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.activity.WebActivity dummyMainMethod_com_webbigbang_massadepanqueca_sdk_activity_WebActivity(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.web.CryoWebViewClient: android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView,java.lang.String)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.web.CryoWebViewClient: android.webkit.WebResourceResponse interceptRequest(android.webkit.WebView,java.lang.String,java.util.Map)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response execute()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response getResponseWithInterceptorChain(boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall$ApplicationInterceptorChain: com.webbigbang.massadepanqueca.lib.okhttp3.Response proceed(com.webbigbang.massadepanqueca.lib.okhttp3.Request)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response getResponse(com.webbigbang.massadepanqueca.lib.okhttp3.Request,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpEngine: void sendRequest()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpEngine: com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpStream connect()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpStream newStream(int,int,int,boolean,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection findHealthyConnection(int,int,int,boolean,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection findConnection(int,int,int,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connect(int,int,int,java.util.List,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connectSocket(int,int,int,com.webbigbang.massadepanqueca.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.webbigbang.massadepanqueca.lib.okio.Okio: com.webbigbang.massadepanqueca.lib.okio.Sink sink(java.net.Socket)>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_149792652200100_18m_36c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.activity.WebActivity dummyMainMethod_com_webbigbang_massadepanqueca_sdk_activity_WebActivity(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.web.CryoWebViewClient: android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView,java.lang.String)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.web.CryoWebViewClient: android.webkit.WebResourceResponse interceptRequest(android.webkit.WebView,java.lang.String,java.util.Map)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response execute()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response getResponseWithInterceptorChain(boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall$ApplicationInterceptorChain: com.webbigbang.massadepanqueca.lib.okhttp3.Response proceed(com.webbigbang.massadepanqueca.lib.okhttp3.Request)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.RealCall: com.webbigbang.massadepanqueca.lib.okhttp3.Response getResponse(com.webbigbang.massadepanqueca.lib.okhttp3.Request,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpEngine: void sendRequest()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpEngine: com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpStream connect()>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.HttpStream newStream(int,int,int,boolean,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection findHealthyConnection(int,int,int,boolean,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.http.StreamAllocation: com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection findConnection(int,int,int,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connect(int,int,int,java.util.List,boolean)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connectSocket(int,int,int,com.webbigbang.massadepanqueca.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.webbigbang.massadepanqueca.lib.okhttp3.internal.io.RealConnection: void connectTls(int,int,com.webbigbang.massadepanqueca.lib.okhttp3.internal.ConnectionSpecSelector)>",
+            "<com.webbigbang.massadepanqueca.lib.okio.Okio: com.webbigbang.massadepanqueca.lib.okio.Sink sink(java.net.Socket)>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149534802018900_17m_31c",
+          "associated_call_chain": "path_149534802018900_17m_31c",
+          "boolean_logic_format": "(`executed == false`) AND (currentInterceptorIndex < totalInterceptors) AND (interceptorResponse != null) AND (requestBodyExists) AND ($r4 == null) AND (contentLengthUnknown) AND (requestNotCanceled) AND (r2 != null) AND (HttpStream == null) AND (internalCacheIsNull) AND (**\nInternalCacheIsNull\n**) AND (noCachedResponseAvailable) AND (cachedResponseExists) AND (networkRequestFromCacheStrategy != null) AND (cacheResponse == null) AND (networkRequest != null) AND (streamAllocationNotReleased) AND (r2 == null) AND (!canceled) AND (noExistingConnectionAvailable) AND (RealConnection.allowsNewStreams) AND (noExistingConnectionFound) AND (currentRoute == null) AND (canceled == false) AND (protocol == null) AND (ConnectionSpecList.contains(CLEARTEXT)) AND (ConnectionSpecListContainsCleartText) AND (proxyType == DIRECT) AND (proxyType == DIRECT) AND (Proxy type is DIRECT) AND (socket != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 31
+        },
+        {
+          "constraint_id": "path_149792652200100_18m_36c",
+          "associated_call_chain": "path_149792652200100_18m_36c",
+          "boolean_logic_format": "(executed == false) AND (currentInterceptorIndex >= totalInterceptors) AND (interceptorResponse != null) AND (Request has a non-null body) AND (requestBodyContentTypeIsNull) AND (contentLengthIsUnknown) AND (!isCanceled) AND (cacheStrategy == null && httpStream != null) AND (r2 == null) AND (`internalCache == null`) AND (internalCacheIsNull) AND (cachedResponseIsNull) AND (cachedResponseAvailable) AND (networkRequestFromCacheStrategy != null) AND (cachedResponse == null) AND (networkRequest != null) AND (streamReleased == true) AND (r2 == null) AND (!canceled) AND (noExistingConnectionAvailable) AND (**\nRealConnection.noNewStreams == true\n**) AND (noExistingConnectionFound) AND (route == null) AND (canceled == false) AND (protocol == null) AND (sslSocketFactory == null) AND (connectionSpecsList.contains(CLEARTEXT)) AND (proxyType == DIRECT) AND (proxyType == DIRECT) AND (proxyType == DIRECT) AND (sslSocketFactory != null) AND (routeRequiresTunnel == false) AND (supportsTlsExtensions() == false) AND (ConnectionSpec does not support TLS extensions) AND (ConnectionSpec does not support TLS extensions) AND (socket != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 36
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1033447,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149858487877600_42m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.yandex.metrica.MetricaEventHandler dummyMainMethod_com_yandex_metrica_MetricaEventHandler(android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.MetricaEventHandler: void a(android.content.Context,android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.cj: com.yandex.metrica.impl.ob.cj b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cj: void b(android.content.Context,com.yandex.metrica.g)>",
+            "<com.yandex.metrica.impl.ob.cj: void n()>",
+            "<com.yandex.metrica.impl.ob.uu: void a(java.lang.Runnable)>",
+            "<com.yandex.metrica.impl.ob.tr: void run()>",
+            "<com.yandex.metrica.impl.ob.av$2: void a()>",
+            "<com.yandex.metrica.impl.ob.aw: void a(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void b(android.content.Intent,int)>",
+            "<com.yandex.metrica.impl.ob.aw: void e(android.content.Intent)>",
+            "<com.yandex.metrica.impl.ob.aw: void a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.t,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.ei: com.yandex.metrica.impl.ob.ej a(com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.es: com.yandex.metrica.impl.ob.ej a(android.content.Context,com.yandex.metrica.impl.ob.en,com.yandex.metrica.impl.ob.eh,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.en: com.yandex.metrica.impl.ob.dk a(com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.dl)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dq b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dy: com.yandex.metrica.impl.ob.dx a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.em)>",
+            "<com.yandex.metrica.impl.ob.dx: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.db,com.yandex.metrica.impl.ob.ec,com.yandex.metrica.impl.ob.em,com.yandex.metrica.impl.ob.bc,com.yandex.metrica.impl.ob.dg,com.yandex.metrica.impl.ob.ru)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.rz,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd a(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.ru: com.yandex.metrica.impl.ob.sd b(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,java.lang.String,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.qq$a,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.sd: void <init>(android.content.Context,com.yandex.metrica.impl.ob.df,com.yandex.metrica.impl.ob.sb,com.yandex.metrica.impl.ob.kp,com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf,com.yandex.metrica.impl.ob.rv)>",
+            "<com.yandex.metrica.impl.ob.sd: void a(com.yandex.metrica.impl.ob.sc,com.yandex.metrica.impl.ob.tf)>",
+            "<com.yandex.metrica.impl.ob.ql: com.yandex.metrica.impl.ob.qj d()>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qj a(java.lang.Object)>",
+            "<com.yandex.metrica.impl.ob.qq$b: com.yandex.metrica.impl.ob.qq a(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qm$a: com.yandex.metrica.impl.ob.qm b(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.qj$b: com.yandex.metrica.impl.ob.qj c(com.yandex.metrica.impl.ob.qj$c)>",
+            "<com.yandex.metrica.impl.ob.s: com.yandex.metrica.impl.ob.s a(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.s: void <init>(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.bj: android.graphics.Point b(android.content.Context)>",
+            "<com.yandex.metrica.impl.ob.cg: java.lang.Object a(java.util.concurrent.Callable,java.lang.Object,java.lang.String,java.lang.String)>",
+            "<com.yandex.metrica.impl.ob.ch$1: java.lang.Object call()>",
+            "<com.yandex.metrica.impl.ob.ch$1: java.util.List a()>",
+            "<android.net.wifi.WifiManager: java.util.List getScanResults()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149858487877600_42m_10c",
+          "associated_call_chain": "path_149858487877600_42m_10c",
+          "boolean_logic_format": "(IntentIsValid) AND (!TextUtils.isEmpty(referrer)) AND (`existingInstance == null`) AND (param1 != null) AND (intent != null) AND (Intent does not meet criteria defined in method d) AND (czConditionNotMet) AND (m() OR n()) AND (singletonInstance != null) AND (singletonInstance == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1099281,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_149858566467700_6m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.activity.BackstageActivity2 dummyMainMethod_com_webbigbang_massadepanqueca_sdk_activity_BackstageActivity2(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.BackstageActivity2: void onCreate(android.os.Bundle)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.BackstageActivity2: void onNewIntent(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.backstage.webview.controller.BackstageWebViewControllerImpl: void loadUrl(java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_149858576029400_5m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.activity.BackstageActivity2 dummyMainMethod_com_webbigbang_massadepanqueca_sdk_activity_BackstageActivity2(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.BackstageActivity2: void onNewIntent(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.backstage.webview.controller.BackstageWebViewControllerImpl: void loadUrl(java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_149858595646400_5m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.webbigbang.massadepanqueca.sdk.activity.TestageActivity dummyMainMethod_com_webbigbang_massadepanqueca_sdk_activity_TestageActivity(android.content.Intent)>",
+            "<com.webbigbang.massadepanqueca.sdk.activity.TestageActivity: void onCreate(android.os.Bundle)>",
+            "<com.webbigbang.massadepanqueca.sdk.manager.backstage.webview.controller.BackstageWebViewControllerImpl: void loadUrl(java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_149858566467700_6m_0c",
+          "associated_call_chain": "path_149858566467700_6m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_149858576029400_5m_0c",
+          "associated_call_chain": "path_149858576029400_5m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_149858595646400_5m_0c",
+          "associated_call_chain": "path_149858595646400_5m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769916053524,
+        "analysis_duration_ms": 1099388,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

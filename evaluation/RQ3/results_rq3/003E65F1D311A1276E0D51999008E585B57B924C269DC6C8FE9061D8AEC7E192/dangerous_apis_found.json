@@ -1,0 +1,361 @@
+{
+  "total_dangerous_apis": 7,
+  "category_statistics": {
+    "privacy_sensors": 1,
+    "device_information_collection": 2,
+    "file_system_operations": 2,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 1
+  },
+  "analysis_timestamp": "2026-02-01 09:41:34",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+    ],
+    "file_system_operations": [
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "<java.io.File: boolean delete()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200187246375800_12m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.birthdaycakeforkids.jodistudio.AdsActivity dummyMainMethod_com_birthdaycakeforkids_jodistudio_AdsActivity(android.content.Intent)>",
+            "<com.birthdaycakeforkids.jodistudio.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.h: void a(com.google.android.gms.ads.d)>",
+            "<com.google.android.gms.ads.internal.client.b: void a(com.google.android.gms.ads.internal.client.at)>",
+            "<com.google.android.gms.ads.internal.a: boolean a(com.google.android.gms.ads.internal.client.AdRequestParcel)>",
+            "<com.google.android.gms.ads.internal.t: boolean a(com.google.android.gms.ads.internal.client.AdRequestParcel,com.google.android.gms.internal.dl)>",
+            "<com.google.android.gms.ads.internal.b: boolean a(com.google.android.gms.ads.internal.client.AdRequestParcel,com.google.android.gms.internal.dl)>",
+            "<com.google.android.gms.ads.internal.b: com.google.android.gms.ads.internal.request.a a(com.google.android.gms.ads.internal.client.AdRequestParcel,android.os.Bundle)>",
+            "<com.google.android.gms.internal.oy: java.lang.String a(android.content.Context,android.view.View,com.google.android.gms.ads.internal.client.AdSizeParcel)>",
+            "<com.google.android.gms.internal.oy: java.lang.String f(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200187246375800_12m_10c",
+          "associated_call_chain": "path_200187246375800_12m_10c",
+          "boolean_logic_format": "(noInterstitialAdIsLoading) AND (s() == false) AND (UIComponentIsNull) AND (viewHasNoParent) AND (yCoordinate + viewHeight <= 0) AND ((xCoordinate + width <= 0) OR (yCoordinate + height <= 0)) AND (screenX > screenWidth) AND (xPosition > screenWidth) AND (viewYCoordinate <= displayHeightPixels) AND (ConditionFlagIsTrue)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967394507,
+        "analysis_duration_ms": 87038,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200233538362000_8m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.birthdaycakeforkids.jodistudio.AdsActivity dummyMainMethod_com_birthdaycakeforkids_jodistudio_AdsActivity(android.content.Intent)>",
+            "<com.birthdaycakeforkids.jodistudio.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.h: void a(com.google.android.gms.ads.d)>",
+            "<com.google.android.gms.ads.internal.client.b: void a(com.google.android.gms.ads.internal.client.at)>",
+            "<com.google.android.gms.ads.internal.a: boolean a(com.google.android.gms.ads.internal.client.AdRequestParcel)>",
+            "<com.google.android.gms.ads.internal.util.client.a: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_200252812006000_9m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.birthdaycakeforkids.jodistudio.AdsActivity dummyMainMethod_com_birthdaycakeforkids_jodistudio_AdsActivity(android.content.Intent)>",
+            "<com.birthdaycakeforkids.jodistudio.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.h: void a(com.google.android.gms.ads.d)>",
+            "<com.google.android.gms.ads.internal.client.b: void a(com.google.android.gms.ads.internal.client.at)>",
+            "<com.google.android.gms.ads.internal.client.k: com.google.android.gms.ads.internal.client.AdRequestParcel a(android.content.Context,com.google.android.gms.ads.internal.client.at)>",
+            "<com.google.android.gms.ads.internal.client.at: boolean a(android.content.Context)>",
+            "<com.google.android.gms.ads.internal.util.client.a: java.lang.String a(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200233538362000_8m_6c",
+          "associated_call_chain": "path_200233538362000_8m_6c",
+          "boolean_logic_format": "(**  \n`adRequestInProgress == false`  \n**) AND (currentAdRequestParcel != null) AND (AdRequestParcel.isTestRequest == false) AND (contentResolverIsNull) AND (AndroidID != null) AND (methodAResult == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_200252812006000_9m_6c",
+          "associated_call_chain": "path_200252812006000_9m_6c",
+          "boolean_logic_format": "(field_f_is_not_null) AND (setIsEmpty\n####) AND (setIsEmpty == true) AND (contentResolverIsNull) AND (AndroidID != null) AND (methodAResult == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967394507,
+        "analysis_duration_ms": 152603,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.app.ActivityManager: java.util.List getRunningTasks(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200335182641600_12m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.birthdaycakeforkids.jodistudio.AdsActivity dummyMainMethod_com_birthdaycakeforkids_jodistudio_AdsActivity(android.content.Intent)>",
+            "<com.birthdaycakeforkids.jodistudio.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.h: void a(com.google.android.gms.ads.d)>",
+            "<com.google.android.gms.ads.internal.client.b: void a(com.google.android.gms.ads.internal.client.at)>",
+            "<com.google.android.gms.ads.internal.a: boolean a(com.google.android.gms.ads.internal.client.AdRequestParcel)>",
+            "<com.google.android.gms.ads.internal.t: boolean a(com.google.android.gms.ads.internal.client.AdRequestParcel,com.google.android.gms.internal.dl)>",
+            "<com.google.android.gms.ads.internal.b: boolean a(com.google.android.gms.ads.internal.client.AdRequestParcel,com.google.android.gms.internal.dl)>",
+            "<com.google.android.gms.ads.internal.b: com.google.android.gms.ads.internal.request.a a(com.google.android.gms.ads.internal.client.AdRequestParcel,android.os.Bundle)>",
+            "<com.google.android.gms.internal.oy: java.lang.String a(android.content.Context,android.view.View,com.google.android.gms.ads.internal.client.AdSizeParcel)>",
+            "<com.google.android.gms.internal.oy: java.lang.String f(android.content.Context)>",
+            "<android.app.ActivityManager: java.util.List getRunningTasks(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200335182641600_12m_11c",
+          "associated_call_chain": "path_200335182641600_12m_11c",
+          "boolean_logic_format": "(`f.j == null`) AND (s() == false) AND (fieldFInZzqIsNotNull) AND (viewParentIsNull) AND ((yCoordinate + viewHeight) <= 0) AND ((verticalPosition + viewHeight) <= 0) AND (viewXCoordinate > screenWidth) AND (viewYCoordinate > screenHeightPixels) AND (viewYCoordinate <= screenHeight) AND (BooleanCondition == false) AND (ActivityManagerServiceAvailable)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967394507,
+        "analysis_duration_ms": 234977,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200369064783300_17m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.birthdaycakeforkids.jodistudio.AdsActivity dummyMainMethod_com_birthdaycakeforkids_jodistudio_AdsActivity(android.content.Intent)>",
+            "<com.birthdaycakeforkids.jodistudio.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.h: void a(com.google.android.gms.ads.d)>",
+            "<com.google.android.gms.ads.internal.client.b: void a(com.google.android.gms.ads.internal.client.at)>",
+            "<com.google.android.gms.ads.internal.client.b: void b(java.lang.String)>",
+            "<com.google.android.gms.ads.internal.client.h: com.google.android.gms.ads.internal.client.ae b(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.ik)>",
+            "<com.google.android.gms.ads.internal.t: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.il,com.google.android.gms.ads.internal.util.client.VersionInfoParcel,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.ads.internal.d: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.il,com.google.android.gms.ads.internal.util.client.VersionInfoParcel,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.ads.internal.b: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.il,com.google.android.gms.ads.internal.util.client.VersionInfoParcel,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.ads.internal.b: void <init>(com.google.android.gms.ads.internal.zzq,com.google.android.gms.internal.il,com.google.android.gms.ads.internal.ad,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.ads.internal.a: void <init>(com.google.android.gms.ads.internal.zzq,com.google.android.gms.ads.internal.ad,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.internal.oc: void a(android.content.Context,com.google.android.gms.ads.internal.util.client.VersionInfoParcel)>",
+            "<com.google.android.gms.internal.oc: void m()>",
+            "<com.google.android.gms.internal.dd: com.google.android.gms.internal.db a(com.google.android.gms.internal.cy)>",
+            "<com.google.android.gms.internal.db: void <init>(android.content.Context,java.lang.String,java.lang.String,java.util.Map)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200369064783300_17m_4c",
+          "associated_call_chain": "path_200369064783300_17m_4c",
+          "boolean_logic_format": "(field_f_is_null) AND (`g == null`) AND (featureNotAvailable) AND ($r6 == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967394507,
+        "analysis_duration_ms": 268858,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200400147487400_19m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.birthdaycakeforkids.jodistudio.AdsActivity dummyMainMethod_com_birthdaycakeforkids_jodistudio_AdsActivity(android.content.Intent)>",
+            "<com.birthdaycakeforkids.jodistudio.AdsActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.h: void a(com.google.android.gms.ads.d)>",
+            "<com.google.android.gms.ads.internal.client.b: void a(com.google.android.gms.ads.internal.client.at)>",
+            "<com.google.android.gms.ads.internal.client.b: void b(java.lang.String)>",
+            "<com.google.android.gms.ads.internal.client.h: com.google.android.gms.ads.internal.client.ae b(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.ik)>",
+            "<com.google.android.gms.ads.internal.t: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.il,com.google.android.gms.ads.internal.util.client.VersionInfoParcel,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.ads.internal.d: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.il,com.google.android.gms.ads.internal.util.client.VersionInfoParcel,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.ads.internal.b: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.il,com.google.android.gms.ads.internal.util.client.VersionInfoParcel,com.google.android.gms.ads.internal.i)>",
+            "<com.google.android.gms.ads.internal.zzq: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.ads.internal.util.client.VersionInfoParcel)>",
+            "<com.google.android.gms.ads.internal.zzq: void <init>(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.ads.internal.util.client.VersionInfoParcel,com.google.android.gms.internal.ae)>",
+            "<com.google.android.gms.ads.internal.p: void <init>(com.google.android.gms.ads.internal.zzq)>",
+            "<com.google.android.gms.ads.internal.p: void run()>",
+            "<com.google.android.gms.ads.internal.p: com.google.android.gms.internal.x a(java.lang.String,android.content.Context,boolean)>",
+            "<com.google.android.gms.internal.ab: com.google.android.gms.internal.ab a(java.lang.String,android.content.Context,boolean)>",
+            "<com.google.android.gms.internal.z: void a(java.lang.String,android.content.Context,com.google.android.gms.internal.ag)>",
+            "<com.google.android.gms.internal.z: void k(android.content.Context)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200400147487400_19m_4c",
+          "associated_call_chain": "path_200400147487400_19m_4c",
+          "boolean_logic_format": "(aeInstance == null) AND (`g == null`) AND (FeatureEnabledInContext) AND (`InterstitialAdManagerInstance == null`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967394507,
+        "analysis_duration_ms": 299946,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200100275348400_1m_0c",
+          "entry_point": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+          "method_sequence": [
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200100275348400_1m_0c",
+          "associated_call_chain": "path_200100275348400_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967394507,
+        "analysis_duration_ms": 53,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_200187280813000_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.birthdaycakeforkids.jodistudio.birthdaycakeforkids dummyMainMethod_com_birthdaycakeforkids_jodistudio_birthdaycakeforkids(android.content.Intent)>",
+            "<com.birthdaycakeforkids.jodistudio.birthdaycakeforkids$MyWebViewClient: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_200187280813000_4m_0c",
+          "associated_call_chain": "path_200187280813000_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769967394507,
+        "analysis_duration_ms": 87063,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,2059 @@
+{
+  "total_dangerous_apis": 18,
+  "category_statistics": {
+    "privacy_sensors": 3,
+    "device_information_collection": 5,
+    "file_system_operations": 2,
+    "sms_phone_operations": 3,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 4
+  },
+  "analysis_timestamp": "2026-01-31 23:51:31",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.hardware.Camera: android.hardware.Camera open()>",
+      "<android.media.MediaRecorder: void start()>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "<android.app.ActivityManager: java.util.List getRunningServices(int)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+      "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.hardware.Camera: android.hardware.Camera open()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_157035009176700_12m_34c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request,io.dcloud.common.adapter.util.PermissionUtil$ShowDialogData)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: boolean useSystemPermission(android.app.Activity,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void requestSystemPermissions(android.app.Activity,java.lang.String[],int,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int trycatchGetPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<android.hardware.Camera: android.hardware.Camera open()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157127755823900_11m_24c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request,io.dcloud.common.adapter.util.PermissionUtil$ShowDialogData)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: boolean useSystemPermission(android.app.Activity,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int trycatchGetPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<android.hardware.Camera: android.hardware.Camera open()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157145703788000_8m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.b: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void onActivityResult(android.app.Activity,int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int trycatchGetPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<android.hardware.Camera: android.hardware.Camera open()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_157035009176700_12m_34c",
+          "associated_call_chain": "path_157035009176700_12m_34c",
+          "boolean_logic_format": "(!isEmpty(extraProperties)) AND (B == true) AND (isPermissionCheckEnabled == TRUE) AND (isStreamPermissionRequest) AND (permissionsAlreadySpecified) AND ($r3 == null) AND (isPermissionGranted == true) AND (isPermissionGranted == false) AND (useStream == true) AND (permissionDenied) AND (isPermissionGranted == true) AND (**  \nparam2 == true  \n**) AND (targetSdkVersion >= 23) AND (permissionString == null) AND (permissionString.contains(\"android.permission\")) AND (permissionStringContainsAndroidPermission == false) AND (permissionDenied) AND (permissionStringDoesNotContainAndroidPermission) AND (**\ntargetSdkVersion >= 23\n**) AND (permissionString == null) AND (permissionStringDoesNotContainAndroidPermission) AND (permissionStringContainsAndroidPermission) AND (permissionDenied) AND (permissionStringDoesNotContainAndroidPermission) AND (deviceVersionCompatible == false) AND (permissionsArray != null) AND (permissionStringNotEqualToInstallShortcut) AND (permissionGranted) AND (caseVersionConditionNotMet) AND (permissionString == null) AND (requestedPermission != \"android.permission.CAMERA\") AND (cameraIndex < numberOfCameras) AND (cameraFacing == FRONT_FACING) AND (`cameraObject == null`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 34
+        },
+        {
+          "constraint_id": "path_157127755823900_11m_24c",
+          "associated_call_chain": "path_157127755823900_11m_24c",
+          "boolean_logic_format": "(extraProDataNotEmpty) AND (B == true) AND (**  \nisPermissionRequired == false  \n**) AND (isStreamPermissionRequest) AND (permissionsArray == null) AND (ShowDialogDataParameter == null) AND (isPermissionGranted == false) AND (isMainStreamPermission == false) AND (isPermissionCheckEnabled == true) AND (permissionDenied) AND (firstBooleanParameter == true) AND (isPermissionGranted == true) AND (**  \ntargetSdkVersion >= 23  \n**) AND (permissionString == null) AND (permissionStringDoesNotContainAndroidPermission) AND (permissionStringContainsAndroidPermission) AND (permissionStringNotEqualToInstallShortcut) AND (permissionGranted) AND (caseVersionConditionNotMet) AND (permissionString == null) AND (requestedPermission != \"android.permission.CAMERA\") AND (cameraIndex < numberOfCameras) AND (cameraFacing == FRONT_FACING) AND (`cameraObject == null`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 24
+        },
+        {
+          "constraint_id": "path_157145703788000_8m_10c",
+          "associated_call_chain": "path_157145703788000_8m_10c",
+          "boolean_logic_format": "(callbackObjectExists) AND (elapsedTimeSinceEvent > 1000) AND (permissionStringNotEqualToInstallShortcut) AND (permissionGranted) AND (caseVersionConditionNotMet) AND (permissionString == null) AND (requestedPermission != \"android.permission.CAMERA\") AND (cameraIndex < numberOfCameras) AND (cameraFacing == FRONT_FACING) AND (`cameraObject == null`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 2617642,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.media.MediaRecorder: void start()>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_157397901646700_12m_38c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request,io.dcloud.common.adapter.util.PermissionUtil$ShowDialogData)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: boolean useSystemPermission(android.app.Activity,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void requestSystemPermissions(android.app.Activity,java.lang.String[],int,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int trycatchGetPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<android.media.MediaRecorder: void start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157497306644300_11m_28c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void usePermission(android.app.Activity,boolean,boolean,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request,io.dcloud.common.adapter.util.PermissionUtil$ShowDialogData)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: boolean useSystemPermission(android.app.Activity,java.lang.String,io.dcloud.common.adapter.util.PermissionUtil$Request)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int trycatchGetPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<android.media.MediaRecorder: void start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157510262292400_8m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.b: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void onActivityResult(android.app.Activity,int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int trycatchGetPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<android.media.MediaRecorder: void start()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_157397901646700_12m_38c",
+          "associated_call_chain": "path_157397901646700_12m_38c",
+          "boolean_logic_format": "(extraPropertiesNotEmpty) AND (B == true) AND (isPermissionCheckEnabled == false\n####) AND ($r2 instanceof io.dcloud.common.adapter.util.PermissionUtil$StreamPermissionRequest) AND (permissionsArrayIsNotNull) AND ($r3 == null) AND (isPermissionGranted == false) AND (isPermissionGranted == false) AND (isPermissionGranted == true) AND (permissionCheckResult == -1) AND (isPermissionGranted == false) AND (isPermissionGranted == true) AND (**\ntargetSdkVersion < 23\n**) AND (permissionString == null) AND (permissionStringDoesNotContainAndroidPermission) AND (permissionStringContainsAndroidPermission) AND (**  \npermissionGranted == false  \n**) AND (permissionStringDoesNotContainAndroidPermission) AND (targetSdkVersion >= 23) AND (permissionString == null) AND (permissionStringDoesNotContainAndroidPermission) AND (permissionStringContainsAndroidPermission) AND (**\npermissionNotGranted\n**) AND (permissionStringDoesNotContainAndroidPermission) AND (caseVersionIsFalse) AND (permissionsArray != null) AND (permissionStringNotInstallShortcut) AND (Permission is granted) AND (caseVersionResult == false) AND (permissionString == null) AND (permissionString.equals(\"android.permission.CAMERA\")) AND (cameraIndex < totalCameras) AND (cameraFacing == FRONT_FACING) AND (cameraInstance == null) AND ($r4 != null) AND (cameraParametersRetrieved) AND (permissionString == \"android.permission.RECORD_AUDIO\") AND (**\n`mediaRecorderInstance != null`\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 38
+        },
+        {
+          "constraint_id": "path_157497306644300_11m_28c",
+          "associated_call_chain": "path_157497306644300_11m_28c",
+          "boolean_logic_format": "(extraProDataIsNotEmpty) AND (B == true) AND (isPermissionCheckRequired == false) AND (`isStreamPermissionRequest == true`) AND (streamRequestPermissions == null) AND ($r3 == null) AND (permissionGranted == true) AND (isPermissionGranted != true) AND (isPermissionCheckRequired == true) AND (**\npermissionGranted == false\n**) AND (isPermissionGranted == true) AND (isPermissionGranted == true) AND (**  \ntargetSdkVersion >= 23  \n**) AND (permissionString == null) AND (!permissionString.contains(\"android.permission\")) AND (permissionStringContainsAndroidPermission) AND (permissionStringNotInstallShortcut) AND (Permission is granted) AND (caseVersionResult == false) AND (permissionString == null) AND (permissionString.equals(\"android.permission.CAMERA\")) AND (cameraIndex < totalCameras) AND (cameraFacing == FRONT_FACING) AND (cameraInstance == null) AND ($r4 != null) AND (cameraParametersRetrieved) AND (permissionString == \"android.permission.RECORD_AUDIO\") AND (**\n`mediaRecorderInstance != null`\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 28
+        },
+        {
+          "constraint_id": "path_157510262292400_8m_14c",
+          "associated_call_chain": "path_157510262292400_8m_14c",
+          "boolean_logic_format": "(resultCallbackArray != null) AND (timeSinceEvent > 1000 milliseconds) AND (permissionStringNotInstallShortcut) AND (Permission is granted) AND (caseVersionResult == false) AND (permissionString == null) AND (permissionString.equals(\"android.permission.CAMERA\")) AND (cameraIndex < totalCameras) AND (cameraFacing == FRONT_FACING) AND (cameraInstance == null) AND ($r4 != null) AND (cameraParametersRetrieved) AND (permissionString == \"android.permission.RECORD_AUDIO\") AND (**\n`mediaRecorderInstance != null`\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 2982245,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_157516614575200_9m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.streamdownload.DownloadService dummyMainMethod_io_dcloud_streamdownload_DownloadService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: void onCreate()>",
+            "<io.dcloud.streamdownload.DownloadService: void onCreateImpl()>",
+            "<io.dcloud.daps.DAps: void init(android.content.Context)>",
+            "<io.dcloud.daps.DAps: void startConnect()>",
+            "<io.dcloud.daps.DAps: java.lang.String getRegQueryString()>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157532378849400_13m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.streamdownload.DownloadService dummyMainMethod_io_dcloud_streamdownload_DownloadService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: void onCreate()>",
+            "<io.dcloud.streamdownload.DownloadService: void onCreateImpl()>",
+            "<io.dcloud.daps.DAps: void init(android.content.Context)>",
+            "<io.dcloud.daps.DAps: void startConnect()>",
+            "<io.dcloud.daps.DNetItem: void startNetConnect(java.lang.String,io.dcloud.daps.DAps$DApsListener,java.util.HashMap)>",
+            "<io.dcloud.daps.DNetItem: void run()>",
+            "<io.dcloud.daps.DAps$1: void onCompleted(io.dcloud.daps.DNetItem,java.lang.String)>",
+            "<io.dcloud.daps.DAps$6: void handleMessage(android.os.Message)>",
+            "<io.dcloud.install.PushDownloadUtil: void downloadApk(java.lang.String)>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157532394077200_8m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.service.MultiProcessService dummyMainMethod_io_dcloud_multiprocess_service_MultiProcessService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: int onStartCommand(android.content.Intent,int,int)>",
+            "<io.dcloud.streamdownload.DownloadService: int onStartCommandImpl(android.content.Intent,int,int)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getWGTUrl(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getUrlBaseData(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157532410335400_10m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.a.d$8: void run()>",
+            "<io.dcloud.common.util.CommitDataUtil: java.lang.String getStartData(io.dcloud.common.DHInterface.IApp,android.content.SharedPreferences)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getUrlBaseData(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157553340434900_9m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.a.d$a: void run()>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getUrlBaseData(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157559514346200_9m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.util.ADUtils$7: void run()>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_157559532393800_10m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.adapter.io.PushReceiver$1: void run()>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int)>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_158296765258900_14m_115c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void c()>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d b(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,boolean)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(android.app.Activity,java.lang.String,boolean)>",
+            "<io.dcloud.common.a.d: boolean a(java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.d: boolean a(java.io.InputStream,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.d: float r()>",
+            "<io.dcloud.common.util.NetworkTypeUtil: int getNetworkType(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_157516614575200_9m_1c",
+          "associated_call_chain": "path_157516614575200_9m_1c",
+          "boolean_logic_format": "UUID is valid",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_157532378849400_13m_3c",
+          "associated_call_chain": "path_157532378849400_13m_3c",
+          "boolean_logic_format": "(UUID is invalid) AND (switch_condition) AND (`!(messageObject instanceof DNetItem)`)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_157532394077200_8m_0c",
+          "associated_call_chain": "path_157532394077200_8m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_157532410335400_10m_0c",
+          "associated_call_chain": "path_157532410335400_10m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_157553340434900_9m_3c",
+          "associated_call_chain": "path_157553340434900_9m_3c",
+          "boolean_logic_format": "(context != null) AND (launcherPackageName.trim().equals(\"\")) AND (launcherPackageNameIsEmpty == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_157559514346200_9m_1c",
+          "associated_call_chain": "path_157559514346200_9m_1c",
+          "boolean_logic_format": "IMEI.endsWith(\"&ie=1\")",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_157559532393800_10m_1c",
+          "associated_call_chain": "path_157559532393800_10m_1c",
+          "boolean_logic_format": "IMEI.endsWith(\"&ie=1\")",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_158296765258900_14m_115c",
+          "associated_call_chain": "path_158296765258900_14m_115c",
+          "boolean_logic_format": "(ArrayList contains the specified String) AND (stringIndex >= 0) AND (r5 == null) AND (isNewInstance == false) AND (activityAssociatedWithR5IsNull) AND (ActivityParameterIsNull) AND (ArrayList does not contain the specified string) AND (indexOfStringInList >= 0) AND (existingObject != null) AND (param2 == false) AND (`activityAssociatedWithR5 == null`) AND (ActivityParameter != null) AND (isAppInitialized == true) AND (retrievedObject != null) AND (ActivityParameter != null) AND ($r5.<io.dcloud.common.a.d: android.app.Activity au> == null) AND (activityIntent != null) AND (z0 == true) AND (shouldCreateNewInstance == false) AND (statusFlag == 0) AND (mBaseAppInfoSet == null) AND (!mBaseAppInfoSet.containsKey(aF)) AND (fileInputStream == null) AND (inputStreamIsNull) AND (isWap2AppAppid(appId) == true) AND ($r3 == null) AND (isWap2AppAppid(appId) == false) AND (isWap2AppAppid(appId) == false) AND (flagInitialized == true) AND (isStreamApp() == false) AND (isStreamApp() == false) AND (isStreamApp() == true) AND (fieldBIsNull) AND (**\nflagConditionMet == false\n**) AND (currentActivity != null) AND (activityContext == null) AND (processedData != null) AND (featureFlagInactive) AND (statusbarConfigIsMissing && !forceUpdate) AND (conditionIsTrue) AND (isDebugMode == false) AND (applicationContext == null) AND (stringsAreEqual) AND (stringsAreNotEqual) AND (**  \n`areStringsEqual`  \n**) AND (stringsAreNotEqual) AND ($z2 == 0) AND (stringsAreEqual) AND (**\nisStringsEqual\n**) AND (!isEquals(expectedString, actualString)) AND ($r2 != null) AND (!r2.has(\"background\")) AND (statusBarConfigHasBackground == false) AND (statusBarConfig.has(\"immersed\") == false) AND (!statusbarConfig.has(\"immersed\")) AND (sdkVersion >= 19) AND (deviceIsSupported == false) AND (statusbarConfigDoesNotHaveImmersed) AND (statusbarJSONObjectExists) AND (jsonObjectHasNoKeys) AND (`!r2.has(\"replacewebapi\")`) AND (!statusbarConfig.has(\"titleNView\")) AND (replaceWebApiConfigIsAbsent) AND (`!jsonObjectHasReplaceWebApi`) AND (!statusBarConfigPresent) AND (schemeWhitelistExists) AND (!hasAppWhitelist) AND (replaceWebApiConfigAbsent) AND (!hasAppWhitelist) AND (index >= arrayLength) AND (currentIndex < arrayLength) AND (jsonObjectHasStatusbar) AND (!jsonObjectHasGeolocation) AND (z0 == true) AND ($r4.equals($r14)) AND (stringsAreNotEqual) AND (booleanFieldCIsFalse) AND (!isStringsEqual) AND (stringsAreEqual) AND ($z3 != 0) AND (flagD == false) AND (immersedFeatureEnabled == false) AND (!jsonObjectHasReplaceWebApi) AND (!jsonObject.has(\"replacewebapi\")) AND (!hasReplaceWebApi) AND (index < arrayLength) AND (jsonObjectHasStatusbar) AND (!jsonObjectHasStatusbar) AND (replaceWebApiJsonObject != null) AND (!jsonObjectHasReplaceWebapi) AND (sslJSONObjectIsNull) AND (!jsonConfig.hasStatusbar) AND (!jsonObjectHasStatusBar) AND (jsonObjectHasStatusbar) AND (!jsonObjectHasStatusBar) AND (streamConfigIsNull) AND (`!jsonObject.has(\"statusbar\")`) AND (!jsonObjectHasReplaceWebapi) AND (plusSectionExists) AND (!jsonObjectHasAppWhitelist) AND (!jsonObjectHasStatusbar) AND (!jsonObject.has(\"replacewebapi\")) AND (cersConfigIsNull) AND (!appWhitelistExists) AND (!hasGeolocation) AND (!sharedPreferencesContainsKey) AND (splashscreenConfigExists) AND (autocloseFeatureEnabled == false) AND (sharedPreferenceSettingEnabled == false) AND (sharedPreferencesDoesNotContainKey) AND (!sharedPreferences.contains(key)) AND (!sharedPreferences.contains(preferenceKey)) AND (sharedPreferencesContainsSplashScreenDelayKey) AND (aF contains \"device\") AND (activityInstance != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 115
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 3768762,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_159564822033900_19m_21c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity,io.dcloud.common.DHInterface.ICore$ICoreStatusListener)>",
+            "<io.dcloud.EntryProxy: void destroy(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: void onStop(android.app.Activity)>",
+            "<io.dcloud.common.b.b: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean onActivityExecute(android.app.Activity,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.b.a: java.lang.Object dispatchEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IFrameView)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IWebview)>",
+            "<io.dcloud.common.adapter.util.DeviceInfo: void initGsmCdmaCell()>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_159564822033900_19m_21c",
+          "associated_call_chain": "path_159564822033900_19m_21c",
+          "boolean_logic_format": "(isNotEmpty(extraPro)) AND (B == true) AND (contextOfBInstance == applicationContext) AND (bInstanceContext != applicationContext) AND (ArrayListSize == 0) AND (c != null) AND (param2 instanceof io.dcloud.common.DHInterface.IApp) AND (**  \nmanagerIdIsValid == false  \n**) AND (switch_condition) AND (firstElementIsEmpty) AND (thirdElementOfStringArrayIsNotEmpty) AND (managerIdIsInvalid) AND (constructedStringKeyNotInMap) AND (manifestParsed == true) AND (manifestParsed == false) AND (**\nmanifestNotParsed\n**) AND (manifestNotParsed) AND (**\nsNetWorkInited == false\n**) AND (defaultDataNetworkSetting == null) AND (defaultDataNetwork != \"none\") AND (phoneType == TelephonyManager.PHONE_TYPE_GSM)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 21
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 5036852,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_159576554809600_8m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.imagepick.CustomGalleryActivity dummyMainMethod_io_dcloud_imagepick_CustomGalleryActivity(android.content.Intent)>",
+            "<io.dcloud.imagepick.CustomGalleryActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.imagepick.CustomGalleryActivity: void a()>",
+            "<io.dcloud.imagepick.CustomGalleryActivity$2: void run()>",
+            "<io.dcloud.imagepick.CustomGalleryActivity: java.util.ArrayList d(io.dcloud.imagepick.CustomGalleryActivity)>",
+            "<io.dcloud.imagepick.CustomGalleryActivity: java.util.ArrayList d()>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_159576554809600_8m_2c",
+          "associated_call_chain": "path_159576554809600_8m_2c",
+          "boolean_logic_format": "(sGlobalFullScreen == false) AND (sGlobalFullScreen == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 5048554,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_159630298265700_13m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.appstream.SideBar$1: boolean onTouch(android.view.View,android.view.MotionEvent)>",
+            "<io.dcloud.appstream.SideBar: void access$100(io.dcloud.appstream.SideBar,android.view.MotionEvent)>",
+            "<io.dcloud.appstream.SideBar: void handleFavoriteTouch(android.view.MotionEvent)>",
+            "<io.dcloud.appstream.SideBar: void handleFavoriteClick()>",
+            "<io.dcloud.appstream.SideBar: void createShortCut()>",
+            "<io.dcloud.common.util.ShortCutUtil: boolean hasShortcut(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.ShortCutUtil: java.lang.String requestShortCut(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.ShortCutUtil: android.net.Uri getUriFromLauncher(android.content.Context)>",
+            "<io.dcloud.common.util.LauncherUtil: java.lang.String getAuthorityFromPermissionDefault(android.content.Context)>",
+            "<io.dcloud.common.util.LauncherUtil: java.lang.String getAuthorityFromPermission(android.content.Context,java.lang.String)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159836659077300_9m_32c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.multiprocess.activity.MultiProcessBaseActivity$5: void onClick(android.view.View)>",
+            "<io.dcloud.common.util.ShortCutUtil: int createShortcutGuide(io.dcloud.common.DHInterface.IApp,java.lang.String,android.graphics.Bitmap,boolean,boolean,boolean)>",
+            "<io.dcloud.common.util.AppPermissionUtil: int checkNoShortcutPermionGuide(android.content.Context,java.lang.String,boolean,io.dcloud.common.DHInterface.IApp,java.lang.String,android.content.SharedPreferences,boolean)>",
+            "<io.dcloud.common.util.ShortCutUtil: java.lang.String requestShortCutPermissionVivo(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.ShortCutUtil: android.net.Uri getUriFromLauncher(android.content.Context)>",
+            "<io.dcloud.common.util.LauncherUtil: java.lang.String getAuthorityFromPermission(android.content.Context,java.lang.String)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159845582286400_12m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.appstream.SideBar$1: boolean onTouch(android.view.View,android.view.MotionEvent)>",
+            "<io.dcloud.appstream.SideBar: void access$100(io.dcloud.appstream.SideBar,android.view.MotionEvent)>",
+            "<io.dcloud.appstream.SideBar: void handleFavoriteTouch(android.view.MotionEvent)>",
+            "<io.dcloud.appstream.SideBar: void handleFavoriteClick()>",
+            "<io.dcloud.appstream.SideBar: void createShortCut()>",
+            "<io.dcloud.common.util.ShortCutUtil: boolean hasShortcut(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.ShortCutUtil: java.lang.String requestShortCut(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.ShortCutUtil: android.net.Uri getUriFromLauncher(android.content.Context)>",
+            "<io.dcloud.common.util.LauncherUtil: java.lang.String getAuthorityFromPermission(android.content.Context,java.lang.String)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159853116597800_10m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.a.d$a: void run()>",
+            "<io.dcloud.common.util.ShortCutUtil: java.lang.String getSreamAppShortName(android.content.Context)>",
+            "<io.dcloud.common.util.ShortCutUtil: android.net.Uri getUriFromLauncher(android.content.Context)>",
+            "<io.dcloud.common.util.LauncherUtil: java.lang.String getAuthorityFromPermission(android.content.Context,java.lang.String)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_159630298265700_13m_8c",
+          "associated_call_chain": "path_159630298265700_13m_8c",
+          "boolean_logic_format": "($viewParameter == $sideBarView) AND (packageNameEquals == false) AND (authorityStringIsEmpty) AND (isAuthorityEmpty == true) AND (SDK_INT < 19) AND (isAuthorityEmpty) AND (SDK_INT >= 19) AND (permissionStringIsNotEmpty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        },
+        {
+          "constraint_id": "path_159836659077300_9m_32c",
+          "associated_call_chain": "path_159836659077300_9m_32c",
+          "boolean_logic_format": "(**  \nisChecked() == true  \n**) AND (isStringEmpty) AND (!startedFromShortcut) AND (appNotStartedFromShortcut) AND (Intent is not null) AND (intentStartFromValue != 5) AND (appStartedFromShortcut == true) AND (!TextUtils.isEmpty($r2)) AND (!isEmpty(filePath)) AND (Bitmap is successfully decoded) AND ($appStartedFromShortcut == false) AND (intentIsNull AND NOT shortcutExists) AND (ApplicationNotStartedFromShortcut) AND (isCompetentStreamApp() == false) AND (isStreamApp == true) AND (isCompetentStreamApp() == false) AND (isCompetentStreamApp) AND (isCompetentStreamApp\n####) AND (shortcutPreferenceEnabled == false) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (deviceBrand.equalsIgnoreCase(specificBrand)) AND (statusFlag == 1) AND (shortcutGuideShown == false) AND (isShortcutGuideFirstTime == false) AND ($z1 == true) AND (**\nfeatureEnabled == true\n**) AND (deviceBrand.equalsIgnoreCase(\"XIAOMI\")) AND (brandName.equalsIgnoreCase(targetBrandName)) AND (deviceBrandNotMeizu) AND (deviceBrand.equalsIgnoreCase(\"VIVO\")) AND (launcherPackageName.equals(\"com.nd.android.pandahome2\") == false) AND (permissionStringIsNotEmpty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 32
+        },
+        {
+          "constraint_id": "path_159845582286400_12m_3c",
+          "associated_call_chain": "path_159845582286400_12m_3c",
+          "boolean_logic_format": "($viewParameter == $sideBarView) AND (launcherPackageName.equals(\"com.nd.android.pandahome2\") == false) AND (permissionStringIsNotEmpty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_159853116597800_10m_3c",
+          "associated_call_chain": "path_159853116597800_10m_3c",
+          "boolean_logic_format": "(contextIsNotNull) AND (launcherPackageName.equals(\"com.nd.android.pandahome2\") == false) AND (permissionStringIsNotEmpty)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 5325119,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_160009894131000_8m_24c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.streamdownload.DownloadService dummyMainMethod_io_dcloud_streamdownload_DownloadService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: void onCreate()>",
+            "<io.dcloud.streamdownload.DownloadService: void onCreateImpl()>",
+            "<io.dcloud.daps.DAps: void init(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_160009910986600_9m_24c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.service.MultiProcessService dummyMainMethod_io_dcloud_multiprocess_service_MultiProcessService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: int onStartCommand(android.content.Intent,int,int)>",
+            "<io.dcloud.streamdownload.DownloadService: int onStartCommandImpl(android.content.Intent,int,int)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getWGTUrl(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getUrlBaseData(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_160009931623000_10m_24c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.util.ADUtils$7: void run()>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_160119026304300_20m_43c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity,io.dcloud.common.DHInterface.ICore$ICoreStatusListener)>",
+            "<io.dcloud.EntryProxy: void destroy(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: void onStop(android.app.Activity)>",
+            "<io.dcloud.common.b.b: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean onActivityExecute(android.app.Activity,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.b.a: java.lang.Object dispatchEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IFrameView)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IWebview)>",
+            "<io.dcloud.common.adapter.util.DeviceInfo: void initGsmCdmaCell()>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_160009894131000_8m_24c",
+          "associated_call_chain": "path_160009894131000_8m_24c",
+          "boolean_logic_format": "(z0 == false) AND (`context == null && !flag`) AND (booleanParameter == false) AND (isUnValid(imeiString) == true) AND (IMEI_is_invalid) AND (isUnValid(sImei) == true) AND (booleanFlag == true) AND (IMEI_is_valid) AND (isUnValid(imeiOrIdentifier) == true) AND (isUnValid(imeiString) == true) AND (**\nbooleanParameter == false\n**) AND (isDetailed == true) AND (noIMEINumbersRetrieved) AND (IMEI_is_invalid) AND (isValidString) AND (booleanFlag == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfoIsNull) AND (externalStorageState != \"mounted\") AND (The string being checked is valid) AND (isImeiValid == true) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == false) AND (**\nbooleanFlag == true\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 24
+        },
+        {
+          "constraint_id": "path_160009910986600_9m_24c",
+          "associated_call_chain": "path_160009910986600_9m_24c",
+          "boolean_logic_format": "(z0 == false) AND (`context == null && !flag`) AND (booleanParameter == false) AND (isUnValid(imeiString) == true) AND (IMEI_is_invalid) AND (isUnValid(sImei) == true) AND (booleanFlag == true) AND (IMEI_is_valid) AND (isUnValid(imeiOrIdentifier) == true) AND (isUnValid(imeiString) == true) AND (**\nbooleanParameter == false\n**) AND (isDetailed == true) AND (noIMEINumbersRetrieved) AND (IMEI_is_invalid) AND (isValidString) AND (booleanFlag == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfoIsNull) AND (externalStorageState != \"mounted\") AND (The string being checked is valid) AND (isImeiValid == true) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == false) AND (**\nbooleanFlag == true\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 24
+        },
+        {
+          "constraint_id": "path_160009931623000_10m_24c",
+          "associated_call_chain": "path_160009931623000_10m_24c",
+          "boolean_logic_format": "(z0 == false) AND (`context == null && !flag`) AND (booleanParameter == false) AND (isUnValid(imeiString) == true) AND (IMEI_is_invalid) AND (isUnValid(sImei) == true) AND (booleanFlag == true) AND (IMEI_is_valid) AND (isUnValid(imeiOrIdentifier) == true) AND (isUnValid(imeiString) == true) AND (**\nbooleanParameter == false\n**) AND (isDetailed == true) AND (noIMEINumbersRetrieved) AND (IMEI_is_invalid) AND (isValidString) AND (booleanFlag == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfoIsNull) AND (externalStorageState != \"mounted\") AND (The string being checked is valid) AND (isImeiValid == true) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == false) AND (**\nbooleanFlag == true\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 24
+        },
+        {
+          "constraint_id": "path_160119026304300_20m_43c",
+          "associated_call_chain": "path_160119026304300_20m_43c",
+          "boolean_logic_format": "(`!isEmpty(extraPro)`) AND (B == true) AND (contextFromB == applicationContext) AND (contextAssociatedWithB != applicationContext) AND (ArrayListIsEmpty) AND (c is not null) AND (isInstanceOfIApp == true) AND (managerIdIsValid == false) AND (switch_condition) AND (isNotEmpty($r7)) AND (**  \nisThirdElementNotEmpty  \n**) AND (**  \ncheckMgrIdResult == false  \n**) AND (appIdVersionKeyNotInMap) AND (manifestParsed == true) AND (manifestNotParsed) AND (manifestNotParsed) AND (manifestNotParsed) AND (**  \nsNetWorkInited == false  \n**) AND (defaultDataNetworkSetting != null) AND (z0 == false) AND (`context == null && !flag`) AND (booleanParameter == false) AND (isUnValid(imeiString) == true) AND (IMEI_is_invalid) AND (isUnValid(sImei) == true) AND (booleanFlag == true) AND (IMEI_is_valid) AND (isUnValid(imeiOrIdentifier) == true) AND (isUnValid(imeiString) == true) AND (**\nbooleanParameter == false\n**) AND (isDetailed == true) AND (noIMEINumbersRetrieved) AND (IMEI_is_invalid) AND (isValidString) AND (booleanFlag == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfoIsNull) AND (externalStorageState != \"mounted\") AND (The string being checked is valid) AND (isImeiValid == true) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == false) AND (**\nbooleanFlag == true\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 43
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 5591045,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.app.ActivityManager: java.util.List getRunningServices(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_160213475210000_10m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.common.adapter.io.PushReceiver dummyMainMethod_io_dcloud_common_adapter_io_PushReceiver(android.content.Intent)>",
+            "<io.dcloud.common.adapter.io.PushReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<io.dcloud.common.adapter.io.PushReceiver: void handle(android.content.Context,android.content.Intent)>",
+            "<io.dcloud.common.util.ADUtils: void downloadApk(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,long,boolean,boolean)>",
+            "<io.dcloud.common.util.ADUtils: long downloadADFile(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,io.dcloud.common.DHInterface.IDownloadCallBack,boolean)>",
+            "<com.dcloud.android.downloader.DownloadService: com.dcloud.android.downloader.callback.DCDownloadManager getDownloadManager(android.content.Context)>",
+            "<com.dcloud.android.downloader.DownloadService: com.dcloud.android.downloader.callback.DCDownloadManager getDownloadManager(android.content.Context,com.dcloud.android.downloader.config.Config)>",
+            "<com.dcloud.android.downloader.DownloadService: boolean isServiceRunning(android.content.Context)>",
+            "<android.app.ActivityManager: java.util.List getRunningServices(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_160213475210000_10m_14c",
+          "associated_call_chain": "path_160213475210000_10m_14c",
+          "boolean_logic_format": "(intentAction.equals(\"dcloud.push.broswer\")) AND (!TextUtils.isEmpty(tid)) AND (openDeepLinkFailed) AND (jsonObjectHasDplk == true) AND (!TextUtils.isEmpty(tid)) AND (\"click_action\" is not equal to \"url\") AND (`!TextUtils.equals(\"url\", actionType)`) AND (actionType != \"url\") AND (actionType != \"url\") AND (actionType != \"download\") AND (isDownloadPromptEnabled == false) AND (downloadDataForUrlIsNull && !isPackageNameEmpty) AND (**  \n!isPackageNameEmpty  \n**) AND (booleanParameter == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 5685539,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_158368244718500_6m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.common.adapter.io.PushReceiver dummyMainMethod_io_dcloud_common_adapter_io_PushReceiver(android.content.Intent)>",
+            "<io.dcloud.common.adapter.io.PushReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<io.dcloud.common.adapter.io.PushReceiver: void handle(android.content.Context,android.content.Intent)>",
+            "<io.dcloud.common.util.ADUtils: void openUrl(android.content.Context,java.lang.String)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_158368244718500_6m_9c",
+          "associated_call_chain": "path_158368244718500_6m_9c",
+          "boolean_logic_format": "(intentAction.equals(\"dcloud.push.broswer\")) AND (!TextUtils.isEmpty(tid)) AND (openDeepLinkFailed) AND (openDeepLinkSuccessful) AND (!TextUtils.isEmpty(tid)) AND (\"click_action\" is not equal to \"url\") AND ($r11 != \"url\") AND (clickActionIsNotUrl) AND (clickAction != \"url\")",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 3840231,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_158654782477100_8m_39c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.streamdownload.DownloadService dummyMainMethod_io_dcloud_streamdownload_DownloadService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: void onCreate()>",
+            "<io.dcloud.streamdownload.DownloadService: void onCreateImpl()>",
+            "<io.dcloud.daps.DAps: void init(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_158654803621000_9m_39c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.service.MultiProcessService dummyMainMethod_io_dcloud_multiprocess_service_MultiProcessService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: int onStartCommand(android.content.Intent,int,int)>",
+            "<io.dcloud.streamdownload.DownloadService: int onStartCommandImpl(android.content.Intent,int,int)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getWGTUrl(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getUrlBaseData(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_158654828588300_10m_39c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.util.ADUtils$7: void run()>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_158788394428500_20m_58c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity,io.dcloud.common.DHInterface.ICore$ICoreStatusListener)>",
+            "<io.dcloud.EntryProxy: void destroy(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: void onStop(android.app.Activity)>",
+            "<io.dcloud.common.b.b: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean onActivityExecute(android.app.Activity,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.b.a: java.lang.Object dispatchEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IFrameView)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IWebview)>",
+            "<io.dcloud.common.adapter.util.DeviceInfo: void initGsmCdmaCell()>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_158654782477100_8m_39c",
+          "associated_call_chain": "path_158654782477100_8m_39c",
+          "boolean_logic_format": "(param1 == false) AND (context == null) AND (`if (isSpecificMode == false)`) AND (isStringInvalid) AND (isUnValid(IMEI) == true) AND (isImeiInvalid && isParameterTrue) AND (featureEnabled && isImeiInvalid) AND (IMEI_is_valid) AND (IMEI_is_invalid) AND (isUnValid(imeiString) == true) AND (param1 == false) AND (`booleanFlag != false`) AND ($r4 == null && $z0 == false) AND (isUnValid(currentIMEI)) AND (IMEI_is_invalid) AND (featureEnabled == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfo == null) AND (externalStorageMounted == false) AND (isStringValid) AND (isValidIMEI) AND (isIdentifierInvalid) AND (IMEI_is_valid) AND (IMEI_is_valid) AND (isImeiValid == true) AND (isNotEmpty($r3)) AND (isStringInvalid == true) AND (isValidIMEI) AND (isBackup == false) AND (`isDirectory == false`) AND (fileIsNotDirectory) AND (isNotDirectory) AND (fileLength > 0) AND (fileObjectIsNotNull) AND (fileIsNotDirectory && fileLengthGreaterThanZero) AND (fileLength > 0) AND (The string being checked is valid.) AND (flagParameter == false) AND (booleanFlag == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 39
+        },
+        {
+          "constraint_id": "path_158654803621000_9m_39c",
+          "associated_call_chain": "path_158654803621000_9m_39c",
+          "boolean_logic_format": "(param1 == false) AND (context == null) AND (`if (isSpecificMode == false)`) AND (isStringInvalid) AND (isUnValid(IMEI) == true) AND (isImeiInvalid && isParameterTrue) AND (featureEnabled && isImeiInvalid) AND (IMEI_is_valid) AND (IMEI_is_invalid) AND (isUnValid(imeiString) == true) AND (param1 == false) AND (`booleanFlag != false`) AND ($r4 == null && $z0 == false) AND (isUnValid(currentIMEI)) AND (IMEI_is_invalid) AND (featureEnabled == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfo == null) AND (externalStorageMounted == false) AND (isStringValid) AND (isValidIMEI) AND (isIdentifierInvalid) AND (IMEI_is_valid) AND (IMEI_is_valid) AND (isImeiValid == true) AND (isNotEmpty($r3)) AND (isStringInvalid == true) AND (isValidIMEI) AND (isBackup == false) AND (`isDirectory == false`) AND (fileIsNotDirectory) AND (isNotDirectory) AND (fileLength > 0) AND (fileObjectIsNotNull) AND (fileIsNotDirectory && fileLengthGreaterThanZero) AND (fileLength > 0) AND (The string being checked is valid.) AND (flagParameter == false) AND (booleanFlag == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 39
+        },
+        {
+          "constraint_id": "path_158654828588300_10m_39c",
+          "associated_call_chain": "path_158654828588300_10m_39c",
+          "boolean_logic_format": "(param1 == false) AND (context == null) AND (`if (isSpecificMode == false)`) AND (isStringInvalid) AND (isUnValid(IMEI) == true) AND (isImeiInvalid && isParameterTrue) AND (featureEnabled && isImeiInvalid) AND (IMEI_is_valid) AND (IMEI_is_invalid) AND (isUnValid(imeiString) == true) AND (param1 == false) AND (`booleanFlag != false`) AND ($r4 == null && $z0 == false) AND (isUnValid(currentIMEI)) AND (IMEI_is_invalid) AND (featureEnabled == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfo == null) AND (externalStorageMounted == false) AND (isStringValid) AND (isValidIMEI) AND (isIdentifierInvalid) AND (IMEI_is_valid) AND (IMEI_is_valid) AND (isImeiValid == true) AND (isNotEmpty($r3)) AND (isStringInvalid == true) AND (isValidIMEI) AND (isBackup == false) AND (`isDirectory == false`) AND (fileIsNotDirectory) AND (isNotDirectory) AND (fileLength > 0) AND (fileObjectIsNotNull) AND (fileIsNotDirectory && fileLengthGreaterThanZero) AND (fileLength > 0) AND (The string being checked is valid.) AND (flagParameter == false) AND (booleanFlag == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 39
+        },
+        {
+          "constraint_id": "path_158788394428500_20m_58c",
+          "associated_call_chain": "path_158788394428500_20m_58c",
+          "boolean_logic_format": "(isExtraProSDKNotEmpty) AND (B == true) AND (contextOfBInstance == applicationContextOfActivity) AND (contextAssociatedWithEntryProxy != applicationContext) AND (ArrayListSize == 0) AND (`EntryProxy.bInstance != null`) AND ($r3 instanceof io.dcloud.common.DHInterface.IApp) AND (`checkMgrId(managerType) == false`) AND (switch_condition) AND (isEmpty(r7)) AND (thirdElementIsNotEmpty) AND (**  \nmanagerIdIsValid == false  \n**) AND (**  \napplicationIdAndVersionCombinationIsNull  \n**) AND (manifestParsed == true) AND (manifestParsed == false) AND (**  \nmanifestNotParsed  \n**) AND (manifestNotParsed) AND (sNetWorkInited == false) AND (defaultDataNetworkType == null) AND (param1 == false) AND (context == null) AND (`if (isSpecificMode == false)`) AND (isStringInvalid) AND (isUnValid(IMEI) == true) AND (isImeiInvalid && isParameterTrue) AND (featureEnabled && isImeiInvalid) AND (IMEI_is_valid) AND (IMEI_is_invalid) AND (isUnValid(imeiString) == true) AND (param1 == false) AND (`booleanFlag != false`) AND ($r4 == null && $z0 == false) AND (isUnValid(currentIMEI)) AND (IMEI_is_invalid) AND (featureEnabled == false) AND (wifiManagerIsNull) AND (WiFiConnectionInfo == null) AND (externalStorageMounted == false) AND (isStringValid) AND (isValidIMEI) AND (isIdentifierInvalid) AND (IMEI_is_valid) AND (IMEI_is_valid) AND (isImeiValid == true) AND (isNotEmpty($r3)) AND (isStringInvalid == true) AND (isValidIMEI) AND (isBackup == false) AND (`isDirectory == false`) AND (fileIsNotDirectory) AND (isNotDirectory) AND (fileLength > 0) AND (fileObjectIsNotNull) AND (fileIsNotDirectory && fileLengthGreaterThanZero) AND (fileLength > 0) AND (The string being checked is valid.) AND (flagParameter == false) AND (booleanFlag == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 58
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 4260398,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_158804036524600_7m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.streamdownload.DownloadService dummyMainMethod_io_dcloud_streamdownload_DownloadService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: void onCreate()>",
+            "<io.dcloud.streamdownload.DownloadService: void onCreateImpl()>",
+            "<io.dcloud.daps.DAps: void init(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMSI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_158831355736000_9m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.a.d$8: void run()>",
+            "<io.dcloud.common.util.CommitDataUtil: java.lang.String getStartData(io.dcloud.common.DHInterface.IApp,android.content.SharedPreferences)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMSI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_158977243054100_20m_21c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity,io.dcloud.common.DHInterface.ICore$ICoreStatusListener)>",
+            "<io.dcloud.EntryProxy: void destroy(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: void onStop(android.app.Activity)>",
+            "<io.dcloud.common.b.b: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean onActivityExecute(android.app.Activity,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.b.a: java.lang.Object dispatchEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IFrameView)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IWebview)>",
+            "<io.dcloud.common.adapter.util.DeviceInfo: void initGsmCdmaCell()>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMSI(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getSubscriberId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_158804036524600_7m_2c",
+          "associated_call_chain": "path_158804036524600_7m_2c",
+          "boolean_logic_format": "(context != null) AND (sIMSI == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        },
+        {
+          "constraint_id": "path_158831355736000_9m_6c",
+          "associated_call_chain": "path_158831355736000_9m_6c",
+          "boolean_logic_format": "(**  \ntimeSinceLastCommit >= 30Days  \n**) AND (manufacturerEqualsHuawei == false) AND (SDK_VERSION >= 23) AND (deviceManufacturerNotHuawei) AND (context != null) AND (sIMSI == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_158977243054100_20m_21c",
+          "associated_call_chain": "path_158977243054100_20m_21c",
+          "boolean_logic_format": "($z0 != 0) AND (B == true) AND (contextFromBMethod == applicationContext) AND (contextOfBInstance != applicationContextOfActivity) AND (ArrayList_d_is_empty) AND (c != null) AND ($r3 is not an instance of IApp) AND (**  \n`managerIdIsValid == false`  \n**) AND (switch_condition) AND (isEmpty(r7)) AND ($r9 is not empty) AND (managerIdIsValid == false) AND (cachedValue == null) AND (manifestParsed == true) AND (manifestParsed == false) AND (manifestNotParsed) AND (manifestNotParsed) AND (**  \nsNetWorkInited == false  \n**) AND (defaultDataNetworkSetting == null) AND (context != null) AND (sIMSI == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 21
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 4449244,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_161914637770700_19m_230c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void c()>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d b(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,boolean)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(android.app.Activity,java.lang.String,boolean)>",
+            "<io.dcloud.common.a.d: boolean a(java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.d: boolean a(java.io.InputStream,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.a: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.common.a.b: boolean a(io.dcloud.common.a.d,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.a.d: boolean onExecute(io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.a.d: void m()>",
+            "<io.dcloud.common.a.d$10: void run()>",
+            "<io.dcloud.common.adapter.io.DHFile: int deleteFile(java.lang.String)>",
+            "<io.dcloud.common.adapter.io.DHFile: boolean delete(java.lang.Object)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_161914656823400_9m_19c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.a.a$6: void run()>",
+            "<io.dcloud.common.adapter.io.DHFile: int deleteFile(java.lang.String)>",
+            "<io.dcloud.common.adapter.io.DHFile: boolean delete(java.lang.Object)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_162701505123700_14m_116c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.util.ADUtils$7: void run()>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<io.dcloud.common.adapter.io.DHFile: int copyFile(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.io.DHFile: int copyFile(java.lang.String,java.lang.String,boolean,boolean)>",
+            "<io.dcloud.common.adapter.io.DHFile: int deleteFile(java.lang.String)>",
+            "<io.dcloud.common.adapter.io.DHFile: boolean delete(java.lang.Object)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_162766360292400_10m_29c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void c()>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d b(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.d: boolean b(java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.adapter.io.DHFile: boolean delete(java.lang.Object)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_164669174671900_17m_276c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void c()>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d b(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,boolean)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(android.app.Activity,java.lang.String,boolean)>",
+            "<io.dcloud.common.a.d: boolean a(java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.d: boolean a(java.io.InputStream,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.a: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.common.a.a: void a(android.app.Activity,java.lang.String,java.lang.String,io.dcloud.common.a.d,io.dcloud.common.a.d,io.dcloud.common.a.d,boolean)>",
+            "<io.dcloud.common.a.d: void a(io.dcloud.common.DHInterface.ICallBack)>",
+            "<io.dcloud.common.a.d$6: void run()>",
+            "<io.dcloud.common.adapter.io.DHFile: boolean delete(java.lang.Object)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_164675376676200_8m_20c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.appstream.StreamAppMainActivity dummyMainMethod_io_dcloud_appstream_StreamAppMainActivity(android.content.Intent)>",
+            "<io.dcloud.appstream.StreamAppMainActivity$5: void onClick(android.content.DialogInterface,int)>",
+            "<io.dcloud.streamdownload.utils.AppStreamUtils: void deleteAppStream(io.dcloud.appstream.StreamAppMainActivity,android.app.Activity,io.dcloud.appstream.StreamAppManager,java.lang.String,java.lang.String,boolean)>",
+            "<io.dcloud.streamdownload.utils.AppStreamUtils: boolean removeInstalledApplication(java.lang.String)>",
+            "<io.dcloud.streamdownload.utils.AppStreamUtils$4: void run()>",
+            "<io.dcloud.common.adapter.io.DHFile: boolean delete(java.lang.Object)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_161914637770700_19m_230c",
+          "associated_call_chain": "path_161914637770700_19m_230c",
+          "boolean_logic_format": "(**  \n`!arrayListContainsIdentifier`  \n**) AND (indexOfResult >= 0) AND (retrievedObject != null) AND (booleanFlag == false) AND ($r5.<io.dcloud.common.a.d: android.app.Activity au> == null) AND (ActivityParameterIsNull) AND (stringParameterNotInList) AND (indexOfString >= 0) AND (objectNotInList && !createNewInstanceFlag) AND (param2 == false) AND (activityAssociatedWithObjectIsNull) AND (ActivityParameter != null) AND (booleanFlag == true) AND (retrievedObjectIsNotNull) AND (ActivityParameter != null) AND (activityInFieldNotNull) AND (**  \nIntentNotNull  \n**) AND (initialFlag == false && objectStateE == true) AND (featureEnabled == false) AND (flagNotZero) AND (mBaseAppInfoSet != null) AND (!mBaseAppInfoSet.containsKey(aF)) AND (InputStream is null) AND ($r8 != null) AND (isWap2AppAppid(appId) == false) AND (inputStreamIsNull) AND (isWap2AppAppid(appId) == false) AND (!mBaseAppInfoSet.containsKey(aF)) AND (byteFlag_aH == 1) AND (isStreamApp() == false) AND (isStreamApp() == false) AND (isStreamApp() == true) AND (bFieldIsNull) AND (`flagDIsFalse`) AND (inputStream != null) AND (activityContextAvailable) AND (decryptedData != null) AND ($z0 == false) AND (jsonObjectParameter != null) AND ($z1 == 0) AND (!identifiersAreEqual) AND (applicationContext == null) AND (isEquals(idFromJson1, idFromJson2)) AND (stringsAreNotEqual) AND (isStringsEqual) AND (stringsAreNotEqual) AND (stringsAreEqual) AND (stringsAreEqual) AND (stringsAreEqual) AND (**\n`ae == 0`\n**) AND ($r2 != null) AND (`jsonObjectHasBackground`) AND (jsonObjectHasBackground) AND (!jsonObjectHasImmersed) AND (statusBarConfigDoesNotContainImmersed) AND (deviceApiLevel >= 19) AND (immersedFeatureEnabled == false) AND (!hasImmersedKey) AND (statusbarKeyDoesNotExist) AND (jsonObjectHasNoKeys) AND (!r2.has(\"style\")) AND (!r2.has(\"geolocation\")) AND (replaceWebApiJson == null) AND (!jsonObjectHasReplaceWebApi) AND (!r31.has(\"replacewebapi\")) AND (jsonObjectHasReplaceWebapi) AND (!$r31.has(\"geolocation\")) AND (replaceWebApiConfigIsNull) AND (!jsonObjectPlusHasAppWhitelist) AND (index >= arrayLength) AND (currentIndex >= arrayLength) AND (geolocationKeyExists) AND (!jsonObjectHasGeolocation) AND (flagDIsTrue) AND (identifiersAreEqual) AND (identifiersAreNotEqual) AND (configurationFlagCIsFalse) AND (!isStringsEqual\n####) AND (stringsAreEqual) AND (appIdAndVersionChecksSatisfied) AND (flagCIsTrue) AND (!jsonObjectHasImmersed) AND (!jsonObjectHasReplaceWebApi) AND (!jsonObjectHasGeolocation) AND (**\n!jsonObjectHasReplaceWebApi\n**) AND (currentIndex < totalElements) AND (jsonObjectHasGeolocation) AND (!jsonObjectHasReplaceWebApi) AND (replaceWebApiExists) AND (!replaceWebApiConfig.hasGeolocation) AND (sslConfigurationIsAbsent) AND (!jsonObjectHasGeolocation) AND (!jsonObjectHasReplaceWebApi) AND (jsonObjectHasReplaceWebApi) AND (!jsonObjectHasStatusbar) AND (streamConfigIsAbsentOrNotCompetent) AND (!jsonObjectHasReplaceWebApi) AND (!jsonObjectHasReplaceWebapi) AND (isPlusSectionMissing) AND (!jsonObjectHasGeolocation) AND (JSON object does not contain the key \"statusbar\"\n####) AND (!jsonObjectHasReplaceWebApi) AND (cersKeyDoesNotExist) AND (`!jsonObjectHasAppWhitelist`) AND (!hasReplaceWebApi) AND (featureEnabled == false) AND (splashscreenConfigExists) AND (autocloseDisabledOrMissing) AND (configurationEnabled == false) AND (!sharedPreferencesContainsSplashscreenDelayKey) AND (!sharedPreferencesContainsAutocloseW2a && splashscreenAutocloseW2aIsNull) AND (splashScreenAutoCloseEnabled == false) AND (!sharedPreferencesContainsDelayW2A && splashscreenConfigIsNull) AND (streamConfig == null) AND (**\nstreamSectionIsNull\n**) AND (isAppStreamGenuine == false) AND (sslConfig == null) AND (isAppStreamGenuine(appId)\n####) AND (isAppStreamGenuine == false) AND (isAppStreamGenuine == false) AND (sslConfigExists) AND (isAppStreamGenuine(appId) == false) AND (wap2appConfigAbsent) AND (**\nisAppStreamGenuine(appId) == false\n**) AND (`JSONArray keysList = null`) AND (currentIndex < arrayLength) AND (permissionName != \"push\") AND ($z0 == 0) AND ($z1 == true) AND (isStreamApp) AND ($z15 == false) AND (!isValidManagerId) AND (switch_condition) AND ($r11 != null) AND ($r14 == null) AND ($r14 != null) AND ($r14 != $r11) AND (**\nisModuleActive == false\n**) AND (isConditionFalse) AND ($r14 != null) AND (stringEqualsPopped == false) AND (!TextUtils.isEmpty($r10)) AND (isConditionETrue) AND ($z3 == false) AND (featureEnabled == false) AND (stringEqualsPopped) AND (statusFlag == 1) AND (`alertDialog == null`) AND (z1 == false) AND ($z1 == false) AND ($r21 != null) AND (r11FieldE == false) AND (jsonArray != null) AND (loopCounter < jsonArrayLength) AND (`!isEquals(string1, string2)`) AND (`isStreamApp() == false`) AND (isCompetentStreamApp() == false) AND ($r11 != null) AND (arrayLength > 2) AND (!pathEndsWithSlash) AND (!stringEndsWithSlash) AND (`!stringEndsWithSlash`) AND (managerIdIsValid == false) AND ($r11 != null) AND (!stringEndsWithSlash) AND ($r11 != null) AND (validationConditionMet == false) AND (`stringEndsWithSlash`) AND (validationSuccessful) AND (validationCheckIsSuccessful) AND (statusFlagIsTrue) AND (isNotEmpty == true) AND ($z0 == 0) AND (param2 is not a String) AND ($r11 != null) AND (!($r2 instanceof java.lang.String)) AND ($r11 != null) AND ($r11 != null) AND (status == 3) AND (validationCheckFails) AND (methodKReturnsFalse) AND ($r11 != null) AND ($r13 != $r11) AND (currentAppOrModule == null) AND (intent == null) AND (operationCode != 21) AND (statusOrMode == 2) AND ($r34 == null) AND (isInstanceOfIoDcloudCommonAD) AND (SDKRuntimeModeIsSet) AND (applicationObject == null) AND (isNotForQihooHelper) AND (eventType.equals(onResume)) AND (currentIndex < listSize) AND (elementFromListIsNotNull) AND (isShortcutOperationNotBeingCreated) AND (isOpsCreateShortcutInProgress) AND (isOpsCreateShortcutResult == false) AND (param0 == null) AND (eventTypeIsNotOnResume) AND (integerValue == 4) AND (**\neventTypeIsNotOnResume\n**) AND (param0 == null) AND (indexLastElementMinusOne >= 0) AND (eventHandledSuccessfully) AND (currentElementFromList != methodParameter) AND (operationExecutedSuccessfully == false) AND (`byteFieldD == 3`) AND (stateOrMode == 1) AND (eventType != onWebAppStop) AND (eventType == onStop) AND ($r0 != null) AND (fileExists == true) AND (fileExists == false) AND (parameter != null) AND (fileExists == true) AND (file does not exist) AND (Directory is not accessible or not a directory) AND (`i0 >= i1`) AND (currentIndex < totalFiles) AND (isDirectory == true) AND (**\nfileExists == true\n**) AND ($r0 == null) AND (fileExists == false) AND (fileExists == false) AND (directoryFiles == null) AND (numberOfFiles <= 0) AND (indexCounter < numberOfFiles) AND (The file is not a directory) AND (fileExists == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 230
+        },
+        {
+          "constraint_id": "path_161914656823400_9m_19c",
+          "associated_call_chain": "path_161914656823400_9m_19c",
+          "boolean_logic_format": "($r0 != null) AND (fileExists == true) AND (fileExists == false) AND (parameter != null) AND (fileExists == true) AND (file does not exist) AND (Directory is not accessible or not a directory) AND (`i0 >= i1`) AND (currentIndex < totalFiles) AND (isDirectory == true) AND (**\nfileExists == true\n**) AND ($r0 == null) AND (fileExists == false) AND (fileExists == false) AND (directoryFiles == null) AND (numberOfFiles <= 0) AND (indexCounter < numberOfFiles) AND (The file is not a directory) AND (fileExists == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 19
+        },
+        {
+          "constraint_id": "path_162701505123700_14m_116c",
+          "associated_call_chain": "path_162701505123700_14m_116c",
+          "boolean_logic_format": "(z0 == false) AND (Context == null) AND (`booleanParameter == false`) AND (isInvalid == true) AND (isUnValid(sImei) == true) AND (IMEI is invalid) AND ($z0 == true) AND (IMEI_is_valid) AND (isUnValid(sImei) == true) AND (isUnValid(identifier) == true) AND (z0 == false) AND (z0 == true) AND (getMultiIMEIResult != null && isFeatureEnabled == false) AND (isUnValid(sImei) == true) AND (IMEI is valid) AND (param1 == false) AND (WiFiManager != null) AND (wifiConnectionInfo == null) AND (**  \nexternalStorageState != \"mounted\"  \n**) AND (isValidString) AND (isValidIMEI) AND (isImeiInvalid) AND (isUnValid(imei) == false) AND (isUnValid(identifier) == false) AND (IMEI_is_valid) AND ($r3 is not empty) AND (isStringInvalid) AND (IMEI_is_valid) AND ($z0 == false) AND (FileIsNotDirectory) AND (isDirectory == false) AND (fileIsNotDirectory && (fileIsEmpty || fileDoesNotExist)) AND (fileLength > 0) AND (externalStorageDirectory != null) AND (fileIsDirectory && fileLength > 0) AND (fileLength <= 0) AND (isValidString && !featureEnabled) AND ($z0 == false) AND (z0 == false) AND (parameterIsFalse) AND (useBackupInfo == FALSE) AND (IMEI is valid) AND (IMEI is valid) AND (`featureFlag == false`) AND ($z0 == false) AND (featureEnabled == false && identifierNotEmpty == true) AND (isValidAndroidId) AND (isDetailedMode == false) AND (**\nbooleanFlag == false\n**) AND (flag == FALSE) AND (z0 == false) AND (flagParameter == false) AND (isFeatureEnabled == true) AND (isDirectory == false) AND (isNotDirectory) AND (`fileIsNotDirectory`) AND (fileLength <= 0) AND (booleanParameter == true) AND (Context is null) AND (`flagParameter == false`) AND (isUnValid(IMEI) == true) AND (IMEI is invalid) AND (isInvalidIMEI) AND (booleanFlag == true) AND (isUnValid(imei) == false) AND (isImeiInvalid == true) AND (isStringInvalid == true) AND (if (featureEnabled == false)) AND (booleanParameter == true) AND (isBackup == false) AND (isUnValid(sImei) == true) AND (isValidIMEI == true) AND (booleanParameter == true) AND (WifiManagerServiceIsNull) AND (noActiveWifiConnection) AND (externalStorageStateIsNotMounted) AND (The string being checked is valid.) AND (IMEI is valid) AND (IMEI is invalid) AND (isUnValid(sImei) == false) AND (isValidIMEI == false) AND (isImeiValid == true) AND (`booleanFlag == false`) AND (isValidIMEI) AND (`isUnValid($r3) == false`) AND (booleanParameterIsFalse && externalStorageNotMounted) AND (fileIsNotDirectory) AND (**  \n`isDirectory == false`  \n**) AND (fileIsNotDirectory) AND (fileLength <= 0) AND (externalStorageDirectory != null) AND (isDirectory && fileLength > 0) AND (fileLength > 0) AND (destinationFileDoesNotExist) AND (fourthParameterIsFalse) AND (isDirectory) AND (isNotDirectory) AND ($r0 != null) AND (fileExists == true) AND (fileExists == false) AND (parameter != null) AND (fileExists == true) AND (file does not exist) AND (Directory is not accessible or not a directory) AND (`i0 >= i1`) AND (currentIndex < totalFiles) AND (isDirectory == true) AND (**\nfileExists == true\n**) AND ($r0 == null) AND (fileExists == false) AND (fileExists == false) AND (directoryFiles == null) AND (numberOfFiles <= 0) AND (indexCounter < numberOfFiles) AND (The file is not a directory) AND (fileExists == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 116
+        },
+        {
+          "constraint_id": "path_162766360292400_10m_29c",
+          "associated_call_chain": "path_162766360292400_10m_29c",
+          "boolean_logic_format": "($r5 == null && fileExists) AND (fileExists == false) AND (isNotDeviceRootDir) AND (isNotDeviceRootDir) AND (isNotRootDirectory) AND (fileNameEndsWithWGTU) AND (if (methodInvocationResult != null)) AND ($r5 != null) AND (fileInputStream == null) AND (fileInputStreamIsNull) AND ($r0 != null) AND (fileExists == true) AND (fileExists == false) AND (parameter != null) AND (fileExists == true) AND (file does not exist) AND (Directory is not accessible or not a directory) AND (`i0 >= i1`) AND (currentIndex < totalFiles) AND (isDirectory == true) AND (**\nfileExists == true\n**) AND ($r0 == null) AND (fileExists == false) AND (fileExists == false) AND (directoryFiles == null) AND (numberOfFiles <= 0) AND (indexCounter < numberOfFiles) AND (The file is not a directory) AND (fileExists == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 29
+        },
+        {
+          "constraint_id": "path_164669174671900_17m_276c",
+          "associated_call_chain": "path_164669174671900_17m_276c",
+          "boolean_logic_format": "(ArrayList_b_contains_string) AND (indexOfResult >= 0) AND (retrievedObject == null) AND (isNewInstance == false) AND (`activityFieldIsNull`) AND (activityParameter == null) AND (!arrayListB.contains(inputString)) AND (indexOfString >= 0) AND ($r5 == null) AND (z0 == false) AND (activityInstanceAssociatedWithR5 == null) AND (ActivityParameterIsNull) AND (isAppInitialized == true) AND ($r5 != null) AND (ActivityParameter != null) AND (activityAssociatedWithInstance != null) AND (ActivityIntent != null) AND (isNewInstance == true) AND (param2 == false) AND (initializationFlag == 0) AND (baseAppInfoSet != null) AND (!mBaseAppInfoSet.containsKey(applicationId)) AND (inputStream == null) AND (inputStream != null) AND (isWap2AppAppid(appId) == false) AND (inputStream == null) AND (isWap2AppAppid(appId) == true) AND (isWap2AppAppid(appId) == false) AND (flagInitialized == 1) AND (isStreamApp() == true) AND (isStreamApp == false) AND (**\nisStreamApp() == false\n**) AND (configurationObject == null) AND ($z0 == false) AND (currentActivity != null) AND (currentActivity != null) AND (decryptedStringResult != null) AND (flagIsFalse) AND ($r2 != null) AND (forceAttributeParsedAsBoolean == true) AND (!isDebugMode) AND (applicationContext == null) AND (isEquals(idFromJson, forceFromJson)) AND ($z2 == false) AND (isIdentifiersEqual) AND (stringsAreNotEqual) AND (stringsAreNotEqual) AND (stringsAreEqual) AND (**  \nisStringsEqual  \n**) AND (**\nstringsAreNotEqual\n**) AND (statusbarConfigDoesNotHaveBackground) AND (!statusbarConfig.has(\"background\")) AND (JSONObject_has_background\n####) AND (!hasBackground) AND (statusbarConfigDoesNotContainImmersed) AND (androidVersion < 19) AND (!jsonObjectHasImmersedKey) AND ($r2 == null) AND (statusbarConfigIsAbsent) AND (JSONArray of keys in JSON object is not null) AND (!jsonObjectHasStyle) AND (!statusBarConfig.has(\"titleNView\")) AND (!hasGeolocationKey) AND (geolocationKeyExistsInReplaceWebApi) AND (!jsonObjectHasTitleNView) AND (!r15.has(\"appWhitelist\")) AND (r15.has(\"appWhitelist\")) AND (`replaceWebApiJsonObject == null`) AND (!hasStatusbar) AND (loopCounter >= arrayLength) AND (index < arrayLength) AND (jsonObjectHasGeolocation) AND (!jsonObjectHasGeolocation) AND (booleanFlagDIsTrue) AND (isEquals(jsonId, expectedId)) AND (!isEquals(expectedString, actualString)) AND (flagDIsFalse) AND (stringsAreNotEqual) AND (stringsAreEqual) AND ($z3 == 0) AND (z0 == true) AND (statusBarConfig.has(\"immersed\")) AND (!jsonObject.has(\"replacewebapi\")) AND (hasReplaceWebApiKey) AND (!hasReplaceWebApi) AND (currentIndex < arrayLength) AND (jsonObjectHasGeolocation) AND (`$z5 == 0`) AND (replaceWebApiConfigExists) AND (`!r31.has(\"geolocation\")`) AND (streamConfig == null) AND (!jsonObjectReplaceWebApiHasGeolocation) AND (!hasStatusBar) AND (!jsonObjectHasStatusBar) AND (jsonObjectHasStatusbar) AND (`streamJsonObjectExists`) AND (`!jsonObjectHasReplaceWebApi`) AND (!jsonConfig.has(\"appWhitelist\")) AND ($r15 != null) AND (`!jsonConfig.has(\"statusbar\")`) AND (!jsonObjectHasGeolocation) AND (!jsonObjectHasReplaceWebApi) AND (jsonObjectCersExists) AND (!hasAppWhitelist) AND (!jsonObjectHasReplaceWebApi) AND ($z9 == false) AND (streamConfig != null) AND (autocloseDisabled && !splashscreenHasAutocloseKey) AND (settingEnabled == true) AND (!sharedPreferencesContainsKey) AND (!sharedPreferences.contains(\"autoclose_w2a\")) AND (sharedPreferenceSetting == false) AND (!sharedPreferences.contains(splashDelayW2AKey)) AND (streamConfigExists) AND ($r39 == null) AND (isAppInSpecificMode == false) AND (sslConfigIsNull && isAppStreamGenuine) AND (isAppStreamGenuine) AND (competentFeatureEnabled == false) AND (isAppStreamGenuine(appId) == false) AND (streamConfigurationIsNull) AND (isAppStreamGenuine(appId) == false) AND (wap2appConfigAbsent) AND (appStateCondition == false) AND (JSONObjectIsEmpty) AND (loopCounter >= jsonArrayLength) AND (permissionName != \"push\") AND (flagD == false) AND (parsedBooleanValueFromString) AND (!isStreamApp) AND (`$z15 == false`) AND (**  \n`!isValidManagerType`  \n**) AND (switch_condition) AND (applicationDescriptor != null) AND ($r14 == null) AND ($r14 != null) AND (r14 != r11 && !isStreamApp(r11)) AND (**\n`!isConditionMetForObjectR11`\n**) AND (`$z1 == false`) AND (componentStateIsValid AND actionIsPopped) AND (isEmpty($r10)) AND ($z2 == false) AND (isApplicationEnabled) AND (isAppConditionMet) AND ($z1 == false) AND ($r10 is not empty) AND (applicationState == 1) AND (AlertDialogInstance == null) AND (z1 == false) AND (flagIsSetToTrue) AND (jsonObjectAtIndexIsNull) AND ($z1 == 0) AND (JSONArrayExists) AND (`i0 < i2`) AND (e == false) AND (!isStringEmpty) AND (!r11.k()) AND ($r11 != null) AND (arrayLength > 2) AND (!stringEndsWithSlash) AND (!stringEndsWithSlash) AND (`$z0 != 0`) AND (methodKReturnsFalse) AND ($r11 != null) AND (`!stringEndsWithSlash`) AND ($r11 == null\n####) AND (`!conditionMetByMethodE`) AND (validationResult == false) AND (validationConditionIsTrue) AND (validationPassed) AND (validationConditionMet) AND (`!isEmpty(appId)`) AND (!isEmpty(object)) AND (param2 is not a String) AND ($r11 != null) AND (objectIsNotString) AND (`$r11 == null`) AND (applicationExists) AND (byteFieldD != 3) AND (methodAResult == false) AND (ConditionNotMet) AND (componentObject == null) AND ($r13 != $r11) AND (applicationManagerObject == null) AND (intentIsNotNull) AND (i0 == 21) AND (status == 2) AND (isMgrTypeValid) AND (switch_condition) AND (`applicationDescriptor != null`) AND (applicationContextIsNull) AND ($r14 != null && $r14 != $r11) AND ($r14 != $r11 && !$r11.isStreamApp()) AND (isConditionMet == false) AND (`!$r11.e`) AND ($r14 != null) AND (**  \n`!isEmpty(charSequence)`  \n**) AND (`!TextUtils.isEmpty(runningTest)`) AND (isAppInSpecificState) AND (`applicationStateFlag == false`) AND (`!isConditionMet`) AND (applicationState.equals(\"popped\")) AND (status == 1) AND (alertDialog == null) AND (z1 == false) AND (isFeatureEnabled == false) AND (jsonObjectAtIndexIsNotNull) AND (isConditionEFalse) AND (JSONArrayExists) AND (i0 < i2) AND (actionString.equals(\"*\") == false) AND (isStreamApp() == false) AND (isNotString\n####) AND ($r11 != null) AND (arrayLength <= 2) AND (stringDoesNotEndWithSlash) AND (!stringEndsWithSlash) AND (stringEndsWithSlash == true) AND (**\nisStreamApp == true\n**) AND ($r11 != null) AND (z0 == false) AND ($r11 != null) AND (isFeatureActive == false) AND (validationResult == false) AND (validationSuccessful) AND (`isConditionTrue`) AND (conditionEIsTrue) AND ($r8 is not empty) AND (`isObjectEmpty == false`) AND (isInstanceOfAD) AND ($r11 != null) AND (objectIsNotString) AND ($r11 != null) AND (applicationComponent != null) AND (i0 == 3) AND (validationFailed) AND (`conditionCheckResult == true`) AND ($r11 != null) AND (applicationComponent1 != applicationComponent2) AND ($r13 == null) AND ($r15 == null) AND (statusOrMode != 21 && statusOrMode != 2) AND (**  \n`$i0 == 2`  \n**) AND (needUpdate == false) AND (needUpdate == false) AND (isStreamApp == true) AND (stateCode == 3) AND (needUpdate == true) AND ($r4 != null) AND ($r4 != $r5) AND ($r4 != $r6) AND (statusOfR5 != 1) AND (z0 == false && z1 == false) AND (isStreamApp() == false) AND (isStreamApp == true) AND (e == false) AND (**\nparam6 == true\n**) AND ($r0 != null) AND (fileExists == true) AND (fileExists == false) AND (parameter != null) AND (fileExists == true) AND (file does not exist) AND (Directory is not accessible or not a directory) AND (`i0 >= i1`) AND (currentIndex < totalFiles) AND (isDirectory == true) AND (**\nfileExists == true\n**) AND ($r0 == null) AND (fileExists == false) AND (fileExists == false) AND (directoryFiles == null) AND (numberOfFiles <= 0) AND (indexCounter < numberOfFiles) AND (The file is not a directory) AND (fileExists == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 276
+        },
+        {
+          "constraint_id": "path_164675376676200_8m_20c",
+          "associated_call_chain": "path_164675376676200_8m_20c",
+          "boolean_logic_format": "(fileExists == true) AND ($r0 != null) AND (fileExists == true) AND (fileExists == false) AND (parameter != null) AND (fileExists == true) AND (file does not exist) AND (Directory is not accessible or not a directory) AND (`i0 >= i1`) AND (currentIndex < totalFiles) AND (isDirectory == true) AND (**\nfileExists == true\n**) AND ($r0 == null) AND (fileExists == false) AND (fileExists == false) AND (directoryFiles == null) AND (numberOfFiles <= 0) AND (indexCounter < numberOfFiles) AND (The file is not a directory) AND (fileExists == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 20
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 10147678,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_164884845770100_8m_30c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.streamdownload.DownloadService dummyMainMethod_io_dcloud_streamdownload_DownloadService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: void onCreate()>",
+            "<io.dcloud.streamdownload.DownloadService: void onCreateImpl()>",
+            "<io.dcloud.daps.DAps: void init(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_164884868071100_9m_30c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.service.MultiProcessService dummyMainMethod_io_dcloud_multiprocess_service_MultiProcessService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: int onStartCommand(android.content.Intent,int,int)>",
+            "<io.dcloud.streamdownload.DownloadService: int onStartCommandImpl(android.content.Intent,int,int)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getWGTUrl(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.constant.DataInterface: java.lang.String getUrlBaseData(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_164884893993600_10m_30c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.util.ADUtils$7: void run()>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context)>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_164996552656900_20m_49c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity,io.dcloud.common.DHInterface.ICore$ICoreStatusListener)>",
+            "<io.dcloud.EntryProxy: void destroy(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: void onStop(android.app.Activity)>",
+            "<io.dcloud.common.b.b: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean onActivityExecute(android.app.Activity,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.b.a: java.lang.Object dispatchEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IFrameView)>",
+            "<io.dcloud.feature.b: java.lang.String a(io.dcloud.common.DHInterface.IApp,io.dcloud.common.DHInterface.IWebview)>",
+            "<io.dcloud.common.adapter.util.DeviceInfo: void initGsmCdmaCell()>",
+            "<io.dcloud.common.util.TelephonyUtil: java.lang.String getIMEI(android.content.Context,boolean)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_164884845770100_8m_30c",
+          "associated_call_chain": "path_164884845770100_8m_30c",
+          "boolean_logic_format": "(`featureDisabled`) AND (context == null) AND (`booleanFlag == false`) AND (isFeatureEnabled == false) AND (isImeiInvalid) AND (IMEI is invalid) AND ($z0 == true && $z1 == true) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (param1 == false) AND (param1 == true) AND ($r4 == null && $z0 == false) AND (isImeiInvalid) AND (IMEI is valid) AND (z0 == false) AND (wifiManager == null) AND (NoActiveWiFiConnection) AND (externalStorageMounted) AND (isValidString && !isSpecialMode) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (isImeiValid) AND (IMEI is valid) AND ($r3 is not empty) AND (sImei is not empty) AND (isValidString) AND (z0 == false) AND (externalStorageStateIsNotMounted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 30
+        },
+        {
+          "constraint_id": "path_164884868071100_9m_30c",
+          "associated_call_chain": "path_164884868071100_9m_30c",
+          "boolean_logic_format": "(`featureDisabled`) AND (context == null) AND (`booleanFlag == false`) AND (isFeatureEnabled == false) AND (isImeiInvalid) AND (IMEI is invalid) AND ($z0 == true && $z1 == true) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (param1 == false) AND (param1 == true) AND ($r4 == null && $z0 == false) AND (isImeiInvalid) AND (IMEI is valid) AND (z0 == false) AND (wifiManager == null) AND (NoActiveWiFiConnection) AND (externalStorageMounted) AND (isValidString && !isSpecialMode) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (isImeiValid) AND (IMEI is valid) AND ($r3 is not empty) AND (sImei is not empty) AND (isValidString) AND (z0 == false) AND (externalStorageStateIsNotMounted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 30
+        },
+        {
+          "constraint_id": "path_164884893993600_10m_30c",
+          "associated_call_chain": "path_164884893993600_10m_30c",
+          "boolean_logic_format": "(`featureDisabled`) AND (context == null) AND (`booleanFlag == false`) AND (isFeatureEnabled == false) AND (isImeiInvalid) AND (IMEI is invalid) AND ($z0 == true && $z1 == true) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (param1 == false) AND (param1 == true) AND ($r4 == null && $z0 == false) AND (isImeiInvalid) AND (IMEI is valid) AND (z0 == false) AND (wifiManager == null) AND (NoActiveWiFiConnection) AND (externalStorageMounted) AND (isValidString && !isSpecialMode) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (isImeiValid) AND (IMEI is valid) AND ($r3 is not empty) AND (sImei is not empty) AND (isValidString) AND (z0 == false) AND (externalStorageStateIsNotMounted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 30
+        },
+        {
+          "constraint_id": "path_164996552656900_20m_49c",
+          "associated_call_chain": "path_164996552656900_20m_49c",
+          "boolean_logic_format": "($r5 is not empty) AND (B == true) AND (contextFromBMethod == applicationContext) AND (contextFromB != applicationContext) AND (ArrayListSize == 0) AND (c is not null) AND ($r3 instanceof io.dcloud.common.DHInterface.IApp) AND (managerIdIsValid == false) AND (switch_condition) AND (isNotEmpty(firstElementOfStringArray)) AND (thirdElementIsNotEmpty) AND (managerIdIsValid == false) AND (cachedResult == null) AND (comparisonResultIsTrue) AND (manifestParsed == true) AND (manifestNotParsed) AND (manifestNotParsed) AND (sNetWorkInited == false) AND (DefaultDataNetwork == null) AND (`featureDisabled`) AND (context == null) AND (`booleanFlag == false`) AND (isFeatureEnabled == false) AND (isImeiInvalid) AND (IMEI is invalid) AND ($z0 == true && $z1 == true) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (param1 == false) AND (param1 == true) AND ($r4 == null && $z0 == false) AND (isImeiInvalid) AND (IMEI is valid) AND (z0 == false) AND (wifiManager == null) AND (NoActiveWiFiConnection) AND (externalStorageMounted) AND (isValidString && !isSpecialMode) AND (isUnValid(sImei) == false) AND (isUnValid(sImei) == true) AND (isUnValid(sImei) == true) AND (isImeiValid) AND (IMEI is valid) AND ($r3 is not empty) AND (sImei is not empty) AND (isValidString) AND (z0 == false) AND (externalStorageStateIsNotMounted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 49
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 10468859,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_154698329813100_7m_29c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.multiprocess.activity.MultiProcessBaseActivity$5: void onClick(android.view.View)>",
+            "<io.dcloud.common.util.ShortCutUtil: int createShortcutGuide(io.dcloud.common.DHInterface.IApp,java.lang.String,android.graphics.Bitmap,boolean,boolean,boolean)>",
+            "<io.dcloud.common.util.AppPermissionUtil: int checkNoShortcutPermionGuide(android.content.Context,java.lang.String,boolean,io.dcloud.common.DHInterface.IApp,java.lang.String,android.content.SharedPreferences,boolean)>",
+            "<io.dcloud.common.util.AppPermissionUtil: boolean isEmuiShortcutallowAllow()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_154698347579200_7m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.multiprocess.activity.MultiProcessBaseActivity: void onRestart()>",
+            "<io.dcloud.multiprocess.activity.MultiProcessBaseActivity$7$1: void run()>",
+            "<io.dcloud.common.util.AppPermissionUtil: int checkNoShortcutPermionGuide(android.content.Context,java.lang.String,boolean,io.dcloud.common.DHInterface.IApp,java.lang.String,android.content.SharedPreferences,boolean)>",
+            "<io.dcloud.common.util.AppPermissionUtil: boolean isEmuiShortcutallowAllow()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_154698362995400_7m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.multiprocess.activity.MultiProcessBaseActivity: void onRestart()>",
+            "<io.dcloud.multiprocess.activity.MultiProcessBaseActivity$5$1: void run()>",
+            "<io.dcloud.common.util.AppPermissionUtil: int checkNoShortcutPermionGuide(android.content.Context,java.lang.String,boolean,io.dcloud.common.DHInterface.IApp,java.lang.String,android.content.SharedPreferences,boolean)>",
+            "<io.dcloud.common.util.AppPermissionUtil: boolean isEmuiShortcutallowAllow()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_156323807083200_16m_210c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void c()>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d b(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(java.lang.String,boolean)>",
+            "<io.dcloud.common.a.a: io.dcloud.common.a.d a(android.app.Activity,java.lang.String,boolean)>",
+            "<io.dcloud.common.a.d: boolean a(java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.d: boolean a(java.io.InputStream,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.a.a: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.common.a.b: boolean a(io.dcloud.common.a.d,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.util.ShortCutUtil: void onResumeCreateShortcutGuide(io.dcloud.common.DHInterface.IApp)>",
+            "<io.dcloud.common.util.AppPermissionUtil: boolean isEmuiShortcutallowAllow()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_156563160278300_11m_39c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.multiprocess.activity.MultiProcessBaseActivity$5: void onClick(android.view.View)>",
+            "<io.dcloud.common.util.ShortCutUtil: int createShortcutGuide(io.dcloud.common.DHInterface.IApp,java.lang.String,android.graphics.Bitmap,boolean,boolean,boolean)>",
+            "<io.dcloud.common.util.ShortCutUtil: void commitShortcut(io.dcloud.common.DHInterface.IApp,int,int)>",
+            "<io.dcloud.common.util.ShortCutUtil: void commitShortcut(io.dcloud.common.DHInterface.IApp,int,boolean,boolean,boolean,int)>",
+            "<io.dcloud.common.util.ShortCutUtil: void commitShortcut(io.dcloud.common.DHInterface.IApp,int,boolean,boolean,boolean,int,java.lang.String)>",
+            "<io.dcloud.common.util.ShortCutUtil$1: void run()>",
+            "<io.dcloud.common.util.AppPermissionUtil: int checkPermission(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.AppPermissionUtil: boolean isEmuiShortcutallowAllow()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_156811869218400_10m_41c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.b: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void onActivityResult(android.app.Activity,int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int trycatchGetPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.AppPermissionUtil: int checkPermission(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.AppPermissionUtil: boolean isEmuiShortcutallowAllow()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_156834138184700_9m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.b: void onActivityResult(int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: void onActivityResult(android.app.Activity,int,int,android.content.Intent)>",
+            "<io.dcloud.common.adapter.util.PermissionUtil: int checkSelfPermission(android.app.Activity,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.util.AppPermissionUtil: int checkPermission(android.content.Context,java.lang.String)>",
+            "<io.dcloud.common.util.AppPermissionUtil: boolean isEmuiShortcutallowAllow()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_154698329813100_7m_29c",
+          "associated_call_chain": "path_154698329813100_7m_29c",
+          "boolean_logic_format": "(CheckBox.isChecked() == true) AND (isStringEmpty) AND (applicationNotStartedFromShortcut) AND (appNotStartedFromShortcut) AND (intent != null) AND (intentStartFrom != 5) AND (startFromShortCut() == true) AND (!isStringEmpty) AND (!TextUtils.isEmpty(filePath)) AND (bitmapDecodedSuccessfully) AND (applicationStartedFromShortcut == false) AND (!hasShortcut(context, appName)) AND (!hasShortcut(context, shortcutName)) AND (isCompetentStreamApp == false) AND (isStreamApp == true) AND (shortcutsEnabled) AND (**\nshortcutsDisabled == true\n**) AND (isCompetentStreamApp) AND (featureEnabled == false) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (i1 == 1) AND (shortcutGuidePreferenceIsFalse) AND (**  \n`forceShortCutResult != \"tipOnce\"`  \n**) AND (shortcutGuideShown == true) AND (bypassSecurityCheck == false && !startSecuritySettingPage(context)) AND (deviceBrand.equalsIgnoreCase(\"XIAOMI\")) AND (deviceManufacturer.equalsIgnoreCase(\"HUAWEI\")) AND (operationId != -1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 29
+        },
+        {
+          "constraint_id": "path_154698347579200_7m_10c",
+          "associated_call_chain": "path_154698347579200_7m_10c",
+          "boolean_logic_format": "(deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (i1 == 1) AND (shortcutGuidePreferenceIsFalse) AND (**  \n`forceShortCutResult != \"tipOnce\"`  \n**) AND (shortcutGuideShown == true) AND (bypassSecurityCheck == false && !startSecuritySettingPage(context)) AND (deviceBrand.equalsIgnoreCase(\"XIAOMI\")) AND (deviceManufacturer.equalsIgnoreCase(\"HUAWEI\")) AND (operationId != -1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_154698362995400_7m_10c",
+          "associated_call_chain": "path_154698362995400_7m_10c",
+          "boolean_logic_format": "(deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (i1 == 1) AND (shortcutGuidePreferenceIsFalse) AND (**  \n`forceShortCutResult != \"tipOnce\"`  \n**) AND (shortcutGuideShown == true) AND (bypassSecurityCheck == false && !startSecuritySettingPage(context)) AND (deviceBrand.equalsIgnoreCase(\"XIAOMI\")) AND (deviceManufacturer.equalsIgnoreCase(\"HUAWEI\")) AND (operationId != -1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_156323807083200_16m_210c",
+          "associated_call_chain": "path_156323807083200_16m_210c",
+          "boolean_logic_format": "(**  \n`!arrayListContainsString`  \n**) AND (indexOfIdentifier >= 0) AND (objectFromListIsNull) AND (isNewInstance == false) AND (activityField == null) AND ($activity == null) AND (ArrayList does not contain the specified string) AND (indexOfStringInList >= 0) AND (`retrievedObject == null`) AND (booleanParameter == false) AND (activityAssociatedWithR5IsNull) AND (ActivityParameter != null) AND (isAppInitialized == true) AND ($r5 != null) AND (activityParameter != null) AND ($r8 == null) AND (intent != null) AND (param2 != false) AND (flagAIsFalse) AND (configurationProcessed == false) AND (applicationInfoSet != null) AND (!mBaseAppInfoSet.containsKey(applicationId)) AND (inputStream == null) AND (fileInputStreamIsNull) AND (isWap2AppAppid(appId) == true) AND (inputStream == null) AND (isWap2AppAppid(appId) == false) AND (isWap2AppAppid(appId) == false) AND (flagIsInitialized == 1) AND (!isStreamApp) AND (isStreamApp() == false) AND (isStreamApp() == true) AND (fieldBIsNull) AND (featureInactive) AND (activityContextAvailable) AND (activityContextIsNotNull) AND (resultOfProcessingInputStreamData != null) AND (flagIsFalse) AND (jsonObjectParameter != null) AND (forceAttributeIsNotTrue) AND (isDebugMode == false) AND (applicationContextIsNull) AND (`isEquals(identifier1, identifier2) == true`) AND (`!isEquals(string1, string2)`) AND (stringsAreEqual) AND (!isStringsEqual) AND (!isEquals(expectedString, actualString)) AND (stringsAreEqual) AND (identifiersAreEqual) AND (stringsAreNotEqual) AND (statusbarConfigIsNull) AND (statusbarHasBackground) AND (`!r2.has(\"background\")`) AND (!r2.has(\"immersed\")) AND (statusbarDoesNotHaveImmersed) AND (androidApiLevel < 19) AND (aE.equals(\"supportedDevice\") == false) AND (statusbarConfigAbsent) AND (statusbarConfigExists) AND (jsonObjectHasKeys) AND (!jsonObjectHasReplaceWebapi) AND (statusbarKeyAbsent) AND (replaceWebApiConfigIsMissing) AND (`jsonObjectHasAppWhitelist`) AND (plusSectionHasAppWhitelist == false) AND (`appWhitelistExists`) AND (plusSectionHasAppWhitelist) AND (replaceWebApiObjectIsNull) AND (!hasAppWhitelist) AND (index >= arrayLength) AND (currentIndex >= arrayLength) AND (statusBarExists) AND (!jsonObjectHasGeolocation) AND (identifiersAreEqual) AND (stringsAreEqual) AND (!isEquals(expectedAppId, actualAppId)) AND (booleanFlagDIsTrue) AND (identifiersAreNotEqual) AND (stringsAreEqual) AND ($z3 == 0) AND (flagConditionIsFalse) AND (jsonObjectHasImmersed == true) AND (!jsonObjectHasReplaceWebapi) AND (!jsonObjectHasReplaceWebapi) AND (!jsonObjectHasReplaceWebApi) AND (currentIndex < arrayLength) AND (`jsonObjectHasStatusbar`) AND (!jsonObjectHasStatusbar) AND ($r31 != null) AND (!jsonObjectHasGeolocation) AND (cersConfigSectionIsMissing) AND (!jsonObjectHasGeolocation) AND (!jsonObjectHasStatusbar) AND (jsonObjectHasStatusbar) AND (statusbarKeyExists) AND (streamConfigIsNull) AND (`!jsonObjectHasStatusbar`) AND (!jsonObjectHasReplaceWebApi) AND (isPlusSectionAbsent) AND (`!jsonObjectHasAppWhitelist`) AND (!jsonObjectHasGeolocation) AND (!jsonObjectHasGeolocation) AND (`$r39 != null`) AND (appWhitelistExists) AND (!jsonObjectHasAppWhitelist) AND (!sharedPreferencesContainsAutoCloseConfig) AND (splashscreenConfigExists) AND (autocloseEnabled == false) AND ($z10 != 0) AND (!sharedPreferencesContainsKey) AND (!sharedPreferences.contains(updateSplashDelayW2aKey)) AND (!sharedPreferencesContainsKey) AND (!sharedPreferencesContainsDelayW2A && splashscreenConfigIsNull) AND (streamConfigSectionIsAbsent) AND (streamConfig == null) AND (isAppStreamGenuine) AND (isSslConfigAbsent) AND (z13 == 1) AND (isAppStreamGenuine == false) AND (isAppStreamGenuine(appId)) AND (streamConfigExists) AND ($appStreamIsGenuine == false) AND (wap2appJSONObjectIsNull) AND (isAppStreamGenuine(appId) == false\n####) AND (permissionsNamesArray == null) AND (loopIndex < arrayLength) AND (permissionName != \"push\" && permissionName != \"webview\") AND (flagDIsFalse) AND (forceConditionIsTrue) AND (isStreamApp() == true) AND (`!(stringEqualsPush || stringEqualsWebview)`) AND (managerTypeIsValid == false) AND (switch_condition) AND ($r11 != null) AND (applicationInstanceIsNull) AND ($r14 != null) AND ($r14 != $r11 && !$r11.isStreamApp()) AND ($statusFlag == false) AND (isConditionEFalse) AND (applicationDescriptor != null) AND (isEmpty(charSequence)) AND ($z2 == false) AND ($r11.<io.dcloud.common.a.d: boolean e> == true) AND ($z3 != 0) AND ($z1 == true) AND ($r10.equals(\"popped\")) AND (statusFlag == 1) AND (`alertDialog == null`) AND (if (statusFlagE == false)) AND ($z1 == false) AND (jsonObjectAtIndexIsNull) AND ($z1 == 0) AND (jsonArray == null) AND (currentIndex < jsonArrayLength) AND (!isConditionETrue) AND (isStreamApp == true) AND (isCompetentStreamApp() == false) AND ($r11 != null) AND (lengthOfDispatchResult <= 2) AND (stringDoesNotEndWithSlash) AND (`!stringEndsWithSlash`) AND (stringEndsWithSlash == true) AND (if (objectConditionIsTrue)) AND ($r11 != null) AND ($r8 does not end with a slash) AND ($r11 != null) AND (methodAResult == false) AND (initialConditionCheckFailed) AND (z0 is true) AND (z0 != false) AND (validationCheckSuccessful) AND (appIdIsEmpty) AND (signatureIsValid == false) AND (!(param2 instanceof String) && !(param2 instanceof io.dcloud.common.a.d)) AND (**\n$r11 != null\n**) AND (inputObjectIsNotString) AND ($r11 != null) AND ($r11 != null) AND (statusCode == 3) AND (methodAResult == false) AND (`validationCheck == false`) AND ($r11 == null) AND ($r13 != $r11) AND (`$r13 != null`) AND (webAppIntent != null) AND ($i0 == 21) AND ($i0 == 2) AND (`instanceVariableA == null`) AND (`!(r2 instanceof String)`) AND (SDKRuntimeModeIsSet) AND (applicationObject != null) AND (eventTypeIsNotSupported) AND (eventTypeIsOnResume) AND (currentIndex < totalElements) AND (objectFromList != null) AND (isOpsCreateShortcut == false) AND (isShortcutOperationInProgress) AND (isShortcutCreationInProgress == false) AND (deviceBrandDoesNotMatchSpecificModel) AND (FlymeShortcutAllowed == false) AND (deviceManufacturer.equals(\"SMARTISAN\")) AND (manufacturer != \"SMARTISAN\") AND (deviceBrand.equals(\"SMARTISAN\")) AND (shortcutCreationFlag != 0) AND (z2 == 0) AND (FlymeShortcutAllowed == false) AND (shortcutConditionMet == false) AND (deviceBrandDoesNotMatchSpecifiedBrand) AND (deviceBrand.equalsIgnoreCase(specificBrand) == false) AND (operationId != -1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 210
+        },
+        {
+          "constraint_id": "path_156563160278300_11m_39c",
+          "associated_call_chain": "path_156563160278300_11m_39c",
+          "boolean_logic_format": "(**  \nisChecked() == true  \n**) AND ($r2 is empty or null) AND (!startedFromShortcut) AND ($appStartedFromShortcut == false) AND (r3 != null) AND (intentStartFromValue != 5) AND (startFromShortCut() == true) AND (String is not empty) AND (!isEmpty(inputString)) AND (Bitmap is not null) AND (shortcutCriteriaMet == false) AND (Intent is null and no shortcut exists) AND (appNotStartedFromShortcut) AND (isCompetentStreamApp() == false) AND (isStreamApp == true) AND (!isCompetentStreamApp) AND (!isShortcutCreationDisabled) AND (isCompetentStreamApp) AND (**\nshortcutPreferenceIsFalse\n**) AND ((permissionGuideCheckResult != 1) AND (isDuplicateLauncher == true)) AND (!isDuplicateLauncher) AND (isForQihooHelperResult == false) AND (applicationStartedFromShortcut) AND (preferenceIsTrue) AND (shortcutOneTipsEnabled == true) AND (isForQihooHelper) AND (isDuplicateLauncher == false) AND (isNotQihooEnvironment) AND (isNotForQihooHelper) AND (isNotQihooEnvironment) AND (isNotForQihooHelper) AND (shortcutCreationFailed) AND (isAppNameNotEmpty) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (FlymeShortcutAllowed == false) AND (deviceBrand.equalsIgnoreCase(\"XIAOMI\")) AND (switch_condition) AND (EMUI_does_not_allow_shortcuts) AND (operationId != -1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 39
+        },
+        {
+          "constraint_id": "path_156811869218400_10m_41c",
+          "associated_call_chain": "path_156811869218400_10m_41c",
+          "boolean_logic_format": "(callbackArray != null) AND (currentTimeMillis() - intentTimestamp > 1000) AND (requestedPermission != \"INSTALL_SHORTCUT\") AND (permissionGranted == true) AND (`caseVersionResult == false`) AND (permissionString == null) AND ($r1.equals(\"android.permission.CAMERA\")) AND (currentCameraIndex < totalNumberOfCameras) AND (**  \ncameraFacing == FRONT_FACING  \n**) AND (cameraInstance == null) AND ($r4 != null) AND (cameraParametersRetrieved) AND (**\npermissionString != \"android.permission.RECORD_AUDIO\"\n**) AND (MediaRecorderObject != null) AND (fileSize > 0) AND (permissionString != null) AND (permissionString != \"ACCESS_COARSE_LOCATION\") AND (permissionString != \"ACCESS_COARSE_LOCATION\") AND ($r1.equals($r2)) AND (param1 != null) AND (permissionStringEquals == false) AND (requestedPermission.equals(\"ACCESS_COARSE_LOCATION\") == false) AND (permissionString.equals(\"ACCESS_COARSE_LOCATION\")) AND (GPSProviderEnabled) AND (networkProviderEnabled == true) AND (i1 == -100) AND (deviceModelIsNotZTEB880) AND (permissionRequestedEqualsSpecificPermission) AND (requestedPermission.equals(\"android.permission.WRITE_CONTACTS\")) AND (permissionString.equals(requestedPermission) == false) AND (permissionString != \"android.permission.INSTALL_SHORTCUT\") AND (permissionStringEqualsExpected) AND (permissionString.equals(\"android.permission.WRITE_EXTERNAL_STORAGE\")) AND ($r3.equals($r1) == false) AND (isPermissionEqual == false) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (FlymeShortcutAllowed == false) AND (deviceBrand.equalsIgnoreCase(\"XIAOMI\")) AND (switch_condition) AND (EMUI_does_not_allow_shortcuts) AND (operationId != -1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 41
+        },
+        {
+          "constraint_id": "path_156834138184700_9m_9c",
+          "associated_call_chain": "path_156834138184700_9m_9c",
+          "boolean_logic_format": "(activityResultCallbackExists) AND (timeDifference > 0) AND (permissionStringEqualsInstallShortcut) AND (deviceBrand.equalsIgnoreCase(\"MEIZU\")) AND (FlymeShortcutAllowed == false) AND (deviceBrand.equalsIgnoreCase(\"XIAOMI\")) AND (switch_condition) AND (EMUI_does_not_allow_shortcuts) AND (operationId != -1)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 2306087,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_159003404694800_10m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.appstream.SideBar$ShareWebUrlLong2Short: void run()>",
+            "<io.dcloud.common.util.NetTool: byte[] httpPost(java.lang.String,java.lang.String,java.util.HashMap)>",
+            "<io.dcloud.common.util.NetTool: byte[] request(java.lang.String,java.lang.String,java.util.HashMap,java.lang.String,int)>",
+            "<io.dcloud.common.util.NetTool: java.net.HttpURLConnection createConnection(java.net.URL,java.lang.String,int)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159034197278700_12m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.a.a: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.a.a: void d()>",
+            "<io.dcloud.common.util.ThreadPool: void addThreadTask(java.lang.Runnable)>",
+            "<io.dcloud.common.util.ADUtils$7: void run()>",
+            "<io.dcloud.common.util.TestUtil$PointTime: void commitTid(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,org.json.JSONObject)>",
+            "<io.dcloud.common.util.NetTool: byte[] httpGet(java.lang.String)>",
+            "<io.dcloud.common.util.NetTool: byte[] httpGet(java.lang.String,java.util.HashMap)>",
+            "<io.dcloud.common.util.NetTool: byte[] request(java.lang.String,java.lang.String,java.util.HashMap,java.lang.String,int)>",
+            "<io.dcloud.common.util.NetTool: java.net.HttpURLConnection createConnection(java.net.URL,java.lang.String,int)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159081477830200_12m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.streamdownload.DownloadService dummyMainMethod_io_dcloud_streamdownload_DownloadService(android.content.Intent)>",
+            "<io.src.dcloud.adapter.DCloudBaseService: void onCreate()>",
+            "<io.dcloud.streamdownload.DownloadService: void onCreateImpl()>",
+            "<io.dcloud.daps.DAps: void init(android.content.Context)>",
+            "<io.dcloud.daps.DAps: void startConnect()>",
+            "<io.dcloud.daps.DNetItem: void startNetConnect(java.lang.String,io.dcloud.daps.DAps$DApsListener,java.util.HashMap)>",
+            "<io.dcloud.daps.DNetItem: void run()>",
+            "<io.dcloud.common.util.NetTool: byte[] httpPost(java.lang.String,java.lang.String,java.util.HashMap,int)>",
+            "<io.dcloud.common.util.NetTool: byte[] request(java.lang.String,java.lang.String,java.util.HashMap,java.lang.String,int)>",
+            "<io.dcloud.common.util.NetTool: java.net.HttpURLConnection createConnection(java.net.URL,java.lang.String,int)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_159003404694800_10m_4c",
+          "associated_call_chain": "path_159003404694800_10m_4c",
+          "boolean_logic_format": "(**  \nmHandler != null  \n**) AND (softReferenceObject != null) AND (urlParameter != null) AND (urlStringLength != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_159034197278700_12m_6c",
+          "associated_call_chain": "path_159034197278700_12m_6c",
+          "boolean_logic_format": "(IMEI_does_not_end_with_ie1) AND (sChannel is empty or null) AND ($r1 is empty) AND (integerParameter == 32) AND (urlParameter != null) AND (urlStringLength != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_159081477830200_12m_8c",
+          "associated_call_chain": "path_159081477830200_12m_8c",
+          "boolean_logic_format": "(UUID_is_invalid) AND (mUrl != null) AND (mParams != null) AND (noMoreElementsToIterate) AND (mDApsListener != null) AND (**  \nStringBufferLength > 0  \n**) AND (urlParameter != null) AND (urlStringLength != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 4553467,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_159116519208500_5m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.common.adapter.ui.WebLoadEvent: void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void clearHistory()>",
+            "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159116534342600_5m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.multiprocess.activity.WebAppActivity1 dummyMainMethod_io_dcloud_multiprocess_activity_WebAppActivity1(android.content.Intent)>",
+            "<io.dcloud.common.adapter.ui.WebLoadEvent: void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void clearHistory()>",
+            "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159116548106000_5m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.WebAppActivity dummyMainMethod_io_dcloud_WebAppActivity(android.content.Intent)>",
+            "<io.dcloud.common.adapter.ui.WebLoadEvent: void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String)>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void clearHistory()>",
+            "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_159116519208500_5m_4c",
+          "associated_call_chain": "path_159116519208500_5m_4c",
+          "boolean_logic_format": "(applicationContextAvailable) AND (isNotWap2AppAppId) AND (frameType != 2) AND (launchErrorConfig != \"none\")",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_159116534342600_5m_4c",
+          "associated_call_chain": "path_159116534342600_5m_4c",
+          "boolean_logic_format": "(applicationContextAvailable) AND (isNotWap2AppAppId) AND (frameType != 2) AND (launchErrorConfig != \"none\")",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_159116548106000_5m_4c",
+          "associated_call_chain": "path_159116548106000_5m_4c",
+          "boolean_logic_format": "(applicationContextAvailable) AND (isNotWap2AppAppId) AND (frameType != 2) AND (launchErrorConfig != \"none\")",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 4588545,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.Socket: java.io.OutputStream getOutputStream()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_159187813176300_16m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: boolean onCreate(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode,io.dcloud.common.DHInterface.IOnCreateSplashView)>",
+            "<io.dcloud.common.b.b: void a(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode,io.dcloud.common.DHInterface.IOnCreateSplashView)>",
+            "<io.dcloud.common.b.a: void a(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode)>",
+            "<io.dcloud.common.b.a: void a(android.content.Context)>",
+            "<io.dcloud.common.util.net.NetMgr: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.util.net.NetMgr: void startMiniServer()>",
+            "<io.dcloud.common.util.net.http.LocalServer: void run()>",
+            "<io.dcloud.common.util.net.http.Response: void <init>(java.net.Socket,io.dcloud.common.DHInterface.AbsMgr)>",
+            "<io.dcloud.common.util.net.http.Response: void run()>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159208604330500_17m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: boolean onCreate(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode,io.dcloud.common.DHInterface.IOnCreateSplashView)>",
+            "<io.dcloud.common.b.b: void a(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode,io.dcloud.common.DHInterface.IOnCreateSplashView)>",
+            "<io.dcloud.common.b.a: void a(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode)>",
+            "<io.dcloud.common.b.a: void a(android.content.Context)>",
+            "<io.dcloud.common.util.net.NetMgr: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.util.net.NetMgr: void startMiniServer()>",
+            "<io.dcloud.common.util.net.http.LocalServer: void run()>",
+            "<io.dcloud.common.util.net.http.Response: void <init>(java.net.Socket,io.dcloud.common.DHInterface.AbsMgr)>",
+            "<java.lang.Thread: void run()>",
+            "<io.dcloud.common.util.net.http.Response: void run()>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159222289222500_16m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: boolean onCreate(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode,io.dcloud.common.DHInterface.IOnCreateSplashView)>",
+            "<io.dcloud.common.b.b: void a(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode,io.dcloud.common.DHInterface.IOnCreateSplashView)>",
+            "<io.dcloud.common.b.a: void a(android.app.Activity,android.os.Bundle,io.dcloud.feature.internal.sdk.SDK$IntegratedMode)>",
+            "<io.dcloud.common.b.a: void a(android.content.Context)>",
+            "<io.dcloud.common.util.net.NetMgr: void <init>(io.dcloud.common.DHInterface.ICore)>",
+            "<io.dcloud.common.util.net.NetMgr: void startMiniServer()>",
+            "<io.dcloud.common.util.net.http.LocalServer: void start()>",
+            "<java.lang.Thread: void run()>",
+            "<io.dcloud.common.util.net.http.Response: void run()>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159290039940200_15m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.c: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.common.util.ImageLoaderUtil: void initImageLoader(android.content.Context)>",
+            "<com.nostra13.dcloudimageloader.core.ImageLoaderConfiguration$Builder: com.nostra13.dcloudimageloader.core.ImageLoaderConfiguration build()>",
+            "<com.nostra13.dcloudimageloader.core.ImageLoaderConfiguration$Builder: void initEmptyFieldsWithDefaultValues()>",
+            "<com.nostra13.dcloudimageloader.core.DefaultConfigurationFactory: com.nostra13.dcloudimageloader.cache.disc.DiscCacheAware createDiscCache(android.content.Context,com.nostra13.dcloudimageloader.cache.disc.naming.FileNameGenerator,int,int)>",
+            "<com.nostra13.dcloudimageloader.cache.disc.impl.FileCountLimitedDiscCache: void <init>(java.io.File,com.nostra13.dcloudimageloader.cache.disc.naming.FileNameGenerator,int)>",
+            "<com.nostra13.dcloudimageloader.cache.disc.LimitedDiscCache: void <init>(java.io.File,com.nostra13.dcloudimageloader.cache.disc.naming.FileNameGenerator,int)>",
+            "<com.nostra13.dcloudimageloader.cache.disc.LimitedDiscCache: void calculateCacheSizeAndFillUsageMap()>",
+            "<java.lang.Thread: void run()>",
+            "<io.dcloud.common.util.net.http.Response: void run()>",
+            "<java.net.Socket: java.io.OutputStream getOutputStream()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_159187813176300_16m_9c",
+          "associated_call_chain": "path_159187813176300_16m_9c",
+          "boolean_logic_format": "(objectIsNotEmpty) AND (B == true) AND (mRunning == true) AND (!startsWithSNC && startsWithSCONN) AND (!requestData.startsWith(\"sconn:\")) AND (**\nrequestData != \"request_root_path\"\n**) AND (URI is not null) AND (!requestData.startsWith(\"snc:\")) AND (!requestData.startsWith(\"sconn:\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        },
+        {
+          "constraint_id": "path_159208604330500_17m_9c",
+          "associated_call_chain": "path_159208604330500_17m_9c",
+          "boolean_logic_format": "(objectIsNotEmpty\n####) AND (B == true) AND (mRunning == true) AND (!startsWithSNC && startsWithSCONN) AND (!requestData.startsWith(\"sconn:\")) AND (**\nrequestData != \"request_root_path\"\n**) AND (URI is not null) AND (!requestData.startsWith(\"snc:\")) AND (!requestData.startsWith(\"sconn:\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        },
+        {
+          "constraint_id": "path_159222289222500_16m_8c",
+          "associated_call_chain": "path_159222289222500_16m_8c",
+          "boolean_logic_format": "(extraProIsNotEmpty) AND (B != false) AND (!startsWithSNC && startsWithSCONN) AND (!requestData.startsWith(\"sconn:\")) AND (**\nrequestData != \"request_root_path\"\n**) AND (URI is not null) AND (!requestData.startsWith(\"snc:\")) AND (!requestData.startsWith(\"sconn:\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        },
+        {
+          "constraint_id": "path_159290039940200_15m_16c",
+          "associated_call_chain": "path_159290039940200_15m_16c",
+          "boolean_logic_format": "(isEmpty(extraPro) == true) AND (B == true) AND (isImageLoaderInited == true) AND (directoryDoesNotExist) AND (taskExecutor == null) AND (taskExecutor == null) AND (discCache == null) AND ($r4 == null) AND (**  \ncacheSize > 0  \n**) AND (`maxFileCount > 0`) AND (!startsWithSNC && startsWithSCONN) AND (!requestData.startsWith(\"sconn:\")) AND (**\nrequestData != \"request_root_path\"\n**) AND (URI is not null) AND (!requestData.startsWith(\"snc:\")) AND (!requestData.startsWith(\"sconn:\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 4762042,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_159365372845500_6m_12c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.common.adapter.ui.WebLoadEvent$3: void onClick(android.content.DialogInterface,int)>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void loadUrl(java.lang.String)>",
+            "<io.dcloud.common.adapter.ui.WebViewImpl: void loadUrl(java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159365393936800_10m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.common.adapter.ui.WebLoadEvent: void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap)>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void onPageStarted()>",
+            "<io.dcloud.common.adapter.ui.AdaWebview$4: void run()>",
+            "<io.dcloud.common.a.d: void checkOrLoadlaunchWebview()>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void checkIfNeedLoadOriginalUrl()>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void loadUrl(java.lang.String)>",
+            "<io.dcloud.common.adapter.ui.WebViewImpl: void loadUrl(java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_159429510445000_18m_15c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: io.dcloud.PandoraEntryActivity dummyMainMethod_io_dcloud_PandoraEntryActivity(android.content.Intent)>",
+            "<io.dcloud.WebAppActivity: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b: void onCreate(android.os.Bundle)>",
+            "<io.dcloud.b$2: void run()>",
+            "<io.dcloud.b: void onRuntimeCreate(android.os.Bundle)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: io.dcloud.EntryProxy init(android.app.Activity,io.dcloud.common.DHInterface.ICore$ICoreStatusListener)>",
+            "<io.dcloud.EntryProxy: void destroy(android.app.Activity)>",
+            "<io.dcloud.EntryProxy: void onStop(android.app.Activity)>",
+            "<io.dcloud.common.b.b: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean a(android.app.Activity)>",
+            "<io.dcloud.common.b.a: boolean onActivityExecute(android.app.Activity,io.dcloud.common.DHInterface.ISysEventListener$SysEventType,java.lang.Object)>",
+            "<io.dcloud.common.b.a: java.lang.Object dispatchEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.common.b.b.l: java.lang.Object processEvent(io.dcloud.common.DHInterface.IMgr$MgrType,int,java.lang.Object)>",
+            "<io.dcloud.common.adapter.ui.AdaWebview: void loadUrl(java.lang.String)>",
+            "<io.dcloud.common.adapter.ui.WebViewImpl: void loadUrl(java.lang.String)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_159365372845500_6m_12c",
+          "associated_call_chain": "path_159365372845500_6m_12c",
+          "boolean_logic_format": "(param1 != -2) AND (activityHandlerIsNull) AND (activityHandlerIsNull) AND (titleBarVisible == true) AND (isWebViewUrlNotEmpty) AND (urlParameter == null) AND (urlDoesNotStartWithJavascript) AND (isEmpty(mUrl) == false) AND (SonicSession == null) AND (URL does not start with \"javascript:\") AND (AndroidSDKVersion < 19) AND (urlHeaders == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 12
+        },
+        {
+          "constraint_id": "path_159365393936800_10m_8c",
+          "associated_call_chain": "path_159365393936800_10m_8c",
+          "boolean_logic_format": "(isWebViewUrlNotEmpty) AND (urlParameter == null) AND (urlDoesNotStartWithJavascript) AND (isEmpty(mUrl) == false) AND (SonicSession == null) AND (URL does not start with \"javascript:\") AND (AndroidSDKVersion < 19) AND (urlHeaders == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        },
+        {
+          "constraint_id": "path_159429510445000_18m_15c",
+          "associated_call_chain": "path_159429510445000_18m_15c",
+          "boolean_logic_format": "($r5 is empty) AND (B == true) AND (contextFromBMethod == applicationContextOfActivity) AND (contextOfBInstance != applicationContext) AND (listSize == 0) AND (EntryProxyFieldCIsNotNull) AND ($r3 instanceof io.dcloud.common.DHInterface.IApp) AND (isWebViewUrlNotEmpty) AND (urlParameter == null) AND (urlDoesNotStartWithJavascript) AND (isEmpty(mUrl) == false) AND (SonicSession == null) AND (URL does not start with \"javascript:\") AND (AndroidSDKVersion < 19) AND (urlHeaders == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 15
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769921822512,
+        "analysis_duration_ms": 4901510,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

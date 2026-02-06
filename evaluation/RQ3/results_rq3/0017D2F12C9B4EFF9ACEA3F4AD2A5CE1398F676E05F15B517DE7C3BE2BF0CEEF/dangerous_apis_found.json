@@ -1,0 +1,781 @@
+{
+  "total_dangerous_apis": 13,
+  "category_statistics": {
+    "privacy_sensors": 1,
+    "device_information_collection": 2,
+    "file_system_operations": 4,
+    "sms_phone_operations": 1,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 4
+  },
+  "analysis_timestamp": "2026-01-31 11:52:52",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+      "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121094120762200_19m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: at.co.mader.identification.DisplayNumberActivity dummyMainMethod_at_co_mader_identification_DisplayNumberActivity(android.content.Intent)>",
+            "<at.co.mader.identification.DisplayNumberActivity: void onStart()>",
+            "<com.google.analytics.tracking.android.EasyTracker: com.google.analytics.tracking.android.EasyTracker getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.EasyTracker: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: com.google.analytics.tracking.android.GoogleAnalytics getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: com.google.analytics.tracking.android.GAThread getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void run()>",
+            "<com.google.analytics.tracking.android.GAThread: void init()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void createService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void connectToService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void useStore()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void sendQueue()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void dispatchToStore()>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: void dispatch()>",
+            "<com.google.analytics.tracking.android.SimpleNetworkDispatcher: boolean okToDispatch()>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121094120762200_19m_14c",
+          "associated_call_chain": "path_121094120762200_19m_14c",
+          "boolean_logic_format": "(EasyTrackerInstance == null) AND (forceLocalDispatch == false) AND (client == null) AND (currentConnectionState == CONNECTED_LOCAL) AND (forceLocalDispatch == false) AND (client != null) AND (connectionState == CONNECTED_LOCAL) AND (state != CONNECTED_LOCAL) AND (testStore != null) AND (currentThreadIsNotAnalyticsThread) AND (pendingClearHits == false) AND (switch_condition) AND (pendingDispatch == false) AND (pendingDispatch == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 248112,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121549895690900_11m_7c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: at.co.mader.identification.DisplayNumberActivity dummyMainMethod_at_co_mader_identification_DisplayNumberActivity(android.content.Intent)>",
+            "<at.co.mader.identification.DisplayNumberActivity$3: void onTextChanged(java.lang.CharSequence,int,int,int)>",
+            "<at.co.mader.identification.DisplayNumberActivity: void access$000(at.co.mader.identification.DisplayNumberActivity,java.lang.String)>",
+            "<at.co.mader.identification.DisplayNumberActivity: void displayResultForContact(java.lang.String)>",
+            "<at.co.mader.identification.DisplayNumberActivity: boolean getContactsAsynchronously(java.lang.String)>",
+            "<at.co.mader.identification.ReadContactsTask: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<at.co.mader.identification.ReadContactsTask: java.util.List doInBackground(java.lang.String[])>",
+            "<at.co.mader.identification.ReadContactsTask: java.util.List getContacts(java.lang.String)>",
+            "<at.co.mader.identification.ReadContactsTask: java.lang.String getEmail(android.content.ContentResolver,java.lang.String)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121549895690900_11m_7c",
+          "associated_call_chain": "path_121549895690900_11m_7c",
+          "boolean_logic_format": "(userInput != null) AND (lengthOfProcessedInputString == 0) AND (cursorHasNextRow == true) AND (numberOfProcessedContacts < 25) AND (contactPhoneNumber != null) AND (inputStringDoesNotContainPhoneNumber) AND (inputStringContainsPhoneNumber)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 7
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 703907,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121600196881500_9m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: at.co.mader.identification.wizard.WizardActivity dummyMainMethod_at_co_mader_identification_wizard_WizardActivity(android.content.Intent)>",
+            "<at.co.mader.identification.wizard.WizardActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.InterstitialAd: void loadAd(com.google.android.gms.ads.AdRequest)>",
+            "<com.google.android.gms.ads.internal.client.zzaf: void zza(com.google.android.gms.ads.internal.client.zzad)>",
+            "<com.google.android.gms.ads.internal.client.zzh: com.google.android.gms.ads.internal.client.AdRequestParcel zza(android.content.Context,com.google.android.gms.ads.internal.client.zzad)>",
+            "<com.google.android.gms.ads.internal.client.zzad: boolean isTestDevice(android.content.Context)>",
+            "<com.google.android.gms.ads.internal.util.client.zza: java.lang.String zzP(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121600196881500_9m_6c",
+          "associated_call_chain": "path_121600196881500_9m_6c",
+          "boolean_logic_format": "(zzwh != null) AND (keywordsSetNotEmpty) AND (keywordsSet.isEmpty()) AND (ContentResolver is not null) AND (AndroidID == null) AND (zzjr() returns true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 754197,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121124328608700_4m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.mraid.MraidView$MraidWebViewClient: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121124328608700_4m_4c",
+          "associated_call_chain": "path_121124328608700_4m_4c",
+          "boolean_logic_format": "(urlScheme != null) AND (URI_scheme_is_not_mraid) AND (URI_scheme_is_not_mraid) AND (wasClicked == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 278320,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121696425269000_21m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: at.co.mader.identification.DisplayNumberActivity dummyMainMethod_at_co_mader_identification_DisplayNumberActivity(android.content.Intent)>",
+            "<at.co.mader.identification.DisplayNumberActivity: void onStart()>",
+            "<com.google.analytics.tracking.android.EasyTracker: com.google.analytics.tracking.android.EasyTracker getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.EasyTracker: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: com.google.analytics.tracking.android.GoogleAnalytics getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: com.google.analytics.tracking.android.GAThread getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void run()>",
+            "<com.google.analytics.tracking.android.GAThread: void init()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void createService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void connectToService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void useStore()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void sendQueue()>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: void putHit(java.util.Map,long,java.lang.String,java.util.Collection)>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: void removeOldHitIfFull()>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: java.util.List peekHitIds(int)>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: android.database.sqlite.SQLiteDatabase getWritableDatabase(java.lang.String)>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore$AnalyticsDatabaseHelper: android.database.sqlite.SQLiteDatabase getWritableDatabase()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_121782853164000_20m_14c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: at.co.mader.identification.DisplayNumberActivity dummyMainMethod_at_co_mader_identification_DisplayNumberActivity(android.content.Intent)>",
+            "<at.co.mader.identification.DisplayNumberActivity: void onStart()>",
+            "<com.google.analytics.tracking.android.EasyTracker: com.google.analytics.tracking.android.EasyTracker getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.EasyTracker: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: com.google.analytics.tracking.android.GoogleAnalytics getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: com.google.analytics.tracking.android.GAThread getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void run()>",
+            "<com.google.analytics.tracking.android.GAThread: void init()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void createService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void connectToService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void useStore()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void sendQueue()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void clearHits()>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: void clearHits(long)>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: android.database.sqlite.SQLiteDatabase getWritableDatabase(java.lang.String)>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore$AnalyticsDatabaseHelper: android.database.sqlite.SQLiteDatabase getWritableDatabase()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_121854678802300_20m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: at.co.mader.identification.DisplayNumberActivity dummyMainMethod_at_co_mader_identification_DisplayNumberActivity(android.content.Intent)>",
+            "<at.co.mader.identification.DisplayNumberActivity: void onStart()>",
+            "<com.google.analytics.tracking.android.EasyTracker: com.google.analytics.tracking.android.EasyTracker getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.EasyTracker: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: com.google.analytics.tracking.android.GoogleAnalytics getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GoogleAnalytics: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: com.google.analytics.tracking.android.GAThread getInstance(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void <init>(android.content.Context)>",
+            "<com.google.analytics.tracking.android.GAThread: void run()>",
+            "<com.google.analytics.tracking.android.GAThread: void init()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void createService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void connectToService()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void useStore()>",
+            "<com.google.analytics.tracking.android.GAServiceProxy: void sendQueue()>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: void putHit(java.util.Map,long,java.lang.String,java.util.Collection)>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: int deleteStaleHits()>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore: android.database.sqlite.SQLiteDatabase getWritableDatabase(java.lang.String)>",
+            "<com.google.analytics.tracking.android.PersistentAnalyticsStore$AnalyticsDatabaseHelper: android.database.sqlite.SQLiteDatabase getWritableDatabase()>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121696425269000_21m_14c",
+          "associated_call_chain": "path_121696425269000_21m_14c",
+          "boolean_logic_format": "(sInstance == null) AND (forceLocalDispatch == false) AND (`AnalyticsClient is not null`) AND (currentConnectionState != CONNECTED_LOCAL) AND (forceLocalDispatch == false) AND (client != null) AND (currentState == CONNECTED_LOCAL) AND (state != CONNECTED_LOCAL) AND (testStore != null) AND (numberOfStoredHits > 1999) AND (**\nparam0 > 0\n**) AND (mBadDatabase == false) AND (lastDatabaseCheckTime + 3600000L > currentTimeMillis) AND (databaseInstance == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        },
+        {
+          "constraint_id": "path_121782853164000_20m_14c",
+          "associated_call_chain": "path_121782853164000_20m_14c",
+          "boolean_logic_format": "(EasyTrackerInstance == null) AND (forceLocalDispatch == true) AND (client != null) AND (currentConnectionState == CONNECTED_LOCAL) AND (forceLocalDispatch == false) AND (client != null) AND (currentConnectionState != CONNECTED_LOCAL) AND (state == CONNECTED_LOCAL) AND (testStore != null) AND (currentThreadIsNotAnalyticsThread) AND (pendingClearHits == true) AND (mBadDatabase == false) AND (lastDatabaseCheckTime + 3600000L > currentTimeMillis) AND (databaseInstance == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 14
+        },
+        {
+          "constraint_id": "path_121854678802300_20m_13c",
+          "associated_call_chain": "path_121854678802300_20m_13c",
+          "boolean_logic_format": "(EasyTracker instance is null) AND (forceLocalDispatch == false) AND (client != null) AND (currentConnectionState != CONNECTED_LOCAL) AND (forceLocalDispatch == false) AND (client == null) AND (currentConnectionState == CONNECTED_LOCAL) AND (currentConnectionState != CONNECTED_LOCAL) AND (testStore != null) AND (currentTimeMillis > lastDeleteTime + oneDay) AND (mBadDatabase == false) AND (lastDatabaseCheckTime + 3600000L > currentTimeMillis) AND (databaseInstance == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 1008679,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121854700664600_1m_0c",
+          "entry_point": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+          "method_sequence": [
+            "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121854700664600_1m_0c",
+          "associated_call_chain": "path_121854700664600_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 1008698,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121878188444600_10m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.mraid.MraidView$MraidWebViewClient: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidView: boolean access$0(com.adsdk.sdk.mraid.MraidView,java.net.URI)>",
+            "<com.adsdk.sdk.mraid.MraidView: boolean tryCommand(java.net.URI)>",
+            "<com.adsdk.sdk.mraid.MraidCommandStorePicture: void execute()>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void showUserDownloadImageAlert(java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void downloadImage(java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: java.io.File getPictureStoragePath()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_121878190831400_7m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$5: void onClick(android.content.DialogInterface,int)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void access$8(com.adsdk.sdk.mraid.MraidDisplayController,java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void downloadImage(java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: java.io.File getPictureStoragePath()>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121878188444600_10m_3c",
+          "associated_call_chain": "path_121878188444600_10m_3c",
+          "boolean_logic_format": "(urlSchemeIsNull) AND (scheme != \"mopub\" && scheme != \"mraid\") AND (**  \nschemeEqualsMraid == false  \n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_121878190831400_7m_0c",
+          "associated_call_chain": "path_121878190831400_7m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 1032191,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121878214541600_1m_0c",
+          "entry_point": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+          "method_sequence": [
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121878214541600_1m_0c",
+          "associated_call_chain": "path_121878214541600_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 1032211,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_120992775898400_4m_21c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.video.WebViewClient: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_120992775898400_4m_21c",
+          "associated_call_chain": "path_120992775898400_4m_21c",
+          "boolean_logic_format": "(url.startsWith(\"market:\")) AND (url.startsWith(\"market:\")) AND (**  \nURL.startsWith(\"market:\")  \n**) AND (**  \nurl.startsWith(\"market:\")  \n**) AND (url.startsWith(\"market:\")) AND (**  \nurl.startsWith(\"market:\")  \n**) AND (urlDoesNotStartWithGoogleStreetView) AND (urlDoesNotStartWithGoogleStreetView) AND (!startsWithMfoxExternal) AND (URL does not start with \"mfox:external:\") AND (url.startsWith(\"mfox:playvideo\")) AND (url.startsWith(\"market:\")) AND (url.startsWith(\"market:\")) AND (url.startsWith(\"market:\")) AND (**  \nurl.startsWith(\"market:\")  \n**) AND (url.startsWith(\"market:\")) AND (url.startsWith(\"market:\")) AND (!url.startsWith(\"market:\")) AND (!url.startsWith(\"google.streetview:\")) AND (!url.startsWith(\"mfox:external:\")) AND (!url.startsWith(\"mfox:replayvideo\") && url.startsWith(\"mfox:playvideo\"))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 21
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 146767,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121163308395000_18m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: at.co.mader.identification.wizard.WizardActivity dummyMainMethod_at_co_mader_identification_wizard_WizardActivity(android.content.Intent)>",
+            "<at.co.mader.identification.wizard.WizardActivity: void onCreate(android.os.Bundle)>",
+            "<com.google.android.gms.ads.InterstitialAd: void loadAd(com.google.android.gms.ads.AdRequest)>",
+            "<com.google.android.gms.ads.internal.client.zzaf: void zza(com.google.android.gms.ads.internal.client.zzad)>",
+            "<com.google.android.gms.ads.internal.client.zzaf: void zzM(java.lang.String)>",
+            "<com.google.android.gms.ads.internal.client.zzl: com.google.android.gms.ads.internal.client.zzu zzb(android.content.Context,com.google.android.gms.ads.internal.client.AdSizeParcel,java.lang.String,com.google.android.gms.internal.zzga)>",
+            "<com.google.android.gms.ads.internal.client.zzl: java.lang.Object zza(android.content.Context,boolean,com.google.android.gms.ads.internal.client.zzl$zza)>",
+            "<com.google.android.gms.ads.internal.client.zzl$3: java.lang.Object zzdH()>",
+            "<com.google.android.gms.ads.internal.client.zzl$3: com.google.android.gms.ads.internal.client.zzu zzdG()>",
+            "<com.google.android.gms.ads.internal.client.zzl: void zza(com.google.android.gms.ads.internal.client.zzl,android.content.Context,java.lang.String)>",
+            "<com.google.android.gms.ads.internal.client.zzl: void zzc(android.content.Context,java.lang.String)>",
+            "<com.google.android.gms.ads.internal.util.client.zza: void zza(android.content.Context,java.lang.String,java.lang.String,android.os.Bundle,boolean)>",
+            "<com.google.android.gms.ads.internal.util.client.zza: void zza(android.content.Context,java.lang.String,java.lang.String,android.os.Bundle,boolean,com.google.android.gms.ads.internal.util.client.zza$zza)>",
+            "<com.google.android.gms.ads.internal.util.client.zza$1: void zzaQ(java.lang.String)>",
+            "<com.google.android.gms.ads.internal.util.client.zza$1$1: void run()>",
+            "<com.google.android.gms.ads.internal.util.client.zzc: void zzaQ(java.lang.String)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121163308395000_18m_5c",
+          "associated_call_chain": "path_121163308395000_18m_5c",
+          "boolean_logic_format": "(zzwh == null) AND (zzqO != null) AND (zzwr == false) AND (zzuObject == null) AND (stringLength > 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 317300,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121420486102500_6m_31c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.video.RichMediaActivity: void onCreate(android.os.Bundle)>",
+            "<com.adsdk.sdk.video.RichMediaActivity: void initVideoView()>",
+            "<com.adsdk.sdk.video.WebFrame: void setMarkup(java.lang.String)>",
+            "<android.webkit.WebView: void loadData(java.lang.String,java.lang.String,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121420486102500_6m_31c",
+          "associated_call_chain": "path_121420486102500_6m_31c",
+          "boolean_logic_format": "(intentExtras != null) AND ($r12 == null) AND (uri != null) AND (mType != 0) AND (adType != -1) AND (switch_condition) AND (switch_condition) AND (videoOrientation == 0) AND (windowWidth < windowHeight) AND (videoWidth <= 0) AND (showHtmlOverlay == false) AND (showHtmlOverlayAfter > 0) AND (videoOrientation == 0) AND (showHtmlOverlay == true) AND (pauseEvents.isEmpty() == false) AND (`showHtmlOverlay == false`) AND (showSkipButton == true) AND (showSkipButton == false) AND (videoOrientation == 1) AND (videoClickThroughUrl == null) AND (showSkipButtonAfter <= 0) AND (**\nshowSkipButtonAfter <= 0\n**) AND (showSkipButtonAfter <= 0) AND (videoClickThrough == null) AND (showHtmlOverlay == false) AND (timeTrackingEvents.isEmpty() == false) AND (Iterator has more elements) AND (hasMoreElements) AND (mWindowHeight < mWindowWidth) AND (videoHeight > windowHeight) AND (mVideoWidth > mWindowWidth)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 31
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 574482,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121446612097100_10m_3c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.mraid.MraidView$MraidWebViewClient: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidView: boolean access$0(com.adsdk.sdk.mraid.MraidView,java.net.URI)>",
+            "<com.adsdk.sdk.mraid.MraidView: boolean tryCommand(java.net.URI)>",
+            "<com.adsdk.sdk.mraid.MraidCommandStorePicture: void execute()>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void showUserDownloadImageAlert(java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void downloadImage(java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$4: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_121446618377100_7m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$5: void onClick(android.content.DialogInterface,int)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void access$8(com.adsdk.sdk.mraid.MraidDisplayController,java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void downloadImage(java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$4: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_121480826768000_10m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.video.RichMediaActivity$2: void onClick(android.view.View)>",
+            "<com.adsdk.sdk.video.RichMediaActivity: void access$2(com.adsdk.sdk.video.RichMediaActivity,java.lang.String)>",
+            "<com.adsdk.sdk.video.RichMediaActivity: void trackClick(java.lang.String)>",
+            "<com.adsdk.sdk.video.TrackerService: void requestTrack(com.adsdk.sdk.video.TrackEvent)>",
+            "<com.adsdk.sdk.video.TrackerService: void startTracking()>",
+            "<java.lang.Thread: void run()>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$4: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_121480830399200_8m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$5: void onClick(android.content.DialogInterface,int)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void access$8(com.adsdk.sdk.mraid.MraidDisplayController,java.lang.String)>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController: void downloadImage(java.lang.String)>",
+            "<java.lang.Thread: void run()>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$4: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_121488989779900_8m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.video.RichMediaActivity dummyMainMethod_com_adsdk_sdk_video_RichMediaActivity(android.content.Intent)>",
+            "<com.adsdk.sdk.video.SDKVideoView$7: void surfaceCreated(android.view.SurfaceHolder)>",
+            "<com.adsdk.sdk.video.SDKVideoView: void access$17(com.adsdk.sdk.video.SDKVideoView)>",
+            "<com.adsdk.sdk.video.SDKVideoView: void openVideo()>",
+            "<java.lang.Thread: void run()>",
+            "<com.adsdk.sdk.mraid.MraidDisplayController$4: void run()>",
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121446612097100_10m_3c",
+          "associated_call_chain": "path_121446612097100_10m_3c",
+          "boolean_logic_format": "($r6 != null) AND (URI_scheme_is_not_mraid) AND (URI scheme is \"mraid\")",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 3
+        },
+        {
+          "constraint_id": "path_121446618377100_7m_0c",
+          "associated_call_chain": "path_121446618377100_7m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_121480826768000_10m_4c",
+          "associated_call_chain": "path_121480826768000_10m_4c",
+          "boolean_logic_format": "(overlayClickTracking != null) AND (overlayClickTracking != null) AND (TrackEventNotInQueue) AND (sThreadRunning == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_121480830399200_8m_0c",
+          "associated_call_chain": "path_121480830399200_8m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_121488989779900_8m_1c",
+          "associated_call_chain": "path_121488989779900_8m_1c",
+          "boolean_logic_format": "videoViewIsReady == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 642988,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_121489014630800_5m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.adsdk.sdk.banner.InAppWebView dummyMainMethod_com_adsdk_sdk_banner_InAppWebView(android.content.Intent)>",
+            "<com.adsdk.sdk.banner.InAppWebView: void onCreate(android.os.Bundle)>",
+            "<com.adsdk.sdk.banner.InAppWebView: void initializeWebView(android.content.Intent)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_121489014630800_5m_0c",
+          "associated_call_chain": "path_121489014630800_5m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769888140298,
+        "analysis_duration_ms": 643010,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

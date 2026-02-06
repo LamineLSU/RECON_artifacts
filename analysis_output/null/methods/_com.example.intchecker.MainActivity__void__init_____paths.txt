@@ -1,9 +1,0 @@
-Analysis for method: <com.example.intchecker.MainActivity: void <init>()>
-=====================================
-
-Execution Paths Analysis
-======================
-
-Path 1:
-  Conditions:
-

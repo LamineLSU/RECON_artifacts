@@ -6,3 +6,11 @@ soot-infoflow-summaries/target/
 .idea/
 *.iml
 target/
+# RECON Specific
+results/
+sootOutput/
+Output
+evaluation/evaluation_results/
+*.apk
+*.dex
+tempCodeRunnerFile.*

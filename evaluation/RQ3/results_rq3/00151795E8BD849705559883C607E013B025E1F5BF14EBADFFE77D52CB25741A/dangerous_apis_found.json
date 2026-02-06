@@ -1,0 +1,1160 @@
+{
+  "total_dangerous_apis": 16,
+  "category_statistics": {
+    "privacy_sensors": 2,
+    "device_information_collection": 4,
+    "file_system_operations": 4,
+    "sms_phone_operations": 2,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 3
+  },
+  "analysis_timestamp": "2026-01-31 11:35:37",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_118041299634100_32m_28c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void n()>",
+            "<com.startapp.android.publish.a.k: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o,boolean)>",
+            "<com.startapp.android.publish.Ad$2: void onFinishLoadingMeta()>",
+            "<com.startapp.android.publish.a.h: void loadAds(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.g.d: void c()>",
+            "<com.startapp.android.publish.g.d$1: void run()>",
+            "<com.startapp.android.publish.g.d: java.lang.Boolean d()>",
+            "<com.startapp.android.publish.g.c: java.lang.Object a()>",
+            "<com.startapp.android.publish.g.k: com.startapp.android.publish.model.GetAdRequest e()>",
+            "<com.startapp.android.publish.g.d: com.startapp.android.publish.model.GetAdRequest e()>",
+            "<com.startapp.android.publish.model.GetAdRequest: void fillAdPreferences(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.AdPreferences$Placement,java.lang.String)>",
+            "<com.startapp.android.publish.model.GetAdRequest: void fillLocationDetails(com.startapp.android.publish.model.AdPreferences,android.content.Context)>",
+            "<com.startapp.android.publish.j.l: android.location.Location a(android.content.Context)>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_118041299634100_32m_28c",
+          "associated_call_chain": "path_118041299634100_32m_28c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is null) AND (methodAResult == true) AND (AdPreferencesParameter == null) AND (`e == true`) AND ($r15 == null) AND ($z2 == true) AND (o() == false) AND (isImmediateLoad == false) AND (adIsLoading || adAlreadyLoaded || !shouldLoadAd) AND (StartAppAd == null\n####) AND (AdEventListener != null) AND (adListForListenerIsNull) AND (booleanParameter == true) AND (`l() == false`) AND (AdNotInitialized) AND (ProductID != null) AND (No error has occurred) AND (AdState != UN_INITIALIZED) AND (networkAvailable == false) AND ($z1 == 0) AND (adType != null) AND (adFeatureEnabled == false) AND (adFeatureEnabledForContext) AND (latitudePreferenceIsNull) AND (latitudePreferenceIsNull) AND (LocationServiceAvailable AND NOT MoreLocationProviders) AND (iteratorHasMoreElements)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 28
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 308410,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_118132445864300_10m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.facebook.ads.AudienceNetworkActivity dummyMainMethod_com_facebook_ads_AudienceNetworkActivity(android.content.Intent)>",
+            "<com.facebook.ads.AudienceNetworkActivity: void onDestroy()>",
+            "<com.facebook.ads.internal.view.s: void onDestroy()>",
+            "<com.facebook.ads.internal.util.ai: void b(int)>",
+            "<com.facebook.ads.internal.util.ai: void a(int,boolean)>",
+            "<com.facebook.ads.internal.b.a: void a(double,double)>",
+            "<com.facebook.ads.internal.b.e: double a(android.view.View,android.content.Context)>",
+            "<com.facebook.ads.internal.b.e: boolean a(android.content.Context)>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_118132445864300_10m_11c",
+          "associated_call_chain": "path_118132445864300_10m_11c",
+          "boolean_logic_format": "(param0 > 0) AND (param0 < g) AND (inputParameter > instanceVariableG) AND (param1 >= 0.0) AND (context != null) AND (contextIsNotNull) AND (contextIsActivity) AND (screenIsOn) AND (activityHasWindow) AND (flags & 4194304 == 0) AND (windowFlags != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 399557,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_119053773955300_12m_10c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.c.c: void onClick(android.view.View)>",
+            "<com.startapp.android.publish.j.w: void c(android.content.Context,java.lang.String)>",
+            "<com.startapp.android.publish.j.w: void a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.startapp.android.publish.e.d: void a(android.content.Context,com.startapp.android.publish.e.b$a,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.startapp.android.publish.e.e: void a()>",
+            "<com.startapp.android.publish.e.e$1: void run()>",
+            "<com.startapp.android.publish.e.e: java.lang.Boolean b()>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillApplicationDetails(android.content.Context,com.startapp.android.publish.model.AdPreferences)>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillCellLocationDetails(android.content.Context,android.telephony.TelephonyManager)>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_119288164046700_26m_30c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void n()>",
+            "<com.startapp.android.publish.a.k: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o,boolean)>",
+            "<com.startapp.android.publish.g.h: void a()>",
+            "<com.startapp.android.publish.g.h$1: void run()>",
+            "<com.startapp.android.publish.g.h: java.lang.Boolean c()>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillApplicationDetails(android.content.Context,com.startapp.android.publish.model.AdPreferences)>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillCellLocationDetails(android.content.Context,android.telephony.TelephonyManager)>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_119480030042300_31m_25c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void n()>",
+            "<com.startapp.android.publish.a.k: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o,boolean)>",
+            "<com.startapp.android.publish.Ad$2: void onFinishLoadingMeta()>",
+            "<com.startapp.android.publish.a.h: void loadAds(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.g.d: void c()>",
+            "<com.startapp.android.publish.g.d$1: void run()>",
+            "<com.startapp.android.publish.g.d: java.lang.Boolean d()>",
+            "<com.startapp.android.publish.g.c: java.lang.Object a()>",
+            "<com.startapp.android.publish.g.k: com.startapp.android.publish.model.GetAdRequest e()>",
+            "<com.startapp.android.publish.g.d: com.startapp.android.publish.model.GetAdRequest e()>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillApplicationDetails(android.content.Context,com.startapp.android.publish.model.AdPreferences)>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillCellLocationDetails(android.content.Context,android.telephony.TelephonyManager)>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_119053773955300_12m_10c",
+          "associated_call_chain": "path_119053773955300_12m_10c",
+          "boolean_logic_format": "(switch_condition) AND (WebView cannot go back) AND (WebView can navigate back) AND (isDisableInAppStore == false) AND (`isDisableInAppStore() == false`) AND (memoryInfoRetrievalResult == null) AND (memoryInfoRetrievedSuccessfully) AND (telephonyServiceAvailable) AND (!hasFineLocationPermission) AND (isCoarseLocationPermissionGranted == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 10
+        },
+        {
+          "constraint_id": "path_119288164046700_26m_30c",
+          "associated_call_chain": "path_119288164046700_26m_30c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is not present in the intent) AND (`methodAResult == true`) AND (adPreferences == null) AND (e == true) AND ($r15 == null) AND (g() returns true) AND (o() == false) AND (isImmediate == false) AND (isImmediate == false AND (g() == false OR o() == false)) AND (StartAppAdParameterIsNull) AND (AdEventListener is not null) AND (adListForListener == null) AND (param2 == true) AND (l() == false) AND (AdNotInitialized) AND (productId != null) AND (NoErrorOccurred) AND (AdState != UN_INITIALIZED) AND (networkAvailable == false) AND ($z1 == 0) AND (adType != null) AND (param3 == true) AND (listenerObject == null) AND (MetaData.isReady() == false) AND (!isLoading()) AND (taskIsNull) AND (telephonyServiceAvailable) AND (!hasFineLocationPermission) AND (isCoarseLocationPermissionGranted == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 30
+        },
+        {
+          "constraint_id": "path_119480030042300_31m_25c",
+          "associated_call_chain": "path_119480030042300_31m_25c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is not null) AND (`methodAResult == true`) AND (adPreferences == null) AND (e == true) AND ($r15 == null) AND ($z2 != true) AND (conditionNotMet) AND (booleanParameter == false) AND (adAlreadyLoaded || adLoadingNotActive) AND (StartAppAd == null) AND (AdEventListener != null) AND (adListForEventListenerIsNull) AND (isImmediate == true) AND (l() == false) AND (Ad is not initialized) AND (productId == null) AND (noErrorOccurred == true) AND (AdState != UN_INITIALIZED) AND (Network is not available) AND (noErrorOccurred) AND (adPreferencesType == null) AND (telephonyServiceAvailable) AND (!hasFineLocationPermission) AND (isCoarseLocationPermissionGranted == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 25
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 1747150,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_119510740172800_10m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.facebook.ads.InterstitialAdActivity dummyMainMethod_com_facebook_ads_InterstitialAdActivity(android.content.Intent)>",
+            "<com.facebook.ads.internal.view.c$3: boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)>",
+            "<com.facebook.ads.internal.view.i$1: void a(java.lang.String,java.util.Map)>",
+            "<com.facebook.ads.internal.a.d: void b()>",
+            "<com.facebook.ads.internal.a.a: void a(android.content.Context,java.lang.String,java.util.Map)>",
+            "<com.facebook.ads.internal.util.g: void a(android.content.Context,java.lang.String)>",
+            "<com.facebook.ads.AdSettings: boolean isTestMode(android.content.Context)>",
+            "<com.facebook.ads.internal.util.g: com.facebook.ads.internal.util.g$a a(android.content.ContentResolver)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_119593526694100_9m_15c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.facebook.ads.AudienceNetworkActivity dummyMainMethod_com_facebook_ads_AudienceNetworkActivity(android.content.Intent)>",
+            "<com.facebook.ads.internal.view.d.c.a: void onSurfaceTextureAvailable(android.graphics.SurfaceTexture,int,int)>",
+            "<com.facebook.ads.internal.view.d.c.a: void a(com.facebook.ads.VideoStartReason)>",
+            "<com.facebook.ads.internal.view.d.c.a: void setup(android.net.Uri)>",
+            "<com.facebook.ads.internal.view.d.c.a: void d()>",
+            "<com.facebook.ads.AdSettings: boolean isTestMode(android.content.Context)>",
+            "<com.facebook.ads.internal.util.g: com.facebook.ads.internal.util.g$a a(android.content.ContentResolver)>",
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_119510740172800_10m_4c",
+          "associated_call_chain": "path_119510740172800_10m_4c",
+          "boolean_logic_format": "(isTestModeFlag == false) AND (productNameInCollection) AND (deviceIdHash != null) AND (!testDevices.contains(currentDeviceProduct))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_119593526694100_9m_15c",
+          "associated_call_chain": "path_119593526694100_9m_15c",
+          "boolean_logic_format": "(Surface is not null) AND (ExoPlayerInstance != null) AND (j == e) AND (`field_j_of_r0 != static_field_e_of_class_d`) AND (`SimpleExoPlayer` is null) AND (SimpleExoPlayer is not null) AND (m == false) AND (u == false) AND (k == null) AND (stringD == null || stringD.length() <= 0) AND (stringLength > 0) AND (isTestModeFlag == false) AND (productNameInCollection) AND (deviceIdHash != null) AND (!testDevices.contains(currentDeviceProduct))",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 15
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 1860648,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_119929479404600_29m_39c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void m()>",
+            "<com.startapp.android.publish.b.h: void a(android.content.Context,java.lang.String,com.startapp.android.publish.b.h$a,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.h$3: void run()>",
+            "<com.startapp.android.publish.b.h$3$1: void run()>",
+            "<com.startapp.android.publish.b.h: void a(android.content.Context,com.startapp.android.publish.b.h$d,com.startapp.android.publish.b.h$a,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.h: void b(android.content.Context,com.startapp.android.publish.b.h$d,com.startapp.android.publish.b.h$a,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.h: void a(android.content.Context,com.startapp.android.publish.a.g,com.startapp.android.publish.b.h$a,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.j.c: java.util.List a(android.content.Context,java.util.List,int,java.util.Set)>",
+            "<com.startapp.android.publish.j.c: java.util.List a(android.content.Context,java.util.List,int,java.util.Set,boolean)>",
+            "<com.startapp.android.publish.j.w: void d(android.content.Context)>",
+            "<com.startapp.android.publish.j.s: java.lang.String a(android.content.Context)>",
+            "<com.startapp.android.publish.j.s: java.util.List b(android.content.Context)>",
+            "<com.startapp.android.publish.j.s: java.util.List c(android.content.Context)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_119929479404600_29m_39c",
+          "associated_call_chain": "path_119929479404600_29m_39c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is null in the Intent) AND (methodAResult == true) AND (adPreferences == null) AND (e == true) AND (cachedAdObject == null) AND (g() == false) AND (adLoadingCondition == false) AND (isImmediate == false) AND (**  \n`$z1 == 0`  \n**) AND (StartAppAdParameter == null) AND (**\nadEventListener != null\n**) AND (adListForEventListenerIsNull) AND (isImmediateLoad == true) AND (**  \n`methodLReturnsTrue`  \n**) AND (adCacheData == null) AND (AdvertisementObject != null) AND (adIsReady == false) AND (!hasAdCacheTtlPassed) AND (!($r4 instanceof com.startapp.android.publish.a.g)) AND (`$r4 instanceof com.startapp.android.publish.a.g`) AND (adDetailsList != null) AND (isAppPresenceEnabled() == true) AND (hasMoreElements) AND (packageName == null) AND (noMoreAdDetailsToProcess) AND (hasNext() == false) AND (isAppPresenceEnabled == false) AND (appNotPresentOrVersionMismatch && !packageNameStartsWithExclamation) AND (!appPresencePackage.startsWith(\"!\")) AND (AppNotPresentOrVersionNotMet) AND (iteratorHasNoMoreElements) AND (isAppPresenceEnabled() == true) AND (AppPresencePackageDoesNotStartWithExclamation) AND (sizeOfListR3 < 5) AND (sizeOfParam1 != 1) AND (integerParameter > 0) AND (listHasNoMoreElements) AND (appPresenceCheckSuccessful)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 39
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 2196599,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_120091780970000_11m_20c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.heyzap.sdk.ads.PackageAddedReceiver dummyMainMethod_com_heyzap_sdk_ads_PackageAddedReceiver(android.content.Intent)>",
+            "<com.heyzap.sdk.ads.PackageAddedReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.heyzap.house.handler.AttributionHandler: void didInstall(android.content.Context,java.lang.String)>",
+            "<com.heyzap.house.handler.AttributionHandler: void didInstall(android.content.Context,java.util.ArrayList,java.lang.Boolean)>",
+            "<com.heyzap.common.net.APIClient: void post(android.content.Context,java.lang.String,com.heyzap.http.RequestParams,com.heyzap.http.AsyncHttpResponseHandler)>",
+            "<com.heyzap.common.net.APIClient$2: void run()>",
+            "<com.heyzap.common.net.APIClient: com.heyzap.http.RequestParams augmentParams(com.heyzap.http.RequestParams,android.content.Context)>",
+            "<com.heyzap.internal.Utils: java.util.HashMap extraParams(android.content.Context)>",
+            "<com.heyzap.internal.Utils: java.lang.String getDeviceId(android.content.Context)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_120091780970000_11m_20c",
+          "associated_call_chain": "path_120091780970000_11m_20c",
+          "boolean_logic_format": "(isPackageReplacing == false) AND ($r4 != null) AND (impressionData != null) AND (isAmazonPlatform) AND (installationRejected == true) AND (initialRequestParams != null) AND (deviceIsTablet == false) AND (deviceIsTablet == false) AND (publisherId == null) AND (isAmazon() == false) AND (advertisingId == null) AND (isAmazon() == false) AND (isAmazonPlatform == false) AND (**\nmediatorString != null\n**) AND (mediator != null) AND (deviceLocale != null) AND (deviceWidthKeyExists) AND (isAmazon() == false) AND (deviceIdNotEqualsUnknown) AND (ContextIsNotNull)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 20
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 2358905,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_118297926486600_21m_19c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void n()>",
+            "<com.startapp.android.publish.b.f: com.startapp.android.publish.f i()>",
+            "<com.startapp.android.publish.b.f: com.startapp.android.publish.f p()>",
+            "<com.startapp.android.publish.a.g: void <init>(android.content.Context)>",
+            "<com.startapp.android.publish.j.w: java.lang.String f(android.content.Context)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_118444526733600_23m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void n()>",
+            "<com.startapp.android.publish.b.f: com.startapp.android.publish.f i()>",
+            "<com.startapp.android.publish.a.k: void <init>(android.content.Context)>",
+            "<com.startapp.android.publish.a.d: void <init>(android.content.Context,com.startapp.android.publish.model.AdPreferences$Placement)>",
+            "<com.startapp.android.publish.a.c: void <init>(android.content.Context,com.startapp.android.publish.model.AdPreferences$Placement)>",
+            "<com.startapp.android.publish.a.c: void initDefaultLauncherName()>",
+            "<com.startapp.android.publish.j.w: java.lang.String f(android.content.Context)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_118297926486600_21m_19c",
+          "associated_call_chain": "path_118297926486600_21m_19c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is null) AND (`methodAResult == true`) AND (adPreferencesParameter == null) AND (e == true) AND ($r15 == null) AND (g() == true) AND ($z2 == false) AND (booleanParameter == false) AND (`$z1 == 0`) AND (StartAppAdParameter == null) AND (AdEventListener != null) AND (adListForListenerIsNull) AND (booleanParameter == true) AND (`l() == false`) AND (switch_condition) AND (randomValue < probability3D) AND (forceOfferWall3DEnabled) AND (!isForceOfferWall2DEnabled)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 19
+        },
+        {
+          "constraint_id": "path_118444526733600_23m_16c",
+          "associated_call_chain": "path_118444526733600_23m_16c",
+          "boolean_logic_format": "(splashConfig != null) AND (AdPreferences is not null) AND (aMethodReturnsTrue) AND (AdPreferencesParameter == null) AND (e is true) AND (cachedAd == null) AND (g() returns true) AND (`o() == false`) AND (isImmediateLoad == true) AND (`$z1 == 0`) AND (**\nStartAppAd == null\n**) AND ($r2 != null) AND (adListForListener == null) AND (booleanFlag == true) AND (conditionIsFalse) AND (switch_condition)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 711650,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_118501300416000_11m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.purplebrain.adbuddiz.sdk.AdBuddizActivity dummyMainMethod_com_purplebrain_adbuddiz_sdk_AdBuddizActivity(android.content.Intent)>",
+            "<com.purplebrain.adbuddiz.sdk.a.b$1: void onAnimationEnd(android.animation.Animator)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(java.lang.String,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(com.purplebrain.adbuddiz.sdk.f.d,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void f()>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void run()>",
+            "<com.purplebrain.adbuddiz.sdk.h.g: void c()>",
+            "<com.purplebrain.adbuddiz.sdk.h.a.b$a: com.purplebrain.adbuddiz.sdk.h.a.b a(android.content.Context)>",
+            "<com.purplebrain.adbuddiz.sdk.i.a.e: java.lang.String e(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_118501310308800_11m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.purplebrain.adbuddiz.sdk.AdBuddizActivity dummyMainMethod_com_purplebrain_adbuddiz_sdk_AdBuddizActivity(android.content.Intent)>",
+            "<com.purplebrain.adbuddiz.sdk.a.b$1: void onAnimationEnd(android.animation.Animator)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(java.lang.String,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(com.purplebrain.adbuddiz.sdk.f.d,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void f()>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void run()>",
+            "<com.purplebrain.adbuddiz.sdk.h.c: void c()>",
+            "<com.purplebrain.adbuddiz.sdk.h.a.b$a: com.purplebrain.adbuddiz.sdk.h.a.b a(android.content.Context)>",
+            "<com.purplebrain.adbuddiz.sdk.i.a.e: java.lang.String e(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_118501319485100_11m_6c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.purplebrain.adbuddiz.sdk.AdBuddizActivity dummyMainMethod_com_purplebrain_adbuddiz_sdk_AdBuddizActivity(android.content.Intent)>",
+            "<com.purplebrain.adbuddiz.sdk.a.b$1: void onAnimationEnd(android.animation.Animator)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(java.lang.String,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(com.purplebrain.adbuddiz.sdk.f.d,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void f()>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void run()>",
+            "<com.purplebrain.adbuddiz.sdk.h.d: void c()>",
+            "<com.purplebrain.adbuddiz.sdk.h.a.b$a: com.purplebrain.adbuddiz.sdk.h.a.b a(android.content.Context)>",
+            "<com.purplebrain.adbuddiz.sdk.i.a.e: java.lang.String e(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_118538323036600_12m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.purplebrain.adbuddiz.sdk.AdBuddizActivity dummyMainMethod_com_purplebrain_adbuddiz_sdk_AdBuddizActivity(android.content.Intent)>",
+            "<com.purplebrain.adbuddiz.sdk.a.b$1: void onAnimationEnd(android.animation.Animator)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(java.lang.String,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.i.l: void a(com.purplebrain.adbuddiz.sdk.f.d,com.purplebrain.adbuddiz.sdk.f.a.a,java.lang.Throwable)>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void f()>",
+            "<com.purplebrain.adbuddiz.sdk.h.b: void run()>",
+            "<com.purplebrain.adbuddiz.sdk.h.g: void c()>",
+            "<com.purplebrain.adbuddiz.sdk.h.a.b$a: com.purplebrain.adbuddiz.sdk.h.a.b a(android.content.Context)>",
+            "<com.purplebrain.adbuddiz.sdk.i.a.e: java.lang.String d(android.content.Context)>",
+            "<com.purplebrain.adbuddiz.sdk.i.a.e: java.lang.String e(android.content.Context)>",
+            "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_118501300416000_11m_6c",
+          "associated_call_chain": "path_118501300416000_11m_6c",
+          "boolean_logic_format": "(configurationValue == null) AND (configurationValue == null) AND ($r3 != null) AND (`configurationObject != null`) AND (SDKConditionMet == false) AND (permissionReadPhoneStateGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_118501310308800_11m_6c",
+          "associated_call_chain": "path_118501310308800_11m_6c",
+          "boolean_logic_format": "(configurationValue == null) AND (configurationValue == null) AND ($r3 != null) AND (`configurationObject != null`) AND (SDKConditionMet == false) AND (permissionReadPhoneStateGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_118501319485100_11m_6c",
+          "associated_call_chain": "path_118501319485100_11m_6c",
+          "boolean_logic_format": "(configurationValue == null) AND (configurationValue == null) AND ($r3 != null) AND (`configurationObject != null`) AND (SDKConditionMet == false) AND (permissionReadPhoneStateGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 6
+        },
+        {
+          "constraint_id": "path_118538323036600_12m_8c",
+          "associated_call_chain": "path_118538323036600_12m_8c",
+          "boolean_logic_format": "(initialContextString == null) AND (configurationString != null) AND ($r3 != null) AND ($r3 == null) AND ($r3 != null) AND (`configurationObject != null`) AND (SDKConditionMet == false) AND (permissionReadPhoneStateGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 805436,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_120149704661100_11m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.c.c: void onClick(android.view.View)>",
+            "<com.startapp.android.publish.j.w: void c(android.content.Context,java.lang.String)>",
+            "<com.startapp.android.publish.j.w: void a(android.content.Context,java.lang.String,java.lang.String)>",
+            "<com.startapp.android.publish.e.d: void a(android.content.Context,com.startapp.android.publish.e.b$a,java.lang.String,java.lang.String,java.lang.String)>",
+            "<com.startapp.android.publish.e.e: void a()>",
+            "<java.lang.Thread: void run()>",
+            "<com.startapp.android.publish.video.a$1: void run()>",
+            "<com.startapp.android.publish.video.b: java.lang.String a(android.content.Context,java.net.URL,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_120359887482400_32m_27c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void n()>",
+            "<com.startapp.android.publish.a.k: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o,boolean)>",
+            "<com.startapp.android.publish.Ad$2: void onFinishLoadingMeta()>",
+            "<com.startapp.android.publish.a.h: void loadAds(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.g.d: void c()>",
+            "<com.startapp.android.publish.g.d$1: void run()>",
+            "<com.startapp.android.publish.g.d$1$1: void run()>",
+            "<com.startapp.android.publish.g.b: void a(java.lang.Boolean)>",
+            "<com.startapp.android.publish.b.i: void a(android.content.Context,java.lang.String,com.startapp.android.publish.video.a$a)>",
+            "<com.startapp.android.publish.b.i: void b(android.content.Context,java.lang.String,com.startapp.android.publish.video.a$a)>",
+            "<com.startapp.android.publish.video.a: void a()>",
+            "<com.startapp.android.publish.video.a$1: void run()>",
+            "<com.startapp.android.publish.video.b: java.lang.String a(android.content.Context,java.net.URL,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_120149704661100_11m_9c",
+          "associated_call_chain": "path_120149704661100_11m_9c",
+          "boolean_logic_format": "(switch_condition) AND (WebView cannot go back) AND (canGoBack() == true) AND (isDisableInAppStore() == false) AND (isInAppStoreDisabled == false) AND (MemoryInfoUnavailable) AND ($r11 != null) AND (fileExists == false) AND (bytesRead <= 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        },
+        {
+          "constraint_id": "path_120359887482400_32m_27c",
+          "associated_call_chain": "path_120359887482400_32m_27c",
+          "boolean_logic_format": "(SplashConfigIsSet) AND (AdPreferences is null) AND (methodAResult == true) AND (AdPreferencesParameter == null) AND (e == true) AND (**  \nCachedAdExists  \n**) AND (g() == true) AND (o() == false) AND (booleanParameter == false) AND (adNotLoading) AND (StartAppAdParameter == null) AND (AdEventListener != null) AND (AdEventListenerAdsList == null) AND (booleanFlag == true) AND (**  \n`isConditionFalse`  \n**) AND (AdNotInitialized) AND (ProductID == null) AND (productIDIsSet && adStateIsNotUninitialized && networkIsAvailable) AND (AdState != UN_INITIALIZED) AND (Network is not available) AND (`$z1 == 0`) AND (AdType is not null) AND (param0 is false) AND (param0 == false) AND (!cachedVideoAds.contains(videoAd)) AND (fileExists == false) AND (bytesRead <= 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 27
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 2627017,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_120367702235000_8m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.purplebrain.adbuddiz.sdk.AdBuddizActivity dummyMainMethod_com_purplebrain_adbuddiz_sdk_AdBuddizActivity(android.content.Intent)>",
+            "<com.purplebrain.adbuddiz.sdk.a.b$1: void onAnimationEnd(android.animation.Animator)>",
+            "<com.purplebrain.adbuddiz.sdk.a.b: void a(com.purplebrain.adbuddiz.sdk.a.b)>",
+            "<com.purplebrain.adbuddiz.sdk.e.b: com.purplebrain.adbuddiz.sdk.f.b b()>",
+            "<com.purplebrain.adbuddiz.sdk.f.b: com.purplebrain.adbuddiz.sdk.f.b a()>",
+            "<com.purplebrain.adbuddiz.sdk.i.m: java.lang.String e(android.content.Context,java.lang.String)>",
+            "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_120367702235000_8m_1c",
+          "associated_call_chain": "path_120367702235000_8m_1c",
+          "boolean_logic_format": "`currentFieldValue == null`",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 2634825,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_120421035990900_13m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onCreate(android.os.Bundle)>",
+            "<com.startapp.android.publish.c.c: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.c.c: void b(java.lang.String)>",
+            "<com.startapp.android.publish.d.b: void b()>",
+            "<com.startapp.android.publish.d.b: void e()>",
+            "<com.startapp.android.publish.j.v: android.graphics.Bitmap a(android.content.Context,java.lang.String)>",
+            "<com.startapp.android.publish.j.f: android.graphics.Bitmap a(android.content.Context,java.lang.String)>",
+            "<com.startapp.android.publish.j.f: android.graphics.Bitmap a(android.content.Context,java.lang.String,boolean)>",
+            "<com.startapp.android.publish.j.q: void a(android.content.Context,boolean)>",
+            "<com.startapp.android.publish.j.q: java.lang.String a(android.content.Context)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_120421035990900_13m_8c",
+          "associated_call_chain": "path_120421035990900_13m_8c",
+          "boolean_logic_format": "(e == null) AND (hasMoreElements == true) AND (Bitmap is null) AND (bitmapFromCache == null) AND (shouldCopyDrawables == true) AND (isConditionFalse) AND (resourcesInitializedSuccessfully == true) AND (switch_condition)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 2688162,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_120645352826700_9m_26c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.facebook.ads.internal.view.c$a: void onPageInitialized()>",
+            "<com.facebook.ads.internal.j.a: void a()>",
+            "<com.facebook.ads.internal.j.a$b: void run()>",
+            "<com.facebook.ads.internal.j.a: com.facebook.ads.internal.j.b a(android.view.View,int)>",
+            "<com.facebook.ads.internal.util.am: java.util.Map a(android.content.Context)>",
+            "<com.facebook.ads.internal.util.o: com.facebook.ads.internal.g.p a(java.lang.Exception,android.content.Context)>",
+            "<com.facebook.ads.internal.util.o: void a(com.facebook.ads.internal.g.p,android.content.Context)>",
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_120843315881400_9m_22c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.facebook.ads.internal.view.c$a: void onPageInitialized()>",
+            "<com.facebook.ads.internal.j.a: void a()>",
+            "<com.facebook.ads.internal.j.a$b: void run()>",
+            "<com.facebook.ads.internal.j.a: com.facebook.ads.internal.j.b a(android.view.View,int)>",
+            "<com.facebook.ads.internal.util.p: boolean b(android.content.Context)>",
+            "<com.facebook.ads.internal.util.o: com.facebook.ads.internal.g.p a(java.lang.Exception,android.content.Context)>",
+            "<com.facebook.ads.internal.util.o: void a(com.facebook.ads.internal.g.p,android.content.Context)>",
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_120645352826700_9m_26c",
+          "associated_call_chain": "path_120645352826700_9m_26c",
+          "boolean_logic_format": "(objectFromMethodAIsNotNull) AND ($r3 != null) AND (`$r4 != null`) AND (**\nviewObject != null\n**) AND (viewParent != null) AND (windowVisibility == View.VISIBLE) AND (windowVisibility == View.VISIBLE) AND (measuredHeight > 0) AND (measuredHeight > 0) AND (viewAlpha < 0.9) AND (adViewIntersectsScreen) AND (isConditionNotMet) AND (viewAlpha < 0.9) AND (screenWidth >= viewWidth) AND (viewWidth > displayWidth) AND (viewVerticalPosition >= 0) AND (viewYCoordinate > calculatedThreshold) AND (bottomEdgeOfView <= visibilityThreshold) AND (screenConditionIsTrue) AND (contextIsNull) AND (isActivity == true) AND (activityHasValidWindow) AND (windowType <= 0) AND (windowFlags <= 0) AND (param0 != null) AND (param1 != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 26
+        },
+        {
+          "constraint_id": "path_120843315881400_9m_22c",
+          "associated_call_chain": "path_120843315881400_9m_22c",
+          "boolean_logic_format": "(instanceOfAIsNotNull && viewIsNull) AND (ViewObjectIsNotNull) AND ($r4 != null) AND (viewObject != null) AND (viewHasParent) AND (windowVisibility == View.VISIBLE) AND (viewVisibility == View.VISIBLE) AND (**  \nMeasuredHeight > 0  \n**) AND (MeasuredHeight > 0) AND (viewVisibilityStatus >= 0) AND (adViewDoesNotIntersectScreen) AND (isConditionMet == false) AND (viewAlpha >= 0.9) AND (viewXCoordinate >= 0) AND (deviceScreenWidth < viewWidth) AND (viewYCoordinate < 0) AND (VerticalPositionOnScreen <= CalculatedThreshold) AND (adViewBottomPosition <= threshold) AND (contextIsValid) AND (SDK_INT < 20) AND (param0 != null) AND (param1 != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 22
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 3110450,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_117789253056800_7m_8c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.aamidasahhy.gabongospelsongs.food dummyMainMethod_com_aamidasahhy_gabongospelsongs_food(android.content.Intent)>",
+            "<com.aamidasahhy.gabongospelsongs.food: void onCreate(android.os.Bundle)>",
+            "<com.aamidasahhy.gabongospelsongs.food$WaitForLayout: void run()>",
+            "<com.aamidasahhy.gabongospelsongs.food: void access$000(com.aamidasahhy.gabongospelsongs.food)>",
+            "<com.aamidasahhy.gabongospelsongs.food: void afterFirstLayout()>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_117789253056800_7m_8c",
+          "associated_call_chain": "path_117789253056800_7m_8c",
+          "boolean_logic_format": "(afterFirstLayout == true) AND (**\nmostCurrentInstance != null\n**) AND (layoutWidth == 0) AND (currentInstance != mostCurrentInstance) AND (**  \nisShellModeRuntimeCheckResult == false  \n**) AND (isShellModeRuntimeCheckResult == false) AND (currentActivityInstance == mostCurrentInstance) AND (**\nSDK_INT >= 11\n**)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 8
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 56361,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_118627308875300_21m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.h: void s()>",
+            "<com.startapp.android.publish.c.h: void B()>",
+            "<com.startapp.android.publish.c.h: void b(com.startapp.android.publish.video.tracking.VideoPausedTrackingParams$PauseOrigin)>",
+            "<com.startapp.android.publish.c.h: void d(com.startapp.android.publish.video.tracking.VideoPausedTrackingParams$PauseOrigin)>",
+            "<com.startapp.android.publish.c.h: void a(com.startapp.android.publish.video.tracking.VideoTrackingLink[],com.startapp.android.publish.video.tracking.VideoTrackingParams,int,java.lang.String)>",
+            "<com.startapp.android.publish.video.b: void a(android.content.Context,com.startapp.android.publish.video.a.a)>",
+            "<com.startapp.android.publish.j.w: void b(android.content.Context,java.lang.String)>",
+            "<com.startapp.android.publish.j.w$2: void run()>",
+            "<com.startapp.android.publish.i.c: boolean a(android.content.Context,java.lang.String,java.util.Map)>",
+            "<com.startapp.android.publish.i.c: void a(android.content.Context,java.lang.String,com.startapp.android.publish.model.BaseRequest,java.util.Map,java.lang.StringBuilder,int,long)>",
+            "<com.startapp.android.publish.i.c: java.util.Map a(android.content.Context,java.util.Map)>",
+            "<com.startapp.android.publish.j.a: com.startapp.android.publish.j.a$c a(android.content.Context)>",
+            "<com.startapp.android.publish.j.a: com.startapp.android.publish.j.a$a b(android.content.Context)>",
+            "<com.startapp.android.publish.j.a: com.startapp.android.publish.j.a$a c(android.content.Context)>",
+            "<com.google.android.gms.ads.identifier.AdvertisingIdClient: com.google.android.gms.ads.identifier.AdvertisingIdClient$Info getAdvertisingIdInfo(android.content.Context)>",
+            "<com.google.android.gms.ads.identifier.AdvertisingIdClient: void zza(com.google.android.gms.ads.identifier.AdvertisingIdClient$Info,boolean,float,java.lang.Throwable)>",
+            "<com.google.android.gms.ads.identifier.zza: void run()>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_118627308875300_21m_11c",
+          "associated_call_chain": "path_118627308875300_21m_11c",
+          "boolean_logic_format": "(activityIsNotFinishing) AND (VideoViewFieldIsInitialized) AND (e == null) AND (S() == false) AND (l != 0) AND (videoDataObject != null) AND (hasNext) AND (BaseRequestObject != null) AND (featureEnabled) AND (RemoteContextIsNull) AND (remoteContextIsAvailable)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 894422,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_118972314447600_27m_39c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.d: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.d$1: void run()>",
+            "<com.startapp.android.publish.splash.d: void b(com.startapp.android.publish.splash.d)>",
+            "<com.startapp.android.publish.splash.d: void g()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.c loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.c a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences$Placement,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.f: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.b.f: void k()>",
+            "<com.startapp.android.publish.b.f: void n()>",
+            "<com.startapp.android.publish.a.k: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.g.o,boolean)>",
+            "<com.startapp.android.publish.g.h: void a()>",
+            "<com.startapp.android.publish.g.h$1: void run()>",
+            "<com.startapp.android.publish.g.h: java.lang.Boolean c()>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillApplicationDetails(android.content.Context,com.startapp.android.publish.model.AdPreferences)>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillWifiDetails(android.content.Context)>",
+            "<com.startapp.android.publish.j.b: java.util.List a(android.content.Context,android.net.wifi.WifiManager)>",
+            "<android.net.wifi.WifiManager: java.util.List getScanResults()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_118972314447600_27m_39c",
+          "associated_call_chain": "path_118972314447600_27m_39c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is null) AND (`method a returns true`) AND (adPreferences == null) AND ($z1 == false) AND (cachedAdExists) AND (g() returns true) AND (o() == false) AND (param2 == true) AND ((internalConditionG == true) AND (internalConditionO == false) AND (forceLoad == true)) AND (StartAppAdObject == null) AND ($r2 != null) AND ($r5 == null) AND (adShouldBeLoaded == true) AND (`l() == false`) AND (AdNotInitialized) AND (Product ID is not null) AND (NoErrorDetected) AND (AdState != UN_INITIALIZED) AND (networkAvailable == false) AND (noErrorDetected == true) AND (adPreferencesType != null) AND (param3 == false) AND (listenerObject != null) AND (isReady() == false) AND (MetaData is not loading) AND (taskObject != null) AND (telephonyManagerIsNull) AND (wifiManagerAvailable) AND (permissionGranted == false) AND (networkTypeIsWIFI) AND ($r6 != null) AND (SSID != null) AND (BSSID is not null) AND (isWfScanEnabled() == true) AND (contextIsNotNull) AND (WifiManagerInstance != null) AND (SDK version >= 23) AND (locationPermissionsGranted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 39
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 1239433,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_118982144095000_6m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.adinformation.c$3: void onClick(android.view.View)>",
+            "<com.startapp.android.publish.adinformation.a: void onClick(android.view.View)>",
+            "<com.startapp.android.publish.adinformation.a: void f()>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_118982152870800_5m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.adinformation.a: void onClick(android.view.View)>",
+            "<com.startapp.android.publish.adinformation.a: void f()>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_118982158792400_5m_1c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.list3d.List3DActivity dummyMainMethod_com_startapp_android_publish_list3d_List3DActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.adinformation.a: void onClick(android.view.View)>",
+            "<com.startapp.android.publish.adinformation.a: void f()>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_118982144095000_6m_1c",
+          "associated_call_chain": "path_118982144095000_6m_1c",
+          "boolean_logic_format": "conditionMet == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_118982152870800_5m_1c",
+          "associated_call_chain": "path_118982152870800_5m_1c",
+          "boolean_logic_format": "conditionMet == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        },
+        {
+          "constraint_id": "path_118982158792400_5m_1c",
+          "associated_call_chain": "path_118982158792400_5m_1c",
+          "boolean_logic_format": "conditionMet == true",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 1
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769885027178,
+        "analysis_duration_ms": 1249274,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

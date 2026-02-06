@@ -1,0 +1,931 @@
+{
+  "total_dangerous_apis": 17,
+  "category_statistics": {
+    "privacy_sensors": 2,
+    "device_information_collection": 4,
+    "file_system_operations": 4,
+    "sms_phone_operations": 1,
+    "dynamic_code_loading": 1,
+    "network_data_exfiltration": 5
+  },
+  "analysis_timestamp": "2026-01-31 14:27:18",
+  "apis_by_category": {
+    "privacy_sensors": [
+      "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+    ],
+    "device_information_collection": [
+      "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+    ],
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>",
+      "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+    ],
+    "sms_phone_operations": [
+      "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ],
+    "network_data_exfiltration": [
+      "<java.net.URL: java.net.URLConnection openConnection()>",
+      "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130098963397200_26m_17c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.b: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.b$1: void run()>",
+            "<com.startapp.android.publish.splash.b: void b(com.startapp.android.publish.splash.b)>",
+            "<com.startapp.android.publish.splash.b: void e()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.b loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.b a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.c: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.a.l: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.e.p)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.e.p,boolean)>",
+            "<com.startapp.android.publish.Ad$2: void onFinishLoadingMeta()>",
+            "<com.startapp.android.publish.a.l: void loadAds(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.e.d: void c()>",
+            "<com.startapp.android.publish.e.d$1: void run()>",
+            "<com.startapp.android.publish.e.d: java.lang.Boolean d()>",
+            "<com.startapp.android.publish.e.b: java.lang.Object a()>",
+            "<com.startapp.android.publish.e.d: com.startapp.android.publish.model.GetAdRequest e()>",
+            "<com.startapp.android.publish.model.GetAdRequest: void fillAdPreferences(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.AdPreferences$Placement,java.lang.String)>",
+            "<com.startapp.android.publish.model.GetAdRequest: void fillLocationDetails(com.startapp.android.publish.model.AdPreferences,android.content.Context)>",
+            "<com.startapp.android.publish.h.k: android.location.Location a(android.content.Context)>",
+            "<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130098963397200_26m_17c",
+          "associated_call_chain": "path_130098963397200_26m_17c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is not provided in the Intent) AND (methodAResult == true) AND (cachedObjectExists) AND (AdNotInitialized) AND (productIdIsSet) AND (noErrorOccurred) AND (AdState == UN_INITIALIZED) AND (networkAvailable == false) AND (productIdIsSet && adNotLoadedBefore && networkIsAvailable) AND (AdPreferences.getType() != null) AND (adFeatureEnabled == false) AND (adFeatureEnabled == true) AND (latitudeInAdPreferencesIsNull) AND (Latitude in AdPreferences is null) AND (LocationServiceManagerAvailable) AND (iteratorHasMoreElements)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 17
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 153387,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>",
+      "api_category": "privacy_sensors",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130215783277200_13m_16c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.MainNavigationActivity dummyMainMethod_com_wPaleoVegeo__4286711_MainNavigationActivity(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.MainNavigationActivity: void onResume()>",
+            "<com.jirbo.adcolony.AdColony: void resume(android.app.Activity)>",
+            "<com.jirbo.adcolony.a: void a(android.app.Activity)>",
+            "<com.jirbo.adcolony.p$a: void <init>()>",
+            "<com.jirbo.adcolony.p$a: void handleMessage(android.os.Message)>",
+            "<com.jirbo.adcolony.p: void a()>",
+            "<com.jirbo.adcolony.p: void run()>",
+            "<com.jirbo.adcolony.d: void g()>",
+            "<com.jirbo.adcolony.c: void a()>",
+            "<com.jirbo.adcolony.g: int c()>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_130312070689800_13m_13c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.MainNavigationActivity dummyMainMethod_com_wPaleoVegeo__4286711_MainNavigationActivity(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.MainNavigationActivity: void onResume()>",
+            "<com.jirbo.adcolony.AdColony: void resume(android.app.Activity)>",
+            "<com.jirbo.adcolony.a: void a(android.app.Activity)>",
+            "<com.jirbo.adcolony.p$a: void <init>()>",
+            "<com.jirbo.adcolony.p$a: void handleMessage(android.os.Message)>",
+            "<com.jirbo.adcolony.p: void a()>",
+            "<com.jirbo.adcolony.p: void run()>",
+            "<com.jirbo.adcolony.d: void g()>",
+            "<com.jirbo.adcolony.b: void f()>",
+            "<com.jirbo.adcolony.g: int c()>",
+            "<android.content.Context: java.lang.Object getSystemService(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130215783277200_13m_16c",
+          "associated_call_chain": "path_130215783277200_13m_16c",
+          "boolean_logic_format": "(tabsController == null) AND (selectedTab != null) AND (**  \nselectedTabWebView != null  \n**) AND (SDK_INT >= 11) AND (activityIsNull) AND (zFlag == false) AND (activity == null) AND (systemCondition == false) AND (stateFlag == false\n####) AND (com.jirbo.adcolony.a.c() == true) AND (`x == false`) AND (AdColonyFlag == false) AND (e >= 60) AND (featureToggle == false) AND (zFieldIsNull) AND ($currentActivity == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 16
+        },
+        {
+          "constraint_id": "path_130312070689800_13m_13c",
+          "associated_call_chain": "path_130312070689800_13m_13c",
+          "boolean_logic_format": "(tabsController == null) AND (selectedTabIsNull) AND (WebView is not null) AND (SDK_INT >= 11) AND (activity == null) AND (z == false) AND (activityIsNull) AND (com.jirbo.adcolony.q.c() == false) AND (zFlag == false) AND (featureIsActive) AND (x == false) AND (**  \n`field_c_is_true`  \n**) AND ($currentActivity == null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 13
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 366500,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130844355657300_22m_30c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.b: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.b$1: void run()>",
+            "<com.startapp.android.publish.splash.b: void b(com.startapp.android.publish.splash.b)>",
+            "<com.startapp.android.publish.splash.b: void e()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.b loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.b a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.c: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.a.l: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.e.p)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.e.p,boolean)>",
+            "<com.startapp.android.publish.e.h: void a()>",
+            "<com.startapp.android.publish.e.h$1: void run()>",
+            "<com.startapp.android.publish.e.h: java.lang.Boolean c()>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillApplicationDetails(android.content.Context,com.startapp.android.publish.model.AdPreferences)>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillTelephonyDetails(android.content.Context)>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillNetworkOperatorDetails(android.content.Context,android.telephony.TelephonyManager)>",
+            "<android.telephony.TelephonyManager: android.telephony.CellLocation getCellLocation()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130844355657300_22m_30c",
+          "associated_call_chain": "path_130844355657300_22m_30c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferencesProvidedInIntent) AND (conditionIsTrue) AND (mapContainsNonNullEntryForKey) AND (AdNotInitialized) AND (productID != null) AND (noError) AND (AdState != UN_INITIALIZED) AND (networkAvailable == false) AND (adLoadFailed == true) AND (adType == null) AND (parameter4IsNotNull) AND (MetaData.isReady() == true) AND (MetaDataInstanceIsNotReady) AND (taskExists) AND (TelephonyManager is not null) AND (phoneType != TelephonyManager.PHONE_TYPE_NONE) AND (phoneType == TelephonyManager.PHONE_TYPE_CDMA) AND (networkOperator == null) AND (**\npermissionGranted == false\n**) AND (permissionFineLocationGranted == true) AND (phoneType == TelephonyManager.PHONE_TYPE_GSM) AND (GsmCellLocationIsNotNull) AND (phoneType == TelephonyManager.PHONE_TYPE_CDMA) AND (phoneType != TelephonyManager.PHONE_TYPE_NONE) AND (phoneType == CDMA) AND (networkOperatorIsNull) AND (**  \npermissionFineLocationGranted == false  \n**) AND (isFineLocationPermissionGranted) AND (phoneType == PHONE_TYPE_GSM)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 30
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 898791,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130844400922700_1m_0c",
+          "entry_point": "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>",
+          "method_sequence": [
+            "<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130844400922700_1m_0c",
+          "associated_call_chain": "path_130844400922700_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 898833,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130883896852700_18m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.b: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.b$1: void run()>",
+            "<com.startapp.android.publish.splash.b: void b(com.startapp.android.publish.splash.b)>",
+            "<com.startapp.android.publish.splash.b: void e()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.b loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.b a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.c: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.a.l: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.h.v: void d(android.content.Context)>",
+            "<com.startapp.android.publish.h.r: java.lang.String a(android.content.Context)>",
+            "<com.startapp.android.publish.h.r: java.util.List b(android.content.Context)>",
+            "<com.startapp.android.publish.h.r: java.util.List c(android.content.Context)>",
+            "<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130883896852700_18m_5c",
+          "associated_call_chain": "path_130883896852700_18m_5c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferences is not null) AND (methodAResult == true) AND (AdCacheEntryExists) AND (NoErrors)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 938331,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>",
+      "api_category": "device_information_collection",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130883968303800_9m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.VideoPlayerActivity dummyMainMethod_com_wPaleoVegeo__4286711_VideoPlayerActivity(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.VideoPlayerActivity: void onCreate(android.os.Bundle)>",
+            "<com.wPaleoVegeo_4286711.VideoPlayerActivity: void _initSmallBanner()>",
+            "<com.wPaleoVegeo_4286711.ads.BottomBannerLayout: void init(android.app.Activity,com.wPaleoVegeo_4286711.ads.AdsLoader)>",
+            "<com.wPaleoVegeo_4286711.javascriptinterface.BannerJavascriptInterface: void <init>(com.wPaleoVegeo_4286711.ads.BottomBannerLayout,com.wPaleoVegeo_4286711.ads.AdsLoader)>",
+            "<com.wPaleoVegeo_4286711.javascriptinterface.BannerJavascriptInterface$1: void run()>",
+            "<com.wPaleoVegeo_4286711.deviceidparser.DeviceIdParser: java.lang.String getAndroidId(android.app.Activity)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_130949062424500_8m_9c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.MainNavigationActivity dummyMainMethod_com_wPaleoVegeo__4286711_MainNavigationActivity(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.MainNavigationActivity: void onCreate(android.os.Bundle)>",
+            "<com.wPaleoVegeo_4286711.deviceidparser.DeviceIdParser: void rescan(android.app.Activity,com.wPaleoVegeo_4286711.deviceidparser.IDeviceIdParserListener)>",
+            "<com.wPaleoVegeo_4286711.deviceidparser.DeviceIdParser$ParserThread: java.lang.Object doInBackground(java.lang.Object[])>",
+            "<com.wPaleoVegeo_4286711.deviceidparser.DeviceIdParser$ParserThread: com.wPaleoVegeo_4286711.deviceidparser.DeviceIdParameters doInBackground(android.app.Activity[])>",
+            "<com.wPaleoVegeo_4286711.deviceidparser.DeviceIdParser: java.lang.String getAndroidId(android.app.Activity)>",
+            "<android.provider.Settings$Secure: java.lang.String getString(android.content.ContentResolver,java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130883968303800_9m_0c",
+          "associated_call_chain": "path_130883968303800_9m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        },
+        {
+          "constraint_id": "path_130949062424500_8m_9c",
+          "associated_call_chain": "path_130949062424500_8m_9c",
+          "boolean_logic_format": "(**\nTabsPosition == BOTTOM\n**) AND (isStartupConfirmationDialogAlreadyShown) AND (isAlreadyShown(MainNavigationActivity) == false) AND (!isStartupConfirmationDialogAlreadyShown) AND (StartupConfirmationDialogAlreadyShown) AND (showSearchNotice == true) AND (urlOverlayState == ENABLED) AND (!isStartupConfirmationDialogAlreadyShown) AND (startupConfirmationDialogShown == false)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 9
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 1003498,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Intent: android.content.Intent setAction(java.lang.String)>",
+      "api_category": "sms_phone_operations",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130352473950800_4m_5c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver dummyMainMethod_com_inmobi_commons_core_utilities_uid_ImIdShareBroadCastReceiver(android.content.Intent)>",
+            "<com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver: void onReceive(android.content.Context,android.content.Intent)>",
+            "<android.content.Intent: android.content.Intent setAction(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130352473950800_4m_5c",
+          "associated_call_chain": "path_130352473950800_4m_5c",
+          "boolean_logic_format": "(intentAction.equals(\"com.inmobi.share.id\")) AND ($r5 != null) AND (appid != null\n####) AND (!identifiers.contains(appId)) AND (timestampFromIntent >= timestampFromBObject)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 5
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 406902,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_131040339177300_12m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.MainNavigationActivity dummyMainMethod_com_wPaleoVegeo__4286711_MainNavigationActivity(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.MainNavigationActivity: void onResume()>",
+            "<com.jirbo.adcolony.AdColony: void resume(android.app.Activity)>",
+            "<com.jirbo.adcolony.a: void h()>",
+            "<com.jirbo.adcolony.AdColonyNativeAdView: void <init>(android.app.Activity,java.lang.String,int,boolean)>",
+            "<com.jirbo.adcolony.AdColonyNativeAdView: void a()>",
+            "<com.jirbo.adcolony.AdColonyNativeAdView: void a(boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,boolean,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,double,boolean,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: android.graphics.Bitmap convertToMutable(android.graphics.Bitmap)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_131040355382200_8m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.jirbo.adcolony.AdColonyFullscreen dummyMainMethod_com_jirbo_adcolony_AdColonyFullscreen(android.content.Intent)>",
+            "<com.jirbo.adcolony.ad: void <init>(com.jirbo.adcolony.ADCVideo)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,double,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,double,boolean,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: android.graphics.Bitmap convertToMutable(android.graphics.Bitmap)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_131040339177300_12m_11c",
+          "associated_call_chain": "path_131040339177300_12m_11c",
+          "boolean_logic_format": "(tabsController == null) AND (selectedTab == null) AND (webView != null) AND (SDK_VERSION >= 11) AND (**\n$r0 == null\n**) AND (ArrayListSize != 0) AND (**  \n`hashMapIsNotNull`  \n**) AND (hasNext) AND (isZoneV4VC(zoneIdentifier) == true) AND (isZoneNativeResult == false) AND (ActivityInstance != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        },
+        {
+          "constraint_id": "path_131040355382200_8m_0c",
+          "associated_call_chain": "path_131040355382200_8m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 1094794,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_131040406091800_1m_0c",
+          "entry_point": "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>",
+          "method_sequence": [
+            "<android.content.Context: java.io.FileInputStream openFileInput(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_131040406091800_1m_0c",
+          "associated_call_chain": "path_131040406091800_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 1094843,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.os.Environment: java.io.File getExternalStorageDirectory()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_131125814895500_12m_11c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.MainNavigationActivity dummyMainMethod_com_wPaleoVegeo__4286711_MainNavigationActivity(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.MainNavigationActivity: void onResume()>",
+            "<com.jirbo.adcolony.AdColony: void resume(android.app.Activity)>",
+            "<com.jirbo.adcolony.a: void h()>",
+            "<com.jirbo.adcolony.AdColonyNativeAdView: void <init>(android.app.Activity,java.lang.String,int,boolean)>",
+            "<com.jirbo.adcolony.AdColonyNativeAdView: void a()>",
+            "<com.jirbo.adcolony.AdColonyNativeAdView: void a(boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,boolean,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,double,boolean,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: android.graphics.Bitmap convertToMutable(android.graphics.Bitmap)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_131125833209200_8m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.jirbo.adcolony.AdColonyFullscreen dummyMainMethod_com_jirbo_adcolony_AdColonyFullscreen(android.content.Intent)>",
+            "<com.jirbo.adcolony.ad: void <init>(com.jirbo.adcolony.ADCVideo)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,double,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: void <init>(java.lang.String,double,boolean,boolean)>",
+            "<com.jirbo.adcolony.ADCImage: android.graphics.Bitmap convertToMutable(android.graphics.Bitmap)>",
+            "<android.os.Environment: java.io.File getExternalStorageDirectory()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_131125814895500_12m_11c",
+          "associated_call_chain": "path_131125814895500_12m_11c",
+          "boolean_logic_format": "(tabsController == null) AND (selectedTabIsNull) AND (WebView is not null) AND (SDK_VERSION >= 11) AND ($r0 == null) AND (ArrayListSize > 0) AND (HashMap is not null\n####) AND (hasNext() == true) AND (isZoneV4VC == false) AND (zoneIsNotNative) AND (ActivityInstance != null)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 11
+        },
+        {
+          "constraint_id": "path_131125833209200_8m_0c",
+          "associated_call_chain": "path_131125833209200_8m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 1180274,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_131144462761800_12m_2c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.pull.PullServerController dummyMainMethod_com_wPaleoVegeo__4286711_pull_PullServerController(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.pull.PullServerController: void onReceive(android.content.Context,android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.pull.PullServerController: void _pullMessage(android.content.Context)>",
+            "<com.wPaleoVegeo_4286711.pull.PullServerClient: void tryLoadMessageAsync()>",
+            "<com.wPaleoVegeo_4286711.configuration.WebWidgetConfigurationManager: com.wPaleoVegeo_4286711.configuration.WebWidgetConfiguration loadConfiguration(android.content.Context)>",
+            "<com.wPaleoVegeo_4286711.configuration.WebWidgetConfigurationManager: com.wPaleoVegeo_4286711.configuration.WebWidgetConfiguration loadFromCurrentConfig(android.content.Context)>",
+            "<com.wPaleoVegeo_4286711.configuration.WebWidgetConfigurationManager: void saveConfiguration(com.wPaleoVegeo_4286711.configuration.WebWidgetConfiguration,com.wPaleoVegeo_4286711.controllers.WidgetsController,android.content.Context)>",
+            "<java.lang.Thread: void run()>",
+            "<com.wPaleoVegeo_4286711.configuration.WebWidgetConfigurationManager$1: void run()>",
+            "<com.wPaleoVegeo_4286711.configuration.ObjectSerializer: void serializeAndSaveObject(java.lang.Object,java.lang.String)>",
+            "<android.content.Context: java.io.FileOutputStream openFileOutput(java.lang.String,int)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_131144462761800_12m_2c",
+          "associated_call_chain": "path_131144462761800_12m_2c",
+          "boolean_logic_format": "($currentTimeMillis - $lastAlarmTime >= 14400000L) AND (lastAlarmTime != 0)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 2
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 1198902,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_129976695770800_6m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onConfigurationChanged(android.content.res.Configuration)>",
+            "<com.startapp.android.publish.c.d: void s()>",
+            "<com.startapp.android.publish.h.b: void c(android.webkit.WebView)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_129976709590800_7m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.h: void s()>",
+            "<com.startapp.android.publish.c.d: void s()>",
+            "<com.startapp.android.publish.h.b: void c(android.webkit.WebView)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        },
+        {
+          "chain_id": "path_129976722309700_6m_4c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.d: void s()>",
+            "<com.startapp.android.publish.h.b: void c(android.webkit.WebView)>",
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_129976695770800_6m_4c",
+          "associated_call_chain": "path_129976695770800_6m_4c",
+          "boolean_logic_format": "(B() == false) AND (WebViewObjectIsNull) AND (B() == false) AND (SDK_INT >= 11)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_129976709590800_7m_4c",
+          "associated_call_chain": "path_129976709590800_7m_4c",
+          "boolean_logic_format": "(B() == false) AND (WebViewObjectIsNull) AND (B() == false) AND (SDK_INT >= 11)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        },
+        {
+          "constraint_id": "path_129976722309700_6m_4c",
+          "associated_call_chain": "path_129976722309700_6m_4c",
+          "boolean_logic_format": "(B() == false) AND (WebViewObjectIsNull) AND (B() == false) AND (SDK_INT >= 11)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 4
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 31143,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.net.URL: java.net.URLConnection openConnection()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130400975044200_15m_7c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onBackPressed()>",
+            "<com.startapp.android.publish.c.h: boolean p()>",
+            "<com.startapp.android.publish.c.h: void ad()>",
+            "<com.startapp.android.publish.c.h: void ao()>",
+            "<com.startapp.android.publish.c.h: void a(com.startapp.android.publish.video.tracking.VideoTrackingLink[],com.startapp.android.publish.video.tracking.h,int,java.lang.String)>",
+            "<com.startapp.android.publish.video.b: void a(android.content.Context,com.startapp.android.publish.video.a.a)>",
+            "<com.startapp.android.publish.h.v: void b(android.content.Context,java.lang.String)>",
+            "<com.startapp.android.publish.h.v$2: void run()>",
+            "<com.startapp.android.publish.g.c: boolean a(android.content.Context,java.lang.String,java.util.Map)>",
+            "<com.startapp.android.publish.g.c: void a(android.content.Context,java.lang.String,com.startapp.android.publish.model.BaseRequest,java.util.Map,java.lang.StringBuilder,int,long)>",
+            "<com.startapp.android.publish.h.n: boolean a(android.content.Context,java.lang.String,java.util.Map,java.lang.StringBuilder)>",
+            "<com.startapp.android.publish.h.n: java.net.HttpURLConnection a(android.content.Context,java.lang.String,byte[],java.util.Map)>",
+            "<java.net.URL: java.net.URLConnection openConnection()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130400975044200_15m_7c",
+          "associated_call_chain": "path_130400975044200_15m_7c",
+          "boolean_logic_format": "(T() == false) AND (aiConditionIsFalse) AND (videoAdDetailValue == 0) AND (param1 != null) AND (**  \nhasNext() == true  \n**) AND (BaseRequest != null) AND (operationNotExecuted)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 7
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 455402,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130401012165700_1m_0c",
+          "entry_point": "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+          "method_sequence": [
+            "<org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130401012165700_1m_0c",
+          "associated_call_chain": "path_130401012165700_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 455440,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130401048442200_1m_0c",
+          "entry_point": "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+          "method_sequence": [
+            "<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130401048442200_1m_0c",
+          "associated_call_chain": "path_130401048442200_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 455475,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.net.wifi.WifiManager: java.util.List getScanResults()>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130596845952700_22m_26c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.startapp.android.publish.OverlayActivity dummyMainMethod_com_startapp_android_publish_OverlayActivity(android.content.Intent)>",
+            "<com.startapp.android.publish.OverlayActivity: void onResume()>",
+            "<com.startapp.android.publish.c.g: void s()>",
+            "<com.startapp.android.publish.splash.b: void a(android.os.Bundle)>",
+            "<com.startapp.android.publish.splash.b$1: void run()>",
+            "<com.startapp.android.publish.splash.b: void b(com.startapp.android.publish.splash.b)>",
+            "<com.startapp.android.publish.splash.b: void e()>",
+            "<com.startapp.android.publish.StartAppAd: com.startapp.android.publish.b.b loadSplash(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.a: com.startapp.android.publish.b.b a(android.content.Context,com.startapp.android.publish.StartAppAd,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.b.c: void a(com.startapp.android.publish.StartAppAd,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.a.l: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener)>",
+            "<com.startapp.android.publish.Ad: boolean load(com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.AdEventListener,boolean)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.e.p)>",
+            "<com.startapp.android.publish.model.MetaData: void loadFromServer(android.content.Context,com.startapp.android.publish.model.AdPreferences,com.startapp.android.publish.model.MetaDataRequest$RequestReason,boolean,com.startapp.android.publish.e.p,boolean)>",
+            "<com.startapp.android.publish.e.h: void a()>",
+            "<com.startapp.android.publish.e.h$1: void run()>",
+            "<com.startapp.android.publish.e.h: java.lang.Boolean c()>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillApplicationDetails(android.content.Context,com.startapp.android.publish.model.AdPreferences)>",
+            "<com.startapp.android.publish.model.BaseRequest: void fillWifiDetails(android.content.Context)>",
+            "<com.startapp.android.publish.h.b: java.util.List a(android.content.Context,android.net.wifi.WifiManager)>",
+            "<android.net.wifi.WifiManager: java.util.List getScanResults()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130596845952700_22m_26c",
+          "associated_call_chain": "path_130596845952700_22m_26c",
+          "boolean_logic_format": "(SplashConfig is not null) AND (AdPreferenceExtraIsNull) AND (methodAResult == true) AND (Map contains an entry for the key `$r6`) AND (AdNotInitialized) AND (ProductID == null) AND (No error occurred during the ad loading process.) AND (AdState != UN_INITIALIZED) AND (networkAvailable == false) AND (noErrorInLoadingAd == true) AND (AdPreferencesType == null) AND (param4 != null) AND (**  \nMetaData.isReady() == true  \n**) AND (**  \nMetaData is not ready  \n**) AND (taskObject != null) AND (WiFiManager is not null) AND (networkTypeIsNotWifi) AND (networkTypeIsWifi) AND (WiFiConnectionInfoAvailable) AND ($r7 != null) AND (BSSID is not null) AND (**  \nWi-Fi scanning is enabled  \n**) AND (Context is not null) AND (WifiManager is not null) AND (Device API level >= 23) AND (locationPermissionsGranted == true)",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 26
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 651277,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<android.webkit.WebView: void loadUrl(java.lang.String)>",
+      "api_category": "network_data_exfiltration",
+      "severity_level": "HIGH",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_130596908492800_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<dummyMainClass: com.wPaleoVegeo_4286711.notification.NotificationService dummyMainMethod_com_wPaleoVegeo__4286711_notification_NotificationService(android.content.Intent)>",
+            "<com.wPaleoVegeo_4286711.notification.NotificationService: int onStartCommand(android.content.Intent,int,int)>",
+            "<android.webkit.WebView: void loadUrl(java.lang.String)>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_130596908492800_4m_0c",
+          "associated_call_chain": "path_130596908492800_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769897239869,
+        "analysis_duration_ms": 651339,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}

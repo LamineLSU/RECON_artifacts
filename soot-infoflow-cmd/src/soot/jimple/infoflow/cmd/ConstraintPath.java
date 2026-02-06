@@ -3,10 +3,12 @@ package soot.jimple.infoflow.cmd;
 import soot.*;
 import java.util.*;
 import java.util.stream.Collectors;
+import soot.SootMethod;
 
 /**
  * Represents a complete execution path from an entry point to a target method,
  * including all constraints that must be satisfied along the path.
+ * Now supports three output formats and constraint amalgamation.
  */
 public class ConstraintPath {
     private final String pathId;
@@ -34,6 +36,20 @@ public class ConstraintPath {
         if (entryPoint != null) {
             methodSequence.add(entryPoint);
         }
+    }
+
+    // New constructor for updated system
+    public ConstraintPath(String pathId, SootMethod targetMethod, List<SootMethod> methodSequence,
+            List<Constraint> constraints, boolean isValid) {
+        this.pathId = pathId;
+        this.targetMethod = targetMethod;
+        this.entryPoint = methodSequence.isEmpty() ? null : methodSequence.get(0);
+        this.methodSequence = new ArrayList<>(methodSequence);
+        this.constraints = new ArrayList<>(constraints);
+        this.pathType = determinePathType();
+        this.metadata = new HashMap<>();
+        this.isValidPath = isValid;
+        this.invalidationReason = isValid ? null : "Path validation failed";
     }
 
     /**
@@ -122,10 +138,167 @@ public class ConstraintPath {
         return constraints.size();
     }
 
+    // ===== NEW: THREE-FORMAT CONSTRAINT ACCESS =====
+
     /**
-     * Generate a human-readable description of this path
+     * Get all constraints in Format 1 (Boolean Logic)
      */
-    public String getPathDescription() {
+    public List<String> getConstraintsFormat1() {
+        return constraints.stream()
+                .map(Constraint::getFormat1)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Get all constraints in Format 2 (Business Context)
+     */
+    public List<String> getConstraintsFormat2() {
+        return constraints.stream()
+                .map(Constraint::getFormat2)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Get all constraints in Format 3 (Technical Details)
+     */
+    public List<String> getConstraintsFormat3() {
+        return constraints.stream()
+                .map(Constraint::getFormat3)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Get combined constraints in specified format
+     */
+    public String getCombinedConstraints(ConstraintFormat format) {
+        List<String> constraintStrings;
+
+        switch (format) {
+            case FORMAT_1:
+                constraintStrings = getConstraintsFormat1();
+                break;
+            case FORMAT_2:
+                constraintStrings = getConstraintsFormat2();
+                break;
+            case FORMAT_3:
+                constraintStrings = getConstraintsFormat3();
+                break;
+            default:
+                constraintStrings = constraints.stream()
+                        .map(Constraint::getHumanReadableCondition)
+                        .collect(Collectors.toList());
+        }
+
+        return combineConstraints(constraintStrings);
+    }
+
+    /**
+     * Get logical expression combining all constraints using boolean logic
+     */
+    public String getLogicalExpression() {
+        if (constraints.isEmpty()) {
+            return "true"; // No constraints means path is always accessible
+        }
+
+        List<String> logicalConstraints = getConstraintsFormat1();
+        return combineConstraintsWithLogic(logicalConstraints);
+    }
+
+    // ===== NEW: CONSTRAINT AMALGAMATION LOGIC =====
+
+    /**
+     * Combine constraints into a single logical expression
+     */
+    private String combineConstraints(List<String> constraintStrings) {
+        if (constraintStrings.isEmpty()) {
+            return "";
+        }
+
+        if (constraintStrings.size() == 1) {
+            return constraintStrings.get(0);
+        }
+
+        // For multiple constraints, combine with AND logic
+        return constraintStrings.stream()
+                .map(c -> "(" + c + ")")
+                .collect(Collectors.joining(" AND "));
+    }
+
+    /**
+     * Combine constraints with sophisticated boolean logic
+     */
+    private String combineConstraintsWithLogic(List<String> logicalConstraints) {
+        if (logicalConstraints.isEmpty()) {
+            return "true";
+        }
+
+        if (logicalConstraints.size() == 1) {
+            return logicalConstraints.get(0);
+        }
+
+        // Group constraints by method for better logical structure
+        Map<SootMethod, List<String>> constraintsByMethod = new HashMap<>();
+
+        for (int i = 0; i < constraints.size() && i < logicalConstraints.size(); i++) {
+            SootMethod method = constraints.get(i).getSourceMethod();
+            String logicalConstraint = logicalConstraints.get(i);
+
+            constraintsByMethod.computeIfAbsent(method, k -> new ArrayList<>()).add(logicalConstraint);
+        }
+
+        // Combine constraints within each method using AND, then combine methods
+        List<String> methodExpressions = new ArrayList<>();
+
+        for (Map.Entry<SootMethod, List<String>> entry : constraintsByMethod.entrySet()) {
+            List<String> methodConstraints = entry.getValue();
+
+            if (methodConstraints.size() == 1) {
+                methodExpressions.add(methodConstraints.get(0));
+            } else {
+                String combinedMethodConstraints = methodConstraints.stream()
+                        .map(c -> "(" + c + ")")
+                        .collect(Collectors.joining(" AND "));
+                methodExpressions.add("(" + combinedMethodConstraints + ")");
+            }
+        }
+
+        // Combine method expressions with AND
+        return methodExpressions.stream()
+                .collect(Collectors.joining(" AND "));
+    }
+
+    /**
+     * Determine path type based on entry point and methods
+     */
+    private PathType determinePathType() {
+        if (entryPoint == null) {
+            return PathType.OTHER;
+        }
+
+        String className = entryPoint.getDeclaringClass().getName();
+        String methodName = entryPoint.getName();
+
+        if (methodName.contains("onCreate") || methodName.contains("onStart") || methodName.contains("onResume")) {
+            return PathType.ACTIVITY_LIFECYCLE;
+        } else if (className.contains("Service")) {
+            return PathType.SERVICE_LIFECYCLE;
+        } else if (className.contains("Receiver")) {
+            return PathType.BROADCAST_RECEIVER;
+        } else if (className.contains("Provider")) {
+            return PathType.CONTENT_PROVIDER;
+        } else if (methodName.contains("onClick") || methodName.contains("onTouch")) {
+            return PathType.USER_INTERACTION;
+        } else if (methodName.contains("run") || className.contains("Thread")) {
+            return PathType.THREAD_EXECUTION;
+        } else {
+            return PathType.OTHER;
+        }
+    }
+
+    /**
+     * Generate a human-readable description of this path with format selection
+     */
+    public String getPathDescription(ConstraintFormat format) {
         StringBuilder sb = new StringBuilder();
 
         sb.append("Path ").append(pathId).append(" (").append(pathType).append("):\n");
@@ -140,11 +313,14 @@ public class ConstraintPath {
         sb.append("\n");
 
         if (!constraints.isEmpty()) {
-            sb.append("Constraints:\n");
-            for (int i = 0; i < constraints.size(); i++) {
-                sb.append("  ").append(i + 1).append(". ").append(constraints.get(i).getConditionExpression())
-                        .append("\n");
+            sb.append("Constraints (").append(getFormatName(format)).append("):\n");
+            List<String> formatConstraints = getConstraintsInFormat(format);
+
+            for (int i = 0; i < formatConstraints.size(); i++) {
+                sb.append("  ").append(i + 1).append(". ").append(formatConstraints.get(i)).append("\n");
             }
+
+            sb.append("\nLogical Expression: ").append(getCombinedConstraints(format)).append("\n");
         }
 
         if (methodSequence.size() > 1) {
@@ -162,9 +338,16 @@ public class ConstraintPath {
     }
 
     /**
-     * Generate a concise summary of this path
+     * Generate a human-readable description of this path (default format)
      */
-    public String getPathSummary() {
+    public String getPathDescription() {
+        return getPathDescription(ConstraintFormat.FORMAT_2); // Default to business context
+    }
+
+    /**
+     * Generate a concise summary of this path with format selection
+     */
+    public String getPathSummary(ConstraintFormat format) {
         StringBuilder sb = new StringBuilder();
 
         sb.append("Path ").append(pathId).append(": ");
@@ -179,13 +362,11 @@ public class ConstraintPath {
             sb.append(getSimpleMethodName(entryPoint)).append(" → ");
         }
 
-        // Add constraint summary
+        // Add constraint summary in specified format
         if (!constraints.isEmpty()) {
-            List<String> constraintSummaries = constraints.stream()
-                    .map(c -> c.getConditionExpression())
-                    .collect(Collectors.toList());
+            List<String> constraintSummaries = getConstraintsInFormat(format);
 
-            if (constraintSummaries.size() <= 3) {
+            if (constraintSummaries.size() <= 50) {
                 sb.append("[").append(String.join(" AND ", constraintSummaries)).append("] → ");
             } else {
                 sb.append("[").append(constraintSummaries.get(0)).append(" AND ")
@@ -196,6 +377,47 @@ public class ConstraintPath {
         sb.append(getSimpleMethodName(targetMethod));
 
         return sb.toString();
+    }
+
+    /**
+     * Generate a concise summary of this path (default format)
+     */
+    public String getPathSummary() {
+        return getPathSummary(ConstraintFormat.FORMAT_2);
+    }
+
+    /**
+     * Get constraints in specified format
+     */
+    private List<String> getConstraintsInFormat(ConstraintFormat format) {
+        switch (format) {
+            case FORMAT_1:
+                return getConstraintsFormat1();
+            case FORMAT_2:
+                return getConstraintsFormat2();
+            case FORMAT_3:
+                return getConstraintsFormat3();
+            default:
+                return constraints.stream()
+                        .map(Constraint::getHumanReadableCondition)
+                        .collect(Collectors.toList());
+        }
+    }
+
+    /**
+     * Get human-readable format name
+     */
+    private String getFormatName(ConstraintFormat format) {
+        switch (format) {
+            case FORMAT_1:
+                return "Boolean Logic";
+            case FORMAT_2:
+                return "Business Context";
+            case FORMAT_3:
+                return "Technical Details";
+            default:
+                return "Default";
+        }
     }
 
     /**
@@ -331,6 +553,16 @@ public class ConstraintPath {
 }
 
 /**
+ * Enumeration of constraint output formats
+ */
+enum ConstraintFormat {
+    FORMAT_1, // Boolean logic format
+    FORMAT_2, // Business context format
+    FORMAT_3, // Technical details format
+    DEFAULT // Default human-readable format
+}
+
+/**
  * Enumeration of path types for categorization
  */
 enum PathType {
@@ -368,12 +600,13 @@ class ConstraintPathUtils {
 
     /**
      * Group paths by their entry points
+     * 
+     * public static Map<SootMethod, List<ConstraintPath>>
+     * groupByEntryPoint(List<ConstraintPath> paths) {
+     * return paths.stream()
+     * .collect(Collectors.groupingBy(ConstraintPath::getEntryPoint));
+     * }
      */
-    public static Map<SootMethod, List<ConstraintPath>> groupByEntryPoint(List<ConstraintPath> paths) {
-        return paths.stream()
-                .collect(Collectors.groupingBy(ConstraintPath::getEntryPoint));
-    }
-
     /**
      * Filter paths by constraint type
      */
@@ -388,6 +621,31 @@ class ConstraintPathUtils {
      */
     public static PathStatistics getPathStatistics(List<ConstraintPath> paths) {
         return new PathStatistics(paths);
+    }
+
+    /**
+     * Combine multiple paths into a comprehensive constraint expression
+     */
+    public static String getCombinedLogicalExpression(List<ConstraintPath> paths, ConstraintFormat format) {
+        if (paths.isEmpty()) {
+            return "false"; // No paths means target is unreachable
+        }
+
+        List<String> pathExpressions = paths.stream()
+                .filter(ConstraintPath::isValidPath)
+                .map(path -> "(" + path.getCombinedConstraints(format) + ")")
+                .collect(Collectors.toList());
+
+        if (pathExpressions.isEmpty()) {
+            return "false"; // No valid paths
+        }
+
+        if (pathExpressions.size() == 1) {
+            return pathExpressions.get(0);
+        }
+
+        // Multiple paths are combined with OR logic (any path can reach target)
+        return pathExpressions.stream().collect(Collectors.joining(" OR "));
     }
 }
 

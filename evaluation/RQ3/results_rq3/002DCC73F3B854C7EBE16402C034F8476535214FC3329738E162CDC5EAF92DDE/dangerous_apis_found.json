@@ -1,0 +1,124 @@
+{
+  "total_dangerous_apis": 3,
+  "category_statistics": {
+    "file_system_operations": 1,
+    "dynamic_code_loading": 2
+  },
+  "analysis_timestamp": "2026-02-01 01:13:45",
+  "apis_by_category": {
+    "file_system_operations": [
+      "<java.io.File: boolean delete()>"
+    ],
+    "dynamic_code_loading": [
+      "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+      "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+    ]
+  },
+  "detailed_results": [
+    {
+      "method_signature": "<java.io.File: boolean delete()>",
+      "api_category": "file_system_operations",
+      "severity_level": "MEDIUM",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_169931267903800_4m_0c",
+          "entry_point": "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+          "method_sequence": [
+            "<dummyMainClass: void dummyMainMethod(java.lang.String[])>",
+            "<com.qihoo.util.StubApp1986430878: void attachBaseContext(android.content.Context)>",
+            "<com.qihoo.util.StubApp1986430878: boolean copy(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>",
+            "<java.io.File: boolean delete()>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_169931267903800_4m_0c",
+          "associated_call_chain": "path_169931267903800_4m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937225531,
+        "analysis_duration_ms": 21,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_169931252273700_1m_0c",
+          "entry_point": "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>",
+          "method_sequence": [
+            "<java.lang.Runtime: java.lang.Process exec(java.lang.String)>"
+          ],
+          "path_type": "background_thread",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_169931252273700_1m_0c",
+          "associated_call_chain": "path_169931252273700_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937225531,
+        "analysis_duration_ms": 6,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    },
+    {
+      "method_signature": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+      "api_category": "dynamic_code_loading",
+      "severity_level": "CRITICAL",
+      "analysis_status": "success",
+      "analysis_error_message": null,
+      "call_chains": [
+        {
+          "chain_id": "path_169931260059000_1m_0c",
+          "entry_point": "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>",
+          "method_sequence": [
+            "<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>"
+          ],
+          "path_type": "application_method",
+          "is_reachable": true
+        }
+      ],
+      "constraints_found": [
+        {
+          "constraint_id": "path_169931260059000_1m_0c",
+          "associated_call_chain": "path_169931260059000_1m_0c",
+          "boolean_logic_format": "",
+          "business_context_format": null,
+          "technical_details_format": null,
+          "constraint_complexity": 0
+        }
+      ],
+      "analysis_metrics": {
+        "analysis_start_time": 1769937225531,
+        "analysis_duration_ms": 12,
+        "call_chains_discovered": 0,
+        "constraints_extracted": 0
+      }
+    }
+  ]
+}
